@@ -7,4 +7,4 @@ utils/prepull-daemon-manifest.yaml
 **/nohup.out
 **/prepull.log
 /.idea/
-.DS_Store
+**/*.DS_Store
