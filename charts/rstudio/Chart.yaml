@@ -1,14 +1,14 @@
 apiVersion: v2
-name: datascience-vscode-python
-description: The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages, with Google Cloud Storage bucket mounting functionality.
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+name: rstudio
+description: The RStudio IDE with a collection of standard data science packages, adapted to work for Dapla.
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
 keywords:
-  - VSCode
-  - Python
-home: https://code.visualstudio.com/
+  - RStudio
+  - R
+home: https://www.rstudio.com/
 sources:
-  - https://github.com/statisticsnorway/dapla-lab-datascience-images
-  - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+  - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+  - https://github.com/statisticsnorway/dapla-lab-images
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
