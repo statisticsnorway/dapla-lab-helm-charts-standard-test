@@ -1,4 +1,4 @@
-# datascience-rstudio
+# rstudio
 
 ![Version: 0.3.4](https://img.shields.io/badge/Version-0.3.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
@@ -8,8 +8,8 @@ The RStudio IDE with a collection of standard data science packages, adapted to 
 
 ## Source Code
 
-* <https://github.com/statisticsnorway/dapla-lab-datascience-images>
-* <https://statisticsnorway.github.io/dapla-lab-helm-charts-services>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
+* <https://github.com/statisticsnorway/dapla-lab-images>
 
 ## Requirements
 

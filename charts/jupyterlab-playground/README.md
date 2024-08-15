@@ -1,4 +1,4 @@
-# datascience-jupyter-playground
+# jupyterlab-playground
 
 ![Version: 0.3.12](https://img.shields.io/badge/Version-0.3.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
@@ -8,7 +8,8 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
 ## Source Code
 
-* <https://github.com/statisticsnorway/dapla-lab-helm-charts-services>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
+* <https://github.com/statisticsnorway/dapla-lab-images>
 
 ## Requirements
 
