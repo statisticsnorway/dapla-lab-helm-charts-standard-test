@@ -1,6 +1,6 @@
 apiVersion: v2
 name: rstudio
-description: Minimal RStudio med R. Brukeren kan selv installere pakker. Benyttes for produksjonskode.
+description: Minimal RStudio med R. Brukeren kan selv installere pakker.
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
 keywords:
   - RStudio
