@@ -1,6 +1,6 @@
 apiVersion: v2
-name: jupyterlab-playground
-description: The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
+name: jupyter
+description: Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker. Benyttes for produksjonskode.
 icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
 keywords:
   - Jupyter
@@ -22,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.3.13
+version: 0.3.8
 
 dependencies:
   - name: library-chart

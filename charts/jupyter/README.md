@@ -1,8 +1,8 @@
-# jupyterlab-playground
+# jupyter
 
-![Version: 0.3.13](https://img.shields.io/badge/Version-0.3.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.8](https://img.shields.io/badge/Version-0.3.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
+Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker. Benyttes for produksjonskode.
 
 **Homepage:** <https://jupyter.org/>
 
@@ -28,7 +28,7 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | buckets.enabled | bool | `false` |  |
 | buckets.extraBuckets | list | `[]` |  |
-| buckets.group | string | `"play-foeniks-a-developers"` |  |
+| buckets.group | string | `""` |  |
 | buckets.mountStandard | bool | `true` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
@@ -71,7 +71,7 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | persistence.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.enabled | bool | `false` |  |
+| persistence.enabled | bool | `true` |  |
 | persistence.size | string | `"10Gi"` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels."onyxia.app" | string | `"jupyterlab"` |  |
@@ -94,7 +94,7 @@ The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter-playground:py311"` |  |
+| service.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/datascience-jupyter:r4.4.0-py311"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
