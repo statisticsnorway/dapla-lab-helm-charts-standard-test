@@ -1,5 +1,53 @@
 apiVersion: v1
 entries:
+  datadoc:
+  - apiVersion: v2
+    created: "2024-08-16T11:27:51.897622917Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: Document datasets in Statistics Norway.
+    digest: b3aef938d863838ea86ab3c4579c00096d4d9f0985fb4469de65a743dbb2996f
+    home: https://github.com/statisticsnorway/datadoc
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - Datadoc
+    - Metadata
+    - Variables
+    - Units
+    - Classifications
+    name: datadoc
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard
+    - https://github.com/statisticsnorway/datadoc
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/datadoc-0.8.4/datadoc-0.8.4.tgz
+    version: 0.8.4
+  jupyterlab:
+  - apiVersion: v2
+    created: "2024-08-16T11:27:52.06545841Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: 90f34f1e6ae15dd8a1eba68828d87ee05c0181bfaed02bcf98d5865dcee06a7b
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyterlab
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyterlab-0.3.7/jupyterlab-0.3.7.tgz
+    version: 0.3.7
   jupyterlab-dapla-suspend:
   - apiVersion: v2
     created: "2024-08-16T11:24:13.8323592Z"
@@ -23,4 +71,96 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyterlab-dapla-suspend-1.6.7/jupyterlab-dapla-suspend-1.6.7.tgz
     version: 1.6.7
-generated: "2024-08-16T11:24:13.832369599Z"
+  jupyterlab-playground:
+  - apiVersion: v2
+    created: "2024-08-16T11:27:52.232248668Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: 94959e1136479ee05ddff4d3348b734255147b065d29c9d0d4d37a514837ea01
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyterlab-playground
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyterlab-playground-0.3.13/jupyterlab-playground-0.3.13.tgz
+    version: 0.3.13
+  klassr:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-08-16T11:27:52.394405848Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: An example Tutorial application for KLASS using R. Example on how
+      you could package a Shiny app and run it in Onyxia
+    digest: fa0a9c006745ab461d24bbcdf9b81266fc2bc59a15d5b7e4f521cb63716a12a4
+    home: https://github.com/trygu/klassr_tutorial
+    icon: https://avatars.githubusercontent.com/u/5849578
+    keywords:
+    - R
+    - Shiny
+    - Klass
+    maintainers:
+    - email: trygve.falch@gmail.com
+      name: Trygve Falch
+      url: https://github.com/trygu/
+    name: klassr
+    sources:
+    - https://github.com/trygu/klassr_tutorial
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/klassr-0.3.3/klassr-0.3.3.tgz
+    version: 0.3.3
+  rstudio:
+  - apiVersion: v2
+    created: "2024-08-16T11:27:52.614788976Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The RStudio IDE with a collection of standard data science packages,
+      adapted to work for Dapla.
+    digest: 4dd8fc835684876c905ce1ff137b01f63342bb02b5da9bd22be2069485b7282c
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - RStudio
+    - R
+    name: rstudio
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/rstudio-0.3.6/rstudio-0.3.6.tgz
+    version: 0.3.6
+  sirius-editering:
+  - apiVersion: v2
+    created: "2024-08-16T11:27:52.775868628Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: A Helm chart for Kubernetes
+    digest: 2393354455532098295f83764dcfb4a0e0159bb8e60da1b3e9657f5ae2a27910
+    home: https://github.com/statisticsnorway/sirius-editering
+    icon: https://avatars.githubusercontent.com/u/5849578
+    name: sirius-editering
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/sirius-editering-0.3.3/sirius-editering-0.3.3.tgz
+    version: 0.3.3
+generated: "2024-08-16T11:27:52.775879448Z"
