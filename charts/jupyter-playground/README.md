@@ -1,4 +1,4 @@
-# jupyterlab-playground
+# jupyter-playground
 
 ![Version: 0.3.13](https://img.shields.io/badge/Version-0.3.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
