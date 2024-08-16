@@ -1,0 +1,26 @@
+apiVersion: v1
+entries:
+  jupyterlab-dapla-suspend:
+  - apiVersion: v2
+    created: "2024-08-16T11:24:13.8323592Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The JupyterLab IDE with Python, tailored for SSB's data platform
+      (Dapla).
+    digest: 560ab4aaa4fec1bc093b93630bbc8001ca188bfac97635df2322877390259c01
+    home: https://jupyter.org/
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyterlab-dapla-suspend
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyterlab-dapla-suspend-1.6.7/jupyterlab-dapla-suspend-1.6.7.tgz
+    version: 1.6.7
+generated: "2024-08-16T11:24:13.832369599Z"
