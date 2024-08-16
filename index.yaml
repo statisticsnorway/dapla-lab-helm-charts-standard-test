@@ -163,4 +163,50 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/sirius-editering-0.3.3/sirius-editering-0.3.3.tgz
     version: 0.3.3
-generated: "2024-08-16T11:27:52.775879448Z"
+  vscode-python:
+  - apiVersion: v2
+    created: "2024-08-16T11:38:30.534887544Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages, with Google Cloud Storage bucket mounting functionality.
+    digest: b13a33fd5cfe95ac1285815604cf37643a12b233f1ea1e6b56e835fee78072e9
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.3.6/vscode-python-0.3.6.tgz
+    version: 0.3.6
+  vscode-python-buckets:
+  - apiVersion: v2
+    created: "2024-08-16T11:38:30.713312549Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-services
+      version: 3.2.3
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages, with Google Cloud Storage bucket mounting functionality.
+    digest: 8d544a1e3cacaf66e11fa69750d07958db4ff89cfbbbe1e9cddb89679f87e025
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python-buckets
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-buckets-2.9.5/vscode-python-buckets-2.9.5.tgz
+    version: 2.9.5
+generated: "2024-08-16T11:38:30.713324051Z"
