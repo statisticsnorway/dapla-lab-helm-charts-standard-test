@@ -1,8 +1,8 @@
 # vscode-python
 
-![Version: 0.3.7](https://img.shields.io/badge/Version-0.3.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.8](https://img.shields.io/badge/Version-0.3.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov. Benyttes for produksjonskode.
+Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
 **Homepage:** <https://code.visualstudio.com/>
 
