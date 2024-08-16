@@ -1,14 +1,14 @@
 apiVersion: v2
-name: vscode-python
-description: The Visual Studio Code IDE with Python, Julia, and a collection of standard data science packages, with Google Cloud Storage bucket mounting functionality.
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+name: jupyterlab-dapla-suspend
+description: The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
+icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
 keywords:
-  - VSCode
+  - Jupyter
   - Python
-home: https://code.visualstudio.com/
+home: https://jupyter.org/
 sources:
+  - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
   - https://github.com/statisticsnorway/dapla-lab-images
-  - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -22,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.3.6
+version: 1.6.7
 
 dependencies:
   - name: library-chart

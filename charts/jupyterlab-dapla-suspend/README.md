@@ -1,14 +1,15 @@
-# sirius-editering
+# jupyterlab-dapla-suspend
 
-![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.6.7](https://img.shields.io/badge/Version-1.6.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-A Helm chart for Kubernetes
+The JupyterLab IDE with Python, tailored for SSB's data platform (Dapla).
 
-**Homepage:** <https://github.com/statisticsnorway/sirius-editering>
+**Homepage:** <https://jupyter.org/>
 
 ## Source Code
 
-* <https://github.com/statisticsnorway/dapla-lab-helm-charts-services>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
+* <https://github.com/statisticsnorway/dapla-lab-images>
 
 ## Requirements
 
@@ -22,39 +23,59 @@ A Helm chart for Kubernetes
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
+| autoscaling.maxReplicas | int | `100` |  |
+| autoscaling.minReplicas | int | `1` |  |
+| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
 | deleteJob.enabled | bool | `true` |  |
 | deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
+| deployEnvironment | string | `"DEV"` |  |
+| discovery.mlflow | bool | `true` |  |
 | environment.group | string | `"users"` |  |
-| environment.user | string | `"onyxia"` |  |
+| environment.user | string | `"jovyan"` |  |
 | fullnameOverride | string | `""` |  |
-| gcp.google_cloud_project | string | `"Undefined"` |  |
+| git.branch | string | `""` |  |
+| git.cache | string | `""` |  |
+| git.configMapName | string | `""` |  |
+| git.email | string | `""` |  |
+| git.enabled | bool | `false` |  |
+| git.name | string | `""` |  |
+| git.repository | string | `""` |  |
+| git.token | string | `""` |  |
+| global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
+| init.personalInit | string | `""` |  |
+| init.personalInitArgs | string | `""` |  |
+| init.regionInit | string | `""` |  |
+| init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
 | istio.enabled | bool | `false` |  |
 | istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
 | istio.hostname | string | `"chart-example.local"` |  |
-| istio.userHostname | string | `"chart-example-user.local"` |  |
 | kubernetes.enabled | bool | `false` |  |
 | kubernetes.role | string | `"view"` |  |
+| mlflow.configMapName | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `8000` |  |
+| networking.service.port | int | `8888` |  |
+| networking.sparkui.port | int | `4040` |  |
 | networking.type | string | `"ClusterIP"` |  |
-| networking.user.enabled | bool | `false` |  |
 | nodeSelector | object | `{}` |  |
 | oidc.configMapName | string | `""` |  |
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | persistence.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.enabled | bool | `false` |  |
-| persistence.size | string | `"1Gi"` |  |
+| persistence.size | string | `"10Gi"` |  |
 | podAnnotations | object | `{}` |  |
-| podLabels."onyxia.app" | string | `"sirius-editering"` |  |
+| podLabels."onyxia.app" | string | `"jupyterlab"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |
+| repository.condaRepository | string | `""` |  |
+| repository.configMapName | string | `""` |  |
+| repository.pipRepository | string | `""` |  |
 | resources | object | `{}` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
@@ -69,7 +90,7 @@ A Helm chart for Kubernetes
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"v"` |  |
+| service.image.version | string | `"europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-stat-docker/jupyter/jupyterlab-dapla:v1"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
@@ -77,9 +98,8 @@ A Helm chart for Kubernetes
 | startupProbe.initialDelaySeconds | int | `10` |  |
 | startupProbe.periodSeconds | int | `10` |  |
 | startupProbe.successThreshold | int | `1` |  |
-| startupProbe.timeoutSeconds | int | `30` |  |
+| startupProbe.timeoutSeconds | int | `5` |  |
 | tolerations | list | `[]` |  |
-| uiSettings.theme | string | `"Undefined"` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
 | userAttributes.value | string | `""` |  |
