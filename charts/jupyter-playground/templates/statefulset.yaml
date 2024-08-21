@@ -3,6 +3,18 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
+{{- if .Values.buckets.enabled }}
+  annotations:
+    dapla.ssb.no/enable-ssbucketeer: "true"
+    dapla.ssb.no/impersonate-group: {{ .Values.buckets.group }}
+    dapla.ssb.no/service-container-name: {{ .Chart.Name }}
+{{- with .Values.buckets.extraBuckets }}
+    dapla.ssb.no/mount-buckets: {{ join "," . }}
+{{- end }}
+{{- if .Values.buckets.mountStandard }}
+    dapla.ssb.no/mount-standard-buckets: "true"
+{{- end }}
+{{- end }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
@@ -87,8 +99,27 @@ spec:
               value: {{ .Values.environment.group }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
+            - name: POETRY_VIRTUALENVS_IN_PROJECT
+              value: "true"
+            - name: JUPYTER_CONFIG_DIR
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/config
+            - name: JUPYTER_CONFIG_PATH
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/config_paths
+            - name: JUPYTER_PATH
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/data_paths
+            - name: JUPYTER_DATA_DIR
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/data
+            - name: JUPYTER_RUNTIME_DIR
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/runtime
+<<<<<<< HEAD
+            - name: RENV_PATHS_LIBRARY
+              value: /home/{{ .Values.environment.user }}/work/.renv
+            - name: RENV_PATHS_CACHE
+              value: /home/{{ .Values.environment.user }}/work/.renv/cache
+=======
+>>>>>>> 740b7a590db68f146dd7b878cc333ee4be5c3d94
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
-              value: "1.1.6"
+              value: "1.1.7"
             - name: JUPYTERHUB_HTTP_REFERER
               value: "https://{{ .Values.istio.hostname }}/"
             - name: JUPYTERHUB_USER
@@ -141,7 +172,11 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work
+<<<<<<< HEAD
+              subpath: work
+=======
               subPath: work
+>>>>>>> 740b7a590db68f146dd7b878cc333ee4be5c3d94
               name: home
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
@@ -155,4 +190,8 @@ spec:
       {{- with .Values.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
+<<<<<<< HEAD
       {{- end }}
+=======
+      {{- end }}
+>>>>>>> 740b7a590db68f146dd7b878cc333ee4be5c3d94

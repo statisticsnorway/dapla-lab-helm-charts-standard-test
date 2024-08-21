@@ -101,10 +101,22 @@ spec:
               value: /home/{{ .Values.environment.user }}/work
             - name: POETRY_VIRTUALENVS_IN_PROJECT
               value: "true"
+            - name: JUPYTER_CONFIG_DIR
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/config
+            - name: JUPYTER_CONFIG_PATH
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/config_paths
+            - name: JUPYTER_PATH
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/data_paths
             - name: JUPYTER_DATA_DIR
-              value: /home/{{ .Values.environment.user }}/work/.jupyter
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/data
+            - name: JUPYTER_RUNTIME_DIR
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/runtime
+            - name: RENV_PATHS_LIBRARY
+              value: /home/{{ .Values.environment.user }}/work/.renv
+            - name: RENV_PATHS_CACHE
+              value: /home/{{ .Values.environment.user }}/work/.renv/cache
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
-              value: "1.1.6"
+              value: "1.1.7"
             - name: JUPYTERHUB_HTTP_REFERER
               value: "https://{{ .Values.istio.hostname }}/"
             - name: JUPYTERHUB_USER
