@@ -38,7 +38,7 @@ jobs:
       #https://github.com/helm/chart-testing/issues/192
       - name: Run chart-testing (lint)
         if: steps.list-changed.outputs.changed == 'true'
-        run: ct lint --target-branch ${{ github.event.repository.default_branch }} --validate-maintainers=false
+        run: ct lint --debug --target-branch ${{ github.event.repository.default_branch }} --validate-maintainers=false
   
   changes:
     if: ${{ github.actor != 'renovate[bot]' }}
