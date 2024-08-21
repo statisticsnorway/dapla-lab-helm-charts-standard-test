@@ -2,7 +2,7 @@ global:
   suspend: false
 service:
   image:
-    version: vscode-python"
+    version: "vscode-python"
     pullPolicy: IfNotPresent
 
 security:
