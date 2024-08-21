@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.3.10](https://img.shields.io/badge/Version-0.3.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.11](https://img.shields.io/badge/Version-0.3.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -89,7 +89,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"datascience-vscode-python"` |  |
+| service.image.version | string | `"vscode-python"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
