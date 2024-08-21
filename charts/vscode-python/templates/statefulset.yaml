@@ -121,7 +121,7 @@ spec:
             - name: JUPYTER_RUNTIME_DIR
               value: /home/{{ .Values.environment.user }}/work/.jupyter/runtime
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
-              value: "1.1.6"
+              value: "1.1.7"
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
