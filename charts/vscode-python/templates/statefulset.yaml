@@ -5,18 +5,6 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "library-chart.fullname" . }}
-{{- if .Values.buckets.enabled }}
-  annotations:
-    dapla.ssb.no/enable-ssbucketeer: "true"
-    dapla.ssb.no/impersonate-group: {{ .Values.buckets.group }}
-    dapla.ssb.no/service-container-name: {{ .Chart.Name }}
-{{- with .Values.buckets.extraBuckets }}
-    dapla.ssb.no/mount-buckets: {{ join "," . }}
-{{- end }}
-{{- if .Values.buckets.mountStandard }}
-    dapla.ssb.no/mount-standard-buckets: "true"
-{{- end }}
-{{- end }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
@@ -110,10 +98,18 @@ spec:
               value: /home/{{ .Values.environment.user }}/work
             - name: POETRY_VIRTUALENVS_IN_PROJECT
               value: "true"
+            - name: JUPYTER_CONFIG_DIR
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/config
+            - name: JUPYTER_CONFIG_PATH
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/config_paths
+            - name: JUPYTER_PATH
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/data_paths
             - name: JUPYTER_DATA_DIR
-              value: /home/{{ .Values.environment.user }}/work/.jupyter
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/data
+            - name: JUPYTER_RUNTIME_DIR
+              value: /home/{{ .Values.environment.user }}/work/.jupyter/runtime
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
-              value: "1.1.6"
+              value: "1.1.7"
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
