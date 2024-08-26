@@ -95,6 +95,10 @@ spec:
             - name: PERSONAL_INIT_ARGS
               value: {{ .Values.init.personalInitArgs }}
             {{- end }}
+            {{- if .Values.userPreferences.darkMode }}
+            - name: DARK_MODE
+              value: "true"
+            {{- end }}
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION
@@ -112,15 +116,17 @@ spec:
             - name: POETRY_VIRTUALENVS_IN_PROJECT
               value: "true"
             - name: JUPYTER_CONFIG_DIR
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/config
+              value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter/config
             - name: JUPYTER_CONFIG_PATH
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/config_paths
+              value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter/config_paths
             - name: JUPYTER_PATH
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/data_paths
+              value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter/data_paths
             - name: JUPYTER_DATA_DIR
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/data
+              value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter/data
             - name: JUPYTER_RUNTIME_DIR
-              value: /home/{{ .Values.environment.user }}/work/.jupyter/runtime
+              value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter/runtime
+            - name: XDG_DATA_HOME
+              value: /home/{{ .Values.environment.user }}/work/.local/share
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
               value: "1.1.7"
           envFrom:
