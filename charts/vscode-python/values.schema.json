@@ -678,7 +678,9 @@
             "hidden": true,
             "overwriteDefaultWith": "user.darkMode"
           }
-        },
+        }
+      }
+    }
     "nodeSelector": {
       "type": "object",
       "description": "NodeSelector",
