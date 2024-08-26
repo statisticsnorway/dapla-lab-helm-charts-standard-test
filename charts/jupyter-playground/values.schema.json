@@ -25,8 +25,8 @@
                             "type": "string",
                             "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:py311",
                             "listEnum": [
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:py312",
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:py311"
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py312",
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311"
                             ],
                             "render": "list",
                             "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
