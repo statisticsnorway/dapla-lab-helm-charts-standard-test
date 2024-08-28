@@ -148,6 +148,8 @@ nodeSelector: {}
 
 tolerations: []
 
+userPreferences: {}
+
 affinity: {}
 
 buckets:
