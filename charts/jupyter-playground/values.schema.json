@@ -38,6 +38,16 @@
                         "value": false,
                         "path": "buckets/enabled"
                     }
+                },
+                "extraBuckets": {
+                    "type": "array",
+                    "title": "Extra buckets to mount",
+                    "description": "Any extra buckets you want to mount (e.g. shared buckets from another team)",
+                    "default": [],
+                    "hidden": {
+                        "value": false,
+                        "path": "buckets/enabled"
+                    }
                 }
             }
         },
@@ -62,10 +72,10 @@
                         "version": {
                             "description": "supported versions",
                             "type": "string",
-                            "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311",
+                            "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311-2024.08.27",
                             "listEnum": [
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py312",
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311"
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py312-2024.08.27",
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311-2024.08.27"
                             ],
                             "render": "list",
                             "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
