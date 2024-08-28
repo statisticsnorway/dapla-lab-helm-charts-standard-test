@@ -1,5 +1,5 @@
 {{- if .Values.istio.enabled }}
-Tjenesten bruker 1-2 minutter for å starte opp og er klar når **Åpne tjenesten-ikonet
+Tjenesten bruker opptil 1-2 minutter for å starte opp og er klar når **Åpne tjenesten**-knappen
 dukker opp nederst til høyre i denne boksen.
 {{- end }}
 
