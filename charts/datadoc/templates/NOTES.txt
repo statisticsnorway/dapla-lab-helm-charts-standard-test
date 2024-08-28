@@ -1,7 +1,7 @@
-Create and update metadata for datasets and variables.
+Oppdater med metadata for datasett og variable.
 
-*Remember to save your work regularly, there is no auto-save functionality!*
+*Husk å lagre arbeidet ditt jevnlig, det er ingen auto-lagre funksjonalitet!*
 
 {{- if .Values.istio.enabled }}
-- You can connect to this Datadoc-service when you see **Open the service** in the bottom right of this box.
+Tjenesten bruker 1-2 minutter for å starte opp og er klar når **Åpne tjenesten-ikonet dukker opp nederst til høyre i denne boksen.
 {{- end }}
