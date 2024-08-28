@@ -3,5 +3,5 @@ Oppdater med metadata for datasett og variable.
 *Husk å lagre arbeidet ditt jevnlig, det er ingen auto-lagre funksjonalitet!*
 
 {{- if .Values.istio.enabled }}
-Tjenesten bruker 1-2 minutter for å starte opp og er klar når **Åpne tjenesten-ikonet dukker opp nederst til høyre i denne boksen.
+Tjenesten bruker opptil 1-2 minutter for å starte opp og er klar når **Åpne tjenesten**-knappen dukker opp nederst til høyre i denne boksen.
 {{- end }}
