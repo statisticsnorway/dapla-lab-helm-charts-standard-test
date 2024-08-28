@@ -27,7 +27,6 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | buckets.enabled | bool | `false` |  |
-| buckets.extraBuckets | list | `[]` |  |
 | buckets.group | string | `""` |  |
 | buckets.mountStandard | bool | `true` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |

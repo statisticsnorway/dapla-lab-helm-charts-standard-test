@@ -27,7 +27,6 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | buckets.enabled | bool | `false` |  |
-| buckets.extraBuckets | list | `[]` |  |
 | buckets.group | string | `""` |  |
 | buckets.mountStandard | bool | `true` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |

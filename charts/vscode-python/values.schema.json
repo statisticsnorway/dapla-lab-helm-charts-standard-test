@@ -159,16 +159,6 @@
             "value": false,
             "path": "buckets/enabled"
           }
-        },
-        "extraBuckets": {
-          "type": "array",
-          "title": "Extra buckets to mount",
-          "description": "Any extra buckets you want to mount (e.g. shared buckets from another team)",
-          "default": [],
-          "hidden": {
-            "value": false,
-            "path": "buckets/enabled"
-          }
         }
       }
     },
