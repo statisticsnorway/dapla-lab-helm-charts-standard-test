@@ -119,6 +119,8 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.jupyter
             - name: JUPYTER_DATA_DIR
               value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter
+            - name: JUPYTER_PATH
+              value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter
             - name: JUPYTER_RUNTIME_DIR
               value: /home/{{ .Values.environment.user }}/work/.local/share/jupyter/runtime
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
