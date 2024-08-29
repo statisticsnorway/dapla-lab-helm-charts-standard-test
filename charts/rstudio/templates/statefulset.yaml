@@ -99,9 +99,9 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.renv
             - name: RENV_PATHS_CACHE
               value: /home/{{ .Values.environment.user }}/work/.renv/cache
-            {{- if .Values.init.regionInit }}
             - name: XDG_CONFIG_HOME
               value: /home/{{ .Values.environment.user }}/work/.config/rstudio
+            {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
             {{- end }}
