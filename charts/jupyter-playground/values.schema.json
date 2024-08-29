@@ -2,14 +2,31 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "buckets": {
-            "description": "Mount Google Cloud Storage buckets as a folder in your service",
+        "dapla": {
+            "title": "Dapla",
+            "description": "Mount Google Cloud Storage buckets as a folder in your service and assign Dapla group",
             "type": "object",
             "properties": {
-                "enabled": {
-                    "type": "boolean",
-                    "description": "Enabled",
-                    "default": false
+                "buckets": {
+                    "title": "Buckets",
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean",
+                            "description": "Enable bucket",
+                            "default": false
+                        },
+                        "mountStandard": {
+                            "type": "boolean",
+                            "title": "Mount standard buckets",
+                            "description": "Whether to mount your group's standard buckets (e.g. produkt, tilsky, frasky)",
+                            "default": true,
+                            "hidden": {
+                                "value": false,
+                                "path": "dapla/buckets/enabled"
+                            }
+                        }
+                    }
                 },
                 "group": {
                     "type": "string",
@@ -26,17 +43,7 @@
                     },
                     "hidden": {
                         "value": false,
-                        "path": "buckets/enabled"
-                    }
-                },
-                "mountStandard": {
-                    "type": "boolean",
-                    "title": "Mount standard buckets",
-                    "description": "Whether to mount your group's standard buckets (e.g. produkt, tilsky, frasky)",
-                    "default": true,
-                    "hidden": {
-                        "value": false,
-                        "path": "buckets/enabled"
+                        "path": "dapla/buckets/enabled"
                     }
                 }
             }
