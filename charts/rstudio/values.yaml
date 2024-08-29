@@ -150,10 +150,11 @@ repository:
   configMapName: ""
   rRepository: ""
 
-buckets:
-  enabled: false
+dapla:
+  buckets:
+    enabled: false
+    mountStandard: true
   group: ""
-  mountStandard: true
 
 deleteJob:
   enabled: true
