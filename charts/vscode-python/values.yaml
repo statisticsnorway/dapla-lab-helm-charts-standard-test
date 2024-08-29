@@ -156,7 +156,6 @@ buckets:
   enabled: false
   group: ""
   mountStandard: true
-  extraBuckets: []
 
 deleteJob:
   enabled: true
