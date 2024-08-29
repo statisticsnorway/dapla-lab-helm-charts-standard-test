@@ -5,7 +5,7 @@ icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
 keywords:
   - RStudio
   - R
-home: https://www.rstudio.com/
+home: https://manual.dapla.ssb.no/statistikkere/rstudio.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
   - https://github.com/statisticsnorway/dapla-lab-images
@@ -22,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.3.20
+version: 0.3.21
 
 dependencies:
   - name: library-chart
