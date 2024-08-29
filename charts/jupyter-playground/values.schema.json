@@ -2,39 +2,6 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "service": {
-            "description": "Service specific configuration",
-            "type": "object",
-            "properties": {
-                "image": {
-                    "description": "image docker",
-                    "type": "object",
-                    "properties": {
-                        "pullPolicy": {
-                            "type": "string",
-                            "description": "option when pulling the docker image",
-                            "default": "IfNotPresent",
-                            "enum": [
-                                "IfNotPresent",
-                                "Always",
-                                "Never"
-                            ]
-                        },
-                        "version": {
-                            "description": "supported versions",
-                            "type": "string",
-                            "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311-2024.08.27",
-                            "listEnum": [
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py312-2024.08.27",
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311-2024.08.27"
-                            ],
-                            "render": "list",
-                            "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
-                        }
-                    }
-                }
-            }
-        },
         "buckets": {
             "description": "Mount Google Cloud Storage buckets as a folder in your service",
             "type": "object",
@@ -71,15 +38,38 @@
                         "value": false,
                         "path": "buckets/enabled"
                     }
-                },
-                "extraBuckets": {
-                    "type": "array",
-                    "title": "Extra buckets to mount",
-                    "description": "Any extra buckets you want to mount (e.g. shared buckets from another team)",
-                    "default": [],
-                    "hidden": {
-                        "value": false,
-                        "path": "buckets/enabled"
+                }
+            }
+        },
+        "service": {
+            "description": "Service specific configuration",
+            "type": "object",
+            "properties": {
+                "image": {
+                    "description": "image docker",
+                    "type": "object",
+                    "properties": {
+                        "pullPolicy": {
+                            "type": "string",
+                            "description": "option when pulling the docker image",
+                            "default": "IfNotPresent",
+                            "enum": [
+                                "IfNotPresent",
+                                "Always",
+                                "Never"
+                            ]
+                        },
+                        "version": {
+                            "description": "supported versions",
+                            "type": "string",
+                            "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311-2024.08.27",
+                            "listEnum": [
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py312-2024.08.27",
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311-2024.08.27"
+                            ],
+                            "render": "list",
+                            "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+                        }
                     }
                 }
             }
