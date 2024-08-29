@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.3.27](https://img.shields.io/badge/Version-0.3.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.28](https://img.shields.io/badge/Version-0.3.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -26,9 +26,9 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| buckets.enabled | bool | `false` |  |
-| buckets.group | string | `""` |  |
-| buckets.mountStandard | bool | `true` |  |
+| dapla.buckets.enabled | bool | `false` |  |
+| dapla.buckets.mountStandard | bool | `true` |  |
+| dapla.group | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
