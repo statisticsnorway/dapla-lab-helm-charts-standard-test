@@ -1,10 +1,10 @@
 # jupyter-playground
 
-![Version: 0.3.26](https://img.shields.io/badge/Version-0.3.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.27](https://img.shields.io/badge/Version-0.3.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
-**Homepage:** <https://manual.dapla.ssb.no/statistikkere/jupyter.html>
+**Homepage:** <https://manual.dapla.ssb.no/statistikkere/jupyter-playground.html>
 
 ## Source Code
 
