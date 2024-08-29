@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.3.19](https://img.shields.io/badge/Version-0.3.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.20](https://img.shields.io/badge/Version-0.3.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
