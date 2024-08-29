@@ -1,10 +1,10 @@
 # jupyter
 
-![Version: 0.3.18](https://img.shields.io/badge/Version-0.3.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.19](https://img.shields.io/badge/Version-0.3.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
-**Homepage:** <https://jupyter.org/>
+**Homepage:** <https://manual.dapla.ssb.no/statistikkere/jupyter.html>
 
 ## Source Code
 
