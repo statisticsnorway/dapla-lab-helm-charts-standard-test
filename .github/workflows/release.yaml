@@ -45,6 +45,7 @@ jobs:
           sudo mv helm-docs /usr/local/sbin
 
       - name: Generate Helm docs
+        if: env.GENERATE_DOCS != ''
         run: |
           helm-docs -o README.md
           if [[ `git status --porcelain` ]]; then
