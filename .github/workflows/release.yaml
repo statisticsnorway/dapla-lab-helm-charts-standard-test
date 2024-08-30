@@ -38,6 +38,7 @@ jobs:
           version: v3.11.2
 
       - name: Install helm-docs
+        if: vars.GENERATE_DOCS == '1'
         run: |
           cd /tmp
           wget https://github.com/norwoodj/helm-docs/releases/download/v1.11.0/helm-docs_1.11.0_Linux_x86_64.tar.gz
@@ -54,6 +55,7 @@ jobs:
           fi
 
       - name: Push changes
+        if: vars.GENERATE_DOCS == '1'
         uses: ad-m/github-push-action@29f05e01bb17e6f28228b47437e03a7b69e1f9ef
         with:
           github_token: ${{ steps.generate_token.outputs.token }}
