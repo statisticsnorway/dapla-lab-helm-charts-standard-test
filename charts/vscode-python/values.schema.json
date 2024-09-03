@@ -4,7 +4,7 @@
   "properties": {
     "dapla": {
       "title": "Dapla",
-      "description": "Mount Google Cloud Storage buckets as a folder in your service and assign Dapla group",
+      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
       "type": "object",
       "properties": {
         "buckets": {
@@ -13,13 +13,14 @@
           "properties": {
             "enabled": {
               "type": "boolean",
-              "description": "Enable bucket",
+              "title": "Aktiver",
+              "description": "Aktiver datatilgang",
               "default": false
             },
             "mountStandard": {
               "type": "boolean",
-              "title": "Mount standard buckets",
-              "description": "Whether to mount your group's standard buckets (e.g. produkt, tilsky, frasky)",
+              "title": "Bøtter som filsystem",
+              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
               "default": true,
               "hidden": {
                 "value": false,
@@ -30,8 +31,8 @@
         },
         "group": {
           "type": "string",
-          "title": "Dapla group",
-          "description": "Which Dapla group to act as",
+          "title": "Team og tilgangsgruppe",
+          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
           "render": "list",
           "default": "",
           "listEnum": [
