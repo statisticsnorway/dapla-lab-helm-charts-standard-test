@@ -140,7 +140,7 @@
             "description": "Velg versjon av tjenesten",
             "type": "object",
             "properties": {
-                "image" : {
+                "image": {
                     "description": "image docker",
                     "type": "object",
                     "properties": {
