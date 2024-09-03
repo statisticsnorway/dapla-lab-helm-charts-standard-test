@@ -83,7 +83,7 @@
             }
         },
         "resources": {
-            "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
+            "description": "Velg hvor mye minimum RAM og CPU som tjenesten skal ha",
             "type": "object",
             "properties": {
                 "requests": {
@@ -91,7 +91,7 @@
                     "type": "object",
                     "properties": {
                         "cpu": {
-                            "description": "The amount of cpu guaranteed",
+                            "description": "Garantert tilgjengelig CPU i tjenesten. Maximum kan være høyere hvis tilgjengelig på maskinen",
                             "title": "CPU",
                             "type": "string",
                             "default": "100m",
@@ -101,7 +101,7 @@
                             "sliderStep": 50,
                             "sliderUnit": "m",
                             "sliderExtremity": "down",
-                            "sliderExtremitySemantic": "guaranteed",
+                            "sliderExtremitySemantic": "Garantert tilgjengelig cpu i tjenesten",
                             "sliderRangeId": "cpu",
                             "x-onyxia": {
                                 "overwriteDefaultWith": "region.resources.cpuRequest",
@@ -109,8 +109,8 @@
                             }
                         },
                         "memory": {
-                            "description": "The amount of memory guaranteed",
-                            "title": "memory",
+                            "description": "Garantert tilgjengelig minne/RAM i tjenesten",
+                            "title": "Minne/RAM",
                             "type": "string",
                             "default": "2Gi",
                             "render": "slider",
@@ -119,7 +119,7 @@
                             "sliderStep": 1,
                             "sliderUnit": "Gi",
                             "sliderExtremity": "down",
-                            "sliderExtremitySemantic": "guaranteed",
+                            "sliderExtremitySemantic": "Garantert tilgjengelig minne/RAM i tjenesten",
                             "sliderRangeId": "memory",
                             "x-onyxia": {
                                 "overwriteDefaultWith": "region.resources.memoryRequest",
@@ -143,7 +143,7 @@
                             "sliderStep": 50,
                             "sliderUnit": "m",
                             "sliderExtremity": "up",
-                            "sliderExtremitySemantic": "Maximum",
+                            "sliderExtremitySemantic": "Maksimal",
                             "sliderRangeId": "cpu",
                             "x-onyxia": {
                                 "overwriteDefaultWith": "region.resources.cpuLimit",
@@ -161,7 +161,7 @@
                             "sliderStep": 1,
                             "sliderUnit": "Gi",
                             "sliderExtremity": "up",
-                            "sliderExtremitySemantic": "Maximum",
+                            "sliderExtremitySemantic": "Maksimal",
                             "sliderRangeId": "memory",
                             "x-onyxia": {
                                 "overwriteDefaultWith": "region.resources.memoryLimit",
