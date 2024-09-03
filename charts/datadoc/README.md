@@ -1,6 +1,6 @@
 # datadoc
 
-![Version: 0.8.16](https://img.shields.io/badge/Version-0.8.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.8.17](https://img.shields.io/badge/Version-0.8.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Applikasjon for å dokumentere datasett i SSB.
 
@@ -63,7 +63,8 @@ Applikasjon for å dokumentere datasett i SSB.
 | podLabels."onyxia.app" | string | `"datadoc"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |
-| resources | object | `{}` |  |
+| resources.requests.cpu | string | `""` |  |
+| resources.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |

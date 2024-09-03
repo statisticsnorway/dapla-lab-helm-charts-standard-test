@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.3.29](https://img.shields.io/badge/Version-0.3.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -79,7 +79,8 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
-| resources | object | `{}` |  |
+| resources.requests.cpu | string | `""` |  |
+| resources.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
