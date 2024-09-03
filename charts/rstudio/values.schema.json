@@ -50,10 +50,10 @@
             }
         },
         "service": {
-            "description": "Service specific configuration",
+            "description": "Velg versjon av tjenesten.",
             "type": "object",
             "properties": {
-                "image": {
+                "image" : {
                     "description": "image docker",
                     "type": "object",
                     "properties": {
@@ -61,19 +61,19 @@
                             "type": "string",
                             "description": "option when pulling the docker image",
                             "default": "IfNotPresent",
-                            "enum": [
-                                "IfNotPresent",
-                                "Always",
-                                "Never"
-                            ]
+                            "enum": ["IfNotPresent","Always","Never"],
+                            "x-onyxia": {
+                                "hidden": true
+                            }
                         },
                         "version": {
-                            "description": "supported versions",
+                            "title": "Versjon",
+                            "description": "Velg hvilken versjon av R og Python du ønsker å starte tjenesten med",
                             "type": "string",
-                            "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:r4.4.0-2024.08.27",
+                            "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311-2024.08.27",
                             "listEnum": [
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:r4.4.0-2024.08.27",
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:r4.3.3-2024.08.27"
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py312-2024.08.27",
+                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311-2024.08.27"
                             ],
                             "render": "list",
                             "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
