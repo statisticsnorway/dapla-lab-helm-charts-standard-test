@@ -8,7 +8,7 @@ keywords:
   - Variables
   - Units
   - Classifications
-home: https://github.com/statisticsnorway/datadoc
+home: https://manual.dapla.ssb.no/statistikkere/datadoc.html
 sources:
   # A chart can be either an 'application' or a 'library' chart.
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard
