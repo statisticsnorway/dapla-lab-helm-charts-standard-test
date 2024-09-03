@@ -194,7 +194,10 @@
                 "IfNotPresent",
                 "Always",
                 "Never"
-              ]
+              ],
+              "x-onyxia": {
+                "hidden": true
+              }
             },
             "version": {
               "description": "vscode supported version",
