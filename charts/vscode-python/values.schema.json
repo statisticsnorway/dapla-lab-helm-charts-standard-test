@@ -212,18 +212,18 @@
       }
     },
     "persistence": {
-      "description": "Configuration for persistence",
+      "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
       "properties": {
         "enabled": {
           "type": "boolean",
-          "description": "Create a persistent volume",
+          "title": "Opprett filsystem",
+          "description": "Opprett et lokal filsystem i tjenesten",
           "default": true
         },
         "size": {
           "type": "string",
-          "title": "Persistent volume size",
-          "description": "Size of the persistent volume",
+          "title": "Diskplass i filsystemet",
           "default": "10Gi",
           "form": true,
           "render": "slider",
