@@ -49,8 +49,95 @@
                 }
             }
         },
+        "git": {
+            "description": "Konfigurer GIT og GitHub for tjenesten",
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "title": "Konfigurer Git",
+                    "description": "Konfigurerer Git iht SSBs standard",
+                    "default": true
+                },
+                "name": {
+                    "type": "string",
+                    "title": "Git brukernavn",
+                    "description": "Standardverdi arves fra *Min konto* i Dapla Lab",
+                    "default": "",
+                    "x-onyxia": {
+                        "overwriteDefaultWith": "{{git.name}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "git/enabled"
+                    }
+                },
+                "email": {
+                    "type": "string",
+                    "title": "Git e-post",
+                    "description": "Standardverdi arves fra *Min konto* i Dapla Lab.",
+                    "default": "",
+                    "x-onyxia": {
+                        "overwriteDefaultWith": "{{git.email}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "git/enabled"
+                    }
+                },
+                "cache": {
+                    "type": "string",
+                    "description": "duration in seconds of the credentials cache duration",
+                    "default": "",
+                    "x-onyxia": {
+                        "overwriteDefaultWith": "{{git.credentials_cache_duration}}"
+                    },
+                    "hidden": {
+                        "value": true,
+                        "path": "git/enabled"
+                    }
+                },
+                "token": {
+                    "type": "string",
+                    "title": "GitHub-token",
+                    "description": "personal access token",
+                    "default": "",
+                    "render": "password",
+                    "x-onyxia": {
+                        "overwriteDefaultWith": "{{git.token}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "git/enabled"
+                    }
+                },
+                "repository": {
+                    "type": "string",
+                    "title": "Repository",
+                    "description": "Repo som skal klones ved oppstart av tjenesten",
+                    "default": "",
+                    "x-onyxia": {
+                        "overwriteDefaultWith": "{{git.project}}"
+                    },
+                    "hidden": {
+                        "value": false,
+                        "path": "git/enabled"
+                    }
+                },
+                "branch": {
+                    "type": "string",
+                    "title": "Git branch",
+                    "description": "Hvilken branch du skal jobbe i",
+                    "default": "",
+                    "hidden": {
+                        "value": "",
+                        "path": "git/repository"
+                    }
+                }
+            }
+        },
         "service": {
-            "description": "Service specific configuration",
+            "description": "Velg versjon av tjenesten",
             "type": "object",
             "properties": {
                 "image": {
@@ -65,10 +152,14 @@
                                 "IfNotPresent",
                                 "Always",
                                 "Never"
-                            ]
+                            ],
+                            "x-onyxia": {
+                                "hidden": true
+                            }
                         },
                         "version": {
-                            "description": "supported versions",
+                            "title": "Versjon",
+                            "description": "Velg hvilken versjon av R og Python du ønsker å starte tjenesten med",
                             "type": "string",
                             "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:r4.4.0-py311-2024.08.27",
                             "listEnum": [
@@ -98,15 +189,15 @@
             }
         },
         "resources": {
-            "description": "Your service will have at least the requested resources",
+            "description": "Velg hvor mye minimum RAM og CPU som tjenesten skal ha.",
             "type": "object",
             "properties": {
                 "requests": {
-                    "description": "The amount of CPU requested",
+                    "description": "Garantert tilgjengelig cpu i tjenesten",
                     "type": "object",
                     "properties": {
                         "cpu": {
-                            "description": "The amount of CPU guaranteed",
+                            "description": "Garantert tilgjengelig CPU i tjenesten. Maximum kan være høyere hvis tilgjengelig på maskinen",
                             "title": "CPU",
                             "type": "string",
                             "default": "2000m",
@@ -121,8 +212,8 @@
                             }
                         },
                         "memory": {
-                            "description": "The amount of memory guaranteed",
-                            "title": "Memory",
+                            "description": "Garantert tilgjengelig minne/RAM i tjenesten",
+                            "title": "Minne/RAM",
                             "type": "string",
                             "default": "8Gi",
                             "render": "slider",
@@ -140,18 +231,18 @@
             }
         },
         "persistence": {
-            "description": "Configuration for persistence",
+            "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
             "type": "object",
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "description": "Create a persistent volume",
+                    "title": "Opprett filsystem",
+                    "description": "Opprett et lokal filsystem i tjenesten",
                     "default": true
                 },
                 "size": {
                     "type": "string",
-                    "title": "Persistent volume size",
-                    "description": "Size of the persistent volume",
+                    "title": "Diskplass i filsystemet",
                     "default": "10Gi",
                     "form": true,
                     "render": "slider",
@@ -326,87 +417,6 @@
                     ],
                     "x-onyxia": {
                         "hidden": true
-                    }
-                }
-            }
-        },
-        "git": {
-            "description": "Git user configuration",
-            "type": "object",
-            "properties": {
-                "enabled": {
-                    "type": "boolean",
-                    "description": "Add git config inside your environment",
-                    "default": true
-                },
-                "name": {
-                    "type": "string",
-                    "description": "user name for git",
-                    "default": "",
-                    "x-onyxia": {
-                        "overwriteDefaultWith": "{{git.name}}"
-                    },
-                    "hidden": {
-                        "value": false,
-                        "path": "git/enabled"
-                    }
-                },
-                "email": {
-                    "type": "string",
-                    "description": "user email for git",
-                    "default": "",
-                    "x-onyxia": {
-                        "overwriteDefaultWith": "{{git.email}}"
-                    },
-                    "hidden": {
-                        "value": false,
-                        "path": "git/enabled"
-                    }
-                },
-                "cache": {
-                    "type": "string",
-                    "description": "duration in seconds of the credentials cache duration",
-                    "default": "",
-                    "x-onyxia": {
-                        "overwriteDefaultWith": "{{git.credentials_cache_duration}}"
-                    },
-                    "hidden": {
-                        "value": false,
-                        "path": "git/enabled"
-                    }
-                },
-                "token": {
-                    "type": "string",
-                    "description": "personal access token",
-                    "default": "",
-                    "render": "password",
-                    "x-onyxia": {
-                        "overwriteDefaultWith": "{{git.token}}"
-                    },
-                    "hidden": {
-                        "value": false,
-                        "path": "git/enabled"
-                    }
-                },
-                "repository": {
-                    "type": "string",
-                    "description": "Repository url",
-                    "default": "",
-                    "x-onyxia": {
-                        "overwriteDefaultWith": "{{git.project}}"
-                    },
-                    "hidden": {
-                        "value": false,
-                        "path": "git/enabled"
-                    }
-                },
-                "branch": {
-                    "type": "string",
-                    "description": "Branch automatically checked out",
-                    "default": "",
-                    "hidden": {
-                        "value": "",
-                        "path": "git/repository"
                     }
                 }
             }
