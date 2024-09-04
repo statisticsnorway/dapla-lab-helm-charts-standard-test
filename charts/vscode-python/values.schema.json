@@ -90,11 +90,8 @@
           "description": "duration in seconds of the credentials cache duration",
           "default": "",
           "x-onyxia": {
-            "overwriteDefaultWith": "{{git.credentials_cache_duration}}"
-          },
-          "hidden": {
-            "value": true,
-            "path": "git/enabled"
+            "overwriteDefaultWith": "{{git.credentials_cache_duration}}",
+            "hidden": true
           }
         },
         "token": {
