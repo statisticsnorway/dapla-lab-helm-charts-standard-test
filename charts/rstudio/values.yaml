@@ -19,7 +19,7 @@ security:
       - "storage.googleapis.com"
   oauth2:
     provider: keycloak-oidc
-    oidcIssuerUrl: "a"
+    oidcIssuerUrl: "overwritten-by-onyxia"
     clientId: "my-client"
     authenticatedEmails: ""
 
