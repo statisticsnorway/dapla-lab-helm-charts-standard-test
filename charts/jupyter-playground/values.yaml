@@ -135,7 +135,7 @@ ressurser:
     cpu: ""
     memory: ""
 
-persistence:
+diskplass:
   enabled: false
   ## database data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>

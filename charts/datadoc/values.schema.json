@@ -93,7 +93,7 @@
         }
       }
     },
-    "persistence": {
+    "diskplass": {
       "description": "Configuration for persistence",
       "type": "object",
       "properties": {
@@ -119,7 +119,7 @@
           },
           "hidden": {
             "value": false,
-            "path": "persistence/enabled"
+            "path": "diskplass/enabled"
           }
         }
       }

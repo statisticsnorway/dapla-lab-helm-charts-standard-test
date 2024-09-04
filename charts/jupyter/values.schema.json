@@ -223,7 +223,7 @@
             }
           }
         },
-        "persistence": {
+        "diskplass": {
             "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
             "type": "object",
             "properties": {
@@ -249,7 +249,7 @@
                     },
                     "hidden": {
                       "value": false,
-                      "path": "persistence/enabled"
+                      "path": "diskplass/enabled"
                     }
                 }
             }

@@ -48,9 +48,9 @@ spec:
     spec:
       volumes:
         - name: home
-        {{- if .Values.persistence.enabled }}
+        {{- if .Values.diskplass.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "library-chart.fullname" .) }}
+            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
         {{- else }}
           emptyDir: {}
         {{- end }}
