@@ -159,7 +159,7 @@
                         },
                         "version": {
                             "title": "Versjon",
-                            "description": "Velg hvilken versjon av R og Python du ønsker å starte tjenesten med",
+                            "description": "Velg hvilken versjon av R du ønsker å starte tjenesten med",
                             "type": "string",
                             "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:r4.4.0-2024.08.27",
                             "listEnum": [
@@ -174,7 +174,7 @@
             }
         },
         "resources": {
-            "description": "Velg hvor mye minimum RAM og CPU som tjenesten skal ha.",
+            "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
             "type": "object",
             "properties": {
                 "requests": {

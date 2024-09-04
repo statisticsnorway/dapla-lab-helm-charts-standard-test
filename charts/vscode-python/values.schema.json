@@ -137,7 +137,7 @@
       }
     },
     "resources": {
-      "description": "Velg hvor mye minimum RAM og CPU som tjenesten skal ha.",
+      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "properties": {
         "requests": {
@@ -200,7 +200,7 @@
               }
             },
             "version": {
-              "description": "vscode supported version",
+              "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
               "type": "string",
               "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py311-2024.08.27",
               "listEnum": [
