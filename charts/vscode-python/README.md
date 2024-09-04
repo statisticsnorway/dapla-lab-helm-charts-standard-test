@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.4.1](https://img.shields.io/badge/Version-0.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -15,7 +15,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.4 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 4.0.0 |
 
 ## Values
 
@@ -36,6 +36,9 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | deleteJob.imageVersion | string | `"v1.1.0"` |  |
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
+| diskplass.accessMode | string | `"ReadWriteOnce"` |  |
+| diskplass.enabled | bool | `true` |  |
+| diskplass.size | string | `"10Gi"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
@@ -65,34 +68,31 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | oidc.enabled | bool | `true` |  |
 | oidc.secretName | string | `""` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
-| persistence.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.enabled | bool | `true` |  |
-| persistence.size | string | `"10Gi"` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
-| resources.requests.cpu | string | `""` |  |
-| resources.requests.memory | string | `""` |  |
+| ressurser.requests.cpu | string | `""` |  |
+| ressurser.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
 | security.networkPolicy.from | list | `[]` |  |
 | security.oauth2.authenticatedEmails | string | `""` |  |
 | security.oauth2.clientId | string | `"my-client"` |  |
-| security.oauth2.oidcIssuerUrl | string | `""` |  |
+| security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
 | security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
-| service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"vscode-python"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
+| tjeneste.image.version | string | `"py311-2024.08.27"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |

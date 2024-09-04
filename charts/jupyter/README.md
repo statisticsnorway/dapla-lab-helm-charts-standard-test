@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.4.1](https://img.shields.io/badge/Version-0.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -15,7 +15,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 3.2.4 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-services | library-chart | 4.0.0 |
 
 ## Values
 
@@ -37,6 +37,9 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
 | discovery.mlflow | bool | `true` |  |
+| diskplass.accessMode | string | `"ReadWriteOnce"` |  |
+| diskplass.enabled | bool | `true` |  |
+| diskplass.size | string | `"10Gi"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
@@ -69,9 +72,6 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | oidc.configMapName | string | `""` |  |
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
-| persistence.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.enabled | bool | `true` |  |
-| persistence.size | string | `"10Gi"` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels."onyxia.app" | string | `"jupyterlab"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
@@ -79,22 +79,20 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
-| resources.requests.cpu | string | `""` |  |
-| resources.requests.memory | string | `""` |  |
+| ressurser.requests.cpu | string | `""` |  |
+| ressurser.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
 | security.networkPolicy.from | list | `[]` |  |
 | security.oauth2.authenticatedEmails | string | `""` |  |
 | security.oauth2.clientId | string | `"my-client"` |  |
-| security.oauth2.oidcIssuerUrl | string | `""` |  |
+| security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
 | security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
-| service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:r4.4.0-py311-2024.08.27"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
@@ -103,6 +101,8 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | startupProbe.periodSeconds | int | `10` |  |
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `5` |  |
+| tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
+| tjeneste.image.version | string | `"r4.4.0-py311-2024.08.27"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
