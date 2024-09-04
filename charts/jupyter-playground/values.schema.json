@@ -136,7 +136,7 @@
                 }
             }
         },
-        "service": {
+        "tjeneste": {
             "description": "Velg versjon av tjenesten",
             "type": "object",
             "properties": {
