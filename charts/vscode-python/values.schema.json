@@ -50,7 +50,7 @@
       }
     },
     "git": {
-      "description": "Konfigurer GIT og GitHub for tjenesten",
+      "description": "Konfigurer Git og GitHub for tjenesten",
       "type": "object",
       "properties": {
         "enabled": {
