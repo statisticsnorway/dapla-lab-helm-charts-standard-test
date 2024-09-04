@@ -70,7 +70,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.tjeneste.image.version }}"
+          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:{{ .Values.tjeneste.image.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} /init"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
@@ -80,7 +80,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
-              value: "{{ .Values.tjeneste.image.version }}"
+              value: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:{{ .Values.tjeneste.image.version }}"
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION

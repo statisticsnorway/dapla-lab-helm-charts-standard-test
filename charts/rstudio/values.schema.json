@@ -158,10 +158,10 @@
                             "title": "Versjon",
                             "description": "Velg hvilken versjon av R du ønsker å starte tjenesten med",
                             "type": "string",
-                            "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:r4.4.0-2024.08.27",
+                            "default": "r4.4.0-2024.08.27",
                             "listEnum": [
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:r4.4.0-2024.08.27",
-                                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:r4.3.3-2024.08.27"
+                                "r4.4.0-2024.08.27",
+                                "r4.3.3-2024.08.27"
                             ],
                             "render": "list",
                             "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"

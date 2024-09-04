@@ -4,7 +4,7 @@ global:
 
 tjeneste:
   image:
-    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/datadoc/datadoc:v0"
+    version: "v0"
     pullPolicy: Always
 
 security:
