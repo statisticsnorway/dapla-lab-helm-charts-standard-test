@@ -1,6 +1,6 @@
 global:
   suspend: false
-service:
+tjeneste:
   image:
     version: "vscode-python"
     pullPolicy: IfNotPresent
