@@ -20,7 +20,7 @@
       "properties": {}
     },
     "service": {
-      "description": "Service specific configuration",
+      "description": "Velg versjon av tjenesten",
       "type": "object",
       "properties": {
         "image": {

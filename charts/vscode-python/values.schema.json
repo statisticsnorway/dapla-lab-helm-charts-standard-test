@@ -179,7 +179,7 @@
       }
     },
     "service": {
-      "description": "spark-history specific configuration",
+      "description": "Velg versjon av tjenesten",
       "type": "object",
       "properties": {
         "image": {
