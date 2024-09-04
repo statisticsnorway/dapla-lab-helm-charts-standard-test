@@ -51,7 +51,7 @@
         }
       }
     },
-    "resources": {
+    "ressurser": {
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "properties": {
