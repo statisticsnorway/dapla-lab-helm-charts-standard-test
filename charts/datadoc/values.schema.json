@@ -3,13 +3,13 @@
   "type": "object",
   "properties": {
     "dataset": {
-      "description": "Select the dataset to document",
+      "description": "Velg datasett å dokumentere",
       "type": "object",
       "properties": {
         "dataset_path": {
-          "title": "Dataset path",
+          "title": "Datasett filsti",
           "type": "string",
-          "description": "Path to a dataset file in a GCS bucket. Must start with 'gs://'. Supported file types are .parquet, .parquet.gzip, .sas7bdat.",
+          "description": "Sti til fila i Google-bøtta. Må starte med 'gs://'. Støttede filtyper er .parquet, .parquet.gzip, .sas7bdat.",
           "default": ""
         }
       }
@@ -19,8 +19,8 @@
       "type": "object",
       "properties": {}
     },
-    "service": {
-      "description": "Service specific configuration",
+    "tjeneste": {
+      "description": "Velg versjon av tjenesten",
       "type": "object",
       "properties": {
         "image": {
@@ -37,12 +37,12 @@
               "enum": ["IfNotPresent", "Always", "Never"]
             },
             "version": {
-              "description": "datadoc supported versions",
+              "description": "Datadoc-versjon",
               "type": "string",
-              "default": "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/datadoc/datadoc:v0",
+              "default": "v0",
               "listEnum": [
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/datadoc/datadoc:v0",
-                "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/datadoc/datadoc:master"
+                "v0",
+                "master"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
@@ -51,8 +51,8 @@
         }
       }
     },
-    "resources": {
-      "description": "Your service will have at least the requested resources",
+    "ressurser": {
+      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "properties": {
         "requests": {
@@ -63,7 +63,7 @@
               "description": "The amount of CPU guaranteed",
               "title": "CPU",
               "type": "string",
-              "default": "2000m",
+              "default": "1000m",
               "render": "slider",
               "sliderMin": 50,
               "sliderMax": 8000,
@@ -78,7 +78,7 @@
               "description": "The amount of memory guaranteed",
               "title": "Memory",
               "type": "string",
-              "default": "8Gi",
+              "default": "1Gi",
               "render": "slider",
               "sliderMin": 1,
               "sliderMax": 600,
@@ -93,7 +93,7 @@
         }
       }
     },
-    "persistence": {
+    "diskplass": {
       "description": "Configuration for persistence",
       "type": "object",
       "properties": {
@@ -119,7 +119,7 @@
           },
           "hidden": {
             "value": false,
-            "path": "persistence/enabled"
+            "path": "diskplass/enabled"
           }
         }
       }

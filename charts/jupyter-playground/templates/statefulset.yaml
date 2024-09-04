@@ -49,9 +49,9 @@ spec:
     spec:
       volumes:
         - name: home
-        {{- if .Values.persistence.enabled }}
+        {{- if .Values.diskplass.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "library-chart.fullname" .) }}
+            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
         {{- else }}
           emptyDir: {}
         {{- end }}
@@ -69,17 +69,17 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.service.image.version }}"
+          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:{{ .Values.tjeneste.image.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} jupyter lab --no-browser --ip '0.0.0.0' --LabApp.token='$(PASSWORD)' --ContentsManager.allow_hidden=True"]
-          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             - name: KUBERNETES_POD_NAME
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
-              value: "{{ .Values.service.image.version }}"
+              value: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:{{ .Values.tjeneste.image.version }}"
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION
@@ -164,11 +164,11 @@ spec:
             {{- toYaml .Values.startupProbe | nindent 12 }}     
           resources:
             requests:
-              cpu: {{ .Values.resources.requests.cpu }}
-              memory: {{ .Values.resources.requests.memory }}
+              cpu: {{ .Values.ressurser.requests.cpu }}
+              memory: {{ .Values.ressurser.requests.memory }}
             limits: 
               # Memory limit = min(mem_requested * 1.5, mem_requested + 4)
-              {{- with .Values.resources.requests}}
+              {{- with .Values.ressurser.requests}}
               {{- $requestedmem := .memory | trimSuffix "Gi" | float64}}
               memory: {{ min (mulf 1.5 $requestedmem) (add 4.0 $requestedmem) | int | toString | printf "%vGi" }}
               {{- end }}

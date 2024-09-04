@@ -2,9 +2,9 @@
 global:
   suspend: false
 
-service:
+tjeneste:
   image:
-    version: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/datadoc/datadoc:v0"
+    version: "v0"
     pullPolicy: Always
 
 security:
@@ -21,7 +21,7 @@ security:
       - "storage.googleapis.com"
   oauth2:
     provider: keycloak-oidc
-    oidcIssuerUrl: ""
+    oidcIssuerUrl: "overwritten-by-onyxia"
     clientId: "my-client"
     authenticatedEmails: ""
 
@@ -101,7 +101,7 @@ istio:
   hostname: chart-example.local
   userHostname: chart-example-user.local
 
-resources:
+ressurser:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube.
@@ -109,7 +109,7 @@ resources:
     cpu: ""
     memory: ""
 
-persistence:
+diskplass:
   enabled: false
   accessMode: ReadWriteOnce
   size: 10Gi

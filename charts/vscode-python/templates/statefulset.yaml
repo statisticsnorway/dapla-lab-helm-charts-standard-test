@@ -48,9 +48,9 @@ spec:
     spec:
       volumes:
         - name: home
-        {{- if .Values.persistence.enabled }}
+        {{- if .Values.diskplass.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "library-chart.fullname" .) }}
+            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
         {{- else }}
           emptyDir: {}
         {{- end }}
@@ -70,11 +70,11 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.service.image.version }}"
+          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:{{ .Values.tjeneste.image.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} /usr/bin/code-server --host 0.0.0.0 \
           --auth none --disable-file-downloads --disable-telemetry --disable-update-check --extensions-dir /home/{{ .Values.environment.user }}/.local/share/code-server/extensions --user-data-dir /home/{{ .Values.environment.user }}/work/.local/share/code-server"]
-          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
@@ -145,11 +145,11 @@ spec:
               port: {{ .Values.networking.service.port }}
           resources:
             requests:
-              cpu: {{ .Values.resources.requests.cpu }}
-              memory: {{ .Values.resources.requests.memory }}
+              cpu: {{ .Values.ressurser.requests.cpu }}
+              memory: {{ .Values.ressurser.requests.memory }}
             limits: 
               # Memory limit = min(mem_requested * 1.5, mem_requested + 4)
-              {{- with .Values.resources.requests}}
+              {{- with .Values.ressurser.requests}}
               {{- $requestedmem := .memory | trimSuffix "Gi" | float64}}
               memory: {{ min (mulf 1.5 $requestedmem) (add 4.0 $requestedmem) | int | toString | printf "%vGi" }}
               {{- end }}

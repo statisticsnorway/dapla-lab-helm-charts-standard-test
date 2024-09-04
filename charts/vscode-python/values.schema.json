@@ -50,7 +50,7 @@
       }
     },
     "git": {
-      "description": "Konfigurer GIT og GitHub for tjenesten",
+      "description": "Konfigurer Git og GitHub for tjenesten",
       "type": "object",
       "properties": {
         "enabled": {
@@ -90,11 +90,8 @@
           "description": "duration in seconds of the credentials cache duration",
           "default": "",
           "x-onyxia": {
-            "overwriteDefaultWith": "{{git.credentials_cache_duration}}"
-          },
-          "hidden": {
-            "value": true,
-            "path": "git/enabled"
+            "overwriteDefaultWith": "{{git.credentials_cache_duration}}",
+            "hidden": true
           }
         },
         "token": {
@@ -136,8 +133,8 @@
         }
       }
     },
-    "resources": {
-      "description": "Velg hvor mye minimum RAM og CPU som tjenesten skal ha.",
+    "ressurser": {
+      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "properties": {
         "requests": {
@@ -178,8 +175,8 @@
         }
       }
     },
-    "service": {
-      "description": "spark-history specific configuration",
+    "tjeneste": {
+      "description": "Velg versjon av tjenesten",
       "type": "object",
       "properties": {
         "image": {
@@ -200,12 +197,12 @@
               }
             },
             "version": {
-              "description": "vscode supported version",
+              "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
               "type": "string",
-              "default": "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py311-2024.08.27",
+              "default": "py311-2024.08.27",
               "listEnum": [
-                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py312-2024.08.27",
-                "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/vscode-python:py311-2024.08.27"
+                "py312-2024.08.27",
+                "py311-2024.08.27"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
@@ -214,7 +211,7 @@
         }
       }
     },
-    "persistence": {
+    "diskplass": {
       "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
       "properties": {
@@ -240,7 +237,7 @@
           },
           "hidden": {
             "value": false,
-            "path": "persistence/enabled"
+            "path": "diskplass/enabled"
           }
         }
       }
