@@ -154,10 +154,10 @@
                           "title": "Versjon",
                           "description": "Velg hvilken versjon av R og Python du ønsker å starte tjenesten med",
                           "type": "string",
-                          "default": "r4.4.0-py311-2024.08.27",
+                          "default": "r4.4.0-py311-v3-2024.09.05",
                           "listEnum": [
-                              "r4.4.0-py312-2024.08.27",
-                              "r4.4.0-py311-2024.08.27"
+                              "r4.4.0-py312-v3-2024.09.05",
+                              "r4.4.0-py311-v3-2024.09.05"
                           ],
                           "render": "list",
                           "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
