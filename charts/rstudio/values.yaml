@@ -2,7 +2,7 @@ global:
   suspend: false
 tjeneste:
   image:
-    version: "r4.4.0-2024.08.27"
+    version: "r4.4.0-v3-2024.09.05"
     pullPolicy: IfNotPresent
 
 security:
