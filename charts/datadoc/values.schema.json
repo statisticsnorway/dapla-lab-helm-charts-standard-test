@@ -78,7 +78,7 @@
               "description": "The amount of memory guaranteed",
               "title": "Memory",
               "type": "string",
-              "default": "1Gi",
+              "default": "8Gi",
               "render": "slider",
               "sliderMin": 1,
               "sliderMax": 600,
