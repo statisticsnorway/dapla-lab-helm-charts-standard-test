@@ -42,6 +42,12 @@ userAttributes:
   userAttribute: "access_token"
   value: ""
 
+dapla:
+  buckets:
+    enabled: false
+    mountStandard: true
+  group: ""
+
 oidc:
   # Specifies whether a config map should be created
   enabled: true
