@@ -40,10 +40,7 @@
               "description": "Datadoc-versjon",
               "type": "string",
               "default": "v0",
-              "listEnum": [
-                "v0",
-                "master"
-              ],
+              "listEnum": ["v0", "master"],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
             }
@@ -84,9 +81,7 @@
           "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
           "render": "list",
           "default": "",
-          "listEnum": [
-            ""
-          ],
+          "listEnum": [""],
           "x-onyxia": {
             "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
@@ -110,7 +105,7 @@
               "description": "The amount of CPU guaranteed",
               "title": "CPU",
               "type": "string",
-              "default": "1000m",
+              "default": "100m",
               "render": "slider",
               "sliderMin": 50,
               "sliderMax": 8000,
@@ -125,7 +120,7 @@
               "description": "The amount of memory guaranteed",
               "title": "Memory",
               "type": "string",
-              "default": "8Gi",
+              "default": "1Gi",
               "render": "slider",
               "sliderMin": 1,
               "sliderMax": 600,
