@@ -1,8 +1,8 @@
-# vscode-python
+# jdemetra
 
-![Version: 0.5.1](https://img.shields.io/badge/Version-0.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
+Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
 **Homepage:** <https://manual.dapla.ssb.no/statistikkere/vscode-python.html>
 
@@ -92,7 +92,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.image.version | string | `"py311-v3-2024.09.05"` |  |
+| tjeneste.image.version | string | `"jd3.2.4-v1-2024.09.10"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
