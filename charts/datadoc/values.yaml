@@ -44,7 +44,7 @@ userAttributes:
 
 dapla:
   buckets:
-    enabled: false
+    enabled: true
     mountStandard: false
   group: ""
 
