@@ -50,11 +50,6 @@
         }
       }
     },
-    "features": {
-      "description": "Feature toggles",
-      "type": "object",
-      "properties": {}
-    },
     "tjeneste": {
       "description": "Velg versjon av tjenesten",
       "type": "object",
