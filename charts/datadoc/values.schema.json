@@ -23,7 +23,7 @@
               "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
               "default": true,
               "hidden": {
-                "value": false,
+                "value": true,
                 "path": "dapla/buckets/enabled"
               }
             }
