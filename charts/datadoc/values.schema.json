@@ -21,7 +21,7 @@
               "type": "boolean",
               "title": "Bøtter som filsystem",
               "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
-              "default": true,
+              "default": false,
               "hidden": {
                 "value": true,
                 "path": "dapla/buckets/enabled"
@@ -132,7 +132,10 @@
         "enabled": {
           "type": "boolean",
           "description": "Create a persistent volume",
-          "default": true
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
         },
         "size": {
           "type": "string",
