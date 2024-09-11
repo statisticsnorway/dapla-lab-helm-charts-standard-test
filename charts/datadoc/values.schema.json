@@ -2,15 +2,48 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "dataset": {
-      "description": "Velg datasett å dokumentere",
+  "dapla": {
+      "title": "Dapla",
+      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
       "type": "object",
       "properties": {
-        "dataset_path": {
-          "title": "Datasett filsti",
+        "buckets": {
+          "title": "Buckets",
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Aktiver",
+              "description": "Aktiver datatilgang",
+              "default": false
+            },
+            "mountStandard": {
+              "type": "boolean",
+              "title": "Bøtter som filsystem",
+              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
+              "default": true,
+              "hidden": {
+                "value": true,
+                "path": "dapla/buckets/enabled"
+              }
+            }
+          }
+        },
+        "group": {
           "type": "string",
-          "description": "Sti til fila i Google-bøtta. Må starte med 'gs://'. Støttede filtyper er .parquet, .parquet.gzip, .sas7bdat.",
-          "default": ""
+          "title": "Team og tilgangsgruppe",
+          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
+          "render": "list",
+          "default": "",
+          "listEnum": [""],
+          "x-onyxia": {
+            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
+            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
+          },
+          "hidden": {
+            "value": false,
+            "path": "dapla/buckets/enabled"
+          }
         }
       }
     },
@@ -48,51 +81,6 @@
         }
       }
     },
-    "dapla": {
-      "title": "Dapla",
-      "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
-      "type": "object",
-      "properties": {
-        "buckets": {
-          "title": "Buckets",
-          "type": "object",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Aktiver",
-              "description": "Aktiver datatilgang",
-              "default": false
-            },
-            "mountStandard": {
-              "type": "boolean",
-              "title": "Bøtter som filsystem",
-              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
-              "default": true,
-              "hidden": {
-                "value": false,
-                "path": "dapla/buckets/enabled"
-              }
-            }
-          }
-        },
-        "group": {
-          "type": "string",
-          "title": "Team og tilgangsgruppe",
-          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
-          "render": "list",
-          "default": "",
-          "listEnum": [""],
-          "x-onyxia": {
-            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
-            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          },
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
-        }
-      }
-    },
     "ressurser": {
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
@@ -112,6 +100,7 @@
               "sliderStep": 50,
               "sliderUnit": "m",
               "x-onyxia": {
+                "hidden": true,
                 "overwriteDefaultWith": "region.resources.cpuRequest",
                 "useRegionSliderConfig": "cpu"
               }
@@ -127,6 +116,7 @@
               "sliderStep": 1,
               "sliderUnit": "Gi",
               "x-onyxia": {
+                "hidden": true,
                 "overwriteDefaultWith": "region.resources.memoryRequest",
                 "useRegionSliderConfig": "memory"
               }
@@ -156,11 +146,12 @@
           "sliderStep": 1,
           "sliderUnit": "Gi",
           "x-onyxia": {
+            "hidden": true,
             "overwriteDefaultWith": "region.resources.disk",
             "useRegionSliderConfig": "disk"
           },
           "hidden": {
-            "value": false,
+            "value": true,
             "path": "diskplass/enabled"
           }
         }
