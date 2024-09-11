@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-   "dapla": {
+  "dapla": {
       "title": "Dapla",
       "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
       "type": "object",
@@ -35,9 +35,7 @@
           "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
           "render": "list",
           "default": "",
-          "listEnum": [
-            ""
-          ],
+          "listEnum": [""],
           "x-onyxia": {
             "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
@@ -79,6 +77,82 @@
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
             }
+          }
+        }
+      }
+    },
+    "ressurser": {
+      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
+      "type": "object",
+      "properties": {
+        "requests": {
+          "description": "The amount of CPU requested",
+          "type": "object",
+          "properties": {
+            "cpu": {
+              "description": "The amount of CPU guaranteed",
+              "title": "CPU",
+              "type": "string",
+              "default": "100m",
+              "render": "slider",
+              "sliderMin": 50,
+              "sliderMax": 8000,
+              "sliderStep": 50,
+              "sliderUnit": "m",
+              "x-onyxia": {
+                "hidden": true,
+                "overwriteDefaultWith": "region.resources.cpuRequest",
+                "useRegionSliderConfig": "cpu"
+              }
+            },
+            "memory": {
+              "description": "The amount of memory guaranteed",
+              "title": "Memory",
+              "type": "string",
+              "default": "1Gi",
+              "render": "slider",
+              "sliderMin": 1,
+              "sliderMax": 600,
+              "sliderStep": 1,
+              "sliderUnit": "Gi",
+              "x-onyxia": {
+                "hidden": true,
+                "overwriteDefaultWith": "region.resources.memoryRequest",
+                "useRegionSliderConfig": "memory"
+              }
+            }
+          }
+        }
+      }
+    },
+    "diskplass": {
+      "description": "Configuration for persistence",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Create a persistent volume",
+          "default": true
+        },
+        "size": {
+          "type": "string",
+          "title": "Persistent volume size",
+          "description": "Size of the persistent volume",
+          "default": "10Gi",
+          "form": true,
+          "render": "slider",
+          "sliderMin": 1,
+          "sliderMax": 100,
+          "sliderStep": 1,
+          "sliderUnit": "Gi",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "region.resources.disk",
+            "useRegionSliderConfig": "disk"
+          },
+          "hidden": {
+            "value": true,
+            "path": "diskplass/enabled"
           }
         }
       }
