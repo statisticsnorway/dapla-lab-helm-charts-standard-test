@@ -25,6 +25,9 @@
               "hidden": {
                 "value": true,
                 "path": "dapla/buckets/enabled"
+              },
+              "x-onyxia": {
+                "hidden": true
               }
             }
           }
@@ -46,11 +49,6 @@
           }
         }
       }
-    },
-    "features": {
-      "description": "Feature toggles",
-      "type": "object",
-      "properties": {}
     },
     "tjeneste": {
       "description": "Velg versjon av tjenesten",
