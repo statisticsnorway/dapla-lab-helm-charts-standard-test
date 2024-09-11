@@ -25,6 +25,9 @@
               "hidden": {
                 "value": true,
                 "path": "dapla/buckets/enabled"
+              },
+              "x-onyxia": {
+                "hidden": true
               }
             }
           }
