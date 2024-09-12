@@ -44,7 +44,7 @@ dapla:
   buckets:
     enabled: true
     mountStandard: false
-  group: ""
+  group: "dapla-felles-developers"
 
 oidc:
   # Specifies whether a config map should be created
