@@ -1,6 +1,6 @@
 # datadoc
 
-![Version: 0.9.9](https://img.shields.io/badge/Version-0.9.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.9.10](https://img.shields.io/badge/Version-0.9.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Applikasjon for å dokumentere datasett i SSB.
 
@@ -28,7 +28,7 @@ Applikasjon for å dokumentere datasett i SSB.
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | dapla.buckets.enabled | bool | `true` |  |
 | dapla.buckets.mountStandard | bool | `false` |  |
-| dapla.group | string | `""` |  |
+| dapla.group | string | `"dapla-felles-developers"` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
