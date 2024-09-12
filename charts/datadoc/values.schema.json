@@ -16,19 +16,6 @@
               "title": "Aktiver",
               "description": "Aktiver datatilgang",
               "default": true
-            },
-            "mountStandard": {
-              "type": "boolean",
-              "title": "Bøtter som filsystem",
-              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
-              "default": false,
-              "hidden": {
-                "value": true,
-                "path": "dapla/buckets/enabled"
-              },
-              "x-onyxia": {
-                "hidden": true
-              }
             }
           }
         },
