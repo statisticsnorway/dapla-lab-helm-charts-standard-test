@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-  "dapla": {
+"dapla": {
       "title": "Dapla",
       "description": "Aktiver tilgang til et av dine team sine data i GCS lagringsbøtter",
       "type": "object",
@@ -16,9 +16,6 @@
               "title": "Aktiver",
               "description": "Aktiver datatilgang",
               "default": true
-            },
-            "x-onyxia": {
-                "hidden": true
             }
           }
         },
@@ -35,7 +32,8 @@
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
           },
           "hidden": {
-            "value": false
+            "value": false,
+            "path": "dapla/buckets/enabled"
           }
         }
       }
