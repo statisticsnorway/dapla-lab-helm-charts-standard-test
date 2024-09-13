@@ -19,7 +19,7 @@
             }
           },
           "x-onyxia": {
-            "hidden": false
+            "hidden": true
           }
         },
         "group": {
