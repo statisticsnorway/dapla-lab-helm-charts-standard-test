@@ -28,7 +28,7 @@
           "listEnum": [""],
           "x-onyxia": {
             "hidden": false,
-            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
+            "overwriteDefaultWith": "dapla-felles-developers",
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
           },
           "hidden": {
