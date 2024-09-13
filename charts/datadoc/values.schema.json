@@ -15,11 +15,11 @@
               "type": "boolean",
               "title": "Aktiver",
               "description": "Aktiver datatilgang",
-              "default": true
-            }
-          },
-          "x-onyxia": {
-            "hidden": true
+              "default": true,
+              "x-onyxia": {
+                "hidden": true
+              }
+            } 
           }
         },
         "group": {
