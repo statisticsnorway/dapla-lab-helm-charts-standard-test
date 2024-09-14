@@ -158,10 +158,10 @@
                             "title": "Versjon",
                             "description": "Velg hvilken versjon av R du ønsker å starte tjenesten med",
                             "type": "string",
-                            "default": "r4.4.0-v11-2024.09.12",
+                            "default": "r4.4.0-v8-2024.09.10",
                             "listEnum": [
-                                "r4.4.0-v11-2024.09.12",
-                                "r4.3.3-v11-2024.09.12"
+                                "r4.4.0-v8-2024.09.10",
+                                "r4.3.3-v8-2024.09.10"
                             ],
                             "render": "list",
                             "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
