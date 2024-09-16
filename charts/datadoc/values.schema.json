@@ -57,8 +57,8 @@
             "version": {
               "description": "Datadoc-versjon",
               "type": "string",
-              "default": "v0",
-              "listEnum": ["v0", "master"],
+              "default": "v1",
+              "listEnum": ["v1", "master"],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
             }
