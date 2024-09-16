@@ -1,6 +1,6 @@
 # datadoc
 
-![Version: 0.9.16](https://img.shields.io/badge/Version-0.9.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.9.17](https://img.shields.io/badge/Version-0.9.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Applikasjon for å dokumentere datasett i SSB.
 
@@ -88,7 +88,7 @@ Applikasjon for å dokumentere datasett i SSB.
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `30` |  |
 | tjeneste.image.pullPolicy | string | `"Always"` |  |
-| tjeneste.image.version | string | `"v0"` |  |
+| tjeneste.image.version | string | `"v1"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
