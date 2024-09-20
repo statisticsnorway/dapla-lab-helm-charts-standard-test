@@ -199,10 +199,10 @@
             "version": {
               "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
               "type": "string",
-              "default": "py311-v23-2024.09.20",
+              "default": "py311-v23-2024.09.10",
               "listEnum": [
-                "py312-v23-2024.09.20",
-                "py311-v23-2024.09.20"
+                "py312-v23-2024.09.10",
+                "py311-v23-2024.09.10"
               ],
               "render": "list",
               "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
