@@ -2,7 +2,7 @@ global:
   suspend: false
 tjeneste:
   image:
-    version: "r4.4.0-v21-2024.09.20"
+    version: "r4.4.0-v8-2024.09.10"
     pullPolicy: IfNotPresent
 
 security:
@@ -63,7 +63,6 @@ git:
 # Declare variables to be passed into your templates.
 replicaCount: 1
 
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -86,7 +85,8 @@ podAnnotations: {}
 podSecurityContext:
   fsGroup: 100
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
