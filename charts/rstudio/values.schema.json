@@ -158,9 +158,9 @@
                             "title": "Versjon",
                             "description": "Velg hvilken versjon av R du ønsker å starte tjenesten med",
                             "type": "string",
-                            "default": "r4.4.0-v32-2024.09.30",
+                            "default": "r4.4.0-v34-2024.09.30",
                             "listEnum": [
-                                "r4.4.0-v32-2024.09.30",
+                                "r4.4.0-v34-2024.09.30",
                                 "r4.3.3-v28-2024.09.25"
                             ],
                             "render": "list",
