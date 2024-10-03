@@ -101,6 +101,10 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.renv/cache
             - name: XDG_CONFIG_HOME
               value: /home/{{ .Values.environment.user }}/work/.config
+            - name: PIPX_HOME
+              value: /home/{{ .Values.environment.user }}/work/.local/pipx
+            - name: PIPX_BIN_DIR
+              value: /home/{{ .Values.environment.user }}/work/.local/pipx/bin
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
