@@ -138,11 +138,11 @@
       "type": "object",
       "properties": {
         "requests": {
-          "description": "Garantert tilgjengelig cpu i tjenesten",
+          "description": "Velg mengden CPU-ressurser i millicores (M)",
           "type": "object",
           "properties": {
             "cpu": {
-              "description": "Garantert tilgjengelig CPU i tjenesten. Maximum kan være høyere hvis tilgjengelig på maskinen",
+              "description": "Velg mengden CPU-ressurser i millicores (M). 50 M tilsvarer 0,05 av en CPU-kjerne og 2000 M tilsvarer 2 CPU-kjerner.",
               "title": "CPU",
               "type": "string",
               "default": "2000m",
