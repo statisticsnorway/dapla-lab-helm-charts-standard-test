@@ -126,6 +126,8 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.local/pipx/bin
             - name: STAT_TEMPLATE_DEFAULT_REFERENCE
               value: "1.1.7"
+            - name: PSEUDO_SERVICE_URL
+              value: "https://dapla-pseudo-service.staging-bip-app.ssb.no"
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
