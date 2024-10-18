@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.5.21](https://img.shields.io/badge/Version-0.5.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.5.22](https://img.shields.io/badge/Version-0.5.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -102,7 +102,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `5` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.image.version | string | `"r4.4.0-py311-v48-2024.10.18"` |  |
+| tjeneste.image.version | string | `"r4.4.0-py311-v49-2024.10.18"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
