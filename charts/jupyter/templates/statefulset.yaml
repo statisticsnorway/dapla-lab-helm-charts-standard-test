@@ -92,6 +92,9 @@ spec:
               value: ""
             - name: PROJECT_USER
               value: {{ .Values.environment.user }}
+              # MEM LIMIT to bytes
+            - name: MEM_LIMIT
+              value: {{ mul .Values.ressurser.requests.memory 1073741824 | int | quote }}
             - name: PROJECT_GROUP
               value: {{ .Values.environment.group }}
             - name: ROOT_PROJECT_DIRECTORY
