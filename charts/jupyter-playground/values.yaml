@@ -133,9 +133,7 @@ ressurser:
   requests:
     cpu: ""
     memory: ""
-  limits:
-    cpu: ""
-    memory: ""
+
 diskplass:
   enabled: false
   ## database data Persistent Volume Storage Class

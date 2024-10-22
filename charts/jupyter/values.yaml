@@ -133,9 +133,6 @@ ressurser:
   requests:
     cpu: ""
     memory: ""
-  limits:
-    cpu: ""
-    memory: ""
 
 diskplass:
   enabled: true
