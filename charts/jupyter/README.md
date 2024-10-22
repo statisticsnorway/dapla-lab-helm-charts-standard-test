@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.5.25](https://img.shields.io/badge/Version-0.5.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.5.26](https://img.shields.io/badge/Version-0.5.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -79,6 +79,8 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
+| ressurser.limits.cpu | string | `""` |  |
+| ressurser.limits.memory | string | `""` |  |
 | ressurser.requests.cpu | string | `""` |  |
 | ressurser.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
