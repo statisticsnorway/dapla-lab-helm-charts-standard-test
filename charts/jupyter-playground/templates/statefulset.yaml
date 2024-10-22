@@ -97,7 +97,7 @@ spec:
             - name: MEM_LIMIT
               value: |
                 {{- $memlimit_gb := .Values.ressurser.limits.memory | trimSuffix "Gi" | int }}
-                {{- $memlimit_bytes := mul 1024 1024 1024 $memlimit_gb | int) }}
+                {{- $memlimit_bytes := mul 1024 1024 1024 $memlimit_gb | int }}
                 {{ $memlimit_bytes | int64 | toString }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
