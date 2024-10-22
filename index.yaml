@@ -886,6 +886,28 @@ entries:
     version: 1.0.1
   jupyter:
   - apiVersion: v2
+    created: "2024-10-22T08:53:40.483544865Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.0.0
+    description: Minimal Jupyterlab med Python og R. Brukeren kan selv installere
+      pakker.
+    digest: d258891e1c6b964ae0fb63decde00ebfc1f45470d212af48a5028a1109d5fb3d
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-0.5.27/jupyter-0.5.27.tgz
+    version: 0.5.27
+  - apiVersion: v2
     created: "2024-10-22T08:40:00.058946337Z"
     dependencies:
     - name: library-chart
@@ -1854,6 +1876,28 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-0.3.7/jupyter-0.3.7.tgz
     version: 0.3.7
   jupyter-playground:
+  - apiVersion: v2
+    created: "2024-10-22T08:53:40.658044392Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.0.0
+    description: Jupyterlab med Python og R og mange vanlige pakker ferdig installert.
+      Passer godt for de som skal lære R og Python uten for mye kompleksitet.
+    digest: a3bef081cdf33bdd0ef84aec23a68729f7739457d0bc65c40ec5928c6045f3fe
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter-playground.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-playground
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-playground-0.5.29/jupyter-playground-0.5.29.tgz
+    version: 0.5.29
   - apiVersion: v2
     created: "2024-10-22T08:40:00.19031661Z"
     dependencies:
@@ -5095,4 +5139,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.3.6/vscode-python-0.3.6.tgz
     version: 0.3.6
-generated: "2024-10-22T08:40:00.191143602Z"
+generated: "2024-10-22T08:53:40.659415314Z"
