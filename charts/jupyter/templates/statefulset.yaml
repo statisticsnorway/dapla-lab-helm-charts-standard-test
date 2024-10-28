@@ -74,7 +74,7 @@ spec:
           args: ["{{ .Values.init.standardInitPath }} jupyter lab --no-browser --ip '0.0.0.0' --LabApp.token='$(PASSWORD)' --ContentsManager.allow_hidden=True"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
-            {{- include "library-chart.commonEnvVars" . | nindent 10 }}
+            {{- include "library-chart.commonEnvVars" . | nindent 12 }}
             - name: KUBERNETES_POD_NAME
               valueFrom:
                 fieldRef:
