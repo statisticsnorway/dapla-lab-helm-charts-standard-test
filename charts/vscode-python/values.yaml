@@ -162,3 +162,5 @@ deleteJob:
   serviceAccount:
     annotations: {}
 deployEnvironment: "DEV"
+daplaUser: ""
+statbankEncryptUrl: ""
