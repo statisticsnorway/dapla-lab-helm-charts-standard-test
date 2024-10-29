@@ -74,6 +74,7 @@ spec:
           args: ["{{ .Values.init.standardInitPath }} jupyter lab --no-browser --ip '0.0.0.0' --LabApp.token='$(PASSWORD)' --ContentsManager.allow_hidden=True"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
+            {{- include "library-chart.commonEnvVars" . | nindent 12 }}
             - name: KUBERNETES_POD_NAME
               valueFrom:
                 fieldRef:
@@ -117,10 +118,6 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.renv
             - name: RENV_PATHS_CACHE
               value: /home/{{ .Values.environment.user }}/work/.renv/cache
-            - name: STAT_TEMPLATE_DEFAULT_REFERENCE
-              value: "1.1.7"
-            - name: PSEUDO_SERVICE_URL
-              value: "https://dapla-pseudo-service.staging-bip-app.ssb.no"
             - name: JUPYTERHUB_HTTP_REFERER
               value: "https://{{ .Values.istio.hostname }}/"
             - name: JUPYTERHUB_USER
@@ -131,6 +128,10 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.local/pipx
             - name: PIPX_BIN_DIR
               value: /home/{{ .Values.environment.user }}/work/.local/pipx/bin
+            - name: STATBANK_ENCRYPT_URL
+              value: {{ .Values.statbankEncryptUrl }}
+            - name: DAPLA_USER
+              value: {{ .Values.daplaUser }}
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
