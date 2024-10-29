@@ -177,3 +177,4 @@ deleteJob:
   serviceAccount:
     annotations: {}
 deployEnvironment: "DEV"
+statbankEncryptUrl: ""

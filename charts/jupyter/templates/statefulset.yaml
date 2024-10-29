@@ -128,6 +128,8 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.local/pipx
             - name: PIPX_BIN_DIR
               value: /home/{{ .Values.environment.user }}/work/.local/pipx/bin
+            - name: STATBANK_ENCRYPT_URL
+              value: {{ .Values.statbankEncryptUrl }}
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
