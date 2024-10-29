@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.5.22](https://img.shields.io/badge/Version-0.5.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.5.23](https://img.shields.io/badge/Version-0.5.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -15,7 +15,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.0.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.0 |
 
 ## Values
 
@@ -29,6 +29,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | dapla.buckets.enabled | bool | `false` |  |
 | dapla.buckets.mountStandard | bool | `true` |  |
 | dapla.group | string | `""` |  |
+| daplaUser | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
@@ -92,6 +93,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| statbankEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.image.version | string | `"r4.4.0-v51-2024.10.18"` |  |
 | tolerations | list | `[]` |  |

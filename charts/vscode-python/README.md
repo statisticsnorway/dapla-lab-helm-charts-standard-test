@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.5.31](https://img.shields.io/badge/Version-0.5.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.5.32](https://img.shields.io/badge/Version-0.5.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -15,7 +15,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.0.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.0 |
 
 ## Values
 
@@ -29,6 +29,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | dapla.buckets.enabled | bool | `false` |  |
 | dapla.buckets.mountStandard | bool | `true` |  |
 | dapla.group | string | `""` |  |
+| daplaUser | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
@@ -91,6 +92,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| statbankEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.image.version | string | `"py311-v53-2024.10.25"` |  |
 | tolerations | list | `[]` |  |

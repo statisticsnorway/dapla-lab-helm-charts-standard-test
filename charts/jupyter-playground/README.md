@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.5.29](https://img.shields.io/badge/Version-0.5.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.5.30](https://img.shields.io/badge/Version-0.5.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -15,7 +15,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.0.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.0 |
 
 ## Values
 
@@ -29,6 +29,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | dapla.buckets.enabled | bool | `false` |  |
 | dapla.buckets.mountStandard | bool | `true` |  |
 | dapla.group | string | `""` |  |
+| daplaUser | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
 | deleteJob.cronMinuteAtDay | string | `"0"` |  |
@@ -101,6 +102,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | startupProbe.periodSeconds | int | `10` |  |
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `5` |  |
+| statbankEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.image.version | string | `"r4.4.0-py311-v49-2024.10.18"` |  |
 | tolerations | list | `[]` |  |
