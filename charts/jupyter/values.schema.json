@@ -700,6 +700,15 @@
           "overwriteDefaultWith": "region.customValues.deployEnvironment"
         }
       },
+      "statbankEncryptUrl": {
+        "type": "string",
+        "description": "The statbank authenticator encryption endpoint",
+        "default": "",
+        "x-onyxia": {
+          "hidden": true,
+          "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl"
+        }
+      },
       "global": {
           "description": "Suspend",
           "type": "object",
