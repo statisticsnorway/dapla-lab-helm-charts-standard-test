@@ -75,6 +75,7 @@ spec:
           args: ["{{ .Values.init.standardInitPath }} /init"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
+            {{- include "library-chart.commonEnvVars" . | nindent 12 }}
             - name: KUBERNETES_POD_NAME
               valueFrom:
                 fieldRef:
@@ -105,6 +106,10 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.local/pipx
             - name: PIPX_BIN_DIR
               value: /home/{{ .Values.environment.user }}/work/.local/pipx/bin
+            - name: STATBANK_ENCRYPT_URL
+              value: {{ .Values.statbankEncryptUrl }}
+            - name: DAPLA_USER
+              value: {{ .Values.daplaUser }}
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}

@@ -674,6 +674,25 @@
                 "overwriteDefaultWith": "region.customValues.deployEnvironment"
             }
         },
+        "statbankEncryptUrl": {
+          "type": "string",
+          "description": "The statbank authenticator encryption endpoint",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl"
+          }
+        },
+        "daplaUser": {
+          "type": "string",
+          "title": "Current Dapla user",
+          "description": "The currently logged in user's email address",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "{{user.email}}"
+          }
+        },
         "global": {
             "description": "Suspend",
             "type": "object",
