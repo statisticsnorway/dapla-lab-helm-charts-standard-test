@@ -709,6 +709,16 @@
           "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl"
         }
       },
+      "daplaUser": {
+        "type": "string",
+        "title": "Current Dapla user",
+        "description": "The currently logged in user's email address",
+        "default": "",
+        "x-onyxia": {
+          "hidden": true,
+          "overwriteDefaultWith": "{{user.email}}"
+        }
+      },
       "global": {
           "description": "Suspend",
           "type": "object",
