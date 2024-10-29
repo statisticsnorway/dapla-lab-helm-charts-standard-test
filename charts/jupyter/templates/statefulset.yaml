@@ -130,6 +130,8 @@ spec:
               value: /home/{{ .Values.environment.user }}/work/.local/pipx/bin
             - name: STATBANK_ENCRYPT_URL
               value: {{ .Values.statbankEncryptUrl }}
+            - name: DAPLA_USER
+              value: {{ .Values.daplaUser }}
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
