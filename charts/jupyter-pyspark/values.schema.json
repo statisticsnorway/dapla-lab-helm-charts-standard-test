@@ -154,10 +154,10 @@
                           "title": "Versjon",
                           "description": "Velg hvilken versjon av R og Python du ønsker å starte tjenesten med",
                           "type": "string",
-                          "default": "py311-spark3.5.3-v1-2024.11.04",
+                          "default": "py311-spark3.3.1-v1-2024.11.07",
                           "listEnum": [
-                              "py312-spark3.5.3-v1-2024.11.04",
-                              "py311-spark3.5.3-v1-2024.11.04"
+                              "py312-spark3.3.1-v1-2024.11.07",
+                              "py311-spark3.3.1-v1-2024.11.07"
                           ],
                           "render": "list",
                           "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
