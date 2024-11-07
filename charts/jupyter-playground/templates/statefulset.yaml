@@ -8,8 +8,14 @@ metadata:
     dapla.ssb.no/enable-ssbucketeer: "true"
     dapla.ssb.no/impersonate-group: {{ .Values.dapla.group }}
     dapla.ssb.no/service-container-name: {{ .Chart.Name }}
-{{- if .Values.dapla.buckets.mountStandard }}
-    dapla.ssb.no/mount-standard-buckets: "true"
+{{- with .Values.dapla.reason }}
+    dapla.ssb.no/access-reason: {{ . }}
+{{- end }}
+{{- with .Values.dapla.requestedDuration }}
+    dapla.ssb.no/requested-service-duration: {{ . }}
+{{- end }}
+{{- with .Values.dapla.buckets.mountStandard }}
+    dapla.ssb.no/mount-standard-buckets: "{{ . }}"
 {{- end }}
 {{- end }}
   labels:
