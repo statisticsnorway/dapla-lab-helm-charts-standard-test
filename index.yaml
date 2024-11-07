@@ -886,6 +886,28 @@ entries:
     version: 1.0.1
   jupyter:
   - apiVersion: v2
+    created: "2024-11-07T13:59:17.623658909Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.2.0
+    description: Minimal Jupyterlab med Python og R. Brukeren kan selv installere
+      pakker.
+    digest: 08cc22ee766a3f0c9e30b20c1d1c4b6ed0335503710ae87080271a3aacbf408f
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-0.6.0/jupyter-0.6.0.tgz
+    version: 0.6.0
+  - apiVersion: v2
     created: "2024-11-01T08:45:47.586736933Z"
     dependencies:
     - name: library-chart
@@ -1964,6 +1986,28 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-0.3.7/jupyter-0.3.7.tgz
     version: 0.3.7
   jupyter-playground:
+  - apiVersion: v2
+    created: "2024-11-07T13:59:17.749191524Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.2.0
+    description: Jupyterlab med Python og R og mange vanlige pakker ferdig installert.
+      Passer godt for de som skal lære R og Python uten for mye kompleksitet.
+    digest: c425e31ce9db71ec67f6415082bf998ce5e0d28a3da6f8402bf3e4b924a2e425
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter-playground.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-playground
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-playground-0.6.0/jupyter-playground-0.6.0.tgz
+    version: 0.6.0
   - apiVersion: v2
     created: "2024-10-29T13:03:32.911580819Z"
     dependencies:
@@ -3135,6 +3179,27 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-pyspark-0.0.1/jupyter-pyspark-0.0.1.tgz
     version: 0.0.1
   rstudio:
+  - apiVersion: v2
+    created: "2024-11-07T13:59:17.935470455Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.2.0
+    description: Minimal RStudio med R. Brukeren kan selv installere pakker.
+    digest: ea16cce4a2331d7c97c7ae1d384b13c84f3838d80c228611ca3ebfd2991a2291
+    home: https://manual.dapla.ssb.no/statistikkere/rstudio.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - RStudio
+    - R
+    name: rstudio
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/rstudio-0.6.0/rstudio-0.6.0.tgz
+    version: 0.6.0
   - apiVersion: v2
     created: "2024-10-31T09:20:14.149310427Z"
     dependencies:
@@ -5449,4 +5514,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.3.6/vscode-python-0.3.6.tgz
     version: 0.3.6
-generated: "2024-11-07T13:57:58.716366639Z"
+generated: "2024-11-07T13:59:17.93671503Z"
