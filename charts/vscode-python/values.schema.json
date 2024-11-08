@@ -162,7 +162,7 @@
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "dapla/resources-vscode.json"
+        "overwriteSchemaWith": "dapla/resources-ide.json"
       },
       "properties": {
         "requests": {
@@ -173,7 +173,7 @@
               "description": "Velg mengden CPU-ressurser i millicores (M). 50 M tilsvarer 0,05 av en CPU-kjerne og 2000 M tilsvarer 2 CPU-kjerner.",
               "title": "CPU",
               "type": "string",
-              "default": "2000m",
+              "default": "250m",
               "render": "slider",
               "sliderMin": 50,
               "sliderMax": 8000,
@@ -655,7 +655,7 @@
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.nodeSelector",
-        "overwriteSchemaWith": "nodeSelector.json"
+        "overwriteSchemaWith": "dapla/nodeSelector.json"
       }
     },
     "oidc": {
