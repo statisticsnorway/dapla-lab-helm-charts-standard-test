@@ -196,7 +196,7 @@
       }
     },
     "discovery": {
-      "description": "configure your service to autodetect some ressources.",
+      "description": "configure your service to autodetect some resources.",
       "type": "object",
       "properties": {
         "mlflow": {
@@ -213,6 +213,9 @@
     "ressurser": {
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/resources-ide.json"
+      },
       "properties": {
         "requests": {
           "description": "Velg mengden CPU-ressurser i millicores (M)",
@@ -255,6 +258,9 @@
     "diskplass": {
       "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/persistence.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -290,6 +296,9 @@
         "allowlist": {
           "type": "object",
           "description": "IP protection",
+          "x-onyxia": {
+            "overwriteSchemaWith": "dapla/allowlist.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -319,6 +328,9 @@
         "networkPolicy": {
           "type": "object",
           "description": "Define access policy to the service",
+          "x-onyxia": {
+            "overwriteSchemaWith": "network-policy.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -344,6 +356,9 @@
         "serviceEntry": {
           "type": "object",
           "description": "Service entry to give access to external services",
+          "x-onyxia": {
+            "overwriteSchemaWith": "dapla/egress-jupyter.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -368,6 +383,9 @@
         "oauth2": {
           "type": "object",
           "description": "OAuth2 configuration",
+          "x-onyxia": {
+            "overwriteSchemaWith": "dapla/oauth2.json"
+          },
           "properties": {
             "provider": {
               "type": "string",
@@ -605,7 +623,8 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.startupProbe"
+        "overwriteDefaultWith": "region.startupProbe",
+        "overwriteSchemaWith": "dapla/startupProbe.json"
       }
     },
     "tolerations": {
@@ -614,7 +633,8 @@
       "default": [],
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.tolerations"
+        "overwriteDefaultWith": "region.tolerations",
+        "overwriteSchemaWith": "tolerations.json"
       }
     },
     "nodeSelector": {
@@ -623,12 +643,16 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector"
+        "overwriteDefaultWith": "region.nodeSelector",
+        "overwriteSchemaWith": "dapla/nodeSelector.json"
       }
     },
     "oidc": {
       "description": "OIDC configuration",
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/oidc.json"
+      },
       "properties": {
         "enabled": {
           "type": "boolean",
@@ -725,7 +749,8 @@
       "default": "",
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.customValues.deployEnvironment"
+        "overwriteDefaultWith": "region.customValues.deployEnvironment",
+        "overwriteSchemaWith": "dapla/deployEnvironment.json"
       }
     },
     "statbankEncryptUrl": {
@@ -734,7 +759,8 @@
       "default": "",
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl"
+        "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
+        "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
       }
     },
     "daplaUser": {
