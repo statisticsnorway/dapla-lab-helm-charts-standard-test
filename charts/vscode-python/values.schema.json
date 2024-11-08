@@ -173,7 +173,7 @@
               "description": "Velg mengden CPU-ressurser i millicores (M). 50 M tilsvarer 0,05 av en CPU-kjerne og 2000 M tilsvarer 2 CPU-kjerner.",
               "title": "CPU",
               "type": "string",
-              "default": "250m",
+              "default": "2000m",
               "render": "slider",
               "sliderMin": 50,
               "sliderMax": 8000,
