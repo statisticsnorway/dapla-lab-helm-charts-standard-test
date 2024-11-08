@@ -381,7 +381,7 @@
           "type": "object",
           "description": "OAuth2 configuration",
           "x-onyxia": {
-            "overwriteSchemaWith": "dapla/oidc.json"
+            "overwriteSchemaWith": "dapla/oauth2.json"
           },
           "properties": {
             "provider": {
