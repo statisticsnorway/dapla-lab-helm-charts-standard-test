@@ -8,8 +8,14 @@ metadata:
     dapla.ssb.no/enable-ssbucketeer: "true"
     dapla.ssb.no/impersonate-group: {{ .Values.dapla.group }}
     dapla.ssb.no/service-container-name: {{ .Chart.Name }}
-{{- if .Values.dapla.buckets.mountStandard }}
-    dapla.ssb.no/mount-standard-buckets: "true"
+{{- with .Values.dapla.reason }}
+    dapla.ssb.no/access-reason: {{ . }}
+{{- end }}
+{{- with .Values.dapla.requestedDuration }}
+    dapla.ssb.no/requested-service-duration: {{ . }}
+{{- end }}
+{{- with .Values.dapla.buckets.mountStandard }}
+    dapla.ssb.no/mount-standard-buckets: "{{ . }}"
 {{- end }}
 {{- end }}
   labels:
@@ -80,7 +86,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
-              value: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:{{ .Values.tjeneste.image.version }}"
+              value: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:{{ .Values.tjeneste.image.version }}"
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION
@@ -188,7 +194,7 @@ spec:
               {{- end }}
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work
-              subpath: work
+              subPath: work
               name: home
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
