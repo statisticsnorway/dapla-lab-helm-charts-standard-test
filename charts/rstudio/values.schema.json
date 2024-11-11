@@ -68,8 +68,8 @@
           "sliderStep": 1,
           "sliderUnit": "h",
           "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
+            "value": "",
+            "path": "dapla/buckets/reason"
           }
         }
       }
