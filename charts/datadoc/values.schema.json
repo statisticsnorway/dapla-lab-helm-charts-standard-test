@@ -71,6 +71,10 @@
         "requests": {
           "description": "The amount of CPU requested",
           "type": "object",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteSchemaWith": "resources.json"
+          },
           "properties": {
             "cpu": {
               "description": "The amount of CPU guaranteed",
@@ -108,7 +112,7 @@
         }
       }
     },
-    "diskplass": {
+    "persistence": {
       "description": "Configuration for persistence",
       "type": "object",
       "properties": {
@@ -134,11 +138,12 @@
           "x-onyxia": {
             "hidden": true,
             "overwriteDefaultWith": "region.resources.disk",
+            "overwriteSchemaWith": "persistence.json",
             "useRegionSliderConfig": "disk"
           },
           "hidden": {
             "value": true,
-            "path": "diskplass/enabled"
+            "path": "persistence/enabled"
           }
         }
       }
@@ -150,6 +155,9 @@
         "allowlist": {
           "type": "object",
           "description": "IP protection",
+          "x-onyxia": {
+            "overwriteSchemaWith": "allowlist.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -179,6 +187,9 @@
         "networkPolicy": {
           "type": "object",
           "description": "Define access policy to the service",
+          "x-onyxia": {
+            "overwriteSchemaWith": "network-policy.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -204,6 +215,9 @@
         "serviceEntry": {
           "type": "object",
           "description": "Service entry to give access to external services",
+          "x-onyxia": {
+            "overwriteSchemaWith": "dapla/egress-datadoc.json"
+          },
           "properties": {
             "enabled": {
               "type": "boolean",
@@ -228,6 +242,9 @@
         "oauth2": {
           "type": "object",
           "description": "OAuth2 configuration",
+          "x-onyxia": {
+            "overwriteSchemaWith": "oauth2.json"
+          },
           "properties": {
             "provider": {
               "type": "string",
@@ -379,9 +396,14 @@
       "type": "array",
       "description": "Array of tolerations",
       "default": [],
+      "x-form": {
+        "hidden": true,
+        "value": "{{region.tolerations}}"
+      },
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.tolerations"
+        "overwriteDefaultWith": "region.tolerations",
+        "overwriteSchemaWith": "tolerations.json"
       }
     },
     "nodeSelector": {
@@ -390,7 +412,8 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector"
+        "overwriteDefaultWith": "region.nodeSelector",
+        "overwriteSchemaWith": "nodeSelector.json"
       }
     },
     "oidc": {
