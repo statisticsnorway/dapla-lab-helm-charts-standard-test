@@ -1,6 +1,6 @@
 apiVersion: v2
 name: jupyter-pyspark
-description: Minimal Jupyterlab med Python og Spark. Brukeren kan selv installere pakker.
+description: Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
 keywords:
   - Jupyter
