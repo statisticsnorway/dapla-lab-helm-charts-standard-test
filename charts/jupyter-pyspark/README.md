@@ -1,10 +1,10 @@
 # jupyter-pyspark
 
-![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.9](https://img.shields.io/badge/Version-0.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
-**Homepage:** <https://manual.dapla.ssb.no/statistikkere/jupyter.html>
+**Homepage:** <https://manual.dapla.ssb.no/statistikkere/jupyter-pyspark.html>
 
 ## Source Code
 
