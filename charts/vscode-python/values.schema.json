@@ -39,7 +39,7 @@
           "render": "list",
           "default": "dapla-felles-developers",
           "listEnum": [
-            ""
+            "dapla-felles-developers"
           ],
           "hidden": {
             "value": false,
