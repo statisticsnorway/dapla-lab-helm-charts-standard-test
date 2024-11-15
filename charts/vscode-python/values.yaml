@@ -151,7 +151,7 @@ dapla:
   buckets:
     enabled: false
     mountStandard: true
-  group: ""
+  group: "dapla-felles-developers"
 
 deleteJob:
   enabled: true

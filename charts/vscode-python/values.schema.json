@@ -15,7 +15,10 @@
               "type": "boolean",
               "title": "Aktiver",
               "description": "Aktiver datatilgang",
-              "default": false
+              "default": true,
+              "hidden": {
+                "value" : true
+              }
             },
             "mountStandard": {
               "type": "boolean",
@@ -34,14 +37,10 @@
           "title": "Team og tilgangsgruppe",
           "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
           "render": "list",
-          "default": "",
+          "default": "dapla-felles-developers",
           "listEnum": [
             ""
           ],
-          "x-onyxia": {
-            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
-            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          },
           "hidden": {
             "value": false,
             "path": "dapla/buckets/enabled"
