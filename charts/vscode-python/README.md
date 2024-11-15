@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.7](https://img.shields.io/badge/Version-0.7.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.8](https://img.shields.io/badge/Version-0.7.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -28,7 +28,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | dapla.buckets.enabled | bool | `false` |  |
 | dapla.buckets.mountStandard | bool | `true` |  |
-| dapla.group | string | `""` |  |
+| dapla.group | string | `"dapla-felles-developers"` |  |
 | daplaUser | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
