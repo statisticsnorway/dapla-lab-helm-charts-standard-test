@@ -15,7 +15,7 @@
               "type": "boolean",
               "title": "Aktiver",
               "description": "Aktiver datatilgang",
-              "default": true
+              "default": true,
               "hidden": {
                 "value" : true
               }
