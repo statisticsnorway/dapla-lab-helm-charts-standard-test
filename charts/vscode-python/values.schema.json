@@ -16,8 +16,8 @@
               "title": "Aktiver",
               "description": "Aktiver datatilgang",
               "default": true,
-              "hidden": {
-                "value" : true
+              "x-onyxia": {
+                "hidden": true
               }
             },
             "mountStandard": {
