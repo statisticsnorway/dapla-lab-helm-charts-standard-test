@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.10](https://img.shields.io/badge/Version-0.7.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.11](https://img.shields.io/badge/Version-0.7.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -26,7 +26,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| dapla.buckets.enabled | bool | `false` |  |
+| dapla.buckets.enabled | bool | `true` |  |
 | dapla.buckets.mountStandard | bool | `true` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | daplaUser | string | `""` |  |
