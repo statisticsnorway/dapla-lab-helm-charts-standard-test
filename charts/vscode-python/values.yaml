@@ -149,7 +149,7 @@ affinity: {}
 
 dapla:
   buckets:
-    enabled: false
+    enabled: true
     mountStandard: true
   group: "dapla-felles-developers"
 

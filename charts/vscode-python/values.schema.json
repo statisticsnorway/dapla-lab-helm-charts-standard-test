@@ -24,11 +24,7 @@
               "type": "boolean",
               "title": "Bøtter som filsystem",
               "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
-              "default": true,
-              "hidden": {
-                "value": false,
-                "path": "dapla/buckets/enabled"
-              }
+              "default": true
             }
           }
         },
@@ -40,21 +36,13 @@
           "default": "dapla-felles-developers",
           "listEnum": [
             "dapla-felles-developers"
-          ],
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
+          ]
         },
         "reason": {
           "type": "string",
           "title": "Begrunnelse",
           "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
-          "default": "",
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
+          "default": ""
         },
         "requestedDuration": {
           "type": "string",
