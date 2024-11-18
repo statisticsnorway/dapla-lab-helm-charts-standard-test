@@ -428,7 +428,7 @@
       "x-onyxia": {
         "hidden": true,
         "overwriteDefaultWith": "region.tolerations",
-        "overwriteSchemaWith": "tolerations.json"
+        "overwriteSchemaWith": "dapla/tolerations.json"
       }
     },
     "nodeSelector": {
