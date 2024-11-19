@@ -4757,6 +4757,28 @@ entries:
     version: 0.3.6
   vscode-python:
   - apiVersion: v2
+    created: "2024-11-19T08:20:45.142345452Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.2.0
+    description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter
+      behov.
+    digest: fd924ba8ea7554dd71c38a8ec51cb34f9414d458396d2c44f2abf8d78d018506
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.7.12/vscode-python-0.7.12.tgz
+    version: 0.7.12
+  - apiVersion: v2
     created: "2024-11-18T08:58:24.112720039Z"
     dependencies:
     - name: library-chart
@@ -6362,4 +6384,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.3.6/vscode-python-0.3.6.tgz
     version: 0.3.6
-generated: "2024-11-18T16:48:03.650032137Z"
+generated: "2024-11-19T08:20:45.14283725Z"
