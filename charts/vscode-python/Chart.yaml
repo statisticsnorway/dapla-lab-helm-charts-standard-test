@@ -8,7 +8,7 @@ keywords:
 home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
-  - https://github.com/statisticsnorway/dapla-lab-helm-charts-services
+  - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -27,5 +27,5 @@ version: 0.7.14
 
 dependencies:
   - name: library-chart
-    version: 4.2.0
+    version: 4.2.7
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
