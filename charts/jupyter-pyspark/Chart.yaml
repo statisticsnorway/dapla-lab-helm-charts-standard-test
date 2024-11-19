@@ -9,6 +9,7 @@ keywords:
 home: https://manual.dapla.ssb.no/statistikkere/jupyter-pyspark.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+  - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
   - https://github.com/statisticsnorway/dapla-lab-images
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -23,10 +24,10 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.0.11
+version: 0.0.12
 
 
 dependencies:
   - name: library-chart
-    version: 4.2.0
+    version: 4.2.7
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
