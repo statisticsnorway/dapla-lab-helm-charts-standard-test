@@ -178,4 +178,5 @@ deleteJob:
     annotations: {}
 deployEnvironment: "DEV"
 daplaUser: ""
+statbankBaseUrl: ""
 statbankEncryptUrl: ""
