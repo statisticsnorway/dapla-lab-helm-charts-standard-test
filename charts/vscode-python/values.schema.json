@@ -15,16 +15,17 @@
               "type": "boolean",
               "title": "Aktiver",
               "description": "Aktiver datatilgang",
-              "default": true,
-              "x-onyxia": {
-                "hidden": true
-              }
+              "default": false
             },
             "mountStandard": {
               "type": "boolean",
               "title": "Bøtter som filsystem",
               "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
-              "default": true
+              "default": true,
+              "hidden": {
+                "value": false,
+                "path": "dapla/buckets/enabled"
+              }
             }
           }
         },
@@ -33,16 +34,28 @@
           "title": "Team og tilgangsgruppe",
           "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
           "render": "list",
-          "default": "dapla-felles-developers",
+          "default": "",
           "listEnum": [
-            "dapla-felles-developers"
-          ]
+            ""
+          ],
+          "x-onyxia": {
+            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
+            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
+          },
+          "hidden": {
+            "value": false,
+            "path": "dapla/buckets/enabled"
+          }
         },
         "reason": {
           "type": "string",
           "title": "Begrunnelse",
           "description": "Begrunnelse for kildedatatilgang (kun for data-admins)",
-          "default": ""
+          "default": "",
+          "hidden": {
+            "value": false,
+            "path": "dapla/buckets/enabled"
+          }
         },
         "requestedDuration": {
           "type": "string",
