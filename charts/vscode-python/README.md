@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.14](https://img.shields.io/badge/Version-0.7.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.15](https://img.shields.io/badge/Version-0.7.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -9,13 +9,13 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 ## Source Code
 
 * <https://github.com/statisticsnorway/dapla-lab-images>
-* <https://github.com/statisticsnorway/dapla-lab-helm-charts-services>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-library>
 
 ## Requirements
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.7 |
 
 ## Values
 
