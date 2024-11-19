@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.7.5](https://img.shields.io/badge/Version-0.7.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.6](https://img.shields.io/badge/Version-0.7.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -9,13 +9,14 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 ## Source Code
 
 * <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-library>
 * <https://github.com/statisticsnorway/dapla-lab-images>
 
 ## Requirements
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.7 |
 
 ## Values
 
@@ -102,6 +103,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | startupProbe.periodSeconds | int | `10` |  |
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `5` |  |
+| statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.image.version | string | `"r4.4.0-py312-v55-2024.10.31"` |  |

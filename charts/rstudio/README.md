@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.6.6](https://img.shields.io/badge/Version-0.6.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.7](https://img.shields.io/badge/Version-0.6.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -9,13 +9,14 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 ## Source Code
 
 * <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-library>
 * <https://github.com/statisticsnorway/dapla-lab-images>
 
 ## Requirements
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.7 |
 
 ## Values
 
@@ -93,6 +94,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.image.version | string | `"r4.4.0-v54-2024.10.30"` |  |
