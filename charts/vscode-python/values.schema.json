@@ -9,7 +9,7 @@
       "properties": {
         "group": {
           "title": "Team og tilgangsgruppe",
-          "description": "Hvilket team og tilgangsgruppe sine datatilganger som skal aktiveres?",
+          "description": "Hvilket team og tilgangsgruppe sine datatilganger som skal aktiveres",
           "type": "string",
           "render": "list",
           "default": "dapla-felles-developers",
