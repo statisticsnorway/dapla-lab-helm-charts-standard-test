@@ -106,8 +106,6 @@ spec:
                   {{- $requestedcpu := .Values.ressurser.requests.cpu | trimSuffix "m" | int }}
                   {{- $cpulimit := div $requestedcpu 1000 }}
                   {{ $cpulimit | toString }}
-            - name: CPU_LIMIT
-              value: {{ .Values.ressurser.requests.cpu }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
             - name: POETRY_VIRTUALENVS_IN_PROJECT
