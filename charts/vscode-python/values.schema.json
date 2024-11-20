@@ -29,7 +29,7 @@
                "type": "string",
                "title": "Begrunnelse",
                "description": "Kun for data-admins",
-               "default": "",
+               "default": ""
              },
              "requestedDuration": {
                "type": "string",
@@ -40,7 +40,7 @@
                "sliderMin": 1,
                "sliderMax": 8,
                "sliderStep": 1,
-               "sliderUnit": "h",
+               "sliderUnit": "h"
             }
           }
         }
