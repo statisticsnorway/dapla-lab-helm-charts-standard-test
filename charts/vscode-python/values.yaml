@@ -148,9 +148,6 @@ userPreferences: {}
 affinity: {}
 
 dapla:
-  buckets:
-    enabled: true
-    mountStandard: true
   group: "dapla-felles-developers"
 
 deleteJob:
