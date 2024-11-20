@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.7.6](https://img.shields.io/badge/Version-0.7.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.7](https://img.shields.io/badge/Version-0.7.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -27,9 +27,9 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| dapla.buckets.enabled | bool | `false` |  |
-| dapla.buckets.mountStandard | bool | `true` |  |
 | dapla.group | string | `""` |  |
+| dapla.sourceData.reason | string | `""` |  |
+| dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | daplaUser | string | `""` |  |
 | deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
 | deleteJob.cronHourAtDay | string | `"20"` |  |
