@@ -148,6 +148,9 @@ userPreferences: {}
 affinity: {}
 
 dapla:
+  sourceData:
+    reason: ""
+    requestedDuration: "4h"
   group: "dapla-felles-developers"
 
 deleteJob:
