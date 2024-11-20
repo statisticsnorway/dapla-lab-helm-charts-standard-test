@@ -8,7 +8,7 @@
       "type": "object",
       "x-onyxia": {
         "overwriteSchemaWith": "dapla/dapla.json"
-      },
+      }
     },
     "git": {
       "description": "Konfigurer Git og GitHub for tjenesten",
