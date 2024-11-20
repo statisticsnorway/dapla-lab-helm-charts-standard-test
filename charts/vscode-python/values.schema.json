@@ -18,7 +18,7 @@
           ],
           "x-onyxia": {
             "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          },
+          }
         },
         "sourceData": {
           "title": "Kildedata",
