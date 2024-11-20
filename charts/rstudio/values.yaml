@@ -147,10 +147,10 @@ repository:
   rRepository: ""
 
 dapla:
-  buckets:
-    enabled: false
-    mountStandard: true
-  group: ""
+  sourceData:
+    reason: ""
+    requestedDuration: "4h"
+  group: "dapla-felles-developers"
 
 deleteJob:
   enabled: true
