@@ -106,17 +106,20 @@ spec:
             - name: SPARK_DRIVER_MEMORY
               value: |
                 {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
-                {{- $allocatedMem := mulf $requestedmem 0.5 | int }}
+                {{- $adjustedMem := mulf $requestedmem 0.5 | int }}
+                {{- $allocatedMem := min $requestedmem $adjustedMem }}
                 {{ $allocatedMem | toString }}g
             - name: SPARK_EXECUTOR_MEMORY
               value: |
                 {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
-                {{- $allocatedExecutorMem := mulf $requestedmem 0.9 | int }}
+                {{- $adjustedMem := mulf $requestedmem 0.9 | int }}
+                {{- $allocatedExecutorMem := min $requestedmem $adjustedMem }}
                 {{ $allocatedExecutorMem | toString }}g
             - name: SPARK_DRIVER_MAX_RESULT_SIZE
               value: |
                 {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
-                {{- $allocatedMaxResultSize := mulf $requestedmem 0.9 | int }}
+                {{- $adjustedMem := mulf $requestedmem 0.9 | int }}
+                {{- $allocatedMaxResultSize := min $requestedmem $adjustedMem }}
                 {{ $allocatedMaxResultSize | toString }}g
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
