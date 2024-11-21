@@ -103,6 +103,21 @@ spec:
                 {{- $requestedcpu := .Values.ressurser.requests.cpu | trimSuffix "m" | int }}
                 {{- $cpulimit := div $requestedcpu 1000 }}
                 {{ $cpulimit | toString }}
+            - name: SPARK_DRIVER_MEMORY
+              value: |
+                {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
+                {{- $allocatedMem := mulf $requestedmem 0.5 | int }}
+                {{ $allocatedMem | toString }}g
+            - name: SPARK_EXECUTOR_MEMORY
+              value: |
+                {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
+                {{- $allocatedExecutorMem := mulf $requestedmem 0.9 | int }}
+                {{ $allocatedExecutorMem | toString }}g
+            - name: SPARK_DRIVER_MAX_RESULT_SIZE
+              value: |
+                {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
+                {{- $allocatedMaxResultSize := mulf $requestedmem 0.9 | int }}
+                {{ $allocatedMaxResultSize | toString }}g
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
             - name: POETRY_VIRTUALENVS_IN_PROJECT
