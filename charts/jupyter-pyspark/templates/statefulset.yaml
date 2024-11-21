@@ -69,7 +69,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:{{ .Values.tjeneste.image.version }}"
           command: ["/bin/sh","-c"]
-          args: ["{{ .Values.init.standardInitPath }} jupyter lab --no-browser --ip '0.0.0.0' --LabApp.token='$(PASSWORD)' --ContentsManager.allow_hidden=True"]
+          args: ["{{ .Values.init.standardInitPath }} && /usr/local/bin/spark-init.sh"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
@@ -107,19 +107,19 @@ spec:
               value: |
                 {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
                 {{- $adjustedMem := mulf $requestedmem 0.5 | int }}
-                {{- $allocatedMem := min $requestedmem $adjustedMem }}
+                {{- $allocatedMem := max 1 (min $requestedmem $adjustedMem) }}
                 {{ $allocatedMem | toString }}g
             - name: SPARK_EXECUTOR_MEMORY
               value: |
                 {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
                 {{- $adjustedMem := mulf $requestedmem 0.9 | int }}
-                {{- $allocatedExecutorMem := min $requestedmem $adjustedMem }}
+                {{- $allocatedExecutorMem := max 1 (min $requestedmem $adjustedMem) }}
                 {{ $allocatedExecutorMem | toString }}g
             - name: SPARK_DRIVER_MAX_RESULT_SIZE
               value: |
                 {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
                 {{- $adjustedMem := mulf $requestedmem 0.9 | int }}
-                {{- $allocatedMaxResultSize := min $requestedmem $adjustedMem }}
+                {{- $allocatedMaxResultSize := max 1 (min $requestedmem $adjustedMem) }}
                 {{ $allocatedMaxResultSize | toString }}g
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
