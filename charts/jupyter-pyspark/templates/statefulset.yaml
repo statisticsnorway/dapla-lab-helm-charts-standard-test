@@ -106,7 +106,7 @@ spec:
             - name: SPARK_DRIVER_MEMORY
               value: |
                 {{- $requestedmem := .Values.ressurser.requests.memory | trimSuffix "Gi" | int }}
-                {{- $adjustedMem := mulf $requestedmem 0.5 | int }}
+                {{- $adjustedMem := mulf $requestedmem 0.9 | int }}
                 {{- $allocatedMem := max 1 (min $requestedmem $adjustedMem) }}
                 {{ $allocatedMem | toString }}g
             - name: SPARK_EXECUTOR_MEMORY
