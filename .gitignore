@@ -8,3 +8,5 @@ utils/prepull-daemon-manifest.yaml
 **/prepull.log
 /.idea/
 **/*.DS_Store
+.direnv/
+.envrc
