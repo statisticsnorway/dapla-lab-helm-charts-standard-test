@@ -1,8 +1,8 @@
 global:
   suspend: false
 tjeneste:
+  version: "r4.4.0-py312-v55-2024.10.31"
   image:
-    version: "r4.4.0-py312-v55-2024.10.31"
     pullPolicy: IfNotPresent
 
 security:
