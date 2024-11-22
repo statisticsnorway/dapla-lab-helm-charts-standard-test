@@ -94,6 +94,43 @@
         }
       }
     },
+    "tjeneste": {
+      "title": "Python/R",
+      "description": "Velg versjon av Python og R",
+      "type": "object",
+      "properties": {
+        "version": {
+          "description": "Versjon av Python og R i tjenesten",
+          "type": "string",
+          "default": "py311-v53-2024.10.25",
+          "listEnum": [
+            "py312-v53-2024.10.25",
+            "py311-v53-2024.10.25"
+          ],
+          "render": "list",
+          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+        },
+        "image": {
+          "description": "image docker",
+          "type": "object",
+          "properties": {
+            "pullPolicy": {
+              "type": "string",
+              "description": "option when pulling the docker image",
+              "default": "IfNotPresent",
+              "enum": [
+                "IfNotPresent",
+                "Always",
+                "Never"
+              ],
+              "x-onyxia": {
+                "hidden": true
+              }
+            }
+          }
+        }
+      }
+    },
     "ressurser": {
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
@@ -134,42 +171,6 @@
                 "overwriteDefaultWith": "region.resources.memoryRequest",
                 "useRegionSliderConfig": "memory"
               }
-            }
-          }
-        }
-      }
-    },
-    "tjeneste": {
-      "description": "Velg versjon av tjenesten",
-      "type": "object",
-      "properties": {
-        "image": {
-          "description": "image docker",
-          "type": "object",
-          "properties": {
-            "pullPolicy": {
-              "type": "string",
-              "description": "option when pulling the docker image",
-              "default": "IfNotPresent",
-              "enum": [
-                "IfNotPresent",
-                "Always",
-                "Never"
-              ],
-              "x-onyxia": {
-                "hidden": true
-              }
-            },
-            "version": {
-              "description": "Velg hvilken versjon av python du ønsker å starte tjenesten med",
-              "type": "string",
-              "default": "py311-v53-2024.10.25",
-              "listEnum": [
-                "py312-v53-2024.10.25",
-                "py311-v53-2024.10.25"
-              ],
-              "render": "list",
-              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
             }
           }
         }
@@ -701,22 +702,22 @@
       }
     },
     "statbankBaseUrl": {
-        "type": "string",
-        "description": "The statbank base URL",
-        "x-onyxia": {
-          "hidden": true,
-          "overwriteSchemaWith": "dapla/statbankBaseUrl.json"
-        }
+      "type": "string",
+      "description": "The statbank base URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/statbankBaseUrl.json"
+      }
     },
     "statbankEncryptUrl": {
-        "type": "string",
-        "description": "The statbank authenticator encryption endpoint",
-        "default": "",
-        "x-onyxia": {
-          "hidden": true,
-          "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
-          "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
-        }
+      "type": "string",
+      "description": "The statbank authenticator encryption endpoint",
+      "default": "",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
+        "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
+      }
     },
     "daplaUser": {
       "type": "string",
@@ -729,18 +730,18 @@
       }
     },
     "global": {
-        "description": "Suspend",
-        "type": "object",
-        "properties": {
-            "suspend": {
-                "type": "boolean",
-                "description": "Suspend this service",
-                "default": false,
-                "x-onyxia": {
-                    "hidden": true
-                }
-            }
+      "description": "Suspend",
+      "type": "object",
+      "properties": {
+        "suspend": {
+          "type": "boolean",
+          "description": "Suspend this service",
+          "default": false,
+          "x-onyxia": {
+            "hidden": true
+          }
         }
       }
+    }
   }
 }
