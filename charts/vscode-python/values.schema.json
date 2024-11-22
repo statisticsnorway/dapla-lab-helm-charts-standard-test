@@ -100,6 +100,7 @@
       "type": "object",
       "properties": {
         "version": {
+          "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
           "default": "py311-v53-2024.10.25",
