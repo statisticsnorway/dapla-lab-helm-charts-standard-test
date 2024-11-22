@@ -95,11 +95,24 @@
       }
     },
     "tjeneste": {
-      "description": "Velg versjon av tjenesten",
+      "title": "Python/R",
+      "description": "Velg versjon av Python og R",
       "type": "object",
       "properties": {
+        "version": {
+          "title": "Versjon",
+          "description": "Versjon av Python og R i tjenesten",
+          "type": "string",
+          "default": "r4.4.0-py311-v55-2024.10.31",
+          "listEnum": [
+            "r4.4.0-py312-v55-2024.10.31",
+            "r4.4.0-py311-v55-2024.10.31"
+          ],
+          "render": "list",
+          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+        },
         "image": {
-          "description": "image docker",
+          "description": "Docker konteiner",
           "type": "object",
           "properties": {
             "pullPolicy": {
@@ -114,18 +127,6 @@
               "x-onyxia": {
                 "hidden": true
               }
-            },
-            "version": {
-              "title": "Versjon",
-              "description": "Velg hvilken versjon av R og Python du ønsker å starte tjenesten med",
-              "type": "string",
-              "default": "r4.4.0-py311-v55-2024.10.31",
-              "listEnum": [
-                "r4.4.0-py312-v55-2024.10.31",
-                "r4.4.0-py311-v55-2024.10.31"
-              ],
-              "render": "list",
-              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
             }
           }
         }
@@ -687,12 +688,12 @@
       }
     },
     "statbankBaseUrl": {
-        "type": "string",
-        "description": "The statbank base URL",
-        "x-onyxia": {
-          "hidden": true,
-          "overwriteSchemaWith": "dapla/statbankBaseUrl.json"
-        }
+      "type": "string",
+      "description": "The statbank base URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/statbankBaseUrl.json"
+      }
     },
     "statbankEncryptUrl": {
       "type": "string",
