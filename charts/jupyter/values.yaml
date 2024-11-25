@@ -44,18 +44,20 @@ dapla:
     requestedDuration: "4h"
   group: ""
 
-git:
-  # Specifies whether a config map should be created
-  enabled: false
-  # The name of the configmap to use.
-  # If not set and create is true, a name is generated using the fullname template
-  configMapName: ""
-  name: ""
-  email: ""
-  cache: ""
-  token: ""
-  repository: ""
-  branch: ""
+gitConfig:
+  git:
+    # Specifies whether a config map should be created
+    enabled: false
+    # The name of the configmap to use.
+    # If not set and create is true, a name is generated using the fullname template
+    configMapName: ""
+    name: ""
+    email: ""
+    cache: ""
+  github:
+    token: ""
+    repository: ""
+    branch: ""
 
 oidc:
   # Specifies whether a config map should be created
