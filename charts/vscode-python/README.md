@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.22](https://img.shields.io/badge/Version-0.7.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.23](https://img.shields.io/badge/Version-0.7.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -15,7 +15,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.7 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.9 |
 
 ## Values
 
@@ -43,12 +43,14 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
-| git.branch | string | `""` |  |
-| git.cache | string | `""` |  |
-| git.email | string | `""` |  |
-| git.enabled | bool | `true` |  |
-| git.name | string | `""` |  |
-| git.secretName | string | `""` |  |
+| gitConfig.git.cache | string | `""` |  |
+| gitConfig.git.configMapName | string | `""` |  |
+| gitConfig.git.email | string | `""` |  |
+| gitConfig.git.enabled | bool | `false` |  |
+| gitConfig.git.name | string | `""` |  |
+| gitConfig.github.branch | string | `""` |  |
+| gitConfig.github.repository | string | `""` |  |
+| gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |

@@ -1,6 +1,6 @@
 # jupyter-pyspark
 
-![Version: 0.0.24](https://img.shields.io/badge/Version-0.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.25](https://img.shields.io/badge/Version-0.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.7 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.9 |
 
 ## Values
 
@@ -45,14 +45,14 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
-| git.branch | string | `""` |  |
-| git.cache | string | `""` |  |
-| git.configMapName | string | `""` |  |
-| git.email | string | `""` |  |
-| git.enabled | bool | `false` |  |
-| git.name | string | `""` |  |
-| git.repository | string | `""` |  |
-| git.token | string | `""` |  |
+| gitConfig.git.cache | string | `""` |  |
+| gitConfig.git.configMapName | string | `""` |  |
+| gitConfig.git.email | string | `""` |  |
+| gitConfig.git.enabled | bool | `false` |  |
+| gitConfig.git.name | string | `""` |  |
+| gitConfig.github.branch | string | `""` |  |
+| gitConfig.github.repository | string | `""` |  |
+| gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |

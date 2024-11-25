@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.6.11](https://img.shields.io/badge/Version-0.6.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.12](https://img.shields.io/badge/Version-0.6.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -16,7 +16,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.7 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.9 |
 
 ## Values
 
@@ -45,14 +45,14 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
-| git.branch | string | `""` |  |
-| git.cache | string | `""` |  |
-| git.configMapName | string | `""` |  |
-| git.email | string | `""` |  |
-| git.enabled | bool | `false` |  |
-| git.name | string | `""` |  |
-| git.repository | string | `""` |  |
-| git.token | string | `""` |  |
+| gitConfig.git.cache | string | `""` |  |
+| gitConfig.git.configMapName | string | `""` |  |
+| gitConfig.git.email | string | `""` |  |
+| gitConfig.git.enabled | bool | `false` |  |
+| gitConfig.git.name | string | `""` |  |
+| gitConfig.github.branch | string | `""` |  |
+| gitConfig.github.repository | string | `""` |  |
+| gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |

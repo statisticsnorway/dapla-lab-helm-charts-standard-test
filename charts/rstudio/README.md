@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.6.12](https://img.shields.io/badge/Version-0.6.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.13](https://img.shields.io/badge/Version-0.6.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.7 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.9 |
 
 ## Values
 
@@ -44,14 +44,14 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
-| git.branch | string | `""` |  |
-| git.cache | string | `""` |  |
-| git.email | string | `""` |  |
-| git.enabled | bool | `true` |  |
-| git.name | string | `""` |  |
-| git.repository | string | `""` |  |
-| git.secretName | string | `""` |  |
-| git.token | string | `""` |  |
+| gitConfig.git.cache | string | `""` |  |
+| gitConfig.git.configMapName | string | `""` |  |
+| gitConfig.git.email | string | `""` |  |
+| gitConfig.git.enabled | bool | `false` |  |
+| gitConfig.git.name | string | `""` |  |
+| gitConfig.github.branch | string | `""` |  |
+| gitConfig.github.repository | string | `""` |  |
+| gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
