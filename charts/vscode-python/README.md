@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.21](https://img.shields.io/badge/Version-0.7.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.22](https://img.shields.io/badge/Version-0.7.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -75,8 +75,8 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
-| ressurser.requests.cpu | string | `""` |  |
-| ressurser.requests.memory | string | `""` |  |
+| resources.cpu | string | `""` |  |
+| resources.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |

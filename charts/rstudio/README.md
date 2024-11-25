@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.6.11](https://img.shields.io/badge/Version-0.6.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.12](https://img.shields.io/badge/Version-0.6.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -77,8 +77,8 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | replicaCount | int | `1` |  |
 | repository.configMapName | string | `""` |  |
 | repository.rRepository | string | `""` |  |
-| ressurser.requests.cpu | string | `""` |  |
-| ressurser.requests.memory | string | `""` |  |
+| resources.cpu | string | `""` |  |
+| resources.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
