@@ -29,7 +29,7 @@ spec:
   template:
     metadata:
       annotations:
-        {{- if .Values.git.enabled }}
+        {{- if .Values.gitConfig.git.enabled }}
         checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
         {{- end }}
         {{- if .Values.oidc.enabled }}
@@ -134,7 +134,7 @@ spec:
             - secretRef:
                 name: {{ include "library-chart.secretNameOidc" . }}
             {{- end }}
-            {{- if .Values.git.enabled }}
+            {{- if .Values.gitConfig.git.enabled }}
             - secretRef:
                 name: {{ include "library-chart.secretNameGit" . }}
             {{- end }}
