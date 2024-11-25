@@ -103,37 +103,11 @@
       }
     },
     "diskplass": {
-      "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
+      "title": "Diskplass",
+      "description": "Velg hvor mye diskplass du trenger",
       "type": "object",
       "x-onyxia": {
         "overwriteSchemaWith": "dapla/persistence.json"
-      },
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "title": "Opprett filsystem",
-          "description": "Opprett et lokal filsystem i tjenesten",
-          "default": true
-        },
-        "size": {
-          "type": "string",
-          "title": "Diskplass i filsystemet",
-          "default": "10Gi",
-          "form": true,
-          "render": "slider",
-          "sliderMin": 1,
-          "sliderMax": 100,
-          "sliderStep": 1,
-          "sliderUnit": "Gi",
-          "x-onyxia": {
-            "overwriteDefaultWith": "region.resources.disk",
-            "useRegionSliderConfig": "disk"
-          },
-          "hidden": {
-            "value": false,
-            "path": "diskplass/enabled"
-          }
-        }
       }
     },
     "security": {
