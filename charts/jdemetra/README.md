@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 1.0.5](https://img.shields.io/badge/Version-1.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
@@ -86,8 +86,8 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 | startupProbe.periodSeconds | int | `10` |  |
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `30` |  |
-| tjeneste.image.pullPolicy | string | `"Always"` |  |
-| tjeneste.image.version | string | `"v1"` |  |
+| tjeneste.pullPolicy | string | `"Always"` |  |
+| tjeneste.version | string | `"v1"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |

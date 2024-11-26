@@ -23,6 +23,7 @@ type: application
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
 version: 1.0.7
 
+
 dependencies:
   - name: library-chart
     version: 4.2.9
