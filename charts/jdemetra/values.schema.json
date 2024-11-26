@@ -7,7 +7,7 @@
       "description": "Velg Dapla-team og tilgangsgruppe for datatilgang",
       "type": "object",
       "x-onyxia": {
-        "overrideSchemaWith": "dapla/dapla.json"
+        "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
     "tjeneste": {
