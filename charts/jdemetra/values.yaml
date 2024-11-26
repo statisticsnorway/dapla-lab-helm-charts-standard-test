@@ -3,9 +3,8 @@ global:
   suspend: false
 
 tjeneste:
-  image:
-    version: "v1"
-    pullPolicy: Always
+  version: "v1"
+  pullPolicy: Always
 
 security:
   password: "changeme"
