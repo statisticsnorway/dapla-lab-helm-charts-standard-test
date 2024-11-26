@@ -29,6 +29,7 @@
           }
         },
         "version": {
+          "title": "Versjon",
           "description": "JDemetra versjon",
           "type": "string",
           "default": "jd2.2.5",
