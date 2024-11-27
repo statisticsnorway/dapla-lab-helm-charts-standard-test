@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 1.0.8](https://img.shields.io/badge/Version-1.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.9](https://img.shields.io/badge/Version-1.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
@@ -26,9 +26,9 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| dapla.buckets.enabled | bool | `true` |  |
-| dapla.buckets.mountStandard | bool | `false` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
+| dapla.sourceData.reason | string | `""` |  |
+| dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
 | diskplass.enabled | bool | `false` |  |
 | diskplass.size | string | `"10Gi"` |  |
