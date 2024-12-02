@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.24](https://img.shields.io/badge/Version-0.7.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.25](https://img.shields.io/badge/Version-0.7.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -97,7 +97,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"py311-v53-2024.10.25"` |  |
+| tjeneste.version | string | `"py311-v59-2024.12.02"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
