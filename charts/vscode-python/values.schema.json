@@ -582,6 +582,14 @@
         "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
       }
     },
+    "maskinportenGuardianUrl": {
+      "type": "string",
+      "description": "Maskinporten access token URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/maskinportenGuardianUrl.json"
+      }
+    },
     "daplaUser": {
       "type": "string",
       "title": "Current Dapla user",
