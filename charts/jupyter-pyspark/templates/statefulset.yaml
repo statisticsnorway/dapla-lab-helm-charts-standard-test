@@ -148,6 +148,8 @@ spec:
               value: {{ .Values.statbankBaseUrl }}
             - name: STATBANK_ENCRYPT_URL
               value: {{ .Values.statbankEncryptUrl }}
+            - name: MASKINPORTEN_TOKEN_URL
+              value: {{ .Values.maskinportenGuardianUrl }}
             - name: DAPLA_USER
               value: {{ .Values.daplaUser }}
             - name: PYSPARK_LOCAL_SUBMIT_ARGS 
