@@ -137,6 +137,10 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
+avansert:
+  data:
+    mountStandard: true
+
 nodeSelector: {}
 
 tolerations: []

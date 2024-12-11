@@ -73,6 +73,14 @@
         "overwriteSchemaWith": "dapla/persistence.json"
       }
     },
+    "avansert": {
+      "title": "Avansert",
+      "description": "Velg avansert konfigurasjon",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/advanced.json"
+      }
+    },
     "security": {
       "description": "RStudio specific configuration",
       "type": "object",

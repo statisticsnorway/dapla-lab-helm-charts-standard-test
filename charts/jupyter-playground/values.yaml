@@ -149,6 +149,10 @@ diskplass:
   size: 10Gi
   # existingClaim: ""
 
+avansert:
+  data:
+    mountStandard: true
+
 autoscaling:
   enabled: false
   minReplicas: 1
