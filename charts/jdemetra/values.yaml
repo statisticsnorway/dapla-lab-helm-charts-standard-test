@@ -3,9 +3,8 @@ global:
   suspend: false
 
 tjeneste:
-  image:
-    version: "v1"
-    pullPolicy: Always
+  version: "v1"
+  pullPolicy: Always
 
 security:
   password: "changeme"
@@ -38,9 +37,9 @@ userAttributes:
   value: ""
 
 dapla:
-  buckets:
-    enabled: true
-    mountStandard: false
+  sourceData:
+    reason: ""
+    requestedDuration: "4h"
   group: "dapla-felles-developers"
 
 oidc:
@@ -102,13 +101,12 @@ istio:
   hostname: chart-example.local
   userHostname: chart-example-user.local
 
-ressurser:
+resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube.
-  requests:
-    cpu: ""
-    memory: ""
+  cpu: ""
+  memory: ""
 
 diskplass:
   enabled: false

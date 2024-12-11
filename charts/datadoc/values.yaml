@@ -41,9 +41,9 @@ userAttributes:
   value: ""
 
 dapla:
-  buckets:
-    enabled: true
-    mountStandard: false
+  sourceData:
+    reason: ""
+    requestedDuration: "4h"
   group: "dapla-felles-developers"
 
 oidc:
@@ -76,7 +76,7 @@ kubernetes:
 podAnnotations: {}
 
 podLabels:
-  onyxia.app: "datadoc"
+  onyxia.app: "datadoc-editor"
   maintained-by-team: "dapla-metadata"
 
 podSecurityContext:

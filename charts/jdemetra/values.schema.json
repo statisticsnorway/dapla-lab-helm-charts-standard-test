@@ -3,170 +3,59 @@
   "type": "object",
   "properties": {
     "dapla": {
-      "title": "Dapla",
-      "description": "Aktiver bøttemontering og velg dapla-gruppe",
+      "title": "Data",
+      "description": "Velg Dapla-team og tilgangsgruppe for datatilgang",
       "type": "object",
-      "properties": {
-        "buckets": {
-          "title": "Buckets",
-          "type": "object",
-          "properties": {
-            "enabled": {
-              "type": "boolean",
-              "title": "Aktivér",
-              "description": "Aktivér datatilgang",
-              "default": true
-            },
-            "mountStandard": {
-              "type": "boolean",
-              "title": "Bøtter som filsystem",
-              "description": "Tilgjengeliggjør teamets bøtter i filsystemet (f.eks. produkt, tilsky, frasky)",
-              "default": true,
-              "x-onyxia": {
-                "hidden": true
-              }
-            }
-          }
-        },
-        "group": {
-          "type": "string",
-          "title": "Team og tilgangsgruppe",
-          "description": "Hvilket team og tilgangsgruppe sine datatilganger som aktiveres",
-          "render": "list",
-          "default": "dapla-felles-developers",
-          "listEnum": [
-            ""
-          ],
-          "x-onyxia": {
-            "overwriteDefaultWith": "user.decodedIdToken.dapla.groups.0",
-            "overwriteListEnumWith": "user.decodedIdToken.dapla.groups"
-          },
-          "hidden": {
-            "value": false,
-            "path": "dapla/buckets/enabled"
-          }
-        }
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
     "tjeneste": {
+      "title": "Tjeneste",
       "description": "Velg versjon av tjenesten",
       "type": "object",
       "properties": {
-        "image": {
-          "description": "image docker",
-          "type": "object",
-          "properties": {
-            "pullPolicy": {
-              "type": "string",
-              "description": "option when pulling the docker image",
-              "default": "Always",
-              "enum": [
-                "IfNotPresent",
-                "Always",
-                "Never"
-              ],
-              "x-onyxia": {
-                "hidden": true
-              }
-            },
-            "version": {
-              "description": "JDemetra versjon",
-              "type": "string",
-              "default": "jd2.2.5",
-              "listEnum": [
-                "jd3.2.4",
-                "jd2.2.5"
-              ],
-              "render": "list",
-              "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
-            }
-          }
-        }
-      }
-    },
-    "ressurser": {
-      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
-      "type": "object",
-      "x-onyxia": {
-        "overwriteSchemaWith": "dapla/resources-ide.json"
-      },
-      "properties": {
-        "requests": {
-          "description": "Garantert tilgjengelig cpu i tjenesten",
-          "type": "object",
-          "properties": {
-            "cpu": {
-              "description": "Garantert tilgjengelig CPU i tjenesten. Maximum kan være høyere hvis tilgjengelig på maskinen",
-              "title": "CPU",
-              "type": "string",
-              "default": "1000m",
-              "render": "slider",
-              "sliderMin": 50,
-              "sliderMax": 8000,
-              "sliderStep": 50,
-              "sliderUnit": "m",
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.resources.cpuRequest",
-                "useRegionSliderConfig": "cpu"
-              }
-            },
-            "memory": {
-              "description": "Garantert tilgjengelig minne/RAM i tjenesten",
-              "title": "Minne/RAM",
-              "type": "string",
-              "default": "4Gi",
-              "render": "slider",
-              "sliderMin": 1,
-              "sliderMax": 64,
-              "sliderStep": 1,
-              "sliderUnit": "Gi",
-              "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.resources.memoryRequest",
-                "useRegionSliderConfig": "memory"
-              }
-            }
-          }
-        }
-      }
-    },
-    "diskplass": {
-      "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
-      "type": "object",
-      "x-onyxia": {
-        "overwriteSchemaWith": "dapla/persistence.json"
-      },
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "title": "Opprett filsystem",
-          "description": "Opprett et lokal filsystem i tjenesten",
-          "default": true,
+        "pullPolicy": {
+          "type": "string",
+          "description": "option when pulling the docker image",
+          "default": "Always",
+          "enum": [
+            "IfNotPresent",
+            "Always",
+            "Never"
+          ],
           "x-onyxia": {
             "hidden": true
           }
         },
-        "size": {
+        "version": {
+          "title": "Versjon",
+          "description": "JDemetra versjon",
           "type": "string",
-          "title": "Diskplass i filsystemet",
-          "default": "10Gi",
-          "form": true,
-          "render": "slider",
-          "sliderMin": 1,
-          "sliderMax": 100,
-          "sliderStep": 1,
-          "sliderUnit": "Gi",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "region.resources.disk",
-            "useRegionSliderConfig": "disk"
-          },
-          "hidden": {
-            "value": true,
-            "path": "diskplass/enabled"
-          }
+          "default": "jd2.2.5",
+          "listEnum": [
+            "jd3.2.4",
+            "jd2.2.5"
+          ],
+          "render": "list",
+          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
         }
+      }
+    },
+    "resources": {
+      "title": "Ressurser",
+      "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/resources-ide.json"
+      }
+    },
+    "diskplass": {
+      "title": "Diskplass",
+      "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/persistence.json"
       }
     },
     "security": {
@@ -508,18 +397,18 @@
       }
     },
     "global": {
-        "description": "Suspend",
-        "type": "object",
-        "properties": {
-            "suspend": {
-                "type": "boolean",
-                "description": "Pause tjenesten",
-                "default": false,
-                "x-onyxia": {
-                    "hidden": true
-                }
-            }
+      "description": "Suspend",
+      "type": "object",
+      "properties": {
+        "suspend": {
+          "type": "boolean",
+          "description": "Pause tjenesten",
+          "default": false,
+          "x-onyxia": {
+            "hidden": true
+          }
         }
       }
+    }
   }
 }

@@ -1,8 +1,8 @@
 global:
   suspend: false
 tjeneste:
+  version: "r4.4.0-v54-2024.10.30"
   image:
-    version: "r4.4.0-v54-2024.10.30"
     pullPolicy: IfNotPresent
 
 security:
@@ -46,18 +46,20 @@ oidc:
   # If not set and create is true, a name is generated using the fullname template
   secretName: ""
 
-git:
-  # Specifies whether a config map should be created
-  enabled: true
-  # The name of the configmap to use.
-  # If not set and create is true, a name is generated using the fullname template
-  secretName: ""
-  name: ""
-  email: ""
-  cache: ""
-  token: ""
-  repository: ""
-  branch: ""
+gitConfig:
+  git:
+    # Specifies whether a config map should be created
+    enabled: false
+    # The name of the configmap to use.
+    # If not set and create is true, a name is generated using the fullname template
+    configMapName: ""
+    name: ""
+    email: ""
+    cache: ""
+  github:
+    token: ""
+    repository: ""
+    branch: ""
 
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -108,13 +110,12 @@ istio:
     - istio-namespace/example-gateway
   hostname: chart-example.local
 
-ressurser:
+resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube.
-  requests:
-    cpu: ""
-    memory: ""
+  cpu: ""
+  memory: ""
 
 diskplass:
   enabled: true

@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.9](https://img.shields.io/badge/Version-1.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
@@ -15,7 +15,7 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.0.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.9 |
 
 ## Values
 
@@ -26,9 +26,9 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| dapla.buckets.enabled | bool | `true` |  |
-| dapla.buckets.mountStandard | bool | `false` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
+| dapla.sourceData.reason | string | `""` |  |
+| dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
 | diskplass.enabled | bool | `false` |  |
 | diskplass.size | string | `"10Gi"` |  |
@@ -64,8 +64,8 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 | podLabels."onyxia.app" | string | `"jdemetra"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |
-| ressurser.requests.cpu | string | `""` |  |
-| ressurser.requests.memory | string | `""` |  |
+| resources.cpu | string | `""` |  |
+| resources.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
@@ -86,8 +86,8 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 | startupProbe.periodSeconds | int | `10` |  |
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `30` |  |
-| tjeneste.image.pullPolicy | string | `"Always"` |  |
-| tjeneste.image.version | string | `"v1"` |  |
+| tjeneste.pullPolicy | string | `"Always"` |  |
+| tjeneste.version | string | `"v1"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
