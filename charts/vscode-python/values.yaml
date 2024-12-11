@@ -156,6 +156,10 @@ dapla:
     requestedDuration: "4h"
   group: "dapla-felles-developers"
 
+avansert:
+  data:
+    mountStandard: true
+
 deleteJob:
   enabled: true
   cronMinuteAtDay: "0"
