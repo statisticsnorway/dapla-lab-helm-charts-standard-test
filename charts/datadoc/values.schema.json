@@ -112,6 +112,14 @@
         }
       }
     },
+    "avansert": {
+      "title": "Avansert",
+      "description": "Velg avansert konfigurasjon",
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "dapla/advanced.json"
+      }
+    },
     "security": {
       "description": "security specific configuration",
       "type": "object",

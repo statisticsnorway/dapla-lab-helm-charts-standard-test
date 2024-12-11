@@ -119,6 +119,10 @@ diskplass:
   accessMode: ReadWriteOnce
   size: 10Gi
 
+avansert:
+  data:
+    mountStandard: true
+
 autoscaling:
   enabled: false
   minReplicas: 1
