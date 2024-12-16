@@ -47,7 +47,6 @@
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "x-onyxia": {
-        "hidden": true,
         "overwriteSchemaWith": "dapla/resources-ide.json"
       }
     },
@@ -56,7 +55,6 @@
       "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
       "x-onyxia": {
-        "hidden": true,
         "overwriteSchemaWith": "dapla/persistence.json"
       }
     },
