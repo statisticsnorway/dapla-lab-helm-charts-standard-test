@@ -28,10 +28,10 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "py311-v59-2024.12.02",
+          "default": "py311-v61-2024.12.16",
           "listEnum": [
-            "py312-v59-2024.12.02",
-            "py311-v59-2024.12.02"
+            "py312-v61-2024.12.16",
+            "py311-v61-2024.12.16"
           ],
           "render": "list",
           "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
