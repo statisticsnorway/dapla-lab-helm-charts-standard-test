@@ -28,10 +28,10 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "py311-spark3.5.3-v7-2024.12.19",
+          "default": "py311-spark3.5.3-v12-2025.01.07",
           "listEnum": [
-            "py312-spark3.5.3-v8-2024.12.19",
-            "py311-spark3.5.3-v7-2024.12.19"
+            "py312-spark3.5.3-v13-2025.01.07",
+            "py311-spark3.5.3-v12-2025.01.07"
           ],
           "render": "list",
           "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
