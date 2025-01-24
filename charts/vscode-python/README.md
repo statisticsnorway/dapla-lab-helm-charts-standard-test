@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.30](https://img.shields.io/badge/Version-0.7.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.31](https://img.shields.io/badge/Version-0.7.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -97,6 +97,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | serviceAccount.name | string | `""` |  |
 | statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
+| suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.version | string | `"py311-v67-2025.01.10"` |  |
 | tolerations | list | `[]` |  |
