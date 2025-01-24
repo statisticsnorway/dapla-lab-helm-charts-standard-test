@@ -590,6 +590,14 @@
         "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
       }
     },
+    "suvDaplaApiUrl": {
+      "type": "string",
+      "description": "The SUV API URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/suvDaplaApiUrl.json"
+      }
+    },
     "daplaUser": {
       "type": "string",
       "title": "Current Dapla user",
