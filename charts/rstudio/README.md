@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.6.17](https://img.shields.io/badge/Version-0.6.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.18](https://img.shields.io/badge/Version-0.6.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -75,6 +75,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
+| pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |
 | repository.configMapName | string | `""` |  |
 | repository.rRepository | string | `""` |  |

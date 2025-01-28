@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.7.20](https://img.shields.io/badge/Version-0.7.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.21](https://img.shields.io/badge/Version-0.7.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -78,6 +78,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | podAnnotations | object | `{}` |  |
 | podLabels."onyxia.app" | string | `"jupyterlab"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
+| pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |

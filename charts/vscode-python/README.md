@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.31](https://img.shields.io/badge/Version-0.7.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.32](https://img.shields.io/badge/Version-0.7.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -74,6 +74,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
+| pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
