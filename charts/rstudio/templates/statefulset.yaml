@@ -108,6 +108,8 @@ spec:
               value: {{ .Values.statbankBaseUrl }}
             - name: STATBANK_ENCRYPT_URL
               value: {{ .Values.statbankEncryptUrl }}
+            - name: MASKINPORTEN_TOKEN_URL
+              value: {{ .Values.maskinportenGuardianUrl }}
             - name: PSEUDO_SERVICE_URL
               value: {{ .Values.pseudoServiceUrl }}
             - name: DAPLA_USER
