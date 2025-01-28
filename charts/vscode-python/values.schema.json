@@ -598,6 +598,14 @@
         "overwriteSchemaWith": "dapla/suvDaplaApiUrl.json"
       }
     },
+    "pseudoServiceUrl": {
+      "type": "string",
+      "description": "The pseudo service URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
+      }
+    },
     "daplaUser": {
       "type": "string",
       "title": "Current Dapla user",
