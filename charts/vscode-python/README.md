@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.32](https://img.shields.io/badge/Version-0.7.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.33](https://img.shields.io/badge/Version-0.7.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -64,6 +64,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | istio.hostname | string | `"chart-example.local"` |  |
 | kubernetes.enabled | bool | `true` |  |
 | kubernetes.role | string | `"view"` |  |
+| maskinportenGuardianUrl | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
 | networking.service.port | int | `8080` |  |

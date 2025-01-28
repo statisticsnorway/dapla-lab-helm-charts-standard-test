@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.7.21](https://img.shields.io/badge/Version-0.7.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.22](https://img.shields.io/badge/Version-0.7.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -65,6 +65,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | istio.hostname | string | `"chart-example.local"` |  |
 | kubernetes.enabled | bool | `false` |  |
 | kubernetes.role | string | `"view"` |  |
+| maskinportenGuardianUrl | string | `""` |  |
 | mlflow.configMapName | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
