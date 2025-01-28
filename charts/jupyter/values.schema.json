@@ -565,14 +565,6 @@
         "overwriteSchemaWith": "dapla/statbankBaseUrl.json"
       }
     },
-    "suvDaplaApiUrl": {
-      "type": "string",
-      "description": "The SUV API URL",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "dapla/suvDaplaApiUrl.json"
-      }
-    },
     "statbankEncryptUrl": {
       "type": "string",
       "description": "The statbank authenticator encryption endpoint",
@@ -581,6 +573,22 @@
         "hidden": true,
         "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
         "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
+      }
+    },
+    "suvDaplaApiUrl": {
+      "type": "string",
+      "description": "The SUV API URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/suvDaplaApiUrl.json"
+      }
+    },
+    "pseudoServiceUrl": {
+      "type": "string",
+      "description": "The pseudo service URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
       }
     },
     "daplaUser": {

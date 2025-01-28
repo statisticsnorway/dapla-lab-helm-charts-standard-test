@@ -132,6 +132,8 @@ spec:
               value: {{ .Values.statbankEncryptUrl }}
             - name: SUV_DAPLA_API_URL
               value: {{ .Values.suvDaplaApiUrl }}
+            - name: PSEUDO_SERVICE_URL
+              value: {{ .Values.pseudoServiceUrl }}
             - name: DAPLA_USER
               value: {{ .Values.daplaUser }}
             {{- if .Values.init.regionInit }}
