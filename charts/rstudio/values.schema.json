@@ -549,6 +549,14 @@
         "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
       }
     },
+    "maskinportenGuardianUrl": {
+      "type": "string",
+      "description": "Maskinporten-guardian URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/maskinportenGuardianUrl.json"
+      }
+    },
     "pseudoServiceUrl": {
       "type": "string",
       "description": "The pseudo service URL",

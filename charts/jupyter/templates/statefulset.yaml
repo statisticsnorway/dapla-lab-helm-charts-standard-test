@@ -134,6 +134,8 @@ spec:
               value: {{ .Values.suvDaplaApiUrl }}
             - name: PSEUDO_SERVICE_URL
               value: {{ .Values.pseudoServiceUrl }}
+            - name: MASKINPORTEN_TOKEN_URL
+              value: {{ .Values.maskinportenGuardianUrl }}
             - name: DAPLA_USER
               value: {{ .Values.daplaUser }}
             {{- if .Values.init.regionInit }}
