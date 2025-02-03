@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.7.22](https://img.shields.io/badge/Version-0.7.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.23](https://img.shields.io/badge/Version-0.7.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -29,6 +29,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
 | dapla.group | string | `""` |  |
+| dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | daplaUser | string | `""` |  |

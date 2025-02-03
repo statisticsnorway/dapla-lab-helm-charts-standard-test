@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.6.19](https://img.shields.io/badge/Version-0.6.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.20](https://img.shields.io/badge/Version-0.6.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -29,6 +29,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
+| dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | daplaUser | string | `""` |  |
