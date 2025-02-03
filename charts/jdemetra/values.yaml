@@ -41,7 +41,7 @@ dapla:
     reason: ""
     requestedDuration: "4h"
   group: "dapla-felles-developers"
-  mountSharedBuckets: []
+  sharedBuckets: []
 
 oidc:
   # Specifies whether a config map should be created

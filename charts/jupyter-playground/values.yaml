@@ -43,7 +43,7 @@ dapla:
     reason: ""
     requestedDuration: "4h"
   group: ""
-  mountSharedBuckets: []
+  sharedBuckets: []
 
 gitConfig:
   git:
