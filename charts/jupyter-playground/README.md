@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.6.20](https://img.shields.io/badge/Version-0.6.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.21](https://img.shields.io/badge/Version-0.6.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -94,7 +94,6 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | security.oauth2.clientId | string | `"my-client"` |  |
 | security.oauth2.oidcIssuerUrl | string | `"overwritten-by-onyxia"` |  |
 | security.oauth2.provider | string | `"keycloak-oidc"` |  |
-| security.password | string | `"changeme"` |  |
 | security.serviceEntry.enabled | bool | `true` |  |
 | security.serviceEntry.hosts[0] | string | `"storage.googleapis.com"` |  |
 | securityContext | object | `{}` |  |
