@@ -6,7 +6,6 @@ tjeneste:
     pullPolicy: IfNotPresent
 
 security:
-  password: "changeme"
   networkPolicy:
     enabled: false
     from: []

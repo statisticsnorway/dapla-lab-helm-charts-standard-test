@@ -8,7 +8,6 @@ tjeneste:
     pullPolicy: Always
 
 security:
-  password: "changeme"
   networkPolicy:
     enabled: false
     from: []
