@@ -34,7 +34,7 @@
             "r4.4.0-2025.02.21T12_48Z"
           ],
           "render": "list",
-          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+          "pattern": "^[A-Za-z0-9\\-_.\\/]+(?::[A-Za-z0-9\\-_.]+)?$"
         },
         "image": {
           "description": "image docker",
