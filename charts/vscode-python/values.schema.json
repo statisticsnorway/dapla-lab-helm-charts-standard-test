@@ -34,7 +34,7 @@
             "py311-2025.02.26T15_34Z"
           ],
           "render": "list",
-          "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$"
+          "pattern": "^[a-zA-Z0-9-_./]+(:[a-z0-9-_.]+)?$"
         },
         "image": {
           "description": "image docker",
