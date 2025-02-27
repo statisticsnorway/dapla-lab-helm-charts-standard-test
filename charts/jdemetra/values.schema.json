@@ -42,22 +42,79 @@
         }
       }
     },
-    "resources": {
-      "title": "Ressurser",
+    "ressurser": {
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "dapla/resources-ide.json"
+      "properties": {
+        "requests": {
+          "description": "The amount of CPU requested",
+          "type": "object",
+          "properties": {
+            "cpu": {
+              "description": "The amount of CPU guaranteed",
+              "title": "CPU",
+              "type": "string",
+              "default": "100m",
+              "render": "slider",
+              "sliderMin": 50,
+              "sliderMax": 8000,
+              "sliderStep": 50,
+              "sliderUnit": "m",
+              "x-onyxia": {
+                "hidden": true,
+                "useRegionSliderConfig": "cpu"
+              }
+            },
+            "memory": {
+              "description": "The amount of memory guaranteed",
+              "title": "Memory",
+              "type": "string",
+              "default": "1Gi",
+              "render": "slider",
+              "sliderMin": 1,
+              "sliderMax": 600,
+              "sliderStep": 1,
+              "sliderUnit": "Gi",
+              "x-onyxia": {
+                "hidden": true,
+                "useRegionSliderConfig": "memory"
+              }
+            }
+          }
+        }
       }
     },
     "diskplass": {
-      "title": "Diskplass",
       "description": "Velg om du vil ha et lokalt filsystem inne i tjenesten og lagringsplass",
       "type": "object",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "dapla/persistence.json"
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "title": "Opprett filsystem",
+          "description": "Opprett et lokal filsystem i tjenesten",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "size": {
+          "type": "string",
+          "title": "Diskplass i filsystemet",
+          "default": "10Gi",
+          "form": true,
+          "render": "slider",
+          "sliderMin": 1,
+          "sliderMax": 100,
+          "sliderStep": 1,
+          "sliderUnit": "Gi",
+          "x-onyxia": {
+            "useRegionSliderConfig": "disk"
+          },
+          "hidden": {
+            "value": true,
+            "path": "diskplass/enabled"
+          }
+        }
       }
     },
     "avansert": {
