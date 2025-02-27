@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 1.0.15](https://img.shields.io/badge/Version-1.0.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.16](https://img.shields.io/badge/Version-1.0.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
@@ -66,8 +66,8 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 | podLabels."onyxia.app" | string | `"jdemetra"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |
-| resources.cpu | string | `""` |  |
-| resources.memory | string | `""` |  |
+| ressurser.requests.cpu | string | `""` |  |
+| ressurser.requests.memory | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
