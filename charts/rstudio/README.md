@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.6.22](https://img.shields.io/badge/Version-0.6.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.23](https://img.shields.io/badge/Version-0.6.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -99,6 +99,8 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | serviceAccount.name | string | `""` |  |
 | statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
+| statbankTestBaseUrl | string | `""` |  |
+| statbankTestEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.version | string | `"r4.4.0-2025.02.21T12_48Z"` |  |
 | tolerations | list | `[]` |  |

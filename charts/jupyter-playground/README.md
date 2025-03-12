@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.6.21](https://img.shields.io/badge/Version-0.6.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.22](https://img.shields.io/badge/Version-0.6.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -107,6 +107,8 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | startupProbe.timeoutSeconds | int | `5` |  |
 | statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
+| statbankTestBaseUrl | string | `""` |  |
+| statbankTestEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.version | string | `"r4.4.0-py311-v67-2025.01.07"` |  |
 | tolerations | list | `[]` |  |
