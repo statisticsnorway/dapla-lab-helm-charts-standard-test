@@ -586,10 +586,8 @@
     "statbankTestEncryptUrl": {
       "type": "string",
       "description": "The statbank (test) authenticator encryption endpoint",
-      "default": "",
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.customValues.env.statbankTestEncryptUrl",
         "overwriteSchemaWith": "dapla/statbankTestEncryptUrl.json"
       }
     },
