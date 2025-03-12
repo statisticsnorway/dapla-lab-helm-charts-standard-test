@@ -131,6 +131,10 @@ spec:
               value: {{ .Values.statbankBaseUrl }}
             - name: STATBANK_ENCRYPT_URL
               value: {{ .Values.statbankEncryptUrl }}
+            - name: STATBANK_TEST_BASE_URL
+              value: {{ .Values.statbankTestBaseUrl }}
+            - name: STATBANK_TEST_ENCRYPT_URL
+              value: {{ .Values.statbankTestEncryptUrl }}
             - name: SUV_DAPLA_API_URL
               value: {{ .Values.suvDaplaApiUrl }}
             - name: PSEUDO_SERVICE_URL
