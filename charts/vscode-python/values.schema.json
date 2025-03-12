@@ -590,6 +590,22 @@
         "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
       }
     },
+    "statbankTestBaseUrl": {
+      "type": "string",
+      "description": "The statbank (test) base URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/statbankTestBaseUrl.json"
+      }
+    },
+    "statbankTestEncryptUrl": {
+      "type": "string",
+      "description": "The statbank (test) authenticator encryption endpoint",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/statbankTestEncryptUrl.json"
+      }
+    },
     "suvDaplaApiUrl": {
       "type": "string",
       "description": "The SUV API URL",
