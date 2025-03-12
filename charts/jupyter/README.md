@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.7.26](https://img.shields.io/badge/Version-0.7.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.27](https://img.shields.io/badge/Version-0.7.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -108,6 +108,8 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | startupProbe.timeoutSeconds | int | `5` |  |
 | statbankBaseUrl | string | `""` |  |
 | statbankEncryptUrl | string | `""` |  |
+| statbankTestBaseUrl | string | `""` |  |
+| statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.version | string | `"r4.4.0-py311-2025.02.26T15_48Z"` |  |
