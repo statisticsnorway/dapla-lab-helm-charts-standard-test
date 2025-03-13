@@ -551,11 +551,13 @@
       "description": "Pod disruption budget",
       "type": "object",
       "properties": {
-        "type": "boolean",
-        "description": "activate pod disruption budget",
-        "default": true,
-        "x-onyxia": {
-          "hidden": true
+        "enabled": {
+          "type": "boolean",
+          "description": "Whenever or not to create a job to delete this release",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
         }
       }
     },
