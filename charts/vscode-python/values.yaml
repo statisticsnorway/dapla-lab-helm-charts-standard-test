@@ -168,6 +168,10 @@ deleteJob:
   clusterRoleName: onyxia-delete-job
   serviceAccount:
     annotations: {}
+
+podDisruptionBudget:
+  enabled: true
+
 deployEnvironment: "DEV"
 daplaUser: ""
 statbankBaseUrl: ""
