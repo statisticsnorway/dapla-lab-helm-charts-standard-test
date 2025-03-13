@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.7.28](https://img.shields.io/badge/Version-0.7.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.29](https://img.shields.io/badge/Version-0.7.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.10 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
 
 ## Values
 
@@ -78,6 +78,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
+| podDisruptionBudget.enabled | bool | `true` |  |
 | podLabels."onyxia.app" | string | `"jupyterlab"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | pseudoServiceUrl | string | `""` |  |
