@@ -183,7 +183,7 @@ deleteJob:
     annotations: {}
 
 podDisruptionBudget:
-  enabled: true 
+  enabled: true
 
 deployEnvironment: "DEV"
 daplaUser: ""
