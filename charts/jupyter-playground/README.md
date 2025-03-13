@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.6.22](https://img.shields.io/badge/Version-0.6.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.23](https://img.shields.io/badge/Version-0.6.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -16,7 +16,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.10 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
 
 ## Values
 
@@ -78,6 +78,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | oidc.enabled | bool | `true` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
+| podDisruptionBudget.enabled | bool | `true` |  |
 | podLabels."onyxia.app" | string | `"jupyterlab"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | replicaCount | int | `1` |  |

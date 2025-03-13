@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.7.41](https://img.shields.io/badge/Version-0.7.41-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.7.42](https://img.shields.io/badge/Version-0.7.42-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -15,7 +15,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.10 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
 
 ## Values
 
@@ -75,6 +75,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | oidc.secretName | string | `""` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
+| podDisruptionBudget.enabled | bool | `true` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |

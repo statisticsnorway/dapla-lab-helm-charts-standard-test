@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.6.23](https://img.shields.io/badge/Version-0.6.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.6.24](https://img.shields.io/badge/Version-0.6.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.10 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
 
 ## Values
 
@@ -76,6 +76,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | oidc.secretName | string | `""` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
+| podDisruptionBudget.enabled | bool | `true` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |
