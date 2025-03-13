@@ -562,6 +562,20 @@
         }
       }
     },
+    "podDisruptionBudget": {
+      "description": "Pod disruption budget",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable pod disruption budget",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
+        }
+      }
+    },
     "deployEnvironment": {
       "type": "string",
       "description": "Environment in which a service is deployed",
