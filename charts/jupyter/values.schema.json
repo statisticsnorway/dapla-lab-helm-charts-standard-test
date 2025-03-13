@@ -553,7 +553,7 @@
       "properties": {
         "enabled": {
           "type": "boolean",
-          "description": "Whenever or not to create a job to delete this release",
+          "description": "Enable pod disruption budget",
           "default": true,
           "x-onyxia": {
             "hidden": true
