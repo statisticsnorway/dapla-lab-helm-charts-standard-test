@@ -1,6 +1,6 @@
 # qgis
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal QGIS med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -59,7 +59,7 @@ Minimal QGIS med Python. Brukeren kan selv installere pakker etter behov.
 | init.personalInitArgs | string | `""` |  |
 | init.regionInit | string | `""` |  |
 | init.regionInitCheckSum | string | `""` |  |
-| init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
+| init.standardInitPath | string | `"/init.sh"` |  |
 | istio.enabled | bool | `false` |  |
 | istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
 | istio.hostname | string | `"chart-example.local"` |  |
