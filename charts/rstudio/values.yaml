@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: "r4.4.0-2025.03.18T16_04Z"
+  version: "r4.4.0-2025.03.28T15_41Z"
   image:
     pullPolicy: IfNotPresent
 
@@ -59,6 +59,8 @@ gitConfig:
     token: ""
     repository: ""
     branch: ""
+    # Specifies whether or not ssb-project build will run on the repository
+    build: false
 
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.

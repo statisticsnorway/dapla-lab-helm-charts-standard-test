@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: "r4.4.0-py311-2025.03.21T09_47Z"
+  version: "r4.4.0-py311-2025.03.28T15_41Z"
   image:
     pullPolicy: IfNotPresent
 
@@ -58,6 +58,8 @@ gitConfig:
     token: ""
     repository: ""
     branch: ""
+    # Specifies whether or not ssb-project build will run on the repository
+    build: false
 
 oidc:
   # Specifies whether a config map should be created
