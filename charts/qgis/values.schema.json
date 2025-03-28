@@ -430,7 +430,7 @@
                 "value": false,
                 "path": "networking/user/enabled"
               },
-              "default": 5000
+              "default": 6080
             }
           }
         }
