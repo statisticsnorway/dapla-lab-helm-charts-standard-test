@@ -89,6 +89,9 @@ kubernetes:
 
 podAnnotations: {}
 
+podLabels:
+  onyxia.app: "qgis"
+
 podSecurityContext:
   fsGroup: 100
 
