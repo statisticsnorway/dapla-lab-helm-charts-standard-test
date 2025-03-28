@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.9.0](https://img.shields.io/badge/Version-0.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.9.1](https://img.shields.io/badge/Version-0.9.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.13 |
 
 ## Values
 
@@ -55,6 +55,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | gitConfig.github.branch | string | `""` |  |
 | gitConfig.github.repository | string | `""` |  |
 | gitConfig.github.token | string | `""` |  |
+| gitConfig.ssbProject.build | bool | `false` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.personalInit | string | `""` |  |
@@ -113,7 +114,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-py311-2025.03.21T09_47Z"` |  |
+| tjeneste.version | string | `"r4.4.0-py311-2025.03.28T12_50Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
