@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: "py311-spark3.5.3-2025.03.18T15_54Z"
+  version: "py311-spark3.5.3-2025.03.21T09_40Z"
   image:
     pullPolicy: IfNotPresent
 
