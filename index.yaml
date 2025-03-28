@@ -5005,6 +5005,28 @@ entries:
     version: 0.0.1
   qgis:
   - apiVersion: v2
+    created: "2025-03-28T10:23:47.80089946Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.2.12
+    description: Minimal QGIS med Python. Brukeren kan selv installere pakker etter
+      behov.
+    digest: 3d011cdd47daf2d6b35e5fd4763a3f916ab936a446b24e224705709b51333120
+    home: https://manual.dapla.ssb.no/statistikkere/qgis.html
+    icon: https://avatars.githubusercontent.com/u/483444?s=48&v=4
+    keywords:
+    - QGIS
+    - Python
+    name: qgis
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/qgis-0.0.2/qgis-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     created: "2025-03-28T10:11:35.940514453Z"
     dependencies:
     - name: library-chart
@@ -8897,4 +8919,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.3.6/vscode-python-0.3.6.tgz
     version: 0.3.6
-generated: "2025-03-28T10:11:35.941280969Z"
+generated: "2025-03-28T10:23:47.801506864Z"
