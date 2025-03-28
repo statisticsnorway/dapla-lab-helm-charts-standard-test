@@ -1,6 +1,6 @@
 # qgis
 
-![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.5](https://img.shields.io/badge/Version-0.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal QGIS med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -76,6 +76,7 @@ Minimal QGIS med Python. Brukeren kan selv installere pakker etter behov.
 | oidc.tokenExchangeUrl | string | `""` |  |
 | podAnnotations | object | `{}` |  |
 | podDisruptionBudget.enabled | bool | `true` |  |
+| podLabels."onyxia.app" | string | `"qgis"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
 | pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |
