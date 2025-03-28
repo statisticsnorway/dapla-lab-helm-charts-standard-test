@@ -71,7 +71,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/qgis:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
-          args: ["{{ .Values.init.standardInitPath }}"]
+          args: ["/init.sh"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
