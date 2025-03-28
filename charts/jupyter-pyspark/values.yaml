@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: "py311-spark3.5.3-2025.03.21T09_40Z"
+  version: "py311-spark3.5.3-2025.03.28T15_34Z"
   image:
     pullPolicy: IfNotPresent
 
@@ -58,6 +58,8 @@ gitConfig:
     token: ""
     repository: ""
     branch: ""
+    # Specifies whether or not ssb-project build will run on the repository
+    build: false
 
 oidc:
   # Specifies whether a config map should be created
