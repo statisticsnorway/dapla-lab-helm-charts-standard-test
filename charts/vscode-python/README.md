@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.8.3](https://img.shields.io/badge/Version-0.8.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.9.0](https://img.shields.io/badge/Version-0.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -15,7 +15,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.14 |
 
 ## Values
 
@@ -51,6 +51,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | gitConfig.git.enabled | bool | `false` |  |
 | gitConfig.git.name | string | `""` |  |
 | gitConfig.github.branch | string | `""` |  |
+| gitConfig.github.build | bool | `false` |  |
 | gitConfig.github.repository | string | `""` |  |
 | gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
@@ -104,7 +105,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"py311-2025.03.21T09_39Z"` |  |
+| tjeneste.version | string | `"py311-2025.03.28T15_35Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |

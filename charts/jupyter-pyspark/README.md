@@ -1,6 +1,6 @@
 # jupyter-pyspark
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.14 |
 
 ## Values
 
@@ -53,6 +53,7 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 | gitConfig.git.enabled | bool | `false` |  |
 | gitConfig.git.name | string | `""` |  |
 | gitConfig.github.branch | string | `""` |  |
+| gitConfig.github.build | bool | `false` |  |
 | gitConfig.github.repository | string | `""` |  |
 | gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
@@ -111,7 +112,7 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 | statbankTestBaseUrl | string | `""` |  |
 | statbankTestEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"py311-spark3.5.3-2025.03.21T09_40Z"` |  |
+| tjeneste.version | string | `"py311-spark3.5.3-2025.03.28T15_34Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |

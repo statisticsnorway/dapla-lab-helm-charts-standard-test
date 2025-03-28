@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.7.1](https://img.shields.io/badge/Version-0.7.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.8.0](https://img.shields.io/badge/Version-0.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.12 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.2.14 |
 
 ## Values
 
@@ -52,6 +52,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | gitConfig.git.enabled | bool | `false` |  |
 | gitConfig.git.name | string | `""` |  |
 | gitConfig.github.branch | string | `""` |  |
+| gitConfig.github.build | bool | `false` |  |
 | gitConfig.github.repository | string | `""` |  |
 | gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
@@ -103,7 +104,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | statbankTestBaseUrl | string | `""` |  |
 | statbankTestEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-2025.03.18T16_04Z"` |  |
+| tjeneste.version | string | `"r4.4.0-2025.03.28T15_41Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
