@@ -126,9 +126,10 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity }}
+      {{- $affinityYaml := include "library-chart.nodeAffinity" (dict "cpu" .Values.ressurser.requests.cpu "memory" .Values.ressurser.requests.memory) }}
+      {{- if $affinityYaml }}
       affinity:
-        {{- toYaml . | nindent 8 }}
+        {{- $affinityYaml | nindent 8 }}
       {{- end }}
       {{- with .Values.tolerations }}
       tolerations:
