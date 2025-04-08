@@ -326,9 +326,7 @@
           "description": "bind your service account to this kubernetes default role",
           "default": "view",
           "enum": [
-            "view",
-            "edit",
-            "admin"
+            "view"
           ],
           "x-onyxia": {
             "hidden": true
