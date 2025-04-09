@@ -87,7 +87,6 @@ environment:
 
 kubernetes:
   enabled: true
-  role: "view"
 
 podAnnotations: {}
 
