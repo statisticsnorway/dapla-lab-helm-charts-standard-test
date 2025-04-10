@@ -97,7 +97,6 @@ serviceAccount:
 
 kubernetes:
   enabled: false
-  role: "view"
 
 podAnnotations: {}
 

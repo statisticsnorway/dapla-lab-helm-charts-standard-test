@@ -35,7 +35,6 @@ environment:
 userAttributes:
   environmentVariableName: OIDC_TOKEN
   userAttribute: "access_token"
-  value: ""
 
 dapla:
   sourceData:
