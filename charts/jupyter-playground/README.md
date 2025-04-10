@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.10.2](https://img.shields.io/badge/Version-0.10.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.10.3](https://img.shields.io/badge/Version-0.10.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -16,7 +16,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.3.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.3.3 |
 
 ## Values
 
@@ -66,7 +66,6 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
 | istio.hostname | string | `"chart-example.local"` |  |
 | kubernetes.enabled | bool | `false` |  |
-| kubernetes.role | string | `"view"` |  |
 | maskinportenGuardianUrl | string | `""` |  |
 | mlflow.configMapName | string | `""` |  |
 | nameOverride | string | `""` |  |

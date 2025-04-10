@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.9.2](https://img.shields.io/badge/Version-0.9.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.9.3](https://img.shields.io/badge/Version-0.9.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.3.0 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.3.3 |
 
 ## Values
 
@@ -65,7 +65,6 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
 | istio.hostname | string | `"chart-example.local"` |  |
 | kubernetes.enabled | bool | `true` |  |
-| kubernetes.role | string | `"view"` |  |
 | maskinportenGuardianUrl | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
