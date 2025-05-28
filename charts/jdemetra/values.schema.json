@@ -298,6 +298,16 @@
             "hidden": true,
             "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
           }
+        },
+        "extraHostname": {
+          "type": "string",
+          "form": true,
+          "title": "Extra hostname",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{region.customValues.extraHostname}}"
+          }
         }
       }
     },
