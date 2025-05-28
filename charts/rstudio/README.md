@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.9.3](https://img.shields.io/badge/Version-0.9.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.10.0](https://img.shields.io/badge/Version-0.10.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.3.3 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.0 |
 
 ## Values
 
