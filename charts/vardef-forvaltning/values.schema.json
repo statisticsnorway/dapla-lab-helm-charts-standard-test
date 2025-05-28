@@ -317,6 +317,26 @@
             "hidden": true,
             "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
           }
+        },
+        "extraHostname": {
+          "type": "string",
+          "form": true,
+          "title": "Extra hostname",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "region.customValues.extraHostname"
+          }
+        },
+        "serviceSubDomain": {
+          "type": "string",
+          "form": true,
+          "title": "Service subdomain",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0"
+          }
         }
       }
     },
