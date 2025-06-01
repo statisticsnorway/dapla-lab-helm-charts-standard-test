@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 1.4.0](https://img.shields.io/badge/Version-1.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.4.1](https://img.shields.io/badge/Version-1.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
@@ -15,7 +15,7 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.1 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.2 |
 
 ## Values
 
