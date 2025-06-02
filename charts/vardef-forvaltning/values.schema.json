@@ -204,8 +204,7 @@
               "description": "Array of hosts allowed to be accessed from your service",
               "default": [],
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.jupyterEgress"
+                "hidden": true
               }
             }
           }
@@ -234,8 +233,7 @@
               "description": "Url to the OIDC issuer",
               "default": "",
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
+                "hidden": true
               }
             },
             "clientId": {
@@ -421,7 +419,6 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.startupProbe",
         "overwriteSchemaWith": "dapla/startupProbe.json"
       }
     },
@@ -441,7 +438,6 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector",
         "overwriteSchemaWith": "dapla/nodeSelector.json"
       }
     },
@@ -465,8 +461,7 @@
           "description": "token exchange url",
           "default": "",
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "region.customValues.oidc.tokenExchangeUrl"
+            "hidden": true
           }
         },
         "configMapName": {
@@ -561,7 +556,6 @@
       "default": "",
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.customValues.deployEnvironment",
         "overwriteSchemaWith": "dapla/deployEnvironment.json"
       }
     },
@@ -579,7 +573,6 @@
       "default": "",
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
         "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
       }
     },
