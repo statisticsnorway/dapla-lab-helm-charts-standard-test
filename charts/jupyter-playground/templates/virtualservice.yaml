@@ -13,6 +13,9 @@ spec:
     {{- toYaml .Values.istio.gateways | nindent 4 }}
   hosts:
     - {{ .Values.istio.hostname | quote }}
+    {{- if .Values.istio.extraHostname }}
+    - "{{ .Values.istio.serviceSubDomain}}.{{ .Values.istio.extraHostname }}"
+    {{- end }}
   http:
   - match:
     - uri:
