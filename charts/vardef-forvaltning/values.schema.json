@@ -289,14 +289,14 @@
       "type": "object",
       "form": true,
       "title": "Ingress Details",
+      "overwriteSchemaWith": "dapla/istio.json",
       "properties": {
         "enabled": {
           "description": "Enable istio ingress",
           "type": "boolean",
           "default": true,
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "k8s.istio.enabled"
+            "hidden": true
           }
         },
         "gateways": {
@@ -304,8 +304,7 @@
           "type": "array",
           "title": "Istio gateways",
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "k8s.istio.gateways"
+            "hidden": true
           },
           "default": []
         },
@@ -314,8 +313,7 @@
           "form": true,
           "title": "Hostname",
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
+            "hidden": true
           }
         },
         "extraHostname": {
@@ -324,8 +322,7 @@
           "title": "Extra hostname",
           "default": "",
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "region.customValues.extraHostname"
+            "hidden": true
           }
         },
         "serviceSubDomain": {
@@ -334,8 +331,7 @@
           "title": "Service subdomain",
           "default": "",
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0"
+            "hidden": true
           }
         }
       }
