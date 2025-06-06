@@ -15,7 +15,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.3 |
 
 ## Values
 

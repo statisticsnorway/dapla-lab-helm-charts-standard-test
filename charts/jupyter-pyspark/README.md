@@ -16,7 +16,7 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.3 |
 
 ## Values
 

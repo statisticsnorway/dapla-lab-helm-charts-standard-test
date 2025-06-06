@@ -16,7 +16,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.2 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.3 |
 
 ## Values
 
