@@ -142,7 +142,7 @@ spec:
             - name: JUPYTERHUB_SERVICE_PREFIX
               value: "/user/onyxia/"
             - name: LABID_TOKEN_EXCHANGE_URL
-              - value: http://labid.labid.svc.cluster.local/token
+              value: http://labid.labid.svc.cluster.local/token
             - name: PIPX_HOME
               value: /home/{{ .Values.environment.user }}/work/.local/pipx
             - name: PIPX_BIN_DIR
