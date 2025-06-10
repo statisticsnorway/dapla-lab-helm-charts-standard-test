@@ -68,7 +68,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:{{ .Values.tjeneste.version }}"
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} && /usr/local/bin/spark-init.sh jupyter lab --no-browser --ip 0.0.0.0 -LabApp.token='' --ContentsManager.allow_hidden=True"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
@@ -79,7 +79,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
-              value: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:{{ .Values.tjeneste.version }}"
+              value: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:{{ .Values.tjeneste.version }}"
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION
