@@ -74,7 +74,7 @@
           "description": "Garantert tilgjengelig minne/RAM i tjenesten",
           "title": "Minne/RAM",
           "type": "string",
-          "default": "2Gi"
+          "default": "4Gi"
         }
       }
     },
