@@ -167,11 +167,11 @@ spec:
             {{- end }}
             {{- if .Values.init.personalInit }}
             - name: PERSONAL_INIT_SCRIPT
-              value: {{ .Values.init.personalInit }}
+              value: {{ .Values.startupScript.scriptPath }}
             {{- end }}
             {{- if .Values.init.personalInitArgs }}
             - name: PERSONAL_INIT_ARGS
-              value: {{ .Values.init.personalInitArgs }}
+              value: {{ .Values.startupScript.scriptArgs }}
             {{- end }}
             {{- if .Values.environment.root }}
             - name: GRANT_SUDO
