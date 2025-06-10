@@ -8,8 +8,6 @@ keywords:
   - Python
   - Metadata
   - Vardef
-annotations:
-  environment: test
 home: https://manual.dapla.ssb.no/statistikkere/vardef.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
