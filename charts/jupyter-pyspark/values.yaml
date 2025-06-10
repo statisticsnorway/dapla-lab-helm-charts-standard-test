@@ -153,6 +153,10 @@ diskplass:
 avansert:
   data:
     mountStandard: true
+  startupScript:
+    scriptPath: ""
+    scriptArgs: ""
+
 
 autoscaling:
   enabled: false
