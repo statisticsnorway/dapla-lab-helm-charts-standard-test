@@ -1,6 +1,6 @@
 # jupyter-pyspark
 
-![Version: 0.10.2](https://img.shields.io/badge/Version-0.10.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.10.3](https://img.shields.io/badge/Version-0.10.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
@@ -28,6 +28,8 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
+| avansert.startupScript.scriptArgs | string | `""` |  |
+| avansert.startupScript.scriptPath | string | `""` |  |
 | dapla.group | string | `""` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |
