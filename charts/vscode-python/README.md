@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.14.5](https://img.shields.io/badge/Version-0.14.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.15.0](https://img.shields.io/badge/Version-0.15.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -27,6 +27,8 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
+| avansert.startupScript.scriptArgs | string | `""` |  |
+| avansert.startupScript.scriptPath | string | `""` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |
@@ -56,8 +58,6 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
-| init.personalInit | string | `""` |  |
-| init.personalInitArgs | string | `""` |  |
 | init.regionInit | string | `""` |  |
 | init.regionInitCheckSum | string | `""` |  |
 | init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
@@ -104,7 +104,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"py311-2025.06.10T11_35Z"` |  |
+| tjeneste.version | string | `"py311-2025.06.10T16_46Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
