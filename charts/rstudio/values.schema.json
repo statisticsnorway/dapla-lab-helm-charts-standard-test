@@ -116,10 +116,10 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "r4.4.0-2025.06.10T11_44Z",
+          "default": "r4.4.0-2025.06.10T17_26Z",
           "listEnum": [
-            "r4.3.3-2025.06.10T11_44Z",
-            "r4.4.0-2025.06.10T11_44Z"
+            "r4.3.3-2025.06.10T17_24Z",
+            "r4.4.0-2025.06.10T17_26Z"
           ],
           "render": "list",
           "pattern": "^[A-Za-z0-9\\-_.\\/]+(?::[A-Za-z0-9\\-_.]+)?$"
@@ -407,22 +407,6 @@
           "x-onyxia": {
             "hidden": true,
             "overwriteDefaultWith": "{{k8s.initScriptUrl}}"
-          }
-        },
-        "personalInit": {
-          "type": "string",
-          "description": "user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "personalInitArgs": {
-          "type": "string",
-          "description": "args for user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
           }
         }
       }
