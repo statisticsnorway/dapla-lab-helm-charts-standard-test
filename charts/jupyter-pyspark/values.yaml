@@ -25,6 +25,8 @@ security:
 init:
   standardInitPath: "/opt/onyxia-init.sh"
   regionInit: ""
+  personalInit: ""
+  personalInitArgs: ""
 
 environment:
   user: onyxia
