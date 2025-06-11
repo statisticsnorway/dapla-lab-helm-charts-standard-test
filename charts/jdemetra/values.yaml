@@ -158,4 +158,3 @@ persistence:
 init:
   standardInitPath: "/opt/onyxia-init.sh"
   regionInit: ""
-
