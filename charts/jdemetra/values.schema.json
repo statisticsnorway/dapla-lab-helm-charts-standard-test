@@ -337,22 +337,6 @@
             "hidden": true,
             "overwriteDefaultWith": "{{k8s.initScriptCheckSum}}"
           }
-        },
-        "personalInit": {
-          "type": "string",
-          "description": "user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "personalInitArgs": {
-          "type": "string",
-          "description": "args for user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
-          }
         }
       }
     },

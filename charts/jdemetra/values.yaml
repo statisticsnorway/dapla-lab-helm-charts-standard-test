@@ -117,6 +117,9 @@ diskplass:
 avansert:
   data:
     mountStandard: true
+  startupScript:
+    scriptPath: ""
+    scriptArgs: ""
 
 autoscaling:
   enabled: false
@@ -155,5 +158,3 @@ persistence:
 init:
   standardInitPath: "/opt/onyxia-init.sh"
   regionInit: ""
-  personalInit: ""
-  personalInitArgs: ""

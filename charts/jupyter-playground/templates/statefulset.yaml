@@ -145,13 +145,13 @@ spec:
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
             {{- end }}
-            {{- if .Values.init.personalInit }}
+            {{- if .Values.avansert.startupScript.scriptPath }}
             - name: PERSONAL_INIT_SCRIPT
-              value: {{ .Values.init.personalInit }}
+              value: {{ .Values.avansert.startupScript.scriptPath }}
             {{- end }}
-            {{- if .Values.init.personalInitArgs }}
+            {{- if .Values.avansert.startupScript.scriptArgs }}
             - name: PERSONAL_INIT_ARGS
-              value: {{ .Values.init.personalInitArgs }}
+              value: {{ .Values.avansert.startupScript.scriptArgs }}
             {{- end }}
             {{- if .Values.environment.root }}
             - name: GRANT_SUDO
