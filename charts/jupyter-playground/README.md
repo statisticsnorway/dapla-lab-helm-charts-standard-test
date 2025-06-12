@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.15.0](https://img.shields.io/badge/Version-0.15.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.15.1](https://img.shields.io/badge/Version-0.15.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -16,7 +16,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.3 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.4 |
 
 ## Values
 
@@ -111,7 +111,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | statbankTestBaseUrl | string | `""` |  |
 | statbankTestEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-py311-2025.06.10T17_34Z"` |  |
+| tjeneste.version | string | `"r4.4.0-py311-2025.06.12T11_15Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
