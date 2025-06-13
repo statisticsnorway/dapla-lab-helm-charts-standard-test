@@ -343,7 +343,7 @@
         "personalInit": {
           "type": "string",
           "description": "user initialization script",
-          "default": "https://raw.githubusercontent.com/statisticsnorway/dapla-toolbelt-metadata/refs/heads/main/vardef-maintenance/vardef_client_init.sh",
+          "default": "dapla-toolbelt-metadata/vardef-maintenance/vardef_client_init.sh",
           "x-onyxia": {
             "hidden": false
           }
