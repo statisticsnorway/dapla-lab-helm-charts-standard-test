@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: "py311-spark3.5.3-2025.04.08T10_26Z"
+  version: "py311-spark3.5.3-2025.06.15T17_11Z"
   image:
     pullPolicy: IfNotPresent
 
@@ -97,7 +97,6 @@ serviceAccount:
 
 kubernetes:
   enabled: false
-  role: "view"
 
 podAnnotations: {}
 
@@ -154,6 +153,10 @@ diskplass:
 avansert:
   data:
     mountStandard: true
+  startupScript:
+    scriptPath: ""
+    scriptArgs: ""
+
 
 autoscaling:
   enabled: false

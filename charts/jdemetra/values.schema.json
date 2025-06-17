@@ -206,8 +206,7 @@
               "description": "Array of hosts allowed to be accessed from your service",
               "default": [],
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.jdemetraEgress"
+                "hidden": true
               }
             }
           }
@@ -238,8 +237,7 @@
               "description": "Url to the OIDC issuer",
               "default": "",
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
+                "hidden": true
               }
             },
             "clientId": {
@@ -270,35 +268,9 @@
       "type": "object",
       "form": true,
       "title": "Ingress Details",
-      "properties": {
-        "enabled": {
-          "description": "Enable istio ingress",
-          "type": "boolean",
-          "default": true,
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "k8s.istio.enabled"
-          }
-        },
-        "gateways": {
-          "description": "Path of istio ingress gateways to be used",
-          "type": "array",
-          "title": "Istio gateways",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "k8s.istio.gateways"
-          },
-          "default": []
-        },
-        "hostname": {
-          "type": "string",
-          "form": true,
-          "title": "Hostname",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
-          }
-        }
+      "x-onyxia": {
+        "hidden": false,
+        "overwriteSchemaWith": "dapla/istio.json"
       }
     },
     "networking": {
@@ -365,22 +337,6 @@
             "hidden": true,
             "overwriteDefaultWith": "{{k8s.initScriptCheckSum}}"
           }
-        },
-        "personalInit": {
-          "type": "string",
-          "description": "user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "personalInitArgs": {
-          "type": "string",
-          "description": "args for user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
-          }
         }
       }
     },
@@ -390,7 +346,6 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.startupProbe",
         "overwriteSchemaWith": "dapla/startupProbe.json"
       }
     },
@@ -425,7 +380,6 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector",
         "overwriteSchemaWith": "dapla/nodeSelector.json"
       }
     },
@@ -449,8 +403,7 @@
           "description": "token exchange url",
           "default": "",
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "region.customValues.oidc.tokenExchangeUrl"
+            "hidden": true
           }
         },
         "secretName": {

@@ -68,7 +68,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:{{ .Values.tjeneste.version }}"
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} jupyter lab --no-browser --ip '0.0.0.0' --LabApp.token='$(PASSWORD)' --ContentsManager.allow_hidden=True"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
@@ -79,7 +79,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
-              value: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:{{ .Values.tjeneste.version }}"
+              value: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:{{ .Values.tjeneste.version }}"
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION
@@ -123,6 +123,8 @@ spec:
               value: "onyxia"
             - name: JUPYTERHUB_SERVICE_PREFIX
               value: "/user/onyxia/"
+            - name: LABID_TOKEN_EXCHANGE_URL
+              value: http://labid.labid.svc.cluster.local/token
             - name: PIPX_HOME
               value: /home/{{ .Values.environment.user }}/work/.local/pipx
             - name: PIPX_BIN_DIR
@@ -147,13 +149,13 @@ spec:
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
             {{- end }}
-            {{- if .Values.init.personalInit }}
+            {{- if .Values.avansert.startupScript.scriptPath }}
             - name: PERSONAL_INIT_SCRIPT
-              value: {{ .Values.init.personalInit }}
+              value: {{ .Values.avansert.startupScript.scriptPath }}
             {{- end }}
-            {{- if .Values.init.personalInitArgs }}
+            {{- if .Values.avansert.startupScript.scriptArgs }}
             - name: PERSONAL_INIT_ARGS
-              value: {{ .Values.init.personalInitArgs }}
+              value: {{ .Values.avansert.startupScript.scriptArgs }}
             {{- end }}
             {{- if .Values.environment.root }}
             - name: GRANT_SUDO

@@ -116,10 +116,10 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "r4.4.0-2025.03.28T15_41Z",
+          "default": "r4.4.0-2025.06.15T17_16Z",
           "listEnum": [
-            "r4.3.3-2025.03.28T15_41Z",
-            "r4.4.0-2025.03.28T15_41Z"
+            "r4.3.3-2025.06.15T17_16Z",
+            "r4.4.0-2025.06.15T17_16Z"
           ],
           "render": "list",
           "pattern": "^[A-Za-z0-9\\-_.\\/]+(?::[A-Za-z0-9\\-_.]+)?$"
@@ -250,8 +250,7 @@
               "description": "Array of hosts allowed to be accessed from your service",
               "default": [],
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.rstudioEgress"
+                "hidden": true
               }
             }
           }
@@ -281,8 +280,7 @@
               "title": "OIDC issuer url",
               "description": "Url to the OIDC issuer",
               "x-onyxia": {
-                "hidden": true,
-                "overwriteDefaultWith": "region.customValues.oidc.oidcIssuerUrl"
+                "hidden": true
               }
             },
             "clientId": {
@@ -320,19 +318,6 @@
           "x-onyxia": {
             "hidden": true
           }
-        },
-        "role": {
-          "type": "string",
-          "description": "bind your service account to this kubernetes default role",
-          "default": "view",
-          "enum": [
-            "view",
-            "edit",
-            "admin"
-          ],
-          "x-onyxia": {
-            "hidden": true
-          }
         }
       }
     },
@@ -340,35 +325,9 @@
       "type": "object",
       "form": true,
       "title": "Ingress Details",
-      "properties": {
-        "enabled": {
-          "description": "Enable istio ingress",
-          "type": "boolean",
-          "default": true,
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "k8s.istio.enabled"
-          }
-        },
-        "gateways": {
-          "description": "Path of istio ingress gateways to be used",
-          "type": "array",
-          "title": "Istio gateways",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "k8s.istio.gateways"
-          },
-          "default": []
-        },
-        "hostname": {
-          "type": "string",
-          "form": true,
-          "title": "Hostname",
-          "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
-          }
-        }
+      "x-onyxia": {
+        "hidden": false,
+        "overwriteSchemaWith": "dapla/istio.json"
       }
     },
     "userAttrites": {
@@ -449,22 +408,6 @@
             "hidden": true,
             "overwriteDefaultWith": "{{k8s.initScriptUrl}}"
           }
-        },
-        "personalInit": {
-          "type": "string",
-          "description": "user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
-          }
-        },
-        "personalInitArgs": {
-          "type": "string",
-          "description": "args for user initialization script",
-          "default": "",
-          "x-onyxia": {
-            "hidden": true
-          }
         }
       }
     },
@@ -489,7 +432,6 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.startupProbe",
         "overwriteSchemaWith": "dapla/startupProbe.json"
       }
     },
@@ -509,7 +451,6 @@
       "default": {},
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.nodeSelector",
         "overwriteSchemaWith": "dapla/nodeSelector.json"
       }
     },
@@ -533,8 +474,7 @@
           "description": "token exchange url",
           "default": "",
           "x-onyxia": {
-            "hidden": true,
-            "overwriteDefaultWith": "region.customValues.oidc.tokenExchangeUrl"
+            "hidden": true
           }
         },
         "secretName": {
@@ -629,7 +569,6 @@
       "default": "",
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.customValues.deployEnvironment",
         "overwriteSchemaWith": "dapla/deployEnvironment.json"
       }
     },
@@ -647,7 +586,6 @@
       "default": "",
       "x-onyxia": {
         "hidden": true,
-        "overwriteDefaultWith": "region.customValues.env.statbankEncryptUrl",
         "overwriteSchemaWith": "dapla/statbankEncryptUrl.json"
       }
     },

@@ -69,7 +69,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:{{ .Values.tjeneste.version }}"
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} /init"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
@@ -80,7 +80,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
-              value: "europe-west4-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:{{ .Values.tjeneste.version }}"
+              value: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/rstudio:{{ .Values.tjeneste.version }}"
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION
@@ -117,19 +117,21 @@ spec:
               value: {{ .Values.maskinportenGuardianUrl }}
             - name: PSEUDO_SERVICE_URL
               value: {{ .Values.pseudoServiceUrl }}
+            - name: LABID_TOKEN_EXCHANGE_URL
+              value: http://labid.labid.svc.cluster.local/token
             - name: DAPLA_USER
               value: {{ .Values.daplaUser }}
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
             {{- end }}
-            {{- if .Values.init.personalInit }}
+            {{- if .Values.avansert.startupScript.scriptPath }}
             - name: PERSONAL_INIT_SCRIPT
-              value: {{ .Values.init.personalInit }}
+              value: {{ .Values.avansert.startupScript.scriptPath }}
             {{- end }}
-            {{- if .Values.init.personalInitArgs }}
+            {{- if .Values.avansert.startupScript.scriptArgs }}
             - name: PERSONAL_INIT_ARGS
-              value: {{ .Values.init.personalInitArgs }}
+              value: {{ .Values.avansert.startupScript.scriptArgs }}
             {{- end }}
             - name: DISABLE_AUTH
               value: "true"

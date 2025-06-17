@@ -10,15 +10,6 @@
         "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
-    "gitConfig": {
-      "title": "Git/Github",
-      "description": "Konfigurer Git og Github for tjenesten",
-      "type": "object",
-      "x-onyxia": {
-        "hidden": false,
-        "overwriteSchemaWith": "dapla/git.json"
-      }
-    },
     "tjeneste": {
       "title": "Python/R",
       "description": "Velg versjon av Python og R",
@@ -28,13 +19,10 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "r4.4.0-py311-2025.06.15T17_17Z",
-          "listEnum": [
-            "r4.4.0-py312-2025.06.15T17_17Z",
-            "r4.4.0-py311-2025.06.15T17_17Z"
-          ],
-          "render": "list",
-          "pattern": "^[a-zA-Z0-9-_./]+(:[a-z0-9-_.]+)?$"
+          "default": "r4.4.0-py312",
+          "x-onyxia": {
+            "hidden": true
+          }
         },
         "image": {
           "description": "Docker konteiner",
@@ -44,11 +32,7 @@
               "type": "string",
               "description": "option when pulling the docker image",
               "default": "IfNotPresent",
-              "enum": [
-                "IfNotPresent",
-                "Always",
-                "Never"
-              ],
+              "enum": ["IfNotPresent", "Always", "Never"],
               "x-onyxia": {
                 "hidden": true
               }
@@ -77,7 +61,21 @@
       "description": "Velg minimum mengde RAM og CPU som skal være tilgjengelig i tjenesten.",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "dapla/resources-ide.json"
+        "hidden": true
+      },
+      "properties": {
+        "cpu": {
+          "description": "Velg mengden CPU-ressurser i millicores (M). 50 M tilsvarer 0,05 av en CPU-kjerne og 2000 M tilsvarer 2 CPU-kjerner.",
+          "title": "CPU",
+          "type": "string",
+          "default": "250m"
+        },
+        "memory": {
+          "description": "Garantert tilgjengelig minne/RAM i tjenesten",
+          "title": "Minne/RAM",
+          "type": "string",
+          "default": "4Gi"
+        }
       }
     },
     "diskplass": {
@@ -85,7 +83,21 @@
       "description": "Velg hvor mye diskplass du trenger",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "dapla/persistence.json"
+        "hidden": true
+      },
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "title": "Opprett filsystem",
+          "description": "Opprett et lokal filsystem i tjenesten",
+          "default": true
+        },
+        "size": {
+          "type": "string",
+          "title": "Diskplass i filsystemet",
+          "description": "Velg hvor mange GB diskplass du trenger i det lokale filsystemet i tjenesten",
+          "default": "10Gi"
+        }
       }
     },
     "avansert": {
@@ -93,7 +105,21 @@
       "description": "Velg avansert konfigurasjon",
       "type": "object",
       "x-onyxia": {
-        "overwriteSchemaWith": "dapla/advanced.json"
+        "hidden": true
+      },
+      "properties": {
+        "data": {
+          "title": "Data",
+          "type": "object",
+          "properties": {
+            "mountStandard": {
+              "title": "Automatisk bøttemontering",
+              "description": "Bøtter monteres under */buckets* i filsystemet.",
+              "type": "boolean",
+              "default": false
+            }
+          }
+        }
       }
     },
     "security": {
@@ -195,9 +221,7 @@
               "title": "OAuth2 provider",
               "description": "Which OAuth2 provider to use, keycloak-oidc is the only one available for now",
               "default": "keycloak-oidc",
-              "enum": [
-                "keycloak-oidc"
-              ],
+              "enum": ["keycloak-oidc"],
               "x-onyxia": {
                 "hidden": true,
                 "overwriteDefaultWith": "region.oauth2.provider"
@@ -244,6 +268,15 @@
           "type": "boolean",
           "description": "allow your service to access your namespace ressources",
           "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
+        "role": {
+          "type": "string",
+          "description": "bind your service account to this kubernetes default role",
+          "default": "view",
+          "enum": ["view", "edit", "admin"],
           "x-onyxia": {
             "hidden": true
           }
@@ -303,8 +336,24 @@
           "description": "region initialization script",
           "default": "",
           "x-onyxia": {
-            "hidden": true,
+            "hidden": false,
             "overwriteDefaultWith": "{{k8s.initScriptUrl}}"
+          }
+        },
+        "personalInit": {
+          "type": "string",
+          "description": "user initialization script",
+          "default": "dapla-toolbelt-metadata/vardef-maintenance/vardef_client_init.sh",
+          "x-onyxia": {
+            "hidden": false
+          }
+        },
+        "personalInitArgs": {
+          "type": "string",
+          "description": "args for user initialization script",
+          "default": "",
+          "x-onyxia": {
+            "hidden": false
           }
         }
       }

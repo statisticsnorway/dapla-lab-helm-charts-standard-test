@@ -68,7 +68,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:{{ .Values.tjeneste.version }}"
+          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} jupyter lab --no-browser --ip '0.0.0.0' --LabApp.token='$(PASSWORD)' --ContentsManager.allow_hidden=True"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
@@ -79,7 +79,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
-              value: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-playground:{{ .Values.tjeneste.version }}"
+              value: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter:{{ .Values.tjeneste.version }}"
             - name: DAPLA_ENVIRONMENT
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION
@@ -137,6 +137,10 @@ spec:
               value: {{ .Values.statbankTestBaseUrl }}
             - name: STATBANK_TEST_ENCRYPT_URL
               value: {{ .Values.statbankTestEncryptUrl }}
+            - name: SUV_DAPLA_API_URL
+              value: {{ .Values.suvDaplaApiUrl }}
+            - name: PSEUDO_SERVICE_URL
+              value: {{ .Values.pseudoServiceUrl }}
             - name: MASKINPORTEN_TOKEN_URL
               value: {{ .Values.maskinportenGuardianUrl }}
             - name: DAPLA_USER
@@ -145,13 +149,13 @@ spec:
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
             {{- end }}
-            {{- if .Values.avansert.startupScript.scriptPath }}
+            {{- if .Values.init.personalInit }}
             - name: PERSONAL_INIT_SCRIPT
-              value: {{ .Values.avansert.startupScript.scriptPath }}
+              value: {{ .Values.init.personalInit }}
             {{- end }}
-            {{- if .Values.avansert.startupScript.scriptArgs }}
+            {{- if .Values.init.personalInitArgs }}
             - name: PERSONAL_INIT_ARGS
-              value: {{ .Values.avansert.startupScript.scriptArgs }}
+              value: {{ .Values.init.personalInitArgs }}
             {{- end }}
             {{- if .Values.environment.root }}
             - name: GRANT_SUDO
@@ -187,7 +191,7 @@ spec:
             requests:
               cpu: {{ .Values.resources.cpu }}
               memory: {{ .Values.resources.memory }}
-            limits: 
+            limits:
               memory: {{ .Values.resources.memory }}
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work

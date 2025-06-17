@@ -1,16 +1,15 @@
-# jupyter-playground
+# vardef-forvaltning
 
-![Version: 0.15.4](https://img.shields.io/badge/Version-0.15.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.8.2](https://img.shields.io/badge/Version-0.8.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
+Tilrettelagt Jupyterlab for enkel forvaltning av Vardef med notebooks. Inneholder nødvendige pakker og ferdig oppsatt kernel. Krever lite forkunnskaper.
 
-**Homepage:** <https://manual.dapla.ssb.no/statistikkere/jupyter-playground.html>
+**Homepage:** <https://manual.dapla.ssb.no/statistikkere/vardef.html>
 
 ## Source Code
 
-* <https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test>
-* <https://github.com/statisticsnorway/dapla-lab-helm-charts-library>
 * <https://github.com/statisticsnorway/dapla-lab-images>
+* <https://github.com/statisticsnorway/dapla-lab-helm-charts-library>
 
 ## Requirements
 
@@ -28,8 +27,6 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
-| avansert.startupScript.scriptArgs | string | `""` |  |
-| avansert.startupScript.scriptPath | string | `""` |  |
 | dapla.group | string | `""` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |
@@ -44,7 +41,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | deployEnvironment | string | `"DEV"` |  |
 | discovery.mlflow | bool | `true` |  |
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
-| diskplass.enabled | bool | `false` |  |
+| diskplass.enabled | bool | `true` |  |
 | diskplass.size | string | `"10Gi"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
@@ -60,12 +57,15 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
+| init.personalInit | string | `""` |  |
+| init.personalInitArgs | string | `""` |  |
 | init.regionInit | string | `""` |  |
 | init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
 | istio.enabled | bool | `false` |  |
 | istio.gateways[0] | string | `"istio-namespace/example-gateway"` |  |
 | istio.hostname | string | `"chart-example.local"` |  |
 | kubernetes.enabled | bool | `false` |  |
+| kubernetes.role | string | `"view"` |  |
 | maskinportenGuardianUrl | string | `""` |  |
 | mlflow.configMapName | string | `""` |  |
 | nameOverride | string | `""` |  |
@@ -81,6 +81,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | podDisruptionBudget.enabled | bool | `true` |  |
 | podLabels."onyxia.app" | string | `"jupyterlab"` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
+| pseudoServiceUrl | string | `""` |  |
 | replicaCount | int | `1` |  |
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
@@ -110,8 +111,9 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | statbankEncryptUrl | string | `""` |  |
 | statbankTestBaseUrl | string | `""` |  |
 | statbankTestEncryptUrl | string | `""` |  |
+| suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-py311-2025.06.15T17_18Z"` |  |
+| tjeneste.version | string | `"r4.4.0-py311-2025.03.28T15_41Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |

@@ -1,15 +1,17 @@
 apiVersion: v2
-name: jupyter-playground
-description: Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
-icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+name: vardef-forvaltning
+description: |
+  Tilrettelagt Jupyterlab for enkel forvaltning av Vardef med notebooks. Inneholder nødvendige pakker og ferdig oppsatt kernel. Krever lite forkunnskaper.
+icon: https://avatars.githubusercontent.com/u/5849578
 keywords:
   - Jupyter
   - Python
-home: https://manual.dapla.ssb.no/statistikkere/jupyter-playground.html
+  - Metadata
+  - Vardef
+home: https://manual.dapla.ssb.no/statistikkere/vardef.html
 sources:
-  - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
-  - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
   - https://github.com/statisticsnorway/dapla-lab-images
+  - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -23,8 +25,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.15.4
-
+version: 0.8.2
 
 dependencies:
   - name: library-chart

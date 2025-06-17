@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: "r4.4.0-2025.03.28T15_41Z"
+  version: "r4.4.0-2025.06.15T17_16Z"
   image:
     pullPolicy: IfNotPresent
 
@@ -25,8 +25,6 @@ security:
 init:
   standardInitPath: "/opt/onyxia-init.sh"
   regionInit: ""
-  personalInit: ""
-  personalInitArgs: ""
 
 environment:
   user: onyxia
@@ -81,7 +79,6 @@ serviceAccount:
 
 kubernetes:
   enabled: true
-  role: "view"
 
 podAnnotations: {}
 
@@ -141,6 +138,9 @@ autoscaling:
 avansert:
   data:
     mountStandard: true
+  startupScript:
+    scriptPath: ""
+    scriptArgs: ""
 
 nodeSelector: {}
 
