@@ -16,6 +16,9 @@
         devShells.default = pkgs.mkShell {
           name = "Dapla Lab helm charts";
           packages = with pkgs; [
+            cljfmt
+            clj-kondo
+            babashka
             nixd
             vscode-langservers-extracted
             yaml-language-server
