@@ -26,7 +26,7 @@
        (partition-by #(str/includes? % splitter))
        (map last)))
 
-(def artifacts
+(def artifact->splitter
   "Map of artifact names and their tag splitters"
   {"jupyter" "py312"
    "jupyter-playground" "py312"
@@ -36,7 +36,7 @@
 
 (defn process-tags [artifact]
   (->> (fetch-artifact-tags artifact)
-       ((if-let [splitter (artifacts artifact)]
+       ((if-let [splitter (artifact->splitter artifact)]
           (partial extract-tags splitter)
           (partial take-last 2)))
        (map #(-> %
@@ -87,13 +87,7 @@
   (update-helm-chart-values chart-dir)
   (update-helm-chart-version chart-dir))
 
-(def all-charts
-  '("jdemetra"
-    "jupyter"
-    "jupyter-playground"
-    "jupyter-pyspark"
-    "rstudio"
-    "vscode-python"))
+(def all-charts (conj (keys artifact->splitter) "jdmetra"))
 
 (defn update-helm-charts-tag
   "Update the image tag of given helm charts."
