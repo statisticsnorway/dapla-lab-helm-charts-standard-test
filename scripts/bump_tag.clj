@@ -52,7 +52,9 @@
                     :indicator-indent 2
                     :indent-with-indicator true}})
 
-(defn update-helm-chart-values [chart-dir]
+(defn update-helm-chart-values
+  "Update image tags in values yaml and schema files."
+  [chart-dir]
   (let [schema-filepath (str chart-dir "/values.schema.json")
         values-filepath (str chart-dir "/values.yaml")
         values-schema (json/parse-string (slurp schema-filepath) true)
@@ -67,7 +69,9 @@
     (spit schema-filepath (json/generate-string updated-values-schema {:pretty true}))
     (spit values-filepath (yaml/generate-string updated-values yaml-encoding-options))))
 
-(defn update-helm-chart-version [chart-dir]
+(defn bump-helm-chart-version
+  "Bump the patch version of the helm chart."
+  [chart-dir]
   (let [filepath (str chart-dir "/Chart.yaml")
         chart (yaml/parse-string (slurp filepath))
         semver (:version chart)
@@ -82,12 +86,12 @@
            yaml-encoding-options))))
 
 (defn update-helm-chart-tag
-  "Update helm chart image tag."
+  "Update entire helm chart with new image tag."
   [chart-dir]
   (update-helm-chart-values chart-dir)
-  (update-helm-chart-version chart-dir))
+  (bump-helm-chart-version chart-dir))
 
-(def all-charts (conj (keys artifact->splitter) "jdmetra"))
+(def all-charts "List of all helm charts." (conj (keys artifact->splitter) "jdmetra"))
 
 (defn update-helm-charts-tag
   "Update the image tag of given helm charts."
@@ -104,6 +108,7 @@
    (merge spec {:order (vec (keys (:spec spec)))})))
 
 (def cli-spec
+  "The specification for supported CLI arguments"
   {:spec {:all {:coerce :boolean
                 :desc "Target all helm charts"}}
    :error-fn
@@ -117,7 +122,7 @@
          (println
           (format "%s does not exist!\n" msg)))))})
 
-(defn -main [& raw-args]
+(defn -main "Script entrypoint." [& raw-args]
   (let [{:keys [args opts]} (cli/parse-args raw-args cli-spec)
         chart-dir (first args)]
     (cond
