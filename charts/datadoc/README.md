@@ -1,6 +1,6 @@
 # datadoc-editor
 
-![Version: 0.15.0](https://img.shields.io/badge/Version-0.15.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.15.1](https://img.shields.io/badge/Version-0.15.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Applikasjon for å dokumentere datasett i SSB.
 
@@ -39,7 +39,7 @@ Applikasjon for å dokumentere datasett i SSB.
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
 | diskplass.enabled | bool | `false` |  |
 | diskplass.size | string | `"10Gi"` |  |
-| environment.DAPLA_MANUAL_NAMING_STANDARD_URL | string | `"https://probable-waddle-o4w1og1.pages.github.io/statistikkere/navnestandard-datalagring.html"` |  |
+| environment.DAPLA_MANUAL_NAMING_STANDARD_URL | string | `"https://manual.dapla.ssb.no/statistikkere/navnestandard.html"` |  |
 | environment.DATADOC_STATISTICAL_SUBJECT_SOURCE_URL | string | `"https://www.ssb.no/xp/_/service/mimir/subjectStructurStatistics"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
