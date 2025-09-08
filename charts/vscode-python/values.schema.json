@@ -574,6 +574,14 @@
         "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
       }
     },
+    "whodatServiceUrl": {
+      "type": "string",
+      "description": "The whodat service URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/whodatServiceUrl.json"
+      }
+    },
     "maskinportenGuardianUrl": {
       "type": "string",
       "description": "Maskinporten-guardian URL",

@@ -117,6 +117,8 @@ spec:
               value: {{ .Values.maskinportenGuardianUrl }}
             - name: PSEUDO_SERVICE_URL
               value: {{ .Values.pseudoServiceUrl }}
+            - name: WHODAT_SERVICE_URL
+              value: {{ .Values.whodatServiceUrl }}
             - name: LABID_TOKEN_EXCHANGE_URL
               value: http://labid.labid.svc.cluster.local/token
             - name: DAPLA_USER

@@ -621,6 +621,14 @@
         "overwriteSchemaWith": "dapla/pseudoServiceUrl.json"
       }
     },
+    "whodatServiceUrl": {
+      "type": "string",
+      "description": "The whodat service URL",
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "dapla/whodatServiceUrl.json"
+      }
+    },
     "daplaUser": {
       "type": "string",
       "title": "Current Dapla user",
