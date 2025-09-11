@@ -949,6 +949,29 @@ entries:
     version: 1.0.1
   jupyter:
   - apiVersion: v2
+    created: "2025-09-11T13:40:46.468098573Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.4.8
+    description: Minimal Jupyterlab med Python og R. Brukeren kan selv installere
+      pakker.
+    digest: 79e15d51a7678cb260f0a8785fe3e598076b1d67e3149c37e795e80e17c57a9f
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-0.17.0/jupyter-0.17.0.tgz
+    version: 0.17.0
+  - apiVersion: v2
     created: "2025-09-08T09:09:57.090208469Z"
     dependencies:
     - name: library-chart
@@ -3539,6 +3562,29 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-0.3.7/jupyter-0.3.7.tgz
     version: 0.3.7
   jupyter-playground:
+  - apiVersion: v2
+    created: "2025-09-11T13:40:46.623308346Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.4.8
+    description: Jupyterlab med Python og R og mange vanlige pakker ferdig installert.
+      Passer godt for de som skal lære R og Python uten for mye kompleksitet.
+    digest: 2ab75a61a809b1ba74a62832885605007e4c2d0254f3dea62a750ceb699f28f3
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter-playground.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-playground
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-playground-0.16.0/jupyter-playground-0.16.0.tgz
+    version: 0.16.0
   - apiVersion: v2
     created: "2025-08-14T09:01:43.331157901Z"
     dependencies:
@@ -10178,6 +10224,28 @@ entries:
     version: 0.3.2
   vscode-python:
   - apiVersion: v2
+    created: "2025-09-11T13:40:46.795512216Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.4.8
+    description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter
+      behov.
+    digest: 6e5dd7c6790eae6e30077662bb005849fa12e900cc5323df9ed138c90588b1d7
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.16.0/vscode-python-0.16.0.tgz
+    version: 0.16.0
+  - apiVersion: v2
     created: "2025-09-08T09:09:57.468862823Z"
     dependencies:
     - name: library-chart
@@ -13103,4 +13171,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.3.6/vscode-python-0.3.6.tgz
     version: 0.3.6
-generated: "2025-09-08T09:09:57.471021545Z"
+generated: "2025-09-11T13:40:46.796838841Z"
