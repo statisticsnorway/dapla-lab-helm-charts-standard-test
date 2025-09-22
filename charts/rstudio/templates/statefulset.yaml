@@ -154,10 +154,12 @@ spec:
             httpGet:
               path: /
               port: {{ .Values.networking.service.port }}
+            timeoutSeconds: 300s
           readinessProbe:
             httpGet:
               path: /
               port: {{ .Values.networking.service.port }}
+            timeoutSeconds: 300s
           resources:
             requests:
               cpu: {{ .Values.resources.cpu }}
