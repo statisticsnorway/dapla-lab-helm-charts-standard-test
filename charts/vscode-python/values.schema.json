@@ -28,9 +28,9 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "4.4.0-py311-2025.09.23T07_28Z",
+          "default": "r4.4.0-py311-2025.09.23T07_28Z",
           "listEnum": [
-            "4.4.0-py311-2025.09.23T07_28Z",
+            "r4.4.0-py311-2025.09.23T07_28Z",
             "r4.4.0-py311-2025.09.18T08_33Z"
           ],
           "render": "list",
