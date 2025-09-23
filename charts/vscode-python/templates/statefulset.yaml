@@ -169,6 +169,13 @@ spec:
             httpGet:
               path: /
               port: {{ .Values.networking.service.port }}
+          startupProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.networking.service.port }}
+            periodSeconds: 5
+            failureThreshold: 120
+            timeoutSeconds: 5
           resources:
             requests:
               cpu: {{ .Values.resources.cpu }}

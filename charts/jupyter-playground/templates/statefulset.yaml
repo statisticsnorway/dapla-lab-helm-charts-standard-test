@@ -182,7 +182,10 @@ spec:
             httpGet:
               path: /user/onyxia/
               port: {{ .Values.networking.service.port }}
-            {{- toYaml .Values.startupProbe | nindent 12 }}     
+            periodSeconds: 5
+            failureThreshold: 120
+            timeoutSeconds: 5
+            {{- toYaml .Values.startupProbe | nindent 12 }}
           resources:
             requests:
               cpu: {{ .Values.resources.cpu }}
