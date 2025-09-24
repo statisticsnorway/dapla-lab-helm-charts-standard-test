@@ -163,7 +163,7 @@ spec:
               path: /
               port: {{ .Values.networking.service.port }}
             periodSeconds: 5
-            failureThreshold: 120
+            failureThreshold: 360
             timeoutSeconds: 5
           resources:
             requests:
