@@ -62,7 +62,7 @@
   [chart-dir]
   (let [schema-filepath (str chart-dir "/values.schema.json")
         values-filepath (str chart-dir "/values.yaml")
-        values-schema (json/parse-string (slurp schema-filepath) true)
+        values-schema (yaml/parse-string (slurp schema-filepath)) ; read json using yaml decoder to preserve key order
         values (yaml/parse-string (slurp values-filepath))
         artifact (str/replace-first chart-dir #"./charts/" "")
         {:keys [default secondary]} (process-tags artifact)
@@ -71,7 +71,7 @@
             (update-in [:properties :tjeneste :properties :version :default] (constantly default))
             (update-in [:properties :tjeneste :properties :version :listEnum] (constantly [default secondary])))
         updated-values (update-in values [:tjeneste :version] (constantly default))]
-    (spit schema-filepath (json/generate-string updated-values-schema {:pretty true}))
+    (spit schema-filepath (json/encode updated-values-schema {:pretty true}))
     (spit values-filepath (yaml/generate-string updated-values yaml-encoding-options))))
 
 (defn bump-helm-chart-version
