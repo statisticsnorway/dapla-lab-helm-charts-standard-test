@@ -35,7 +35,7 @@
   {"jupyter" "py312"
    "jupyter-playground" "py312"
    "jupyter-pyspark" "py312"
-   "vscode-python" "py312"
+   "vscode-python" "r4.4.0-py312"
    "rstudio" "r4.4.0"})
 
 (defn process-tags [artifact]
@@ -64,7 +64,7 @@
         values-filepath (str chart-dir "/values.yaml")
         values-schema (yaml/parse-string (slurp schema-filepath)) ; read json using yaml decoder to preserve key order
         values (yaml/parse-string (slurp values-filepath))
-        artifact (str/replace-first chart-dir #"./charts/" "")
+        artifact (str/replace chart-dir #"./charts/|charts/" "")
         {:keys [default secondary]} (process-tags artifact)
         updated-values-schema
         (-> values-schema
