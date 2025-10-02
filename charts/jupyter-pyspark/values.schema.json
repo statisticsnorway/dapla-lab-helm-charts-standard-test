@@ -31,7 +31,7 @@
           "default" : "py311-spark3.5.3-2025.10.02T09_17Z",
           "listEnum" : [ "py311-spark3.5.3-2025.10.02T09_17Z", "py312-spark3.5.3-2025.10.02T09_21Z" ],
           "render" : "list",
-          "pattern" : "^[a-zA-Z0-9-_./]+(:[a-z0-9-_.]+)?$"
+          "pattern" : "^[a-zA-Z0-9-_.:/]+$"
         },
         "image" : {
           "description" : "image docker",
