@@ -1,6 +1,6 @@
 # vscode-python
 
-![Version: 0.16.11](https://img.shields.io/badge/Version-0.16.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.16.16](https://img.shields.io/badge/Version-0.16.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 
@@ -82,8 +82,8 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
 | repository.pipRepository | string | `""` |  |
-| resources.cpu | string | `""` |  |
-| resources.memory | string | `""` |  |
+| resources.cpu | string | `"200m"` |  |
+| resources.memory | string | `"4Gi"` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
@@ -104,7 +104,7 @@ Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-py311-2025.09.26T08_37Z"` |  |
+| tjeneste.version | string | `"r4.4.0-py311-2025.10.02T09_57Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
