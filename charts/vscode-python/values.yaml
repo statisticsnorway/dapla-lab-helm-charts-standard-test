@@ -76,8 +76,8 @@ istio:
     - istio-namespace/example-gateway
   hostname: chart-example.local
 resources:
-  cpu: ''
-  memory: ''
+  cpu: '200m'
+  memory: '4Gi'
 diskplass:
   enabled: true
   accessMode: ReadWriteOnce
