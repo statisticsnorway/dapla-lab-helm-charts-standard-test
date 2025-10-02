@@ -3,13 +3,24 @@ name: jdemetra
 description: Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 icon: https://avatars.githubusercontent.com/u/10142886
 keywords:
-  - JDemetra
+  - JDemetra  # TODO: Change 'home' to link to Dapla Manual
 home: https://manual.dapla.ssb.no/statistikkere/jdemetra.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
 type: application
-version: 1.7.2
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 1.7.1
 dependencies:
   - name: library-chart
     version: 4.4.8

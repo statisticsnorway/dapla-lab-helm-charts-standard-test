@@ -1,65 +1,99 @@
 global:
   suspend: false
 tjeneste:
-  version: r4.3.3-2025.10.02T09_28Z
+  version: "r4.4.0-2025.08.20T09_37Z"
   image:
     pullPolicy: IfNotPresent
+
 security:
   networkPolicy:
     enabled: false
     from: []
   allowlist:
     enabled: false
-    ip: 0.0.0.0/0
+    ip: "0.0.0.0/0"
   serviceEntry:
     enabled: true
     hosts:
-      - storage.googleapis.com
+      - "storage.googleapis.com"
   oauth2:
     provider: keycloak-oidc
-    oidcIssuerUrl: overwritten-by-onyxia
-    clientId: my-client
-    authenticatedEmails: ''
+    oidcIssuerUrl: "overwritten-by-onyxia"
+    clientId: "my-client"
+    authenticatedEmails: ""
+
 init:
-  standardInitPath: /opt/onyxia-init.sh
-  regionInit: ''
+  standardInitPath: "/opt/onyxia-init.sh"
+  regionInit: ""
+
 environment:
   user: onyxia
   group: users
+
 userAttributes:
   environmentVariableName: OIDC_TOKEN
-  userAttribute: access_token
-  value: ''
+  userAttribute: "access_token"
+  value: ""
+
 oidc:
+  # Specifies whether a config map should be created
   enabled: true
-  tokenExchangeUrl: ''
-  secretName: ''
+  tokenExchangeUrl: ""
+  # The name of the configmap to use.
+  # If not set and create is true, a name is generated using the fullname template
+  secretName: ""
+
 gitConfig:
   git:
+    # Specifies whether a config map should be created
     enabled: false
-    configMapName: ''
-    name: ''
-    email: ''
-    cache: ''
+    # The name of the configmap to use.
+    # If not set and create is true, a name is generated using the fullname template
+    configMapName: ""
+    name: ""
+    email: ""
+    cache: ""
   github:
-    token: ''
-    repository: ''
-    branch: ''
+    token: ""
+    repository: ""
+    branch: ""
+    # Specifies whether or not ssb-project build will run on the repository
     build: false
+
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
 replicaCount: 1
+
 imagePullSecrets: []
-nameOverride: ''
-fullnameOverride: ''
+nameOverride: ""
+fullnameOverride: ""
+
 serviceAccount:
+  # Specifies whether a service account should be created
   create: true
+  # Annotations to add to the service account
   annotations: {}
-  name: ''
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
 kubernetes:
   enabled: true
+
 podAnnotations: {}
+
 podSecurityContext:
   fsGroup: 100
-securityContext: {}
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
 networking:
   type: ClusterIP
   clusterIP: None
@@ -67,57 +101,82 @@ networking:
     port: 8787
   sparkui:
     port: 4040
+
 istio:
   enabled: false
   gateways:
     - istio-namespace/example-gateway
   hostname: chart-example.local
+
 resources:
-  cpu: 100m
-  memory: 400Gi
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube.
+  cpu: "100m"
+  memory: "400Gi"
+
 diskplass:
   enabled: true
+  ## database data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 10Gi
+  # existingClaim: ""
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
 avansert:
   data:
     mountStandard: true
   startupScript:
-    scriptPath: ''
-    scriptArgs: ''
+    scriptPath: ""
+    scriptArgs: ""
+
 nodeSelector: {}
+
 tolerations: []
+
 affinity: {}
+
 repository:
-  configMapName: ''
-  rRepository: ''
+  configMapName: ""
+  rRepository: ""
+
 dapla:
   sourceData:
-    reason: ''
-    requestedDuration: 4h
-  group: dapla-felles-developers
+    reason: ""
+    requestedDuration: "4h"
+  group: "dapla-felles-developers"
   sharedBuckets: []
+
 deleteJob:
   enabled: true
-  cronMinuteAtDay: '0'
-  cronHourAtDay: '20'
-  imageVersion: v1.1.0
+  cronMinuteAtDay: "0"
+  cronHourAtDay: "20"
+  imageVersion: "v1.1.0"
   clusterRoleName: onyxia-delete-job
   serviceAccount:
     annotations: {}
+
 podDisruptionBudget:
   enabled: true
-deployEnvironment: DEV
-daplaUser: ''
-statbankBaseUrl: ''
-statbankEncryptUrl: ''
-statbankTestBaseUrl: ''
-statbankTestEncryptUrl: ''
-pseudoServiceUrl: ''
-whodatServiceUrl: ''
-maskinportenGuardianUrl: ''
+
+deployEnvironment: "DEV"
+daplaUser: ""
+statbankBaseUrl: ""
+statbankEncryptUrl: ""
+statbankTestBaseUrl: ""
+statbankTestEncryptUrl: ""
+pseudoServiceUrl: ""
+whodatServiceUrl: ""
+maskinportenGuardianUrl: ""
