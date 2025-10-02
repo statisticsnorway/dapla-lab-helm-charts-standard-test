@@ -1,91 +1,60 @@
-# Default values.
 global:
   suspend: false
-
 tjeneste:
-  version: "v1"
+  version: jd3.2.4-2025.09.29T01_51Z
   pullPolicy: Always
-
 security:
   networkPolicy:
     enabled: false
     from: []
   allowlist:
     enabled: false
-    ip: "0.0.0.0/0"
+    ip: 0.0.0.0/0
   serviceEntry:
     enabled: true
     hosts:
-      - "storage.googleapis.com"
+      - storage.googleapis.com
   oauth2:
     provider: keycloak-oidc
-    oidcIssuerUrl: "overwritten-by-onyxia"
-    clientId: "my-client"
-    authenticatedEmails: ""
-
+    oidcIssuerUrl: overwritten-by-onyxia
+    clientId: my-client
+    authenticatedEmails: ''
 environment:
   user: onyxia
   group: users
-
 features:
   toggle_new_variables_workspace: false
-
 userAttributes:
   environmentVariableName: OIDC_TOKEN
-  userAttribute: "access_token"
-  value: ""
-
+  userAttribute: access_token
+  value: ''
 dapla:
   sourceData:
-    reason: ""
-    requestedDuration: "4h"
-  group: "dapla-felles-developers"
+    reason: ''
+    requestedDuration: 4h
+  group: dapla-felles-developers
   sharedBuckets: []
-
 oidc:
-  # Specifies whether a config map should be created
   enabled: true
-  tokenExchangeUrl: ""
-  # The name of the configmap to use.
-  # If not set and create is true, a name is generated using the fullname template
-  configMapName: ""
-
+  tokenExchangeUrl: ''
+  configMapName: ''
 replicaCount: 1
-
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
+nameOverride: ''
+fullnameOverride: ''
 serviceAccount:
-  # Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
-
+  name: ''
 kubernetes:
   enabled: false
-  role: "view"
-
+  role: view
 podAnnotations: {}
-
 podLabels:
-  onyxia.app: "jdemetra"
-
+  onyxia.app: jdemetra
 podSecurityContext:
   fsGroup: 100
-
-securityContext:
-  {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-# runAsUser: 1000
-
+securityContext: {}
 networking:
   type: ClusterIP
   clusterIP: None
@@ -93,68 +62,44 @@ networking:
     port: 6080
   user:
     enabled: false
-
 istio:
   enabled: false
   gateways:
     - istio-namespace/example-gateway
   hostname: chart-example.local
   userHostname: chart-example-user.local
-
 ressurser:
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube.
   requests:
-    cpu: ""
-    memory: ""
-
+    cpu: ''
+    memory: ''
 diskplass:
   enabled: false
   accessMode: ReadWriteOnce
   size: 10Gi
-
 avansert:
   data:
     mountStandard: true
   startupScript:
-    scriptPath: ""
-    scriptArgs: ""
-
+    scriptPath: ''
+    scriptArgs: ''
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
-
 startupProbe:
   failureThreshold: 60
   initialDelaySeconds: 10
   periodSeconds: 10
   successThreshold: 1
   timeoutSeconds: 30
-
 persistence:
   enabled: false
-  ## database data Persistent Volume Storage Class
-  ## If defined, storageClassName: <storageClass>
-  ## If set to "-", storageClassName: "", which disables dynamic provisioning
-  ## If undefined (the default) or set to null, no storageClassName spec is
-  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-  ##   GKE, AWS & OpenStack)
-  ##
-  # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 10Gi
-  # existingClaim: ""
-
 init:
-  standardInitPath: "/opt/onyxia-init.sh"
-  regionInit: ""
+  standardInitPath: /opt/onyxia-init.sh
+  regionInit: ''
