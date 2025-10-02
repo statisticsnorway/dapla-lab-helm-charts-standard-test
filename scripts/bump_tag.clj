@@ -7,9 +7,13 @@
             [clojure.string :as str]
             [clj-yaml.core :as yaml]))
 
+(def GAR-project-id
+  "GAR project name"
+  "artifact-registry-5n")
+
 (def GAR-path
   "Path to the GAR onyxia images"
-  "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/")
+  (str/join "/" ["europe-north1-docker.pkg.dev" GAR-project-id "dapla-lab-docker/onyxia/"]))
 
 (defn fetch-artifact-tags
   "Fetch list of sorted docker tags for a given artifact."
@@ -31,10 +35,11 @@
   {"jupyter" "py312"
    "jupyter-playground" "py312"
    "jupyter-pyspark" "py312"
-   "vscode-python" "py312"
+   "vscode-python" "r4.4.0-py312"
    "rstudio" "r4.4.0"})
 
 (defn process-tags [artifact]
+  (shell "gcloud" "config" "set" "project" GAR-project-id) ; ensure we're in the GAR project
   (->> (fetch-artifact-tags artifact)
        ((if-let [splitter (artifact->splitter artifact)]
           (partial extract-tags splitter)
@@ -57,16 +62,16 @@
   [chart-dir]
   (let [schema-filepath (str chart-dir "/values.schema.json")
         values-filepath (str chart-dir "/values.yaml")
-        values-schema (json/parse-string (slurp schema-filepath) true)
+        values-schema (yaml/parse-string (slurp schema-filepath)) ; read json using yaml decoder to preserve key order
         values (yaml/parse-string (slurp values-filepath))
-        artifact (str/replace-first chart-dir #"./charts/" "")
+        artifact (str/replace chart-dir #"./charts/|charts/" "")
         {:keys [default secondary]} (process-tags artifact)
         updated-values-schema
         (-> values-schema
             (update-in [:properties :tjeneste :properties :version :default] (constantly default))
             (update-in [:properties :tjeneste :properties :version :listEnum] (constantly [default secondary])))
         updated-values (update-in values [:tjeneste :version] (constantly default))]
-    (spit schema-filepath (json/generate-string updated-values-schema {:pretty true}))
+    (spit schema-filepath (json/encode updated-values-schema {:pretty true}))
     (spit values-filepath (yaml/generate-string updated-values yaml-encoding-options))))
 
 (defn bump-helm-chart-version
@@ -91,13 +96,13 @@
   (update-helm-chart-values chart-dir)
   (bump-helm-chart-version chart-dir))
 
-(def all-charts "List of all helm charts." (conj (keys artifact->splitter) "jdmetra"))
+(def all-charts "List of all helm charts." (conj (keys artifact->splitter) "jdemetra"))
 
 (defn update-helm-charts-tag
   "Update the image tag of given helm charts."
   [helm-charts]
   (->> helm-charts
-       (map #(str "./charts/" %))
+       (map (partial str "./charts/"))
        (pmap update-helm-chart-tag)
        doall))
 
