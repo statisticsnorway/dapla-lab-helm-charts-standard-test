@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: jd3.2.4-2025.09.29T01_51Z
+  version: jd2.2.5-2025.10.06T01_54Z
   pullPolicy: Always
 security:
   networkPolicy:
