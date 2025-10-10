@@ -339,6 +339,27 @@ entries:
     version: 0.9.29
   jdemetra:
   - apiVersion: v2
+    created: "2025-10-10T13:56:51.446851462Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.4.8
+    description: Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid
+      med Eurostat.
+    digest: c0abcc2218dd9d7762ace328656926766a3b5f6d44efce015cb43b6aeb391ad0
+    home: https://manual.dapla.ssb.no/statistikkere/jdemetra.html
+    icon: https://avatars.githubusercontent.com/u/10142886
+    keywords:
+    - JDemetra
+    name: jdemetra
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jdemetra-1.7.5/jdemetra-1.7.5.tgz
+    version: 1.7.5
+  - apiVersion: v2
     created: "2025-10-02T12:55:00.490055916Z"
     dependencies:
     - name: library-chart
@@ -14071,4 +14092,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.3.6/vscode-python-0.3.6.tgz
     version: 0.3.6
-generated: "2025-10-10T11:31:45.982641567Z"
+generated: "2025-10-10T13:56:51.447866802Z"
