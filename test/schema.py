@@ -1,7 +1,12 @@
-import json
-#import pytest
-import sys
+# /// script
+# dependencies = [
+#   "termcolor"
+# ]
+# ///
 
+import json
+import sys
+from termcolor import cprint
 
 def main():
     try:
@@ -38,23 +43,23 @@ def test_helm_chart_schema(chart_path: str):
     image_version_options = [get_tag(tag) for tag in image_version_schema["listEnum"]]
 
     if not source[helm_chart]["default"] == default_image_version:
-        print(f"""
+        cprint(f"""
         Unexpected default image tag in the values.schema.json for the helm chart {helm_chart}.
         In the field '.properties.tjeneste.properties.version.default'.
 
-        Got {default_image_version}
         Expected {source[helm_chart]["default"]}
-        """)
+        Got {default_image_version}
+        """, "red")
         sys.exit(1)
 
     if not source[helm_chart]["options"] == image_version_options:
-        print(f"""
+        cprint(f"""
         Unexpected image tag list in the values.schema.json for the helm chart {helm_chart}.
         In the field '.properties.tjeneste.properties.version.listEnum'.
 
-        Got {image_version_options}
         Expected {source[helm_chart]["options"]}
-        """)
+        Got {image_version_options}
+        """, "red")
         sys.exit(1)
 
     sys.exit(0)
