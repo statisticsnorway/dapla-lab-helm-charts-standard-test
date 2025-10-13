@@ -1,0 +1,7 @@
+[project]
+name = "test"
+version = "0.1.0"
+description = "Test helm chart json schemas"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []

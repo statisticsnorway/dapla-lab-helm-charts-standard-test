@@ -20,6 +20,8 @@
             clj-kondo
             babashka
             nixd
+            ruff
+            uv
             vscode-langservers-extracted
             yaml-language-server
           ];
