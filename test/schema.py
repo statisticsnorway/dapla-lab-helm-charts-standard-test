@@ -49,7 +49,7 @@ def test_helm_chart_schema(chart_path: str):
 
         Expected {source[helm_chart]["default"]}
         Got {default_image_version}
-        """, "red")
+        """, color="red", no_color=False)
         sys.exit(1)
 
     if not source[helm_chart]["options"] == image_version_options:
@@ -59,7 +59,7 @@ def test_helm_chart_schema(chart_path: str):
 
         Expected {source[helm_chart]["options"]}
         Got {image_version_options}
-        """, "red")
+        """, color="red", no_color=False)
         sys.exit(1)
 
     sys.exit(0)
