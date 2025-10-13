@@ -10,7 +10,7 @@ on:
 
 jobs:
   detect:
-    name: Detect changed 'values.schema.json' files
+    name: Detect changed values.schema.json files
     runs-on: ubuntu-latest
     outputs:
       files: ${{ steps.changed.outputs.files_json }}
@@ -30,7 +30,7 @@ jobs:
           fi
 
           echo "Changed files:"
-          echo "$files"
+          files=$(echo "$files" | sed "s#/values\.schema\.json##")
 
           # Convert to JSON array for the matrix
           files_json=$(printf '%s\n' "$files" | jq -R -s -c 'split("\n")[:-1]')
