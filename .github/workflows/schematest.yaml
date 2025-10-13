@@ -32,8 +32,10 @@ jobs:
             files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'values.schema.json' || true)
           fi
 
-          echo "Changed files:"
           files=$(echo "$files" | sed "s#/values\.schema\.json##")
+
+          echo "Changed files:"
+          echo $files
 
           # Convert to JSON array for the matrix
           files_json=$(printf '%s\n' "$files" | jq -R -s -c 'split("\n")[:-1]')
@@ -51,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Set up Python
+      - name: Set up uv and python
         uses: astral-sh/setup-uv@v7.1.0
         with:
           version: 'latest'
