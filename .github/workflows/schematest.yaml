@@ -8,6 +8,9 @@ on:
       - 'charts/rstudio/values.schema.json'
       - 'charts/vscode-python/values.schema.json'
 
+permissions:
+  contents: 'read'
+
 jobs:
   detect:
     name: Detect changed values.schema.json files
