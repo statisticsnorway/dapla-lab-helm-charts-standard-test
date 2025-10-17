@@ -25,30 +25,30 @@
     (json/parse-string arg true)
     (map :tag arg)))
 
-(defn extract-tags [splitter tags]
-  (->> tags
-       (partition-by #(str/includes? % splitter))
-       (map last)))
+(defn strip-gar-path "Strip the GAR prefix from a tag." [tag]
+  (str/replace tag #".*/" ""))
 
-(def artifact->splitter
-  "Map of artifact names and their tag splitters"
-  {"jupyter" "py312"
-   "jupyter-playground" "py312"
-   "jupyter-pyspark" "py312"
-   "vscode-python" "r4.4.0-py312"
-   "rstudio" "r4.4.0"})
+(defn extract-dep-version "Extract the dependency versions from a tag." [full-tag]
+  (-> full-tag
+      strip-gar-path
+      (str/replace #"-\d{4}\.\d{2}\.\d{2}T\d{2}_\d{2}Z$" "")))
+
+(def artifact->tags
+  "Map of artifact names and their tags. Where the first one is the default selection."
+  (let [r-and-python-tags ["r4.4.0-py311" "r4.4.0-py312"]]
+    {"jdemetra" ["jd2.2.5" "jd3.2.4"]
+     "jupyter" r-and-python-tags
+     "jupyter-playground" r-and-python-tags
+     "jupyter-pyspark" ["py311-spark3.5.3" "py312-spark3.5.3"]
+     "vscode-python" r-and-python-tags
+     "rstudio" ["r4.3.3" "r4.4.0"]}))
 
 (defn process-tags [artifact]
   (shell "gcloud" "config" "set" "project" GAR-project-id) ; ensure we're in the GAR project
   (->> (fetch-artifact-tags artifact)
-       ((if-let [splitter (artifact->splitter artifact)]
-          (partial extract-tags splitter)
-          (partial take-last 2)))
-       (map #(-> %
-                 (str/last-index-of "/")
-                 inc
-                 (drop %)
-                 str/join))
+       (filter (fn [gar-tag] (some #(str/includes? gar-tag %) (artifact->tags artifact)))) ; for legacy reasons we need to filter on the tag shape
+       (partition-by extract-dep-version)
+       (map (comp strip-gar-path last))
        (interleave [:default :secondary])
        (apply hash-map)))
 
@@ -96,7 +96,7 @@
   (update-helm-chart-values chart-dir)
   (bump-helm-chart-version chart-dir))
 
-(def all-charts "List of all helm charts." (conj (keys artifact->splitter) "jdemetra"))
+(def all-charts "List of all helm charts." (keys artifact->tags))
 
 (defn update-helm-charts-tag
   "Update the image tag of given helm charts."
