@@ -5,8 +5,7 @@
             [babashka.process :refer [shell]]
             [cheshire.core :as json]
             [clojure.string :as str]
-            [clj-yaml.core :as yaml])
-  (:import [java.nio.file Paths]))
+            [clj-yaml.core :as yaml]))
 
 (def GAR-project-id
   "GAR project name"
@@ -65,7 +64,7 @@
         values-filepath (str (fs/path chart-dir "values.yaml"))
         values-schema (yaml/parse-string (slurp schema-filepath)) ; read json using yaml decoder to preserve key order
         values (yaml/parse-string (slurp values-filepath))
-        artifact (str (.getFileName (Paths/get chart-dir (into-array String []))))
+        artifact (str (.getFileName (fs/path chart-dir)))
         {:keys [default secondary]} (process-tags artifact)
         updated-values-schema
         (-> values-schema
