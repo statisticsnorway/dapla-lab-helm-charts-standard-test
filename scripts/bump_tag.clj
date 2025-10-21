@@ -5,7 +5,8 @@
             [babashka.process :refer [shell]]
             [cheshire.core :as json]
             [clojure.string :as str]
-            [clj-yaml.core :as yaml]))
+            [clj-yaml.core :as yaml])
+  (:import [java.nio.file Paths]))
 
 (def GAR-project-id
   "GAR project name"
@@ -60,11 +61,11 @@
 (defn update-helm-chart-values
   "Update image tags in values yaml and schema files."
   [chart-dir]
-  (let [schema-filepath (str chart-dir "/values.schema.json")
-        values-filepath (str chart-dir "/values.yaml")
+  (let [schema-filepath (str (fs/path chart-dir "values.schema.json"))
+        values-filepath (str (fs/path chart-dir "values.yaml"))
         values-schema (yaml/parse-string (slurp schema-filepath)) ; read json using yaml decoder to preserve key order
         values (yaml/parse-string (slurp values-filepath))
-        artifact (str/replace chart-dir #"./charts/|charts/" "")
+        artifact (str (.getFileName (Paths/get chart-dir (into-array String []))))
         {:keys [default secondary]} (process-tags artifact)
         updated-values-schema
         (-> values-schema
@@ -77,7 +78,7 @@
 (defn bump-helm-chart-version
   "Bump the patch version of the helm chart."
   [chart-dir]
-  (let [filepath (str chart-dir "/Chart.yaml")
+  (let [filepath (str (fs/path chart-dir "Chart.yaml"))
         chart (yaml/parse-string (slurp filepath))
         semver (:version chart)
         new-version
