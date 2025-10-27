@@ -28,8 +28,8 @@
           "title" : "Versjon",
           "description" : "Versjon av Python og R i tjenesten",
           "type" : "string",
-          "default" : "r4.4.0-py311-2025.10.17T08_04Z",
-          "listEnum" : [ "r4.4.0-py311-2025.10.17T08_04Z", "r4.4.0-py312-2025.10.17T08_04Z" ],
+          "default" : "r4.4.0-py311-2025.10.25T20_59Z",
+          "listEnum" : [ "r4.4.0-py311-2025.10.25T20_59Z", "r4.4.0-py312-2025.10.25T20_57Z" ],
           "render" : "list",
           "pattern" : "^[a-zA-Z0-9-_.:/]+$"
         },
