@@ -116,8 +116,8 @@
           "title" : "Versjon",
           "description" : "Versjon av Python og R i tjenesten",
           "type" : "string",
-          "default" : "r4.4.0-2025.11.21T11_34Z",
-          "listEnum" : [ "r4.3.3-2025.11.21T11_30Z", "r4.4.0-2025.11.21T11_34Z" ],
+          "default" : "r4.4.0-2025.11.21T12_10Z",
+          "listEnum" : [ "r4.3.3-2025.11.21T12_10Z", "r4.4.0-2025.11.21T12_10Z" ],
           "render" : "list",
           "pattern" : "^[a-zA-Z0-9-_.:/]+$"
         },
