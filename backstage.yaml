@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dapla-lab-helm-charts-standard-test
+  title: Helm Charts Standard Test
+  description: |
+    Repository containing helm charts for the provided Dapla Lab services.
+  tags:
+    - helm
+    - yaml
+  annotations:
+    github.com/project-slug: statisticsnorway/dapla-lab-helm-charts-standard-test
+spec:
+  type: library
+  owner: dapla-stat-developers
+  lifecycle: production
+  system: dapla-lab
+  dependsOn:
+    - "component:dapla-lab-images"
