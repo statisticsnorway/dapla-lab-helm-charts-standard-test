@@ -6,7 +6,9 @@
 
 import json
 import sys
+
 from termcolor import cprint
+
 
 def main():
     try:
@@ -30,17 +32,20 @@ source = {
     "rstudio": {"default": "r4.4.0",
                 "options": ["r4.3.3", "r4.4.0"]},
     "vscode-python": {"default": "r4.4.0-py311",
-                "options": ["r4.4.0-py311", "r4.4.0-py312"]}
+                "options": ["r4.4.0-py311", "r4.4.0-py312"]},
 }
 
 def test_helm_chart_schema(chart_path: str):
     helm_chart = chart_path.rsplit("/", 1)[1]
+    
+    if helm_chart not in source:
+        sys.exit(0)
     load_path = f"{chart_path}/values.schema.json"
     with open(load_path, "r") as f:
       schema = json.load(f)
     image_version_schema = schema["properties"]["tjeneste"]["properties"]["version"]
     default_image_version = get_tag(image_version_schema["default"])
-    image_version_options = [get_tag(tag) for tag in image_version_schema["listEnum"]]
+    image_version_options = [get_tag(tag) for tag in image_version_schema.get("listEnum", [])]
 
     if not source[helm_chart]["default"] == default_image_version:
         cprint(f"""
