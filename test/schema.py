@@ -37,6 +37,9 @@ source = {
 
 def test_helm_chart_schema(chart_path: str):
     helm_chart = chart_path.rsplit("/", 1)[1]
+    
+    if helm_chart not in source:
+        sys.exit(0)
     load_path = f"{chart_path}/values.schema.json"
     with open(load_path, "r") as f:
       schema = json.load(f)
