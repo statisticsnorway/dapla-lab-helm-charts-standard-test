@@ -28,8 +28,8 @@
           "title" : "Versjon",
           "description" : "Versjon av Python og R i tjenesten",
           "type" : "string",
-          "default" : "latest",
-          "listEnum" : [ "latest" ],
+          "default" : "latest-2026.01.09T11_28Z",
+          "listEnum" : [ "latest-2026.01.09T11_28Z" ],
           "render" : "list",
           "pattern" : "^[a-zA-Z0-9-_.:/]+$"
         },
