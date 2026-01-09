@@ -72,7 +72,7 @@ spec:
           image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/marimo:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} marimo edit --host 0.0.0.0 \
-          --port 8080 --headless"]
+          --port 8080 --headless --no-token --skip-update-check"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
