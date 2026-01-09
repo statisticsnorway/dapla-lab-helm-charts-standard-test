@@ -1,7 +1,7 @@
 apiVersion: v2
 name: marimo
 description: Marimo med Python.
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
 keywords:
   - Marimo
   - Python
