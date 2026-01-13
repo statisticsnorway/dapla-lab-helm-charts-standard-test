@@ -2,6 +2,7 @@
 (ns bump-tag
   (:require [babashka.cli :as cli]
             [babashka.fs :as fs]
+            [babashka.http-client :as http]
             [babashka.process :refer [shell]]
             [cheshire.core :as json]
             [clojure.string :as str]
@@ -90,6 +91,36 @@
            new-chart
            yaml-encoding-options))))
 
+(defn bump-library-chart-version
+  "Bump the library-chart dependency version of the helm chart."
+  [chart-dir]
+  (let [filepath (str (fs/path chart-dir "Chart.yaml"))
+        chart (yaml/parse-string (slurp filepath))]
+    ; Check if helm chart has a dependency on 'library-chart'
+    (when (seq (keep (fn [dep] (when (= "library-chart" (:name dep)) dep)) (:dependencies chart)))
+      (let [latest-library-chart-version
+            (-> "https://api.github.com/repos/statisticsnorway/dapla-lab-helm-charts-library/releases/latest"
+                http/get
+                :body
+                (json/decode true)
+                :name
+                (#(re-find #"\d+.\d+.\d+" %)))
+            new-chart (update-in chart [:dependencies]
+                                 (fn [deps]
+                                   (mapv #(if (= "library-chart" (:name %))
+                                            (assoc-in % [:version] latest-library-chart-version)
+                                            %) deps)))]
+        (spit filepath
+              (yaml/generate-string
+               new-chart
+               yaml-encoding-options))))))
+
+(defn update-helm-chart-deps
+  "Update helm chart with new dependency tag."
+  [chart-dir]
+  (bump-library-chart-version chart-dir)
+  (bump-helm-chart-version chart-dir))
+
 (defn update-helm-chart-tag
   "Update entire helm chart with new image tag."
   [chart-dir]
@@ -97,6 +128,14 @@
   (bump-helm-chart-version chart-dir))
 
 (def all-charts "List of all helm charts." (keys artifact->tags))
+
+(defn update-helm-charts-deps
+  "Update the dependencies of given helm charts."
+  [helm-charts]
+  (->> helm-charts
+       (map (partial str "./charts/"))
+       (pmap update-helm-chart-deps)
+       doall))
 
 (defn update-helm-charts-tag
   "Update the image tag of given helm charts."
@@ -115,7 +154,9 @@
 (def cli-spec
   "The specification for supported CLI arguments"
   {:spec {:all {:coerce :boolean
-                :desc "Target all helm charts"}}
+                :desc "Target all helm charts"}
+          :deps {:coerce :boolean
+                 :desc "Update helm chart dependencies"}}
    :error-fn
    (fn [{:keys [type cause msg option]}]
      (when (= :org.babashka/cli type)
@@ -131,16 +172,20 @@
   (let [{:keys [args opts]} (cli/parse-args raw-args cli-spec)
         chart-dir (first args)]
     (cond
-      (or (:help opts) (:h opts))
+      (some opts [:help :h])
       (println
        (str/join "\n\n"
                  ["Bump the helm chart image tag."
                   "Usage: bump_tag.clj HELM-CHART-PATH"
                   "Flags:"
                   (show-help cli-spec)]))
+      (every? opts [:all :deps]) (do
+                                   (update-helm-charts-deps all-charts)
+                                   (println "Updated helm charts deps:" (str/join ", " all-charts)))
       (:all opts) (do
                     (update-helm-charts-tag all-charts)
                     (println "Updated helm charts:" (str/join ", " all-charts)))
+      (and (:deps opts) (fs/directory? chart-dir)) (update-helm-chart-deps chart-dir)
       chart-dir
       (if (fs/directory? chart-dir)
         (update-helm-chart-tag chart-dir)
