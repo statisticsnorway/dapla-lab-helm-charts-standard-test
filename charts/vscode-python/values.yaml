@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: r4.4.0-py311-2025.12.04T14_05Z
+  version: r4.4.0-py311-2026.01.13T09_51Z
   image:
     pullPolicy: IfNotPresent
 security:
@@ -76,8 +76,8 @@ istio:
     - istio-namespace/example-gateway
   hostname: chart-example.local
 resources:
-  cpu: '200m'
-  memory: '4Gi'
+  cpu: 200m
+  memory: 4Gi
 diskplass:
   enabled: true
   accessMode: ReadWriteOnce
