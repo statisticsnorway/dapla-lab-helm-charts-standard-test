@@ -1,6 +1,6 @@
 # jupyter-pyspark
 
-![Version: 0.11.16](https://img.shields.io/badge/Version-0.11.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.11.17](https://img.shields.io/badge/Version-0.11.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
@@ -16,7 +16,7 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.4.9 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.5.0 |
 
 ## Values
 
