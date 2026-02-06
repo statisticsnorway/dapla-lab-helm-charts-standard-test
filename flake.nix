@@ -18,6 +18,7 @@
           packages = with pkgs; [
             cljfmt
             clj-kondo
+            clojure-lsp
             babashka
             nixd
             ruff

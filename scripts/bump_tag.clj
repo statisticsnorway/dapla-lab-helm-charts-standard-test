@@ -127,13 +127,13 @@
   (update-helm-chart-values chart-dir)
   (bump-helm-chart-version chart-dir))
 
-(def all-charts "List of all helm charts." (keys artifact->tags))
+(def all-charts "List of all helm charts."
+  (map #(str "./charts/" %) (keys artifact->tags)))
 
 (defn update-helm-charts-deps
   "Update the dependencies of given helm charts."
   [helm-charts]
   (->> helm-charts
-       (map (partial str "./charts/"))
        (pmap update-helm-chart-deps)
        doall))
 
@@ -141,7 +141,6 @@
   "Update the image tag of given helm charts."
   [helm-charts]
   (->> helm-charts
-       (map (partial str "./charts/"))
        (pmap update-helm-chart-tag)
        doall))
 
@@ -169,14 +168,13 @@
           (format "%s does not exist!\n" msg)))))})
 
 (defn -main "Script entrypoint." [& raw-args]
-  (let [{:keys [args opts]} (cli/parse-args raw-args cli-spec)
-        chart-dir (first args)]
+  (let [{:keys [args opts]} (cli/parse-args raw-args cli-spec)]
     (cond
       (some opts [:help :h])
       (println
        (str/join "\n\n"
                  ["Bump the helm chart image tag."
-                  "Usage: bump_tag.clj HELM-CHART-PATH"
+                  "Usage: bump_tag.clj HELM-CHART-PATH..."
                   "Flags:"
                   (show-help cli-spec)]))
       (every? opts [:all :deps]) (do
@@ -185,11 +183,11 @@
       (:all opts) (do
                     (update-helm-charts-tag all-charts)
                     (println "Updated helm charts:" (str/join ", " all-charts)))
-      (and (:deps opts) (fs/directory? chart-dir)) (update-helm-chart-deps chart-dir)
-      chart-dir
-      (if (fs/directory? chart-dir)
-        (update-helm-chart-tag chart-dir)
-        (println (format "The directory %s does not exist." chart-dir)))
+      (and (:deps opts) (every? fs/directory? args)) (update-helm-charts-deps args)
+      args
+      (if (every? fs/directory? args)
+        (update-helm-charts-tag args)
+        (println (format "The directory %s does not exist." (some #(when-not (fs/directory? %) %) args))))
       :else (println "No arguments passed... exiting script."))))
 
 (when (= *file* (System/getProperty "babashka.file"))
