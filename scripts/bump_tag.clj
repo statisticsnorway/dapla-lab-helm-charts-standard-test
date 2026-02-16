@@ -26,21 +26,25 @@
     (json/parse-string arg true)
     (map :tag arg)))
 
-(defn strip-gar-path "Strip the GAR prefix from a tag." [tag]
+(defn strip-gar-path
+  "Strip the GAR prefix from a tag."
+  [tag]
   (str/replace tag #".*/" ""))
 
-(defn extract-dep-version "Extract the dependency versions from a tag." [full-tag]
+(defn extract-dep-version
+  "Extract the dependency versions from a tag."
+  [full-tag]
   (-> full-tag
       strip-gar-path
       (str/replace #"-\d{4}\.\d{2}\.\d{2}T\d{2}_\d{2}Z$" "")))
 
 (def artifact->tags
   "Map of artifact names and their tags. Where the first one is the default selection."
-  (let [r-and-python-tags ["r4.4.0-py311" "r4.4.0-py312"]]
+  (let [r-and-python-tags ["r4.4.0-py313"]]
     {"jdemetra" ["jd2.2.5" "jd3.2.4"]
      "jupyter" r-and-python-tags
      "jupyter-playground" r-and-python-tags
-     "jupyter-pyspark" ["py311-spark3.5.3" "py312-spark3.5.3"]
+     "jupyter-pyspark" ["py313-spark3.5.3"]
      "vscode-python" r-and-python-tags
      "rstudio" ["r4.3.3" "r4.4.0"]}))
 
@@ -66,11 +70,11 @@
         values-schema (yaml/parse-string (slurp schema-filepath)) ; read json using yaml decoder to preserve key order
         values (yaml/parse-string (slurp values-filepath))
         artifact (str (.getFileName (fs/path chart-dir)))
-        {:keys [default secondary]} (process-tags artifact)
+        {:keys [default] :as new-tags} (process-tags artifact)
         updated-values-schema
         (-> values-schema
             (update-in [:properties :tjeneste :properties :version :default] (constantly default))
-            (update-in [:properties :tjeneste :properties :version :listEnum] (constantly [default secondary])))
+            (update-in [:properties :tjeneste :properties :version :listEnum] (constantly (vals new-tags))))
         updated-values (update-in values [:tjeneste :version] (constantly default))]
     (spit schema-filepath (json/encode updated-values-schema {:pretty true}))
     (spit values-filepath (yaml/generate-string updated-values yaml-encoding-options))))
