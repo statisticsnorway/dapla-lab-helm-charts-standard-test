@@ -28,8 +28,8 @@
           "title" : "Versjon",
           "description" : "Versjon av Python og R i tjenesten",
           "type" : "string",
-          "default" : "py311-spark3.5.3-2026.02.06T10_40Z",
-          "listEnum" : [ "py311-spark3.5.3-2026.02.06T10_40Z", "py312-spark3.5.3-2026.02.06T10_40Z" ],
+          "default" : "py313-spark3.5.3-2026.02.16T09_36Z",
+          "listEnum" : [ "py313-spark3.5.3-2026.02.16T09_36Z" ],
           "render" : "list",
           "pattern" : "^[a-zA-Z0-9-_.:/]+$"
         },
