@@ -23,21 +23,21 @@ def get_tag(tag_and_date) -> str:
 source = {
     "jdemetra": {"default": "jd2.2.5",
                  "options": ["jd2.2.5", "jd3.2.4"]},
-    "jupyter": {"default": "r4.4.0-py311",
-                "options": ["r4.4.0-py311", "r4.4.0-py312"]},
-    "jupyter-playground": {"default": "r4.4.0-py311",
-                "options": ["r4.4.0-py311", "r4.4.0-py312"]},
-    "jupyter-pyspark": {"default": "py311-spark3.5.3",
-                        "options": ["py311-spark3.5.3","py312-spark3.5.3"]},
+    "jupyter": {"default": "r4.4.0-py313",
+                "options": ["r4.4.0-py313"]},
+    "jupyter-playground": {"default": "r4.4.0-py313",
+                "options": ["r4.4.0-py313"]},
+    "jupyter-pyspark": {"default": "py313-spark3.5.3",
+                        "options": ["py313-spark3.5.3"]},
     "rstudio": {"default": "r4.4.0",
                 "options": ["r4.3.3", "r4.4.0"]},
-    "vscode-python": {"default": "r4.4.0-py311",
-                "options": ["r4.4.0-py311", "r4.4.0-py312"]},
+    "vscode-python": {"default": "r4.4.0-py313",
+                "options": ["r4.4.0-py313"]},
 }
 
 def test_helm_chart_schema(chart_path: str):
     helm_chart = chart_path.rsplit("/", 1)[1]
-    
+
     if helm_chart not in source:
         sys.exit(0)
     load_path = f"{chart_path}/values.schema.json"
