@@ -1,6 +1,6 @@
 # jupyter
 
-![Version: 0.18.7](https://img.shields.io/badge/Version-0.18.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.18.8](https://img.shields.io/badge/Version-0.18.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 
@@ -114,7 +114,7 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-py313-2026.02.16T09_59Z"` |  |
+| tjeneste.version | string | `"r4.4.0-py313-2026.02.17T12_22Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
