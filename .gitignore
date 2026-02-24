@@ -10,3 +10,6 @@ utils/prepull-daemon-manifest.yaml
 **/*.DS_Store
 .direnv/
 .envrc
+# Clojure stuff
+.clj-kondo/
+.lsp/
