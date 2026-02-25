@@ -19,7 +19,7 @@
           "title": "Versjon",
           "description": "Versjon av Python og R i tjenesten",
           "type": "string",
-          "default": "r4.4.0-py312",
+          "default": "r4.4.0-py313",
           "x-onyxia": {
             "hidden": true
           }
