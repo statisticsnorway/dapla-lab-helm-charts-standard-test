@@ -11,8 +11,8 @@ sources:
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
   - https://github.com/statisticsnorway/dapla-lab-images
 type: application
-version: 0.18.8
+version: 0.18.9
 dependencies:
   - name: library-chart
-    version: 4.5.0
+    version: 4.6.0
     repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
