@@ -46,7 +46,8 @@
      "jupyter-playground" r-and-python-tags
      "jupyter-pyspark" ["py313-spark3.5.3"]
      "vscode-python" r-and-python-tags
-     "rstudio" ["r4.3.3" "r4.4.0"]}))
+     "rstudio" ["r4.4.0" "r4.3.3"]
+     "marimo" ["latest"]}))
 
 (defn process-tags [artifact]
   (shell "gcloud" "config" "set" "project" GAR-project-id) ; ensure we're in the GAR project
