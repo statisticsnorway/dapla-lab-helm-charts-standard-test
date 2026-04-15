@@ -44,7 +44,7 @@
     {"jdemetra" ["jd2.2.5" "jd3.2.4"]
      "jupyter" r-and-python-tags
      "jupyter-playground" r-and-python-tags
-     "jupyter-pyspark" ["py313-spark3.5.3"]
+     "jupyter-pyspark" ["py313-spark4.1.1"]
      "vscode-python" r-and-python-tags
      "rstudio" ["r4.4.0" "r4.3.3"]
      "marimo" ["latest"]}))
