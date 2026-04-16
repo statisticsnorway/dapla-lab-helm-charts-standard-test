@@ -1,6 +1,6 @@
 # jupyter-pyspark
 
-![Version: 0.11.22](https://img.shields.io/badge/Version-0.11.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.11.23](https://img.shields.io/badge/Version-0.11.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 
@@ -113,7 +113,7 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 | statbankTestBaseUrl | string | `""` |  |
 | statbankTestEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"py313-spark3.5.3-2026.03.05T07_43Z"` |  |
+| tjeneste.version | string | `"py313-spark4.1.1-2026.04.14T13_41Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
