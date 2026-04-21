@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: r4.4.0-py313-2026.04.13T02_19Z
+  version: r4.4.0-py313-2026.04.21T10_30Z
   image:
     pullPolicy: IfNotPresent
 security:
