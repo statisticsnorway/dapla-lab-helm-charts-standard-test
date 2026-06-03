@@ -182,7 +182,7 @@ spec:
             - mountPath: /dev/shm
               name: dshm
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
-      {{- if .Values.avansert.database.instance }}
+      {{- if .Values.avansertdb.database.instance }}
       initContainers:
         - name: cloud-sql-proxy
           restartPolicy: Always
@@ -192,7 +192,7 @@ spec:
             - "--auto-iam-authn"
             - "--structured-logs"
             - "--port=5432"
-            - {{ .Values.avansert.database.instance }}
+            - {{ .Values.avansertdb.database.instance }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

@@ -1,7 +1,7 @@
 {{ include "library-chart.serviceentry" . }}
-{{- if .Values.avansert.database.instance }}
+{{- if .Values.avansertdb.database.instance }}
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
 metadata:
   name: {{ include "library-chart.fullname" . }}-cloudsql-serviceentry

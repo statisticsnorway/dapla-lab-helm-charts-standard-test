@@ -100,11 +100,12 @@ dapla:
 avansert:
   data:
     mountStandard: true
-  database:
-    instance: ''
   startupScript:
     scriptPath: ''
     scriptArgs: ''
+avansertdb:
+  database:
+    instance: ''
 deleteJob:
   enabled: true
   cronMinuteAtDay: '0'
