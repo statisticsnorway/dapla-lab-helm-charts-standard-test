@@ -100,6 +100,8 @@ dapla:
 avansert:
   data:
     mountStandard: true
+  database:
+    instance: ''
   startupScript:
     scriptPath: ''
     scriptArgs: ''
