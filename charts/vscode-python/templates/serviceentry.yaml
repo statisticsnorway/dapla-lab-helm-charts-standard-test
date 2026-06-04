@@ -1,1 +1,20 @@
 {{ include "library-chart.serviceentry" . }}
+{{- if .Values.avansertdb.database.instance }}
+---
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: {{ include "library-chart.fullname" . }}-cloudsql-serviceentry
+spec:
+  hosts:
+    - "dummy-10.100.0.0.ssb"
+  addresses:
+    - 10.100.0.0/22
+  exportTo:
+    - "."
+  ports:
+    - name: tcp
+      number: 3307
+      protocol: tcp
+  location: MESH_EXTERNAL
+{{- end }}

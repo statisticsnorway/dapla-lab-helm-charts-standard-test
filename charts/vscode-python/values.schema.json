@@ -74,6 +74,25 @@
         "overwriteSchemaWith" : "dapla/advanced.json"
       }
     },
+    "avansertdb" : {
+      "title" : "Avansert database",
+      "description" : "Velg database instanse",
+      "type" : "object",
+      "properties" : {
+        "database" : {
+          "title" : "Cloud SQL Proxy",
+          "description" : "Cloud SQL Proxy",
+          "type" : "object",
+          "properties" : {
+            "instance" : {
+              "type" : "string",
+              "title" : "Database instanse",
+              "description" : "Cloud SQL database instanse, <projectid>:<region>:<instancename>, eg. my-gcp-project:europe-north1:my-db-instance"
+            }
+          }
+        }
+      }
+    },
     "security" : {
       "description" : "security specific configuration",
       "type" : "object",
