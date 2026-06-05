@@ -12349,7 +12349,54 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vardef-forvaltning-0.3.2/vardef-forvaltning-0.3.2.tgz
     version: 0.3.2
+  vscode-ai:
+  - apiVersion: v2
+    created: "2026-06-05T07:34:00.190698098Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: VS Code med Python, R og støtte for AI. Brukeren kan selv installere
+      pakker etter behov.
+    digest: dd5a47f326c0442989400eecbc2d5b42700e42165dfe953d08d2490428b46943
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    - R
+    - AI
+    name: vscode-ai
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-ai-0.18.1/vscode-ai-0.18.1.tgz
+    version: 0.18.1
   vscode-python:
+  - apiVersion: v2
+    created: "2026-06-05T07:34:00.366757955Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter
+      behov.
+    digest: 361e4b7d25f755b80b3ff282174b19d78f01142b2629b5cb8e418c666e6c7de1
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.18.1/vscode-python-0.18.1.tgz
+    version: 0.18.1
   - apiVersion: v2
     created: "2026-06-04T12:38:33.372286771Z"
     dependencies:
@@ -16442,4 +16489,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.3.6/vscode-python-0.3.6.tgz
     version: 0.3.6
-generated: "2026-06-04T12:38:33.373343842Z"
+generated: "2026-06-05T07:34:00.368213416Z"
