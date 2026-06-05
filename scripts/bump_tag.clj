@@ -46,6 +46,7 @@
      "jupyter-playground" r-and-python-tags
      "jupyter-pyspark" ["py313-spark4.1.1"]
      "vscode-python" r-and-python-tags
+     "vscode-ai" r-and-python-tags
      "rstudio" ["r4.4.0" "r4.3.3"]
      "marimo" ["latest"]}))
 
