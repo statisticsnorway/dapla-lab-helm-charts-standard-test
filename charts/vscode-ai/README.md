@@ -1,6 +1,6 @@
 # vscode-ai
 
-![Version: 0.18.2](https://img.shields.io/badge/Version-0.18.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.18.3](https://img.shields.io/badge/Version-0.18.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 VS Code med Python, R og støtte for AI. Brukeren kan selv installere pakker etter behov.
 
