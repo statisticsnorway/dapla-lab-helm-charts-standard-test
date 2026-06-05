@@ -1,10 +1,12 @@
 apiVersion: v2
-name: vscode-python
-description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
+name: vscode-ai
+description: VS Code med Python, R og støtte for AI. Brukeren kan selv installere pakker etter behov.
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
 keywords:
   - VSCode
   - Python
+  - R
+  - AI
 home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images

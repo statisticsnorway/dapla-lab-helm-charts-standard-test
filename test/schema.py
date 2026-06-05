@@ -33,6 +33,9 @@ source = {
                 "options": ["r4.3.3", "r4.4.0"]},
     "vscode-python": {"default": "r4.4.0-py313",
                 "options": ["r4.4.0-py313"]},
+    "vscode-ai": {"default": "r4.4.0-py313",
+                "options": ["r4.4.0-py313"]},
+
 }
 
 def test_helm_chart_schema(chart_path: str):
