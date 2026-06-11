@@ -1,6 +1,6 @@
 # vscode-ai
 
-![Version: 0.18.7](https://img.shields.io/badge/Version-0.18.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.18.8](https://img.shields.io/badge/Version-0.18.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 VS Code med Python, R og støtte for AI. Brukeren kan selv installere pakker etter behov.
 
@@ -75,6 +75,7 @@ VS Code med Python, R og støtte for AI. Brukeren kan selv installere pakker ett
 | oidc.enabled | bool | `true` |  |
 | oidc.secretName | string | `""` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
+| opencode.config | string | `"{\n  // opencode configuration\n  \"$schema\": \"https://opencode.ai/config.json\",\n  \"autoupdate\": false,\n  \"model\": \"google-vertex/google/gemini-2.5-pro\",\n  \"enabled_providers\": [\"google-vertex\"],\n  \"permission\": {\n    \"read\": {\n      \"/buckets/**\": \"ask\",\n      \"*\": \"allow\"\n    },\n    \"edit\": \"ask\",\n    \"write\": \"ask\",\n    \"bash\": \"ask\"\n  }\n}\n"` |  |
 | podAnnotations | object | `{}` |  |
 | podDisruptionBudget.enabled | bool | `true` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
@@ -105,7 +106,7 @@ VS Code med Python, R og støtte for AI. Brukeren kan selv installere pakker ett
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-py313-2026.06.10T13_53Z"` |  |
+| tjeneste.version | string | `"r4.4.0-py313-2026.06.10T14_36Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
