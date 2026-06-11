@@ -5,6 +5,8 @@ on:
 
 jobs:
   chart-install:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

@@ -8,6 +8,8 @@ on:
 jobs:
   lint-test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -44,23 +46,46 @@ jobs:
     if: ${{ github.actor != 'renovate[bot]' }}
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pull-requests: read
     outputs:
-      charts: ${{ steps.filter.outputs.changes }}
+      charts: ${{ steps.changed-charts.outputs.charts }}
     steps:
-    - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
-      id: filter
+    - name: Checkout
+      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       with:
-        filters: |
-          jupyter-dapla:
-            - 'charts/jupyter-dapla/**'
+        fetch-depth: 0
+    - name: Find changed charts
+      id: changed-charts
+      shell: bash
+      run: |
+        # Build a JSON matrix of chart directory names changed in this PR, without hardcoding chart names.
+        base="${{ github.event.pull_request.base.sha }}"
+        head="${{ github.event.pull_request.head.sha }}"
+
+        charts=$(
+          git diff --name-only "$base" "$head" -- 'charts/**' |
+            awk -F/ 'NF >= 2 { print $2 }' |
+            sort -u |
+            while read -r chart; do
+              if [[ -f "charts/$chart/Chart.yaml" ]]; then
+                printf '%s\n' "$chart"
+              fi
+            done |
+            jq -R -s -c 'split("\n") | map(select(length > 0))'
+        )
+
+        echo "Changed charts: $charts"
+        echo "charts=$charts" >> "$GITHUB_OUTPUT"
   unittest:
+    permissions:
+      contents: read
     needs: changes
     if: ${{ needs.changes.outputs.charts != '[]' && needs.changes.outputs.charts != '' }}
     strategy:
       matrix: 
-          # Parse JSON array containing names of all filters matching any of changed files
-          # e.g. ['package1', 'package2'] if both package folders contains changes
+          # Parse JSON array containing names of chart directories changed in this PR.
+          # e.g. ['jupyter', 'vscode-ai'] if both chart folders contain changes.
         charts: ${{ fromJSON(needs.changes.outputs.charts) }}
     runs-on: ubuntu-latest
     steps:        
