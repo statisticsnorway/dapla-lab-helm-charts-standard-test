@@ -75,6 +75,7 @@ jobs:
             jq -R -s -c 'split("\n") | map(select(length > 0))'
         )
 
+        echo "Changed charts: $charts"
         echo "charts=$charts" >> "$GITHUB_OUTPUT"
   unittest:
     permissions:
