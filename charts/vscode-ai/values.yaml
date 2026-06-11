@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: r4.4.0-py313-2026.06.10T13_53Z
+  version: r4.4.0-py313-2026.06.10T14_36Z
   image:
     pullPolicy: IfNotPresent
 security:
@@ -91,6 +91,24 @@ nodeSelector: {}
 tolerations: []
 userPreferences: {}
 affinity: {}
+opencode:
+  config: |
+    {
+      // opencode configuration
+      "$schema": "https://opencode.ai/config.json",
+      "autoupdate": false,
+      "model": "google-vertex/google/gemini-2.5-pro",
+      "enabled_providers": ["google-vertex"],
+      "permission": {
+        "read": {
+          "/buckets/**": "ask",
+          "*": "allow"
+        },
+        "edit": "ask",
+        "write": "ask",
+        "bash": "ask"
+      }
+    }
 dapla:
   sourceData:
     reason: ''
