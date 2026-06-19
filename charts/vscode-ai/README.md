@@ -1,6 +1,6 @@
 # vscode-ai
 
-![Version: 0.18.11](https://img.shields.io/badge/Version-0.18.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.18.12](https://img.shields.io/badge/Version-0.18.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 VS Code med Python, R og støtte for AI. Brukeren kan selv installere pakker etter behov.
 
@@ -106,7 +106,7 @@ VS Code med Python, R og støtte for AI. Brukeren kan selv installere pakker ett
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-py313-2026.06.17T12_37Z"` |  |
+| tjeneste.version | string | `"r4.4.0-py313-2026.06.18T13_42Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
