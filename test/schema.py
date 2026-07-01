@@ -22,7 +22,7 @@ def get_tag(tag_and_date) -> str:
 
 source = {
     "jdemetra": {"default": "jd2.2.5",
-                 "options": ["jd2.2.5", "jd3.2.4"]},
+                 "options": ["jd2.2.5", "jd3.7.1"]},
     "jupyter": {"default": "r4.4.0-py313",
                 "options": ["r4.4.0-py313"]},
     "jupyter-playground": {"default": "r4.4.0-py313",

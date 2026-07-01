@@ -41,7 +41,7 @@
 (def artifact->tags
   "Map of artifact names and their tags. Where the first one is the default selection."
   (let [r-and-python-tags ["r4.4.0-py313"]]
-    {"jdemetra" ["jd2.2.5" "jd3.2.4"]
+    {"jdemetra" ["jd2.2.5" "jd3.7.1"]
      "jupyter" r-and-python-tags
      "jupyter-playground" r-and-python-tags
      "jupyter-pyspark" ["py313-spark4.1.2"]
