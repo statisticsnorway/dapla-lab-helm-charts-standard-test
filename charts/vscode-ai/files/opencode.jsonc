@@ -1,0 +1,17 @@
+// See config docs here: https://opencode.ai/docs/config
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "model": "google-vertex/gemini-2.5-pro",
+  "enabled_providers": ["google-vertex"],
+  "permission": {
+    "read": {
+      "/buckets/**": "ask",
+      "*": "allow"
+    },
+    "edit": "ask",
+    "write": "ask",
+    "bash": "ask"
+  }
+}
+
