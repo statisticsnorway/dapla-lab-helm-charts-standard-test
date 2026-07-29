@@ -12533,6 +12533,32 @@ entries:
   - annotations:
       environment: test
     apiVersion: v2
+    created: "2026-07-29T07:03:51.321536404Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: VS Code med Python, R og støtte for AI. Brukeren kan selv installere
+      pakker etter behov.
+    digest: 49ce3f83a0f78c31dffd31bae0d32cf59459b45f74cb53d567c9e64063a020b3
+    home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    - R
+    - AI
+    name: vscode-ai
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-ai-0.18.13/vscode-ai-0.18.13.tgz
+    version: 0.18.13
+  - annotations:
+      environment: test
+    apiVersion: v2
     created: "2026-06-19T12:21:24.424340055Z"
     dependencies:
     - name: library-chart
@@ -16975,4 +17001,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.3.6/vscode-python-0.3.6.tgz
     version: 0.3.6
-generated: "2026-07-03T08:00:04.96884345Z"
+generated: "2026-07-29T07:03:51.323262881Z"
