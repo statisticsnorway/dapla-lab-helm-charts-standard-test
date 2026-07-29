@@ -6,4 +6,4 @@ metadata:
     {{- include "library-chart.labels" . | nindent 4 }}
 data:
   opencode.jsonc: |
-{{ .Values.opencode.config | indent 4 }}
+{{ .Files.Get "files/opencode.jsonc" | indent 4 }}

@@ -75,7 +75,6 @@ VS Code med Python, R og støtte for AI. Brukeren kan selv installere pakker ett
 | oidc.enabled | bool | `true` |  |
 | oidc.secretName | string | `""` |  |
 | oidc.tokenExchangeUrl | string | `""` |  |
-| opencode.config | string | `"// See config docs here: https://opencode.ai/docs/config\n{\n  \"$schema\": \"https://opencode.ai/config.json\",\n  \"autoupdate\": false,\n  \"model\": \"google-vertex/gemini-2.5-pro\",\n  \"enabled_providers\": [\"google-vertex\"],\n  \"permission\": {\n    \"read\": {\n      \"/buckets/**\": \"ask\",\n      \"*\": \"allow\"\n    },\n    \"edit\": \"ask\",\n    \"write\": \"ask\",\n    \"bash\": \"ask\"\n  }\n}\n"` |  |
 | podAnnotations | object | `{}` |  |
 | podDisruptionBudget.enabled | bool | `true` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
