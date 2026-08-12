@@ -20,50 +20,44 @@
       }
     },
     "tjeneste" : {
-      "title": "Marimo",
-      "description": "Velg versjon av Marimo",
-      "type": "object",
-      "properties": {
-        "version": {
-          "description": "Marimo-versjon",
-          "type": "string",
-          "default": "latest-2026.01.26T10_45Z",
-          "listEnum": [
-            "latest-2026.01.26T10_45Z"
-          ],
-          "render": "list",
-          "pattern": "^[a-zA-Z0-9-_.:/]+$"
+      "title" : "Marimo",
+      "description" : "Velg versjon av Marimo",
+      "type" : "object",
+      "properties" : {
+        "version" : {
+          "description" : "Marimo-versjon",
+          "type" : "string",
+          "default" : "latest-2026.08.11T13_07Z",
+          "listEnum" : [ "latest-2026.08.11T13_07Z" ],
+          "render" : "list",
+          "pattern" : "^[a-zA-Z0-9-_.:/]+$"
         },
-        "image": {
-          "description": "image docker",
-          "type": "object",
-          "properties": {
-            "pullPolicy": {
-              "type": "string",
-              "description": "option when pulling the docker image",
-              "default": "IfNotPresent",
-              "enum": [
-                "IfNotPresent",
-                "Always",
-                "Never"
-              ],
-              "x-onyxia": {
-                "hidden": true
+        "image" : {
+          "description" : "image docker",
+          "type" : "object",
+          "properties" : {
+            "pullPolicy" : {
+              "type" : "string",
+              "description" : "option when pulling the docker image",
+              "default" : "IfNotPresent",
+              "enum" : [ "IfNotPresent", "Always", "Never" ],
+              "x-onyxia" : {
+                "hidden" : true
               }
             }
           }
         },
-        "githubRepo": {
-          "title": "Marimo-repo",
-          "description": "Marimo-repo som skal klones ved oppstart. Støtter ikke andre type repo",
-          "type": "string",
-          "default": ""
+        "githubRepo" : {
+          "title" : "Marimo-repo",
+          "description" : "Marimo-repo som skal klones ved oppstart. Støtter ikke andre type repo",
+          "type" : "string",
+          "default" : ""
         },
-        "marimoAppFile": {
-          "title": "App filsti",
-          "description": "Oppgi en sti i GitHub-repoet som skal kjøres som app, f.eks. \"folder1/run.py\". La stå tomt for å starte i edit-modus.",
-          "type": "string",
-          "default": ""
+        "marimoAppFile" : {
+          "title" : "App filsti",
+          "description" : "Oppgi en sti i GitHub-repoet som skal kjøres som app, f.eks. \"folder1/run.py\". La stå tomt for å starte i edit-modus.",
+          "type" : "string",
+          "default" : ""
         }
       }
     },

@@ -40,14 +40,14 @@
 
 (def artifact->tags
   "Map of artifact names and their tags. Where the first one is the default selection."
-  (let [r-and-python-tags ["r4.4.0-py313"]]
+  (let [r-and-python-tags ["r4.4.0-py313" "r4.6.0-py313"]]
     {"jdemetra" ["jd2.2.5" "jd3.7.1"]
      "jupyter" r-and-python-tags
      "jupyter-playground" r-and-python-tags
      "jupyter-pyspark" ["py313-spark4.1.2"]
      "vscode-python" r-and-python-tags
      "vscode-ai" r-and-python-tags
-     "rstudio" ["r4.4.0" "r4.3.3"]
+     "rstudio" ["r4.4.0" "r4.6.0"]
      "marimo" ["latest"]}))
 
 (defn process-tags [artifact]

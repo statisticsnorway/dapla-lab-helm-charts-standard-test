@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: latest
+  version: latest-2026.08.11T13_07Z
   image:
     pullPolicy: IfNotPresent
   githubRepo: ''
@@ -75,8 +75,8 @@ istio:
     - istio-namespace/example-gateway
   hostname: chart-example.local
 resources:
-  cpu: '200m'
-  memory: '4Gi'
+  cpu: 200m
+  memory: 4Gi
 diskplass:
   enabled: true
   accessMode: ReadWriteOnce
