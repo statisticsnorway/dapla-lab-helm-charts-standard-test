@@ -31,11 +31,8 @@ source = {
                         "options": ["py313-spark4.1.2"]},
     "rstudio": {"default": "r4.4.0",
                 "options": ["r4.4.0", "r4.6.0"]},
-    "vscode-python": {"default": "r4.4.0-py313",
+    "vscode": {"default": "r4.4.0-py313",
                 "options": ["r4.4.0-py313", "r4.6.0-py313"]},
-    "vscode-ai": {"default": "r4.4.0-py313",
-                "options": ["r4.4.0-py313"]},
-
 }
 
 def test_helm_chart_schema(chart_path: str):
