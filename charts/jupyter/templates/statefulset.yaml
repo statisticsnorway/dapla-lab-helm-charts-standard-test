@@ -86,8 +86,6 @@ spec:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
             - name: VERTEX_LOCATION
               value: "europe-north1"
-            - name: GOOGLE_CLOUD_PROJECT
-              value: "$DAPLA_TEAM_GOOGLE_PROJECT_ID"
             - name: KUBERNETES_POD_NAME
               valueFrom:
                 fieldRef:
