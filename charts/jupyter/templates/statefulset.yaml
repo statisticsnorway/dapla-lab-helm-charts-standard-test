@@ -37,6 +37,8 @@ spec:
         {{- if (include "library-chart.repository.enabled"  .) }}
         checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
         {{- end }}
+        checksum/opencode: {{ include (print $.Template.BasePath "/configmap-opencode.yaml") . | sha256sum }}
+        checksum/agents: {{ include (print $.Template.BasePath "/configmap-agents.yaml") . | sha256sum }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -55,6 +57,14 @@ spec:
           emptyDir: {}
         {{- end }}
         - {{ include "library-chart.oauth2ProxyVolume" . | indent 10 | trim }}
+        - name: opencode-config
+          configMap:
+            name: {{ include "library-chart.fullname" . }}-opencode
+        - name: opencode-config-dir
+          emptyDir: {}
+        - name: agents-config
+          configMap:
+            name: {{ include "library-chart.fullname" . }}-agents
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -74,6 +84,10 @@ spec:
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
+            - name: VERTEX_LOCATION
+              value: "europe-north1"
+            - name: GOOGLE_CLOUD_PROJECT
+              value: "$DAPLA_TEAM_GOOGLE_PROJECT_ID"
             - name: KUBERNETES_POD_NAME
               valueFrom:
                 fieldRef:
@@ -199,6 +213,16 @@ spec:
             - mountPath: /home/{{ .Values.environment.user}}/work
               subPath: work
               name: home
+            - mountPath: /home/{{ .Values.environment.user }}/.config/opencode
+              name: opencode-config-dir
+            - mountPath: /home/{{ .Values.environment.user }}/.config/opencode/opencode.jsonc
+              name: opencode-config
+              readOnly: true
+              subPath: opencode.jsonc
+            - mountPath: /home/{{ .Values.environment.user }}/work/AGENTS.md
+              name: agents-config
+              readOnly: true
+              subPath: AGENTS.md
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

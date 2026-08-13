@@ -1,16 +1,17 @@
 apiVersion: v2
-name: vscode-python
-description: Minimal VS Code med Python. Brukeren kan selv installere pakker etter behov.
+name: vscode
+description: Minimal VS Code med Python og R. Brukeren kan selv installere pakker etter behov.
 icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
 keywords:
   - VSCode
   - Python
+  - R
 home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
 type: application
-version: 0.18.3
+version: 0.18.4
 dependencies:
   - name: library-chart
     version: 4.6.1
