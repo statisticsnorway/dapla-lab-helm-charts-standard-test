@@ -12956,7 +12956,7 @@ entries:
     keywords:
     - VSCode
     - Python
-    name: vscode-python
+    name: "vscode-python (IKKE BRUK!!!)"
     sources:
     - https://github.com/statisticsnorway/dapla-lab-images
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
