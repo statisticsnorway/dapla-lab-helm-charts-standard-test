@@ -12948,19 +12948,19 @@ entries:
     - name: library-chart
       repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
       version: 4.6.1
-    description: "!!! Ikke bruk !!! Erstattet av 'vscode' tjenesten"
+    description: "!!! IKKE BRUK !!! Erstattet av 'vscode' tjenesten"
     digest: a8a55e854ffa95e73c92c4899ebaf874e904ca36b04aef743e91facfa2b4a126
     home: https://manual.dapla.ssb.no/statistikkere/vscode-python.html
     icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
     keywords:
     - VSCode
     - Python
-    name: vscode-python
+    name: "vscode-python !!! IKKE BRUK !!!"
     sources:
     - https://github.com/statisticsnorway/dapla-lab-images
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
     type: application
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.18.3/vscode-python-0.18.3.tgz
-    version: 0.18.4
+    version: 0.18.5
 generated: "2026-08-14T13:41:30.601170441Z"
