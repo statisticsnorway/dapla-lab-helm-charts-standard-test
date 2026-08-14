@@ -12955,12 +12955,12 @@ entries:
     keywords:
     - VSCode
     - Python
-    name: "vscode-python !!! IKKE BRUK !!!"
+    name: vscode-python
     sources:
     - https://github.com/statisticsnorway/dapla-lab-images
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
     type: application
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.18.3/vscode-python-0.18.3.tgz
-    version: 0.18.5
-generated: "2026-08-14T13:41:30.601170441Z"
+    version: 0.18.6
+generated: "2026-08-14T14:15:00.0Z"
