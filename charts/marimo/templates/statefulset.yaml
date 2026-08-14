@@ -91,8 +91,6 @@ spec:
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
-            - name: VERTEX_LOCATION
-              value: "europe-north1"
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
               value: {{ .Values.init.regionInit }}
