@@ -9675,6 +9675,29 @@ entries:
   - annotations:
       environment: test
     apiVersion: v2
+    created: "2026-08-14T08:33:34.600328644Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Marimo med Python.
+    digest: 3e9d2432ddd0031c6f9e0a52f0489ffd7cb5d65c65b34d3f6cc127f96f29f2d4
+    home: https://manual.dapla.ssb.no/statistikkere/marimo.html
+    icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
+    keywords:
+    - Marimo
+    - Python
+    name: marimo
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/marimo-0.0.8/marimo-0.0.8.tgz
+    version: 0.0.8
+  - annotations:
+      environment: test
+    apiVersion: v2
     created: "2026-08-12T09:11:08.276230028Z"
     dependencies:
     - name: library-chart
@@ -12918,4 +12941,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-0.18.4/vscode-0.18.4.tgz
     version: 0.18.4
-generated: "2026-08-13T13:18:40.61691362Z"
+generated: "2026-08-14T08:33:34.601170441Z"
