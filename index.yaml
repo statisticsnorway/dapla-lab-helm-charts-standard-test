@@ -12962,5 +12962,5 @@ entries:
     type: application
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.18.3/vscode-python-0.18.3.tgz
-    version: 0.18.3
+    version: 0.18.4
 generated: "2026-08-14T13:41:30.601170441Z"
