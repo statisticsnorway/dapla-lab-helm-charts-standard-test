@@ -84,8 +84,6 @@ spec:
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
-            - name: VERTEX_LOCATION
-              value: "europe-north1"
             - name: KUBERNETES_POD_NAME
               valueFrom:
                 fieldRef:
