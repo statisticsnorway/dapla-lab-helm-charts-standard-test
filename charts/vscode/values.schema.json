@@ -93,13 +93,12 @@
         },
         "parquedit": {
           "title" : "Parquedit",
-          "description" : "Parquedit",
+          "description" : "Aktiver Parquedit",
           "type" : "object",
           "properties" : {
             "enabled" : {
               "type" : "boolean",
               "title" : "Enable Parquedit",
-              "description" : "Installerer ssb-parquedit i tjenesten ved oppstart",
               "default" : false
             }
           }
