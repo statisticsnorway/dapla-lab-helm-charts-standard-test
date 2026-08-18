@@ -30,6 +30,7 @@ Minimal VS Code med Python og R. Brukeren kan selv installere pakker etter behov
 | avansert.startupScript.scriptArgs | string | `""` |  |
 | avansert.startupScript.scriptPath | string | `""` |  |
 | avansertdb.database.instance | string | `""` |  |
+|avansertdb.parquedit.enabled | bool | `false` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |

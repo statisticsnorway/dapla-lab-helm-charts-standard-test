@@ -90,6 +90,19 @@
               "description" : "Cloud SQL database instanse, <projectid>:<region>:<instancename>, eg. my-gcp-project:europe-north1:my-db-instance"
             }
           }
+        },
+        "parquedit": {
+          "title" : "Parquedit",
+          "description" : "Parquedit",
+          "type" : "object",
+          "properties" : {
+            "enabled" : {
+              "type" : "boolean",
+              "title" : "Enable Parquedit",
+              "description" : "Installerer ssb-parquedit i tjenesten ved oppstart",
+              "default" : false
+            }
+          }
         }
       }
     },

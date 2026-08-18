@@ -106,6 +106,8 @@ avansert:
 avansertdb:
   database:
     instance: ''
+  parquedit:
+    enabled: false
 deleteJob:
   enabled: true
   cronMinuteAtDay: '0'
