@@ -80,14 +80,21 @@
       "type" : "object",
       "properties" : {
         "database" : {
-          "title" : "Cloud SQL Proxy",
-          "description" : "Cloud SQL Proxy",
+          "title" : "ParquEdit",
+          "description" : "ParquEdit",
           "type" : "object",
           "properties" : {
+            "enabled" : {
+              "type" : "boolean",
+              "title" : "Aktiver ParquEdit",
+              "description" : "Skru på ParquEdit med standard database",
+              "default" : false
+            },
             "instance" : {
               "type" : "string",
               "title" : "Database instanse",
-              "description" : "Cloud SQL database instanse, <projectid>:<region>:<instancename>, eg. my-gcp-project:europe-north1:my-db-instance"
+              "description" : "Database instance, <projectid>:<region>:<instancename>, eg. my-gcp-project:europe-north1:my-db-instance",
+              "default" : ""
             }
           }
         }

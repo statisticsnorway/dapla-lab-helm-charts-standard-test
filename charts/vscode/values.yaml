@@ -106,6 +106,7 @@ avansert:
 avansertdb:
   database:
     instance: ''
+    enabled: false
 deleteJob:
   enabled: true
   cronMinuteAtDay: '0'
