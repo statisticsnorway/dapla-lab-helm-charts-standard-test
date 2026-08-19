@@ -106,7 +106,6 @@ avansert:
 avansertdb:
   database:
     instance: ''
-  parquedit:
     enabled: false
 deleteJob:
   enabled: true

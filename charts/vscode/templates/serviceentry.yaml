@@ -1,5 +1,5 @@
 {{ include "library-chart.serviceentry" . }}
-{{- if .Values.avansertdb.database.instance }}
+{{- if .Values.avansertdb.database.enabled }}
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
