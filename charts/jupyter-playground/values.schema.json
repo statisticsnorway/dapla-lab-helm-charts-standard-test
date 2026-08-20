@@ -89,6 +89,32 @@
         "overwriteSchemaWith" : "dapla/advanced.json"
       }
     },
+    "avansertdb" : {
+      "title" : "Avansert database",
+      "description" : "Velg database instanse",
+      "type" : "object",
+      "properties" : {
+        "database" : {
+          "title" : "ParquEdit",
+          "description" : "ParquEdit",
+          "type" : "object",
+          "properties" : {
+            "enabled" : {
+              "type" : "boolean",
+              "title" : "Aktiver ParquEdit",
+              "description" : "Skru på ParquEdit med standard database",
+              "default" : false
+            },
+            "instance" : {
+              "type" : "string",
+              "title" : "Database instanse",
+              "description" : "Database instance, <projectid>:<region>:<instancename>, eg. my-gcp-project:europe-north1:my-db-instance",
+              "default" : ""
+            }
+          }
+        }
+      }
+    },
     "security" : {
       "description" : "security specific configuration",
       "type" : "object",
