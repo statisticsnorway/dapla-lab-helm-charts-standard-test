@@ -4444,6 +4444,29 @@ entries:
     version: 0.3.7
   jupyter-playground:
   - apiVersion: v2
+    created: "2026-08-20T13:03:49.936575785Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Jupyterlab med Python og R og mange vanlige pakker ferdig installert.
+      Passer godt for de som skal lære R og Python uten for mye kompleksitet.
+    digest: 8a827e4491156d435307851bb0d1c6ad3c0b2417b5f836979b4b9b9f4672b126
+    home: https://manual.dapla.ssb.no/statistikkere/jupyter-playground.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/dapla-lab-helm-charts-services/d881cef65161a7209ac7c85fbcb6608581249dc1/icons/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-playground
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/jupyter-playground-0.17.20/jupyter-playground-0.17.20.tgz
+    version: 0.17.20
+  - apiVersion: v2
     created: "2026-08-18T08:16:53.212268294Z"
     dependencies:
     - name: library-chart
@@ -9814,6 +9837,29 @@ entries:
   - annotations:
       environment: test
     apiVersion: v2
+    created: "2026-08-20T13:03:50.086264668Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Marimo med Python.
+    digest: be7f3a971cb031bd2dbff064cadeebdb6669a3a9974813abd91c5acddf164802
+    home: https://manual.dapla.ssb.no/statistikkere/marimo.html
+    icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
+    keywords:
+    - Marimo
+    - Python
+    name: marimo
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/marimo-0.0.10/marimo-0.0.10.tgz
+    version: 0.0.10
+  - annotations:
+      environment: test
+    apiVersion: v2
     created: "2026-08-14T12:42:31.186611054Z"
     dependencies:
     - name: library-chart
@@ -14661,4 +14707,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.15.0/vscode-python-0.15.0.tgz
     version: 0.15.0
-generated: "2026-08-20T10:08:16.227238127Z"
+generated: "2026-08-20T13:03:50.087273089Z"
