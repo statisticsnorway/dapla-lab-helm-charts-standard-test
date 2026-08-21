@@ -223,9 +223,9 @@ spec:
             - mountPath: /home/{{ .Values.environment.user}}/work
               subPath: work
               name: home
-            - mountPath: /home/{{ .Values.environment.user }}/.config/opencode
+            - mountPath: /etc/opencode
               name: opencode-config-dir
-            - mountPath: /home/{{ .Values.environment.user }}/.config/opencode/opencode.jsonc
+            - mountPath: /etc/opencode/opencode.jsonc
               name: opencode-config
               readOnly: true
               subPath: opencode.jsonc
