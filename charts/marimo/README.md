@@ -1,6 +1,6 @@
 # marimo
 
-![Version: 0.0.12](https://img.shields.io/badge/Version-0.0.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.13](https://img.shields.io/badge/Version-0.0.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Marimo med Python.
 
@@ -29,8 +29,6 @@ Marimo med Python.
 | avansert.data.mountStandard | bool | `true` |  |
 | avansert.startupScript.scriptArgs | string | `""` |  |
 | avansert.startupScript.scriptPath | string | `""` |  |
-| avansert.database.enabled | bool | `false` |  |
-| avansert.database.instance | string | `""` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |
