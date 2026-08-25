@@ -1,6 +1,6 @@
 # marimo
 
-![Version: 0.0.13](https://img.shields.io/badge/Version-0.0.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.14](https://img.shields.io/badge/Version-0.0.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Marimo med Python.
 
@@ -103,7 +103,7 @@ Marimo med Python.
 | tjeneste.githubRepo | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.marimoAppFile | string | `""` |  |
-| tjeneste.version | string | `"latest-2026.08.24T01_37Z"` |  |
+| tjeneste.version | string | `"latest-2026.08.25T13_05Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
