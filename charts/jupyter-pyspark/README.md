@@ -30,6 +30,8 @@ Minimal Jupyterlab med Python og PySpark. Brukeren kan selv installere pakker.
 | avansert.data.mountStandard | bool | `true` |  |
 | avansert.startupScript.scriptArgs | string | `""` |  |
 | avansert.startupScript.scriptPath | string | `""` |  |
+| avansert.database.enabled | bool | `false` |  |
+| avansert.database.instance | string | `""` |  |
 | dapla.group | string | `""` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |

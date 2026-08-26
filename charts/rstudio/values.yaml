@@ -90,6 +90,9 @@ avansert:
   startupScript:
     scriptPath: ''
     scriptArgs: ''
+  database:
+    enabled: false
+    instance: ''
 nodeSelector: {}
 tolerations: []
 affinity: {}

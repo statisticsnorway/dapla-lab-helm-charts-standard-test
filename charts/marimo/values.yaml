@@ -102,6 +102,9 @@ avansert:
   startupScript:
     scriptPath: ''
     scriptArgs: ''
+  database:
+    enabled: false
+    instance: ''
 deleteJob:
   enabled: true
   cronMinuteAtDay: '0'
