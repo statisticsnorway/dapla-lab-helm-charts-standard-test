@@ -220,6 +220,19 @@ spec:
               readOnly: true
               subPath: AGENTS.md
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
+      {{- if .Values.avansert.database.enabled }}
+      {{- $instance := .Values.avansert.database.instance | default "dapla-ffunk-sql-p-xo:europe-north1:parquedit" }}
+      initContainers:
+        - name: cloud-sql-proxy
+          restartPolicy: Always
+          image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:latest
+          args:
+            - "--private-ip"
+            - "--auto-iam-authn"
+            - "--structured-logs"
+            - "--port=5432"
+            - {{ $instance }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

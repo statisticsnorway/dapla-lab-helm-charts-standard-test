@@ -121,6 +121,9 @@ diskplass:
 avansert:
   data:
     mountStandard: true
+  database:
+    enabled: false
+    instance: ''
 
 autoscaling:
   enabled: false

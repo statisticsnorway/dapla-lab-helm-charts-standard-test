@@ -82,6 +82,9 @@ avansert:
   startupScript:
     scriptPath: ''
     scriptArgs: ''
+  database:
+    enabled: false
+    instance: ''
 autoscaling:
   enabled: false
   minReplicas: 1
