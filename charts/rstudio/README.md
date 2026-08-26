@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.15.17](https://img.shields.io/badge/Version-0.15.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.15.18](https://img.shields.io/badge/Version-0.15.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -28,10 +28,10 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
-| avansert.startupScript.scriptArgs | string | `""` |  |
-| avansert.startupScript.scriptPath | string | `""` |  |
 | avansert.database.enabled | bool | `false` |  |
 | avansert.database.instance | string | `""` |  |
+| avansert.startupScript.scriptArgs | string | `""` |  |
+| avansert.startupScript.scriptPath | string | `""` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |

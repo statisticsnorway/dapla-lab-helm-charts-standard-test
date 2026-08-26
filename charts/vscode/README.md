@@ -1,6 +1,6 @@
 # vscode
 
-![Version: 0.18.10](https://img.shields.io/badge/Version-0.18.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.18.11](https://img.shields.io/badge/Version-0.18.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python og R. Brukeren kan selv installere pakker etter behov.
 
@@ -27,10 +27,10 @@ Minimal VS Code med Python og R. Brukeren kan selv installere pakker etter behov
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
+| avansert.database.enabled | bool | `false` |  |
+| avansert.database.instance | string | `""` |  |
 | avansert.startupScript.scriptArgs | string | `""` |  |
 | avansert.startupScript.scriptPath | string | `""` |  |
-| avansertdb.database.enabled | bool | `false` |  |
-| avansertdb.database.instance | string | `""` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |

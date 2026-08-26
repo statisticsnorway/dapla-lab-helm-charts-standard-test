@@ -1,6 +1,6 @@
 # vardef-forvaltning
 
-![Version: 0.8.6](https://img.shields.io/badge/Version-0.8.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.8.7](https://img.shields.io/badge/Version-0.8.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tilrettelagt Jupyterlab for enkel forvaltning av Vardef med notebooks. Inneholder nødvendige pakker og ferdig oppsatt kernel. Krever lite forkunnskaper.
 
@@ -27,6 +27,8 @@ Tilrettelagt Jupyterlab for enkel forvaltning av Vardef med notebooks. Inneholde
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
+| avansert.database.enabled | bool | `false` |  |
+| avansert.database.instance | string | `""` |  |
 | dapla.group | string | `""` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |

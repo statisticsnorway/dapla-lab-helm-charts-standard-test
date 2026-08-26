@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.17.22](https://img.shields.io/badge/Version-0.17.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.17.23](https://img.shields.io/badge/Version-0.17.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -28,10 +28,10 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
+| avansert.database.enabled | bool | `false` |  |
+| avansert.database.instance | string | `""` |  |
 | avansert.startupScript.scriptArgs | string | `""` |  |
 | avansert.startupScript.scriptPath | string | `""` |  |
-| avansertdb.database.enabled | bool | `false` |  |
-| avansertdb.database.instance | string | `""` |  |
 | dapla.group | string | `""` |  |
 | dapla.sharedBuckets | list | `[]` |  |
 | dapla.sourceData.reason | string | `""` |  |
