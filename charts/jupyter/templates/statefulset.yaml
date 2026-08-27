@@ -215,7 +215,7 @@ spec:
               name: opencode-config
               readOnly: true
               subPath: opencode.jsonc
-            - mountPath: /home/{{ .Values.environment.user }}/work/AGENTS.md
+            - mountPath: /home/{{ .Values.environment.user }}/.config/opencode/AGENTS.md
               name: agents-config
               readOnly: true
               subPath: AGENTS.md
