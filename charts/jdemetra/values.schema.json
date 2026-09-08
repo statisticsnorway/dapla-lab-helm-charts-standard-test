@@ -28,8 +28,8 @@
           "title" : "Versjon",
           "description" : "JDemetra versjon",
           "type" : "string",
-          "default" : "jd2.2.5-2026.09.08T11_03Z",
-          "listEnum" : [ "jd2.2.5-2026.09.08T11_03Z", "jd3.7.1-2026.09.07T01_28Z" ],
+          "default" : "jd2.2.5-2026.09.08T12_04Z",
+          "listEnum" : [ "jd2.2.5-2026.09.08T12_04Z", "jd3.7.1-2026.09.07T01_28Z" ],
           "render" : "list",
           "pattern" : "^[a-zA-Z0-9-_.:/]+$"
         }
