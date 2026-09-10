@@ -103,8 +103,10 @@ avansert:
   startupScript:
     scriptPath: ''
     scriptArgs: ''
-  database:
+  parquedit:
     enabled: false
+    port: 5433
+  database:
     instance: ''
 autoscaling:
   enabled: false
