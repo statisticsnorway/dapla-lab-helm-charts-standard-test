@@ -86,6 +86,10 @@ spec:
               value: {{ .Values.deployEnvironment }}
             - name: DAPLA_REGION
               value: DAPLA_LAB
+            {{- if .Values.avansert.parquedit.enabled }}
+            - name: PARQEDIT_DB_PORT
+              value: "{{ .Values.avansert.parquedit.port }}"
+            {{- end }}
             - name: DAPLA_SERVICE
               value: JDEMETRA
             - name: PASSWORD
@@ -122,9 +126,20 @@ spec:
             - mountPath: /dev/shm
               name: dshm
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
-      {{- if .Values.avansert.database.enabled }}
-      {{- $instance := .Values.avansert.database.instance | default "dapla-ffunk-sql-p-xo:europe-north1:parquedit" }}
+      {{- if or .Values.avansert.parquedit.enabled .Values.avansert.database.instance }}
       initContainers:
+        {{- if .Values.avansert.parquedit.enabled }}
+        - name: cloud-sql-proxy-parquedit
+          restartPolicy: Always
+          image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:latest
+          args:
+            - "--private-ip"
+            - "--auto-iam-authn"
+            - "--structured-logs"
+            - "--port={{ .Values.avansert.parquedit.port }}"
+            - "dapla-ffunk-sql-p-xo:europe-north1:parquedit"
+        {{- end }}
+        {{- if .Values.avansert.database.instance }}
         - name: cloud-sql-proxy
           restartPolicy: Always
           image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:latest
@@ -133,7 +148,8 @@ spec:
             - "--auto-iam-authn"
             - "--structured-logs"
             - "--port=5432"
-            - {{ $instance }}
+            - {{ .Values.avansert.database.instance | quote }}
+        {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -148,3 +164,4 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+
