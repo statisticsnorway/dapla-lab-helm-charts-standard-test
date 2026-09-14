@@ -10434,6 +10434,29 @@ entries:
   - annotations:
       environment: test
     apiVersion: v2
+    created: "2026-09-14T12:29:58.235026234Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Marimo med Python.
+    digest: 7ff7e620c1137b40f416ece26e8fe69cb170166604d54a256cae3fa16ff8fe84
+    home: https://manual.dapla.ssb.no/statistikkere/marimo.html
+    icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
+    keywords:
+    - Marimo
+    - Python
+    name: marimo
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/marimo-0.0.18/marimo-0.0.18.tgz
+    version: 0.0.18
+  - annotations:
+      environment: test
+    apiVersion: v2
     created: "2026-09-10T11:47:48.14438178Z"
     dependencies:
     - name: library-chart
@@ -10994,6 +11017,28 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/qgis-0.0.1/qgis-0.0.1.tgz
     version: 0.0.1
   rstudio:
+  - apiVersion: v2
+    created: "2026-09-14T12:29:58.438545095Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Minimal RStudio med R. Brukeren kan selv installere pakker.
+    digest: 7e23e92aeaf877e1e208625a77a4c72f62b590f3d99274a5353b0a16c187e452
+    home: https://manual.dapla.ssb.no/statistikkere/rstudio.html
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - RStudio
+    - R
+    name: rstudio
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    - https://github.com/statisticsnorway/dapla-lab-images
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/rstudio-0.15.21/rstudio-0.15.21.tgz
+    version: 0.15.21
   - apiVersion: v2
     created: "2026-09-10T11:47:48.327297086Z"
     dependencies:
@@ -15761,4 +15806,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.15.0/vscode-python-0.15.0.tgz
     version: 0.15.0
-generated: "2026-09-14T07:40:37.827059978Z"
+generated: "2026-09-14T12:29:58.439680104Z"
