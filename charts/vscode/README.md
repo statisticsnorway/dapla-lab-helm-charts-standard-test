@@ -1,6 +1,6 @@
 # vscode
 
-![Version: 0.18.12](https://img.shields.io/badge/Version-0.18.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.18.14](https://img.shields.io/badge/Version-0.18.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python og R. Brukeren kan selv installere pakker etter behov.
 
@@ -27,8 +27,9 @@ Minimal VS Code med Python og R. Brukeren kan selv installere pakker etter behov
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
-| avansert.database.enabled | bool | `false` |  |
 | avansert.database.instance | string | `""` |  |
+| avansert.parquedit.enabled | bool | `false` |  |
+| avansert.parquedit.port | int | `5433` |  |
 | avansert.startupScript.scriptArgs | string | `""` |  |
 | avansert.startupScript.scriptPath | string | `""` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
@@ -106,7 +107,7 @@ Minimal VS Code med Python og R. Brukeren kan selv installere pakker etter behov
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-py313-2026.08.17T02_20Z"` |  |
+| tjeneste.version | string | `"r4.4.0-py313-2026.09.14T02_08Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |

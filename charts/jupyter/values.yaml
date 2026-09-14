@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: r4.4.0-py313-2026.08.17T02_18Z
+  version: r4.4.0-py313-2026.09.14T02_09Z
   image:
     pullPolicy: IfNotPresent
 security:
@@ -101,8 +101,10 @@ avansert:
   startupScript:
     scriptPath: ''
     scriptArgs: ''
-  database:
+  parquedit:
     enabled: false
+    port: 5433
+  database:
     instance: ''
 autoscaling:
   enabled: false

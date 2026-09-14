@@ -1,6 +1,6 @@
 # jdemetra
 
-![Version: 1.7.15](https://img.shields.io/badge/Version-1.7.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.7.16](https://img.shields.io/badge/Version-1.7.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Eurostat.
 
@@ -27,8 +27,9 @@ Verktøy for sesongjustering og tidsserie-analyse utviklet i samarbeid med Euros
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
-| avansert.database.enabled | bool | `false` |  |
 | avansert.database.instance | string | `""` |  |
+| avansert.parquedit.enabled | bool | `false` |  |
+| avansert.parquedit.port | int | `5433` |  |
 | avansert.startupScript.scriptArgs | string | `""` |  |
 | avansert.startupScript.scriptPath | string | `""` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |

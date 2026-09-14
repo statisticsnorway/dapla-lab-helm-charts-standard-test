@@ -121,8 +121,10 @@ diskplass:
 avansert:
   data:
     mountStandard: true
-  database:
+  parquedit:
     enabled: false
+    port: 5433
+  database:
     instance: ''
 
 autoscaling:

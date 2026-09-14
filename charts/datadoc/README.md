@@ -1,6 +1,6 @@
 # datadoc-editor
 
-![Version: 0.15.4](https://img.shields.io/badge/Version-0.15.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.15.5](https://img.shields.io/badge/Version-0.15.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Applikasjon for å dokumentere datasett i SSB.
 
@@ -27,8 +27,9 @@ Applikasjon for å dokumentere datasett i SSB.
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | avansert.data.mountStandard | bool | `true` |  |
-| avansert.database.enabled | bool | `false` |  |
 | avansert.database.instance | string | `""` |  |
+| avansert.parquedit.enabled | bool | `false` |  |
+| avansert.parquedit.port | int | `5433` |  |
 | dapla.group | string | `"dapla-felles-developers"` |  |
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |

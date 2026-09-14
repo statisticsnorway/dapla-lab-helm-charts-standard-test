@@ -1,5 +1,5 @@
 {{ include "library-chart.serviceentry" . }}
-{{- if .Values.avansert.database.enabled }}
+{{- if or .Values.avansert.parquedit.enabled .Values.avansert.database.instance }}
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
