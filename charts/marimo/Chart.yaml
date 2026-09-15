@@ -5,14 +5,12 @@ icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/mar
 keywords:
   - Marimo
   - Python
-annotations:
-  environment: test
 home: https://manual.dapla.ssb.no/statistikkere/marimo.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
 type: application
-version: 0.0.18
+version: 0.0.19
 dependencies:
   - name: library-chart
     version: 4.6.1
