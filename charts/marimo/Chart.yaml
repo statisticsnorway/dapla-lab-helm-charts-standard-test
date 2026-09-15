@@ -5,8 +5,6 @@ icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/mar
 keywords:
   - Marimo
   - Python
-annotations:
-  environment: test
 home: https://manual.dapla.ssb.no/statistikkere/marimo.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
