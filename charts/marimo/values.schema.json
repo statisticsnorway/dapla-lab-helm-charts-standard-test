@@ -49,13 +49,13 @@
         },
         "githubRepo" : {
           "title" : "Marimo-repo",
-          "description" : "Marimo-repo som skal klones ved oppstart. Støtter ikke andre type repo",
+          "description" : "Valgfritt Github-repo som klones ved oppstart. Repoet må være et uv-prosjekt med Marimo som avhengighet; hvis ikke startes Marimo med et nytt standardprosjekt i stedet.",
           "type" : "string",
           "default" : ""
         },
         "marimoAppFile" : {
-          "title" : "App filsti",
-          "description" : "Oppgi en sti i GitHub-repoet som skal kjøres som app, f.eks. \"folder1/run.py\". La stå tomt for å starte i edit-modus.",
+          "title" : "App-filsti",
+          "description" : "Oppgi en sti i GitHub-repoet som skal kjøres som app, f.eks. \"folder1/run.py\" (må være en gyldig Marimo-app). Dersom feltet er tomt eller ugyldig startes Marimo i redigerings-modus.",
           "type" : "string",
           "default" : ""
         }
