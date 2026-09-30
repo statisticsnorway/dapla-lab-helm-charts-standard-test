@@ -1,0 +1,16 @@
+apiVersion: v2
+name: parqueditor
+description: Grafisk grensesnitt for Parquedit
+icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
+keywords:
+  - Parquedit
+home: https://manual.dapla.ssb.no/statistikkere/ssb-parquedit.html
+sources:
+  - https://github.com/statisticsnorway/dapla-lab-images
+  - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+type: application
+version: 0.0.1
+dependencies:
+  - name: library-chart
+    version: 4.6.1
+    repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
