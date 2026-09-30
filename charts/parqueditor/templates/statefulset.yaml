@@ -77,6 +77,8 @@ spec:
           command: ["/bin/sh","-c"]
           args:
             - >-
+              cp /opt/parqueditor/app.py /home/{{ .Values.environment.user }}/work/app.py &&
+              chmod u+rw /home/{{ .Values.environment.user }}/work/app.py &&
               {{ .Values.init.standardInitPath }} uvx marimo run --sandbox
               /home/{{ .Values.environment.user }}/work/app.py
               --host 0.0.0.0
@@ -177,10 +179,9 @@ spec:
             - mountPath: /home/{{ .Values.environment.user}}/work
               subPath: work
               name: home
-            - mountPath: /home/{{ .Values.environment.user}}/work/app.py
+            - mountPath: /opt/parqueditor
               name: app
               readOnly: true
-              subPath: app.py
             - mountPath: /dev/shm
               name: dshm
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
