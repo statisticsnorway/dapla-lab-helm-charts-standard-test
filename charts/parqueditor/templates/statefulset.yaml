@@ -39,8 +39,7 @@ spec:
         {{- if (include "library-chart.repository.enabled"  .) }}
         checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
         {{- end }}
-        checksum/opencode: {{ include (print $.Template.BasePath "/configmap-opencode.yaml") . | sha256sum }}
-        checksum/agents: {{ include (print $.Template.BasePath "/configmap-agents.yaml") . | sha256sum }}
+        checksum/parqueditor-app: {{ include (print $.Template.BasePath "/configmap-parqueditor-app.yaml") . | sha256sum }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -60,14 +59,9 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 128Mi
-        - name: opencode-config
+        - name: parqueditor-marimo-app
           configMap:
-            name: {{ include "library-chart.fullname" . }}-opencode
-        - name: opencode-config-dir
-          emptyDir: {}
-        - name: agents-config
-          configMap:
-            name: {{ include "library-chart.fullname" . }}-agents
+            name: {{ include "library-chart.fullname" . }}-parqueditor-app
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -186,6 +180,7 @@ spec:
               name: home
             - mountPath: /home/{{ .Values.environment.user}}/work/parqueditor.py
               name: parqueditor-marimo-app
+              readOnly: true
               subPath: parqueditor.py
             - mountPath: /dev/shm
               name: dshm
