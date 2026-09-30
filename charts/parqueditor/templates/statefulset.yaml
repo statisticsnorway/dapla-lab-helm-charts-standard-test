@@ -75,13 +75,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/marimo:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
-          {{- if .Values.tjeneste.marimoAppFile }}
-          args: ["{{ .Values.init.standardInitPath }} marimo run --host 0.0.0.0 \
+          args: ["{{ .Values.init.standardInitPath }} marimo run --sandbox \
+          /home/{{ .Values.environment.user }}/work/app.py --host 0.0.0.0 \
           --port 8080 --headless --no-token"]
-          {{- else }}
-          args: ["{{ .Values.init.standardInitPath }} marimo edit --host 0.0.0.0 \
-          --port 8080 --headless --no-token --skip-update-check"]
-          {{- end }}
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
