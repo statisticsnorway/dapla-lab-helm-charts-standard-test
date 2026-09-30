@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "library-chart.fullname" . }}-parqueditor-app
+  name: {{ include "library-chart.fullname" . }}-app
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 data:
-  parqueditor.py: |
-{{ .Files.Get "files/parqueditor.py" | indent 4 }}
+  app.py: |
+{{ .Files.Get "files/app.py" | indent 4 }}
