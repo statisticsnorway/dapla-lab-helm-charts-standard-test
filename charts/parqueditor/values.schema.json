@@ -21,16 +21,19 @@
     },
     "tjeneste" : {
       "title" : "Parqueditor",
-      "description" : "Velg versjon av Parqueditor",
+      "description" : "Konfigurer Parqueditor",
       "type" : "object",
       "properties" : {
         "version" : {
-          "description" : "Parqueditor-versjon",
+          "description" : "Marimo-versjon",
           "type" : "string",
           "default" : "latest-2026.09.14T01_30Z",
           "listEnum" : [ "latest-2026.09.14T01_30Z" ],
           "render" : "list",
-          "pattern" : "^[a-zA-Z0-9-_.:/]+$"
+          "pattern" : "^[a-zA-Z0-9-_.:/]+$",
+          "x-onyxia" : {
+            "hidden" : true
+          }
         },
         "image" : {
           "description" : "image docker",
