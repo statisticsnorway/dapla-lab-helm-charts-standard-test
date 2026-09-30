@@ -75,9 +75,14 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/marimo:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
-          args: ["{{ .Values.init.standardInitPath }} uvx marimo run --sandbox \
-          /home/{{ .Values.environment.user }}/work/app.py --host 0.0.0.0 \
-          --port 8080 --headless --no-token"]
+          args:
+            - >-
+              {{ .Values.init.standardInitPath }} uvx marimo run --sandbox
+              /home/{{ .Values.environment.user }}/work/app.py
+              --host 0.0.0.0
+              --port 8080
+              --headless
+              --no-token
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
