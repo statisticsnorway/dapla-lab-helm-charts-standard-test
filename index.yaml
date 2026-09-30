@@ -10972,6 +10972,27 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/marimo-0.0.1/marimo-0.0.1.tgz
     version: 0.0.1
+  parqueditor:
+  - apiVersion: v2
+    created: "2026-09-30T14:52:04.220103931Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Grafisk grensesnitt for Parquedit
+    digest: 804436b935d153a5255949bfcc1af86c1833a789f281e4d7a0170dc2f58d58c8
+    home: https://manual.dapla.ssb.no/statistikkere/ssb-parquedit.html
+    icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
+    keywords:
+    - Parquedit
+    name: parqueditor
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/parqueditor-0.0.1/parqueditor-0.0.1.tgz
+    version: 0.0.1
   qgis:
   - apiVersion: v2
     created: "2025-03-28T15:56:22.889173271Z"
@@ -15939,4 +15960,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.15.0/vscode-python-0.15.0.tgz
     version: 0.15.0
-generated: "2026-09-29T10:38:29.277025126Z"
+generated: "2026-09-30T14:52:04.221568655Z"
