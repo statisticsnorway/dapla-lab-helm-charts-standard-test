@@ -107,12 +107,10 @@ spec:
             {{- end }}
             - name: DAPLA_SERVICE
               value: PARQUEDITOR
-            - name: GIT_REPOSITORY
-              value: {{ .Values.tjeneste.githubRepo }}
             - name: PASSWORD
               value: ""
             - name: PARQUEDIT_TABLE_NAME
-              value: {{ .Values.tjeneste.parqueditTableName }}
+              value: {{ .Values.tjeneste.parqueditTableName | quote }}
             - name: MARIMO_PYTHON_VERSION
               value: "3.12"
             - name: PROJECT_USER

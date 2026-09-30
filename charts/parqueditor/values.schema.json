@@ -54,7 +54,8 @@
           "title" : "Parquedit-tabell",
           "description" : "Navn på Parquedit-tabellen som skal åpnes",
           "type" : "string",
-          "default" : ""
+          "default" : "",
+          "minLength" : 1
         }
       }
     },
