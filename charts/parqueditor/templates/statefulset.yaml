@@ -116,8 +116,6 @@ spec:
               value: PARQUEDITOR
             - name: PASSWORD
               value: ""
-            - name: PARQUEDIT_TABLE_NAME
-              value: {{ .Values.tjeneste.parqueditTableName | quote }}
             - name: MARIMO_PYTHON_VERSION
               value: "3.12"
             - name: PROJECT_USER
