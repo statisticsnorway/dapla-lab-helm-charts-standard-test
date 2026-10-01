@@ -1,9 +1,7 @@
 # /// script
 # dependencies = [
 #     "marimo>=0.25.0",
-#     "numpy==2.5.3",
-#     "pandas==3.0.6",
-#     "polars==1.44.2",
+#     "polars>=1.38.1,<2.0.0",
 #     "ssb-parquedit==0.1.0",
 # ]
 # ///
@@ -11,21 +9,18 @@
 import marimo
 
 __generated_with = "0.25.0"
-app = marimo.App(width="full", app_title="Parqeditor")
+app = marimo.App(width="full", app_title="Parqueditor")
 
 
 @app.cell
 def _():
-    import marimo as mo
-    from datetime import date
-    import numpy as np
-    import polars as pl
-    import pandas as pd
-    import json
+    import numbers
 
+    import marimo as mo
+    import polars as pl
     from ssb_parquedit import ParquEdit
 
-    REASONS = [
+    reasons = [
         "OTHER_SOURCE",
         "REVIEW",
         "OWNER",
@@ -33,271 +28,184 @@ def _():
         "DUPLICATE",
         "OTHER",
     ]
-
     con = ParquEdit()
-
-    get_version, set_version = mo.state(0)
-    return REASONS, con, get_version, json, mo, np, pd, set_version
-
-
-@app.cell
-def _(mo, table_dropdown):
-    mo.md("""
-    # Parqueditor
-
-    I denne appen kan du manuelt editere en Parquedit-tabell.
-
-    Endringshistorikken vises nederst på siden.
-    """)
-    return
+    get_refresh, set_refresh = mo.state(0)
+    return con, get_refresh, mo, numbers, pl, reasons, set_refresh
 
 
 @app.cell
 def _(con, mo):
     try:
         tables = con.list_tables()
-    except Exception:
-        mo.stop(
-            mo.md(
-                """
-                ## Kunne ikke hente Parquedit-tabeller
+        connection_error = None
+    except Exception as error:
+        tables = []
+        connection_error = error
 
-                Kontroller at:
-                - Du har startet tjenesten med riktig team
-                - At Parqueditor er skrudd på for teamet i Dapla Ctrl
-                """
-            )
+    if connection_error:
+        status = mo.md(
+            "## Kunne ikke koble til Parquedit\n\n"
+            "Sjekk:\n\n"
+            "- At du har startet tjenesten med riktig team\n"
+            "- At Parquedit er skrudd på for teamet i Dapla Ctrl"
         )
-
-    if not tables:
-        mo.stop(
-            mo.md(
-                """
-                ## Fant ingen Parquedit-tabeller for gjeldende team
-
-                Kontroller at du har startet tjenesten med riktig team.
-                """
-            )
+    elif not tables:
+        status = mo.md(
+            "## Fant ingen Parquedit-tabeller\n\n"
+            "Sjekk at du har startet tjenesten med riktig team"
         )
-
-    table_dropdown = mo.ui.dropdown(
-        options=tables,
-        searchable=True,
-        allow_select_none=False,
-        value=tables[0],
-    )
-    table_dropdown
-    return (table_dropdown,)
+    else:
+        status = mo.md("")
+    status
+    return connection_error, tables
 
 
 @app.cell
-def _(con, get_version, mo, table_dropdown):
-    _ = get_version()
-    df = con.view(table_name=table_dropdown.value)
+def _(connection_error, mo, tables):
+    mo.stop(connection_error is not None or not tables, mo.md(""))
+    mo.md(
+        "# Parqueditor\n\n"
+        "Velg en Parqedit-tabell, markér en rad tabellen og gjør ønskede endringer.\n"
+        "I tabellen kan du søke og filtrere per kolonne."
+    )
+    return
 
+
+@app.cell
+def _(connection_error, mo, tables):
+    mo.stop(connection_error is not None or not tables, mo.md(""))
+    mo.md(
+        "# Parqueditor\n\n"
+        "Velg en Parqedit-tabell, markér en rad tabellen og gjør ønskede endringer.\n"
+        "I tabellen kan du søke og filtrere per kolonne."
+    )
+    table_selector = mo.ui.dropdown(options=tables, value=tables[0])
+    mo.vstack(
+        [
+            mo.md(f"### Velg Parqueditor-tabell"),
+            table_selector,
+        ]
+    )
+    return (table_selector,)
+
+
+@app.cell
+def _(con, get_refresh, mo, pl, table_selector):
+    _ = get_refresh()
+    data: pl.DataFrame = con.view(
+        table_name=table_selector.value,
+        output_format="polars",
+    )
     table_view = mo.ui.table(
-        data=df,
+        data=data,
         selection="single",
         pagination=True,
         page_size=10,
+        label="### Markér raden som skal editeres",
     )
     table_view
-    return df, table_view
+    return data, table_view
 
 
 @app.cell
-def _(REASONS, df, mo, np, pd, table_view):
-    selected_rows = table_view.value
+def _(data: "pl.DataFrame", mo, numbers, pl, reasons, table_view):
+    selected: pl.DataFrame = table_view.value
+    selected_row = selected.row(0, named=True) if selected.height else None
 
-    # handle dataframe, dict and list as selection:
-    has_selection = False
-    if selected_rows is not None:
-        if hasattr(selected_rows, "empty"):
-            has_selection = not selected_rows.empty
-        elif len(selected_rows) > 0:
-            has_selection = True
+    mo.stop(selected_row is None, mo.md(""))
 
-    if has_selection:
-        if hasattr(selected_rows, "iloc"):
-            selected_row = selected_rows.iloc[0].to_dict()
-        elif isinstance(selected_rows, list):
-            selected_row = selected_rows[0]
+    input_fields = {}
+    for column in data.columns:
+        if column == "rowid":
+            continue
+        value = selected_row[column]
+        if isinstance(value, numbers.Integral) and not isinstance(value, bool):
+            value = int(value)
+            input_fields[column] = mo.ui.number(value=value, label=column)
+        elif isinstance(value, numbers.Real) and not isinstance(value, bool):
+            input_fields[column] = mo.ui.number(value=float(value), label=column)
         else:
-            selected_row = dict(selected_rows)
+            input_fields[column] = mo.ui.text(
+                value="" if value is None else str(value),
+                label=column,
+            )
 
-        rowid_val = selected_row.get("rowid")
-
-        # create input fields for all columns except for rowid
-        editable_cols = [c for c in df.columns if c != "rowid"]
-        widgets = {}
-
-        for _col in editable_cols:
-            val = selected_row.get(_col)
-
-            # convert numbers to standard python types
-            if (
-                pd.notna(val)
-                and isinstance(val, (int, float, np.integer, np.floating))
-                and not isinstance(val, bool)
-            ):
-                clean_num = (
-                    int(val) if isinstance(val, (int, np.integer)) else float(val)
-                )
-                widgets[_col] = mo.ui.number(value=clean_num, label=_col)
-            else:
-                widgets[_col] = mo.ui.text(
-                    value=str(val) if pd.notna(val) else "", label=_col
-                )
-
-        # create input fields for Parquedit metadata
-        widgets["_reason"] = mo.ui.dropdown(
-            options=REASONS,
-            value="REVIEW",
-            label="Årsak til endring (change_event_reason)",
-        )
-        widgets["_comment"] = mo.ui.text_area(
-            placeholder="Begrunnelse for korrigeringen...",
-            label="Kommentar (change_comment)",
-        )
-
-        # create form
-        edit_form = mo.ui.dictionary(widgets).form(
-            submit_button_label="Lagre endring med Parquedit",
-            clear_on_submit=True,
-        )
-
-        edit_ui = mo.vstack(
-            [
-                mo.md(f"### ✏️ Redigerer rad `rowid`: `{rowid_val}`"),
-                edit_form,
-            ]
-        )
-    else:
-        edit_form = None
-        selected_row = None
-        edit_ui = mo.md("> 💡 *Velg en rad i tabellen over for å starte redigering.*")
-
-    edit_ui
+    input_fields["_reason"] = mo.ui.dropdown(
+        options=reasons,
+        value="REVIEW",
+        label="Årsak",
+    )
+    input_fields["_comment"] = mo.ui.text_area(label="Kommentar")
+    edit_form = mo.ui.dictionary(input_fields).form(
+        submit_button_label="Lagre endringer med ParquEdit"
+    )
+    mo.vstack(
+        [
+            mo.md(f"### Editér rad med `rowid={selected_row['rowid']}`"),
+            edit_form,
+        ]
+    )
     return edit_form, selected_row
 
 
 @app.cell
 def _(
     con,
-    df,
+    data: "pl.DataFrame",
     edit_form,
-    get_version,
+    get_refresh,
     mo,
     selected_row,
-    set_version,
-    table_dropdown,
+    set_refresh,
+    table_selector,
 ):
     mo.stop(
-        edit_form is None or edit_form.value is None or selected_row is None,
+        edit_form is None or edit_form.value is None,
         mo.md(""),
     )
 
     form_data = edit_form.value
-    submitted_rowid = selected_row["rowid"]
-    event_reason = form_data["_reason"]
-    event_comment = form_data["_comment"]
-
-    # find changed values
-    changes_dict = {}
-    for _col in [c for c in df.columns if c != "rowid"]:
-        new_value = form_data.get(_col)
-        old_value = selected_row.get(_col)
-        if str(new_value) != str(old_value):
-            changes_dict[_col] = new_value
-
-    # submit the edits to Parquedit
-    if changes_dict:
+    changes = {
+        column: form_data[column]
+        for column in data.columns
+        if column != "rowid" and str(form_data[column]) != str(selected_row[column])
+    }
+    if changes:
         con.edit(
-            table_name=table_dropdown.value,
-            rowid=submitted_rowid,
-            changes=changes_dict,
-            change_event_reason=event_reason,
-            change_comment=event_comment,
+            table_name=table_selector.value,
+            rowid=selected_row["rowid"],
+            changes=changes,
+            change_event_reason=form_data["_reason"],
+            change_comment=form_data["_comment"],
         )
-        set_version(get_version() + 1)
+    set_refresh(get_refresh() + 1)
     return
 
 
 @app.cell
-def _(con, get_version, json, mo, table_dropdown):
-    _ = get_version()
+def _(con, get_refresh, mo, table_selector):
+    _ = get_refresh()
+    history = con.get_edits(table_name=table_selector.value)
+    mo.stop(history is None or history.empty, mo.md(""))
 
-    edits_df = con.get_edits(table_name=table_dropdown.value)
-
-    if edits_df is None or edits_df.empty:
-        log_view = mo.md("_Ingen endringer registrert i loggen ennå._")
-    else:
-        # get the last 10 edits
-        last_edits = edits_df.tail(10).iloc[::-1]
-        cards = []
-
-        for _idx, _row in last_edits.iterrows():
-            extra_info = _row.get("commit_extra_info", {})
-
-            if isinstance(extra_info, str):
-                try:
-                    extra_info = json.loads(extra_info)
-                except Exception:
-                    extra_info = {}
-            elif not isinstance(extra_info, dict):
-                extra_info = {}
-
-            change_type = extra_info.get("change_type", "UPDATE")
-            reason = extra_info.get("change_event_reason", "UKJENT")
-            changed_by = extra_info.get("changed_by", "Ukjent bruker")
-            rid = extra_info.get("rowid", _row.get("rowid", "-"))
-            comment = extra_info.get("change_comment", "-")
-
-            user_id_dict = extra_info.get("user_defined_id", {})
-            user_id_str = (
-                " | ".join([f"**{k}:** `{v}`" for k, v in user_id_dict.items()])
-                if user_id_dict
-                else f"**rowid:** `{rid}`"
-            )
-
-            old_vals = extra_info.get("old_values", {})
-            new_vals = extra_info.get("new_values", {})
-            all_keys = set(old_vals.keys()).union(set(new_vals.keys()))
-
-            diff_rows = []
-            for k in sorted(all_keys):
-                before = old_vals.get(k, "-")
-                after = new_vals.get(k, "-")
-                diff_rows.append(f"| `{k}` | `{before}` | **`{after}`** |")
-
-            diff_table = (
-                "\n".join(diff_rows)
-                if diff_rows
-                else "| - | Ingen endringer oppgitt | - |"
-            )
-
-            cards.append(f"""
-    #### 🔹 {change_type} av `{changed_by}` (rowid: `{rid}`)
-    * **Enhet:** {user_id_str}
-    * **Årsak:** `{reason}` | **Kommentar:** *"{comment}"*
-
-    | Felt | Gammel verdi | Ny verdi |
-    | :--- | :--- | :--- |
-    {diff_table}
-
-    ---
-    """)
-
-        log_view = mo.vstack(
-            [
-                mo.md(
-                    f"### 📜 Siste {len(last_edits)} editeringer i Parquedit (totalt {len(edits_df)})"
-                ),
-                mo.md("\n".join(cards)),
-            ]
-        )
-
-    log_view
+    history = history.sort_values("snapshot_time", ascending=False)
+    history_view = mo.ui.table(
+        history,
+        selection=None,
+        label="### Endringshistorikk",
+        visible_columns=[
+            "snapshot_time",
+            "old_values",
+            "new_values",
+            "changed_by",
+            "change_event_reason",
+            "change_comment",
+        ],
+        format_mapping={
+            "snapshot_time": lambda value: value.strftime("%d.%m.%Y %H:%M")
+        },
+    )
+    history_view
     return
 
 
