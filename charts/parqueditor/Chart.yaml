@@ -4,6 +4,8 @@ description: Grafisk grensesnitt for Parquedit
 icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
 keywords:
   - Parquedit
+annotations:
+  environment: test
 home: https://manual.dapla.ssb.no/statistikkere/ssb-parquedit.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
