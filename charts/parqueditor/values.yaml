@@ -4,7 +4,6 @@ tjeneste:
   version: latest-2026.09.14T01_30Z
   image:
     pullPolicy: IfNotPresent
-  parqueditTableName: ''
 security:
   networkPolicy:
     enabled: false
