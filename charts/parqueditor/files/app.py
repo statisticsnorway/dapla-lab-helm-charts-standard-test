@@ -88,6 +88,8 @@ def _(LocalParquEdit, ParquEdit):
     if os.environ.get("DAPLA_ENVIRONMENT", "").upper() == "PROD":
         con = ParquEdit()
     else:
+        os.environ["DAPLA_TEAM_NAME"] = "local-mock-team-name"
+        os.environ["DAPLA_USER"] = "local-mock-user@ssb.no"
         con = LocalParquEdit.with_mock_tables()
     return con, get_refresh, mo, numbers, reasons, set_refresh
 

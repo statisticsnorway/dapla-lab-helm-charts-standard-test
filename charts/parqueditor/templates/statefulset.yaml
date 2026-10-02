@@ -105,7 +105,9 @@ spec:
               value: {{ .Values.avansert.startupScript.scriptArgs }}
             {{- end }}
             - name: DAPLA_ENVIRONMENT
-              value: {{ .Values.deployEnvironment }}
+               value: {{ .Values.deployEnvironment }}
+            - name: DAPLA_TEAM_NAME
+              value: {{ $teamName | quote }}
             - name: DAPLA_REGION
               value: DAPLA_LAB
             {{- if .Values.avansert.parquedit.enabled }}
