@@ -73,12 +73,8 @@ spec:
           command: ["/bin/sh","-c"]
           args:
             - >-
-              if [ ! -d /home/{{ .Values.environment.user }}/work/.git ]; then
-              git clone https://github.com/statisticsnorway/{{ .Values.tjeneste.repository }}
-              /home/{{ .Values.environment.user }}/work;
-              fi &&
               {{ .Values.init.standardInitPath }} uvx marimo run --sandbox
-              /home/{{ .Values.environment.user }}/work/dashboards/app.py
+              /home/{{ .Values.environment.user }}/work/{{ .Values.tjeneste.repository }}/dashboards/app.py
               --host 0.0.0.0
               --port 8080
               --headless
@@ -112,6 +108,8 @@ spec:
             {{- end }}
             - name: DAPLA_SERVICE
               value: PARQUEDITOR
+            - name: GIT_REPOSITORY
+              value: https://github.com/statisticsnorway/{{ .Values.tjeneste.repository }}
             - name: PASSWORD
               value: ""
             - name: MARIMO_PYTHON_VERSION
