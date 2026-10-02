@@ -24,6 +24,14 @@
       "description": "Konfigurer Parqueditor",
       "type": "object",
       "properties": {
+        "repository": {
+          "description": "App-repository",
+          "type": "string",
+          "default": "ssb-parquedit-dashboard",
+          "listEnum": ["ssb-parquedit-dashboard"],
+          "render": "list",
+          "pattern": "^[a-zA-Z0-9_.-]+$"
+        },
         "version": {
           "description": "Marimo-versjon",
           "type": "string",

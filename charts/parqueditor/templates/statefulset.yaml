@@ -39,7 +39,6 @@ spec:
         {{- if (include "library-chart.repository.enabled"  .) }}
         checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
         {{- end }}
-        checksum/app: {{ include (print $.Template.BasePath "/configmap-app.yaml") . | sha256sum }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -59,9 +58,6 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 128Mi
-        - name: app
-          configMap:
-            name: {{ include "library-chart.fullname" . }}-app
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -77,10 +73,8 @@ spec:
           command: ["/bin/sh","-c"]
           args:
             - >-
-              cp /opt/parqueditor/app.py /home/{{ .Values.environment.user }}/work/app.py &&
-              chmod u+rw /home/{{ .Values.environment.user }}/work/app.py &&
               {{ .Values.init.standardInitPath }} uvx marimo run --sandbox
-              /home/{{ .Values.environment.user }}/work/app.py
+              /home/{{ .Values.environment.user }}/work/{{ .Values.tjeneste.repository }}/dashboards/app.py
               --host 0.0.0.0
               --port 8080
               --headless
@@ -114,6 +108,8 @@ spec:
             {{- end }}
             - name: DAPLA_SERVICE
               value: PARQUEDITOR
+            - name: GIT_REPOSITORY
+              value: https://github.com/statisticsnorway/{{ .Values.tjeneste.repository }}
             - name: PASSWORD
               value: ""
             - name: MARIMO_PYTHON_VERSION
@@ -177,9 +173,6 @@ spec:
             - mountPath: /home/{{ .Values.environment.user}}/work
               subPath: work
               name: home
-            - mountPath: /opt/parqueditor
-              name: app
-              readOnly: true
             - mountPath: /dev/shm
               name: dshm
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
