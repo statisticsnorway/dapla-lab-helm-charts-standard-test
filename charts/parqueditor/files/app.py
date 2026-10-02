@@ -13,17 +13,17 @@ __generated_with = "0.25.0"
 app = marimo.App(width="full", app_title="Parqueditor")
 
 
-# create a local mock Parquedit for testing ui
 @app.cell
 def _():
     from ssb_parquedit import ParquEdit
     from faker import Faker
+    import polars as pl
 
     MOCK_TABLES = ("local_mock_table_1", "local_mock_table_2")
     MOCK_ROW_COUNT = 10_000
 
     def make_mock_data(seed: int) -> pl.DataFrame:
-        fake = Faker("nb_NO")
+        fake = Faker("no_NO")
         fake.seed_instance(seed)
         return pl.DataFrame(
             {
@@ -66,15 +66,14 @@ def _():
                     )
             return con
 
-    return ParquEdit, LocalParquEdit
+    return LocalParquEdit, ParquEdit, pl
 
 
 @app.cell
-def _(Parquedit, LocalParquEdit):
+def _(LocalParquEdit, ParquEdit):
     import os
     import numbers
     import marimo as mo
-    import polars as pl
 
     reasons = [
         "OTHER_SOURCE",
@@ -90,21 +89,7 @@ def _(Parquedit, LocalParquEdit):
         con = ParquEdit()
     else:
         con = LocalParquEdit.with_mock_tables()
-    return (con,)
-
-    return (
-        LocalParquEdit,
-        MOCK_TABLES,
-        ParquEdit,
-        get_refresh,
-        make_mock_data,
-        mo,
-        numbers,
-        pl,
-        reasons,
-        set_refresh,
-        os,
-    )
+    return con, get_refresh, mo, numbers, reasons, set_refresh
 
 
 @app.cell
