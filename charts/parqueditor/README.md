@@ -1,8 +1,8 @@
 # parqueditor
 
-![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Grafisk grensesnitt for Parquedit
+Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
 
 **Homepage:** <https://manual.dapla.ssb.no/statistikkere/ssb-parquedit.html>
 
