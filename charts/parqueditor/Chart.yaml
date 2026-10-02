@@ -1,6 +1,6 @@
 apiVersion: v2
 name: parqueditor
-description: Grafisk grensesnitt for Parquedit
+description: Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
 icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
 keywords:
   - Parquedit
@@ -11,7 +11,7 @@ sources:
   - https://github.com/statisticsnorway/dapla-lab-images
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
 type: application
-version: 0.0.3
+version: 0.0.4
 dependencies:
   - name: library-chart
     version: 4.6.1
