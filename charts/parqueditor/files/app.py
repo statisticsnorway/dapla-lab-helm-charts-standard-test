@@ -13,16 +13,11 @@ __generated_with = "0.25.0"
 app = marimo.App(width="full", app_title="Parqueditor")
 
 
+# create a local mock Parquedit for testing ui
 @app.cell
 def _():
-    import os
-
-    import numbers
-
-    import marimo as mo
-    import polars as pl
-    from faker import Faker
     from ssb_parquedit import ParquEdit
+    from faker import Faker
 
     MOCK_TABLES = ("local_mock_table_1", "local_mock_table_2")
     MOCK_ROW_COUNT = 10_000
@@ -71,6 +66,16 @@ def _():
                     )
             return con
 
+    return ParquEdit, LocalParquEdit
+
+
+@app.cell
+def _(Parquedit, LocalParquEdit):
+    import os
+    import numbers
+    import marimo as mo
+    import polars as pl
+
     reasons = [
         "OTHER_SOURCE",
         "REVIEW",
@@ -80,6 +85,13 @@ def _():
         "OTHER",
     ]
     get_refresh, set_refresh = mo.state(0)
+
+    if os.environ.get("DAPLA_ENVIRONMENT", "").upper() == "PROD":
+        con = ParquEdit()
+    else:
+        con = LocalParquEdit.with_mock_tables()
+    return (con,)
+
     return (
         LocalParquEdit,
         MOCK_TABLES,
@@ -93,15 +105,6 @@ def _():
         set_refresh,
         os,
     )
-
-
-@app.cell
-def _(LocalParquEdit, ParquEdit, os):
-    if os.environ.get("DAPLA_ENVIRONMENT", "").upper() == "PROD":
-        con = ParquEdit()
-    else:
-        con = LocalParquEdit.with_mock_tables()
-    return (con,)
 
 
 @app.cell
