@@ -1,5 +1,6 @@
 # /// script
 # dependencies = [
+#     "faker>=37.0.0,<38.0.0",
 #     "marimo>=0.25.0",
 #     "polars>=1.38.1,<2.0.0",
 #     "ssb-parquedit==0.1.0",
@@ -14,11 +15,61 @@ app = marimo.App(width="full", app_title="Parqueditor")
 
 @app.cell
 def _():
+    import os
+
     import numbers
 
     import marimo as mo
     import polars as pl
+    from faker import Faker
     from ssb_parquedit import ParquEdit
+
+    MOCK_TABLES = ("local_mock_table_1", "local_mock_table_2")
+    MOCK_ROW_COUNT = 10_000
+
+    def make_mock_data(seed: int) -> pl.DataFrame:
+        fake = Faker("nb_NO")
+        fake.seed_instance(seed)
+        return pl.DataFrame(
+            {
+                "record_id": [fake.uuid4() for _ in range(MOCK_ROW_COUNT)],
+                "organization_number": [
+                    fake.numerify("#########") for _ in range(MOCK_ROW_COUNT)
+                ],
+                "organization_name": [fake.company() for _ in range(MOCK_ROW_COUNT)],
+                "area_code": [fake.postcode() for _ in range(MOCK_ROW_COUNT)],
+                "sector_code": [fake.numerify("##") for _ in range(MOCK_ROW_COUNT)],
+                "sector": [fake.bs() for _ in range(MOCK_ROW_COUNT)],
+                "period": [fake.date(pattern="%Y-%m") for _ in range(MOCK_ROW_COUNT)],
+                "number_of_employees": [
+                    fake.random_int(min=1, max=5000) for _ in range(MOCK_ROW_COUNT)
+                ],
+                "income": [
+                    float(fake.pyfloat(left_digits=7, right_digits=2, positive=True))
+                    for _ in range(MOCK_ROW_COUNT)
+                ],
+                "status": [fake.word() for _ in range(MOCK_ROW_COUNT)],
+                "date": [
+                    fake.date_between(start_date="-2y", end_date="today").isoformat()
+                    for _ in range(MOCK_ROW_COUNT)
+                ],
+            }
+        )
+
+    class LocalParquEdit(ParquEdit):
+        @classmethod
+        def with_mock_tables(cls):
+            con = cls.local()
+            for index, table_name in enumerate(MOCK_TABLES):
+                if not con.exists(table_name):
+                    con.create_table(
+                        table_name,
+                        source=make_mock_data(seed=index),
+                        product_name="local-mock-statistic",
+                        user_defined_id=["record_id"],
+                        fill=True,
+                    )
+            return con
 
     reasons = [
         "OTHER_SOURCE",
@@ -28,9 +79,29 @@ def _():
         "DUPLICATE",
         "OTHER",
     ]
-    con = ParquEdit()
     get_refresh, set_refresh = mo.state(0)
-    return con, get_refresh, mo, numbers, pl, reasons, set_refresh
+    return (
+        LocalParquEdit,
+        MOCK_TABLES,
+        ParquEdit,
+        get_refresh,
+        make_mock_data,
+        mo,
+        numbers,
+        pl,
+        reasons,
+        set_refresh,
+        os,
+    )
+
+
+@app.cell
+def _(LocalParquEdit, ParquEdit, os):
+    if os.environ.get("DAPLA_ENVIRONMENT", "").upper() == "PROD":
+        con = ParquEdit()
+    else:
+        con = LocalParquEdit.with_mock_tables()
+    return (con,)
 
 
 @app.cell
