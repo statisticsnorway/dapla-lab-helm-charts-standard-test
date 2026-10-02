@@ -104,7 +104,6 @@ Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.repository | string | `"ssb-parquedit-dashboard"` |  |
 | tjeneste.version | string | `"latest-2026.09.14T01_30Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
