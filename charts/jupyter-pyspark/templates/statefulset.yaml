@@ -80,7 +80,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jupyter-pyspark:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
-          args: ["{{ .Values.init.standardInitPath }} && /usr/local/bin/spark-init.sh jupyter lab --no-browser --ip 0.0.0.0 -LabApp.token='' --ContentsManager.allow_hidden=True"]
+          args: ["{{ .Values.init.standardInitPath }} /usr/local/bin/spark-init.sh jupyter lab --no-browser --ip 0.0.0.0 -LabApp.token='' --ContentsManager.allow_hidden=True"]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
