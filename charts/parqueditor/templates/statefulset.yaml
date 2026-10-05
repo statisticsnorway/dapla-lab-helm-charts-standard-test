@@ -73,7 +73,9 @@ spec:
           command: ["/bin/sh","-c"]
           args:
             - >-
-              {{ .Values.init.standardInitPath }} uvx marimo run --sandbox
+              {{ .Values.init.standardInitPath }} uvx
+              {{ if .Values.tjeneste.enableMarimoStudio }}--with marimo-studio{{ end }}
+              marimo run --sandbox
               /home/{{ .Values.environment.user }}/work/{{ .Values.tjeneste.repository }}/dashboards/app.py
               --host 0.0.0.0
               --port 8080
