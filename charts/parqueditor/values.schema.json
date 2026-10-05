@@ -24,13 +24,23 @@
       "description": "Konfigurer Parqueditor",
       "type": "object",
       "properties": {
+        "enableMarimoStudio": {
+          "type": "boolean",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
         "repository": {
           "description": "App-repository",
           "type": "string",
           "default": "ssb-parquedit-dashboard",
           "listEnum": ["ssb-parquedit-dashboard"],
           "render": "list",
-          "pattern": "^[a-zA-Z0-9_.-]+$"
+          "pattern": "^[a-zA-Z0-9_.-]+$",
+          "x-onyxia": {
+            "hidden": true
+          }
         },
         "version": {
           "description": "Marimo-versjon",
