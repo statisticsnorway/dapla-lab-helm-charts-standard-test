@@ -31,6 +31,12 @@
             "hidden" : true
           }
         },
+        "enableRunMode" : {
+          "title" : "App-modus",
+          "description" : "Start dashboardet i app-modus, uten redigering",
+          "type" : "boolean",
+          "default" : false
+        },
         "version" : {
           "description" : "Marimo-versjon",
           "type" : "string",
