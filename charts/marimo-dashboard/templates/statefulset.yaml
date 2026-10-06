@@ -85,8 +85,10 @@ spec:
             - >-
               {{ .Values.init.standardInitPath }} uvx
               {{ if .Values.tjeneste.enableMarimoStudio }}--with marimo-studio{{ end }}
-              marimo run --sandbox
+              marimo
+              {{ if .Values.tjeneste.enableRunMode }}run{{ else }}edit{{ end }}
               /home/{{ .Values.environment.user }}/work/{{ .Values.tjeneste.githubRepo }}/dashboard
+              --sandbox
               --host 0.0.0.0
               --port 8080
               --headless
