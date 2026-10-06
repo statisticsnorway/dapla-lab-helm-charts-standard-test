@@ -62,9 +62,10 @@
         },
         "githubRepo" : {
           "title" : "Marimo-repo",
-          "description" : "Marimo-repo som skal klones ved oppstart. Støtter ikke andre type repo",
+          "description" : "Marimo-repo som skal klones ved oppstart, på formatet owner/repo",
           "type" : "string",
-          "default" : ""
+          "default" : "statisticsnorway/ssb-marimo-dashboard-template",
+          "pattern" : "^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$"
         },
       }
     },
