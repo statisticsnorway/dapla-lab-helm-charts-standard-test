@@ -24,6 +24,13 @@
       "description" : "Velg versjon av Marimo",
       "type" : "object",
       "properties" : {
+        "enableMarimoStudio" : {
+          "type" : "boolean",
+          "default" : false,
+          "x-onyxia" : {
+            "hidden" : true
+          }
+        },
         "version" : {
           "description" : "Marimo-versjon",
           "type" : "string",
