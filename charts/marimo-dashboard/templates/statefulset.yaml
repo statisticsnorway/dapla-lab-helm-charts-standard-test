@@ -81,28 +81,16 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/marimo:{{ .Values.tjeneste.version }}"
           command: ["/bin/sh","-c"]
-          {{- if .Values.tjeneste.marimoAppFile }}
           args:
             - >-
               {{ .Values.init.standardInitPath }} uvx
               {{ if .Values.tjeneste.enableMarimoStudio }}--with marimo-studio{{ end }}
               marimo run --sandbox
-              {{ .Values.tjeneste.marimoAppFile }}
+              /home/{{ .Values.environment.user }}/work/{{ .Values.tjeneste.githubRepo }}/dashboard
               --host 0.0.0.0
               --port 8080
               --headless
               --no-token
-          {{- else }}
-          args:
-            - >-
-              {{ .Values.init.standardInitPath }} uvx
-              marimo edit
-              --host 0.0.0.0
-              --port 8080
-              --headless
-              --no-token
-              --skip-update-check
-          {{- end }}
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}

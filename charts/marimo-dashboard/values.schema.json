@@ -60,12 +60,6 @@
           "type" : "string",
           "default" : ""
         },
-        "marimoAppFile" : {
-          "title" : "App filsti",
-          "description" : "Oppgi en sti i GitHub-repoet som skal kjøres som app, f.eks. \"folder1/run.py\". La stå tomt for å starte i edit-modus.",
-          "type" : "string",
-          "default" : ""
-        }
       }
     },
     "resources" : {

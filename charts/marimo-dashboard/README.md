@@ -105,7 +105,6 @@ Marimo med Python.
 | suvDaplaApiUrl | string | `""` |  |
 | tjeneste.githubRepo | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.marimoAppFile | string | `""` |  |
 | tjeneste.version | string | `"latest-2026.09.14T01_30Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
