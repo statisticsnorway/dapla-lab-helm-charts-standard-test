@@ -1,6 +1,7 @@
 {{- $fullName := include "library-chart.fullname" . -}}
 {{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.dapla.group) }}
 {{- $bucketEnv := dict "dev" "test" "test" "test" "prod" "prod" }}
+{{- $clonedRepoFolder := last (splitList "/" .Values.tjeneste.githubRepo) -}}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -87,7 +88,7 @@ spec:
               {{ if .Values.tjeneste.enableMarimoStudio }}--with marimo-studio{{ end }}
               marimo
               {{ if .Values.tjeneste.enableRunMode }}run{{ else }}edit{{ end }}
-              /home/{{ .Values.environment.user }}/work/{{ .Values.tjeneste.githubRepo }}/dashboard
+              /home/{{ .Values.environment.user }}/work/{{ $clonedRepoFolder }}/dashboard
               --sandbox
               --host 0.0.0.0
               --port 8080
@@ -123,7 +124,7 @@ spec:
             - name: DAPLA_SERVICE
               value: MARIMO
             - name: GIT_REPOSITORY
-              value: {{ .Values.tjeneste.githubRepo }}
+              value: https://github.com/{{ .Values.tjeneste.githubRepo }}
             - name: MARIMO_APP_FILE_PATH # Only relevant for run mode
               value: {{ .Values.tjeneste.marimoAppFile }}
             - name: PASSWORD
