@@ -6,7 +6,6 @@ tjeneste:
   image:
     pullPolicy: IfNotPresent
   githubRepo: ''
-  marimoAppFile: ''
 security:
   networkPolicy:
     enabled: false
