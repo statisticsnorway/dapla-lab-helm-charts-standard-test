@@ -25,6 +25,7 @@
             uv
             vscode-langservers-extracted
             yaml-language-server
+            kubernetes-helm
           ];
         };
 
