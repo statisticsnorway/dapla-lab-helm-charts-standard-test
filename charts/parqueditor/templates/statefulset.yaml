@@ -3,6 +3,8 @@
 {{- $bucketEnv := dict "dev" "test" "test" "test" "prod" "prod" }}
 {{- $marimoVersion := "0.25.0" }}
 {{- $marimoStudioVersion := "0.2.3" }}
+{{- $repoFolder := printf "/home/%s/work/%s" .Values.environment.user .Values.tjeneste.repository }}
+{{- $repoUrl := printf "https://github.com/statisticsnorway/%s" .Values.tjeneste.repository }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -72,11 +74,16 @@ spec:
           command: ["/bin/sh","-c"]
           args:
             - >-
-              {{ .Values.init.standardInitPath }} uvx
+              set -e;
+              if [ ! -d "{{ $repoFolder }}/.git" ]; then
+                git clone --depth 1 --no-tags "{{ $repoUrl }}" "{{ $repoFolder }}";
+              fi;
+              exec uvx
               --with marimo=={{ $marimoVersion }}
               {{ if .Values.tjeneste.enableMarimoStudio }}--with marimo-studio=={{ $marimoStudioVersion }}{{ end }}
-              marimo@{{ $marimoVersion }} run --sandbox
-              /home/{{ .Values.environment.user }}/work/{{ .Values.tjeneste.repository }}/dashboards/app.py
+              marimo@{{ $marimoVersion }} run
+              "{{ $repoFolder }}/dashboards/app.py"
+              --sandbox
               --host 0.0.0.0
               --port 8080
               --headless
@@ -110,8 +117,6 @@ spec:
             {{- end }}
             - name: DAPLA_SERVICE
               value: PARQUEDITOR
-            - name: GIT_REPOSITORY
-              value: https://github.com/statisticsnorway/{{ .Values.tjeneste.repository }}
             - name: PASSWORD
               value: ""
             - name: MARIMO_PYTHON_VERSION
