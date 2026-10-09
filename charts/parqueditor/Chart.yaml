@@ -1,7 +1,7 @@
 apiVersion: v2
 name: parqueditor
 description: Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
-icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
+icon: https://raw.githubusercontent.com/statisticsnorway/ssb-parquedit-dashboard/7a3b496aeb0affa593142d20b229dcc0ce878583/parqueditor-logo.png
 keywords:
   - Parquedit
 home: https://manual.dapla.ssb.no/statistikkere/ssb-parquedit.html
