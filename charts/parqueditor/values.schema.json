@@ -10,15 +10,6 @@
         "overwriteSchemaWith": "dapla/dapla.json"
       }
     },
-    "gitConfig": {
-      "title": "Git/Github",
-      "description": "Konfigurer Git og Github for tjenesten",
-      "type": "object",
-      "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "dapla/git-no-clone-repo.json"
-      }
-    },
     "tjeneste": {
       "title": "Parqueditor",
       "description": "Konfigurer Parqueditor",
