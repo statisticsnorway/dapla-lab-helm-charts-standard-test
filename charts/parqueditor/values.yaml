@@ -34,15 +34,6 @@ oidc:
   enabled: true
   tokenExchangeUrl: ''
   secretName: ''
-gitConfig:
-  git:
-    enabled: false
-    configMapName: ''
-    name: ''
-    email: ''
-    cache: ''
-  github:
-    token: ''
 repository:
   configMapName: ''
   pipRepository: ''
