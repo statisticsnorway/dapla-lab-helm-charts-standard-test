@@ -154,10 +154,6 @@ spec:
             - secretRef:
                 name: {{ include "library-chart.secretNameOidc" . }}
             {{- end }}
-            {{- if .Values.gitConfig.git.enabled }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameGit" . }}
-            {{- end }}
             {{- if (include "library-chart.repository.enabled"  .) }}
             - configMapRef:
                 name: {{ include "library-chart.configMapNameRepository" . }}
