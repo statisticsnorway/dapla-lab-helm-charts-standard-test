@@ -10998,6 +10998,26 @@ entries:
     version: 0.0.1
   parqueditor:
   - apiVersion: v2
+    created: "2026-10-09T11:12:04.609429377Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
+    digest: 013523639cd54cd8d1348c3ea7d13eaf0f416fde92280b2db97cc832106a7a83
+    home: https://manual.dapla.ssb.no/statistikkere/parqueditor.html
+    icon: https://raw.githubusercontent.com/statisticsnorway/ssb-parquedit-dashboard/7a3b496aeb0affa593142d20b229dcc0ce878583/parqueditor-logo.png
+    keywords:
+    - Parquedit
+    name: parqueditor
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/parqueditor-0.0.11/parqueditor-0.0.11.tgz
+    version: 0.0.11
+  - apiVersion: v2
     created: "2026-10-08T13:24:21.724105165Z"
     dependencies:
     - name: library-chart
@@ -16176,4 +16196,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.15.0/vscode-python-0.15.0.tgz
     version: 0.15.0
-generated: "2026-10-08T13:24:21.725103304Z"
+generated: "2026-10-09T11:12:04.611188507Z"
