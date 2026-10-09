@@ -4,7 +4,7 @@ description: Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
 icon: https://raw.githubusercontent.com/statisticsnorway/ssb-parquedit-dashboard/7a3b496aeb0affa593142d20b229dcc0ce878583/parqueditor-logo.png
 keywords:
   - Parquedit
-home: https://manual.dapla.ssb.no/statistikkere/ssb-parquedit.html
+home: https://manual.dapla.ssb.no/statistikkere/parqueditor.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
