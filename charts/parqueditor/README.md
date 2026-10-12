@@ -1,6 +1,6 @@
 # parqueditor
 
-![Version: 0.0.11](https://img.shields.io/badge/Version-0.0.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.12](https://img.shields.io/badge/Version-0.0.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
 
@@ -50,6 +50,12 @@ Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
+| gitConfig.git.cache | string | `""` |  |
+| gitConfig.git.configMapName | string | `""` |  |
+| gitConfig.git.email | string | `""` |  |
+| gitConfig.git.enabled | bool | `false` |  |
+| gitConfig.git.name | string | `""` |  |
+| gitConfig.github.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
 | init.regionInit | string | `""` |  |
