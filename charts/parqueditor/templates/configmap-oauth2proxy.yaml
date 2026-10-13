@@ -68,7 +68,8 @@ data:
     scope = "openid email profile"
 
      {{ if .Values.tjeneste.enableMarimoStudio }}
-     # Let Marimo handle validation of signed capabilities for Studio resources.
+     # Let Marimo handle validation of signed resource urls for Marimo Studio
+     # The resource urls will only be available to the user who has loaded the page through the normal Oauth proxy
      skip_auth_routes = [
        "^/_marimo-studio/.*",
        "^/[^/]+/_marimo-studio/.*"
