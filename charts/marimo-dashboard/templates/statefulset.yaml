@@ -1,7 +1,8 @@
 {{- $fullName := include "library-chart.fullname" . -}}
 {{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.dapla.group) }}
 {{- $bucketEnv := dict "dev" "test" "test" "test" "prod" "prod" }}
-{{- $clonedRepoFolder := last (splitList "/" .Values.tjeneste.githubRepo) -}}
+{{- $clonedRepoFolder := trimSuffix ".git" (last (splitList "/" .Values.tjeneste.githubRepo)) -}}
+{{- $projectFolder := trimSuffix "/" (printf "/home/%s/work/%s" .Values.environment.user $clonedRepoFolder) -}}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -87,7 +88,7 @@ spec:
               {{ .Values.init.standardInitPath }} uvx
               {{ if .Values.tjeneste.enableMarimoStudio }}--with marimo-studio{{ end }}
               marimo {{ .Values.tjeneste.startupCommand }} 
-              /home/{{ .Values.environment.user }}/work/{{ $clonedRepoFolder }}/dashboard
+              {{ $projectFolder }}
               --sandbox
               --host 0.0.0.0
               --port 8080
