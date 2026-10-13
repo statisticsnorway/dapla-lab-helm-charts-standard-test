@@ -25,10 +25,10 @@
       "type": "object",
       "properties": {
         "githubRepo": {
-          "title": "Marimo-repo",
-          "description": "Marimo-repo som skal klones ved oppstart, på formatet owner/repo",
+          "title": "Dashboard-repo",
+          "description": "Github-repository som skal klones ved oppstart",
           "type": "string",
-          "default": "statisticsnorway/ssb-marimo-dashboard-template",
+          "default": "",
           "pattern": "^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$"
         },
         "startupCommand": {
@@ -42,9 +42,6 @@
         "enableMarimoStudio": {
           "type": "boolean",
           "default": false,
-          "x-onyxia": {
-            "hidden": true
-          }
         },
         "version": {
           "description": "Marimo-versjon",
