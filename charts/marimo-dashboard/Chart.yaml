@@ -4,10 +4,11 @@ description: Dashboards med Marimo notebooks.
 icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
 keywords:
   - Marimo
+  - Dashboard
   - Python
 annotations:
   environment: test
-home: https://manual.dapla.ssb.no/statistikkere/marimo.html
+home: https://manual.dapla.ssb.no/statistikkere/marimo-dashboard.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
