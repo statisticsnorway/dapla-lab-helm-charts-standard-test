@@ -69,6 +69,7 @@ data:
 
      {{ if .Values.tjeneste.enableMarimoStudio }}
      # Let Marimo handle validation of signed urls for Marimo Studio resources.
+     # The signed urls will only be served to an already authenticated user
      skip_auth_routes = [
        "^/_marimo-studio/.*",
        "^/[^/]+/_marimo-studio/.*"
