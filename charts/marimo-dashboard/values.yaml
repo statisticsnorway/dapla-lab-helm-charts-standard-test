@@ -1,12 +1,12 @@
 global:
   suspend: false
 tjeneste:
-  enableMarimoStudio: false
+  githubRepo: ''
   startupCommand: edit
+  enableMarimoStudio: false
   version: latest-2026.09.14T01_30Z
   image:
     pullPolicy: IfNotPresent
-  githubRepo: statisticsnorway/ssb-marimo-dashboard-template
 security:
   networkPolicy:
     enabled: false
