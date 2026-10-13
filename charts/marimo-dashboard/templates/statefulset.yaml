@@ -86,8 +86,7 @@ spec:
             - >-
               {{ .Values.init.standardInitPath }} uvx
               {{ if .Values.tjeneste.enableMarimoStudio }}--with marimo-studio{{ end }}
-              marimo
-              {{ if .Values.tjeneste.enableRunMode }}run{{ else }}edit{{ end }}
+              marimo {{ .Values.tjeneste.startupCommand }} 
               /home/{{ .Values.environment.user }}/work/{{ $clonedRepoFolder }}/dashboard
               --sandbox
               --host 0.0.0.0
@@ -124,13 +123,9 @@ spec:
             - name: DAPLA_SERVICE
               value: MARIMO
             - name: GIT_REPOSITORY
-              value: https://github.com/{{ .Values.tjeneste.githubRepo }}
-            - name: MARIMO_APP_FILE_PATH # Only relevant for run mode
-              value: {{ .Values.tjeneste.marimoAppFile }}
+              value: {{ .Values.tjeneste.githubRepo }}
             - name: PASSWORD
               value: ""
-            - name: MARIMO_PYTHON_VERSION
-              value: "3.12"
             - name: PROJECT_USER
               value: {{ .Values.environment.user }}
             - name: PROJECT_GROUP
@@ -159,6 +154,8 @@ spec:
               value: {{ .Values.maskinportenGuardianUrl }}
             - name: DAPLA_USER
               value: {{ .Values.daplaUser }}
+            - name: DAPLA_TEAM
+              value: {{ $teamName | quote }}
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
