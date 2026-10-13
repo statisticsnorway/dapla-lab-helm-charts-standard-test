@@ -28,8 +28,7 @@
           "title": "Dashboard-repo",
           "description": "Github-repository som skal klones ved oppstart",
           "type": "string",
-          "default": "",
-          "pattern": "^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$"
+          "default": ""
         },
         "startupCommand": {
           "title": "Oppstartsmåte",
@@ -41,7 +40,10 @@
         },
         "enableMarimoStudio": {
           "type": "boolean",
-          "default": false,
+          "default": true,
+          "x-onyxia": {
+            "hidden": true
+          }
         },
         "version": {
           "description": "Marimo-versjon",
