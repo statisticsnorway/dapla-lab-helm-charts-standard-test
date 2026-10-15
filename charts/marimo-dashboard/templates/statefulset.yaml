@@ -42,6 +42,7 @@ spec:
         checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
         {{- end }}
         checksum/opencode: {{ include (print $.Template.BasePath "/configmap-opencode.yaml") . | sha256sum }}
+        checksum/marimo: {{ include (print $.Template.BasePath "/configmap-marimo.yaml") . | sha256sum }}
         checksum/agents: {{ include (print $.Template.BasePath "/configmap-agents.yaml") . | sha256sum }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
@@ -66,6 +67,11 @@ spec:
           configMap:
             name: {{ include "library-chart.fullname" . }}-opencode
         - name: opencode-config-dir
+          emptyDir: {}
+        - name: marimo-config
+          configMap:
+            name: {{ include "library-chart.fullname" . }}-marimo
+        - name: marimo-config-dir
           emptyDir: {}
         - name: agents-config
           configMap:
@@ -198,6 +204,12 @@ spec:
               name: agents-config
               readOnly: true
               subPath: AGENTS.md
+            - mountPath: /home/{{ .Values.environment.user }}/.config/marimo
+              name: marimo-config-dir
+            - mountPath: /home/{{ .Values.environment.user }}/.config/marimo/marimo.toml
+              name: marimo-config
+              readOnly: true
+              subPath: marimo.toml
             - mountPath: /dev/shm
               name: dshm
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
