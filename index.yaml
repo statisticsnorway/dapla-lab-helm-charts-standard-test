@@ -10568,6 +10568,27 @@ entries:
     version: 0.0.1
   marimo:
   - apiVersion: v2
+    created: "2026-10-15T12:45:54.287511861Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Marimo med Python.
+    digest: f7afa41b5b5cc46070679a4d6bc5be42637efdc7dbc1de7835bfba07293640e1
+    home: https://manual.dapla.ssb.no/statistikkere/marimo.html
+    icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
+    keywords:
+    - Marimo
+    - Python
+    name: marimo
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/marimo-0.0.21/marimo-0.0.21.tgz
+    version: 0.0.21
+  - apiVersion: v2
     created: "2026-10-15T07:57:40.373766902Z"
     dependencies:
     - name: library-chart
@@ -11018,6 +11039,30 @@ entries:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/marimo-0.0.1/marimo-0.0.1.tgz
     version: 0.0.1
   marimo-dashboard:
+  - annotations:
+      environment: test
+    apiVersion: v2
+    created: "2026-10-15T12:45:54.450292553Z"
+    dependencies:
+    - name: library-chart
+      repository: https://statisticsnorway.github.io/dapla-lab-helm-charts-library
+      version: 4.6.1
+    description: Dashboards med Marimo notebooks.
+    digest: fc39cbfdf46dcbb2c82874003ca79d07226f0b20ed955f39077d0ff4150bfc5a
+    home: https://manual.dapla.ssb.no/statistikkere/marimo-dashboard.html
+    icon: https://raw.githubusercontent.com/marimo-team/marimo/main/docs/_static/marimo-logotype-thick.svg
+    keywords:
+    - Marimo
+    - Dashboard
+    - Python
+    name: marimo-dashboard
+    sources:
+    - https://github.com/statisticsnorway/dapla-lab-images
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
+    type: application
+    urls:
+    - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/marimo-dashboard-0.0.3/marimo-dashboard-0.0.3.tgz
+    version: 0.0.3
   - annotations:
       environment: test
     apiVersion: v2
@@ -16286,4 +16331,4 @@ entries:
     urls:
     - https://github.com/statisticsnorway/dapla-lab-helm-charts-standard-test/releases/download/vscode-python-0.15.0/vscode-python-0.15.0.tgz
     version: 0.15.0
-generated: "2026-10-15T07:57:40.653420139Z"
+generated: "2026-10-15T12:45:54.451589187Z"
