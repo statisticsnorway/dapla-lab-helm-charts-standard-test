@@ -1,6 +1,6 @@
 # jupyter-playground
 
-![Version: 0.17.27](https://img.shields.io/badge/Version-0.17.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.17.28](https://img.shields.io/badge/Version-0.17.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer godt for de som skal lære R og Python uten for mye kompleksitet.
 
@@ -114,7 +114,7 @@ Jupyterlab med Python og R og mange vanlige pakker ferdig installert. Passer god
 | statbankTestBaseUrl | string | `""` |  |
 | statbankTestEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.4.0-py313-2026.09.28T02_24Z"` |  |
+| tjeneste.version | string | `"r4.6.0-py313-2026.09.28T02_22Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
