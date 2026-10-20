@@ -45,6 +45,15 @@
             "hidden" : true
           }
         },
+        "marimoVersion" : {
+          "description" : "Marimo-versjon",
+          "type" : "string",
+          "default" : "0.25.1",
+          "enum" : [ "0.25.1" ],
+          "x-onyxia" : {
+            "hidden" : true
+          }
+        },
         "version" : {
           "description" : "Marimo-versjon",
           "type" : "string",
