@@ -3,7 +3,7 @@ global:
 tjeneste:
   enableMarimoStudio: true
   repository: ssb-parquedit-dashboard
-  version: latest-2026.09.14T01_30Z
+  version: latest-2026.10.20T08_55Z
   image:
     pullPolicy: IfNotPresent
 security:

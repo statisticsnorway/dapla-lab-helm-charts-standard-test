@@ -45,11 +45,20 @@
             "hidden": true
           }
         },
+        "marimoVersion": {
+          "description": "Marimo-versjon",
+          "type": "string",
+          "default": "0.25.1",
+          "enum": ["0.25.1"],
+          "x-onyxia": {
+            "hidden": true
+          }
+        },
         "version": {
           "description": "Marimo-versjon",
           "type": "string",
-          "default": "latest-2026.09.14T01_30Z",
-          "listEnum": ["latest-2026.09.14T01_30Z"],
+          "default": "latest-2026.10.20T08_55Z",
+          "listEnum": ["latest-2026.10.20T08_55Z"],
           "render": "list",
           "pattern": "^[a-zA-Z0-9-_.:/]+$",
           "x-onyxia": {
