@@ -49,6 +49,10 @@
      "rstudio" ["r4.4.0" "r4.6.0"]
      "marimo" ["latest"]}))
 
+(def chart->artifact
+  {"marimo-dashboard" "marimo"
+   "parqueditor" "marimo"})
+
 (defn process-tags [artifact]
   (shell "gcloud" "config" "set" "project" GAR-project-id) ; ensure we're in the GAR project
   (->> (fetch-artifact-tags artifact)
@@ -70,7 +74,8 @@
         values-filepath (str (fs/path chart-dir "values.yaml"))
         values-schema (yaml/parse-string (slurp schema-filepath)) ; read json using yaml decoder to preserve key order
         values (yaml/parse-string (slurp values-filepath))
-        artifact (str (.getFileName (fs/path chart-dir)))
+        chart (str (.getFileName (fs/path chart-dir)))
+        artifact (get chart->artifact chart chart)
         {:keys [default] :as new-tags} (process-tags artifact)
         updated-values-schema
         (-> values-schema
