@@ -49,9 +49,13 @@
      "rstudio" ["r4.4.0" "r4.6.0"]
      "marimo" ["latest"]}))
 
+(def artifact-aliases
+  {"marimo-dashboard" "marimo"}
+  {"parqueditor" "marimo"})
+
 (defn process-tags [artifact]
   (shell "gcloud" "config" "set" "project" GAR-project-id) ; ensure we're in the GAR project
-  (->> (fetch-artifact-tags artifact)
+  (->> (fetch-artifact-tags (get artifact-aliases artifact artifact))
        (filter (fn [gar-tag] (some #(str/includes? gar-tag %) (artifact->tags artifact)))) ; for legacy reasons we need to filter on the tag shape
        (partition-by extract-dep-version)
        (map (comp strip-gar-path last))
