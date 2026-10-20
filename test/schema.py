@@ -23,16 +23,16 @@ def get_tag(tag_and_date) -> str:
 source = {
     "jdemetra": {"default": "jd2.2.5",
                  "options": ["jd2.2.5", "jd3.9.0"]},
-    "jupyter": {"default": "r4.4.0-py313",
-                "options": ["r4.4.0-py313", "r4.6.0-py313"]},
-    "jupyter-playground": {"default": "r4.4.0-py313",
-                "options": ["r4.4.0-py313", "r4.6.0-py313"]},
+    "jupyter": {"default": "r4.6.0-py313",
+                "options": ["r4.6.0-py313", "r4.4.0-py313"]},
+    "jupyter-playground": {"default": "r4.6.0-py313",
+                "options": ["r4.6.0-py313", "r4.4.0-py313"]},
     "jupyter-pyspark": {"default": "py313-spark4.1.2",
                         "options": ["py313-spark4.1.2"]},
-    "rstudio": {"default": "r4.4.0",
-                "options": ["r4.4.0", "r4.6.0"]},
-    "vscode": {"default": "r4.4.0-py313",
-                "options": ["r4.4.0-py313", "r4.6.0-py313"]},
+    "rstudio": {"default": "r4.6.0",
+                "options": ["r4.6.0", "r4.4.0"]},
+    "vscode": {"default": "r4.6.0-py313",
+                "options": ["r4.6.0-py313", "r4.4.0-py313"]},
 }
 
 def test_helm_chart_schema(chart_path: str):
