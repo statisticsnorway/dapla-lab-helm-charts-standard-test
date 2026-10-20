@@ -1,6 +1,6 @@
 # marimo-dashboard
 
-![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Dashboards med Marimo notebooks.
 
@@ -15,7 +15,7 @@ Dashboards med Marimo notebooks.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.6.1 |
+| https://statisticsnorway.github.io/dapla-lab-helm-charts-library | library-chart | 4.8.1 |
 
 ## Values
 
