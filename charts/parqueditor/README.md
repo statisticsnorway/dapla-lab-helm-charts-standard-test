@@ -106,7 +106,7 @@ Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
 | tjeneste.enableMarimoStudio | bool | `true` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.repository | string | `"ssb-parquedit-dashboard"` |  |
-| tjeneste.version | string | `"latest-2026.09.14T01_30Z"` |  |
+| tjeneste.version | string | `"latest-2026.10.20T08_55Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |

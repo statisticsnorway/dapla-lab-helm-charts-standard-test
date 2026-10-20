@@ -106,7 +106,7 @@ Marimo med Python.
 | tjeneste.githubRepo | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.marimoAppFile | string | `""` |  |
-| tjeneste.version | string | `"latest-2026.09.14T01_30Z"` |  |
+| tjeneste.version | string | `"latest-2026.10.20T08_55Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
