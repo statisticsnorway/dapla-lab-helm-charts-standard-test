@@ -5,7 +5,7 @@ tjeneste:
   startupCommand: edit
   enableMarimoStudio: true
   marimoVersion: 0.25.1
-  version: latest-2026.10.20T08_55Z
+  version: latest-2026.10.21T07_56Z
   image:
     pullPolicy: IfNotPresent
 security:
