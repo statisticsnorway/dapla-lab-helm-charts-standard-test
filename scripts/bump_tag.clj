@@ -31,22 +31,15 @@
   [tag]
   (str/replace tag #".*/" ""))
 
-(defn extract-dep-version
-  "Extract the dependency versions from a tag."
-  [full-tag]
-  (-> full-tag
-      strip-gar-path
-      (str/replace #"-\d{4}\.\d{2}\.\d{2}T\d{2}_\d{2}Z$" "")))
-
 (def artifact->tags
   "Map of artifact names and their tags. Where the first one is the default selection."
-  (let [r-and-python-tags ["r4.4.0-py313" "r4.6.0-py313"]]
+  (let [r-and-python-tags ["r4.6.0-py313" "r4.4.0-py313"]]
     {"jdemetra" ["jd2.2.5" "jd3.9.0"]
      "jupyter" r-and-python-tags
      "jupyter-playground" r-and-python-tags
      "jupyter-pyspark" ["py313-spark4.1.2"]
      "vscode" r-and-python-tags
-     "rstudio" ["r4.4.0" "r4.6.0"]
+     "rstudio" ["r4.6.0" "r4.4.0"]
      "marimo" ["latest"]}))
 
 (def chart->artifact
@@ -55,12 +48,13 @@
 
 (defn process-tags [artifact]
   (shell "gcloud" "config" "set" "project" GAR-project-id) ; ensure we're in the GAR project
-  (->> (fetch-artifact-tags artifact)
-       (filter (fn [gar-tag] (some #(str/includes? gar-tag %) (artifact->tags artifact)))) ; for legacy reasons we need to filter on the tag shape
-       (partition-by extract-dep-version)
-       (map (comp strip-gar-path last))
-       (interleave [:default :secondary])
-       (apply hash-map)))
+  (let [gar-tags (fetch-artifact-tags artifact)]
+    (->> (artifact->tags artifact)
+         ;; latest GAR tag per configured tag, in artifact->tags order (gar-tags are sorted)
+         (keep (fn [tag] (last (filter #(str/includes? % tag) gar-tags))))
+         (map strip-gar-path)
+         (interleave [:default :secondary])
+         (apply array-map))))
 
 (def yaml-encoding-options
   {:dumper-options {:flow-style :block
@@ -76,7 +70,7 @@
         values (yaml/parse-string (slurp values-filepath))
         chart (str (.getFileName (fs/path chart-dir)))
         artifact (get chart->artifact chart chart)
-        {:keys [default] :as new-tags} (process-tags artifact)
+        {:keys! [default] :as new-tags} (process-tags artifact)
         updated-values-schema
         (-> values-schema
             (update-in [:properties :tjeneste :properties :version :default] (constantly default))
