@@ -1,6 +1,6 @@
 # rstudio
 
-![Version: 0.15.25](https://img.shields.io/badge/Version-0.15.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.15.26](https://img.shields.io/badge/Version-0.15.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal RStudio med R. Brukeren kan selv installere pakker.
 
@@ -106,7 +106,7 @@ Minimal RStudio med R. Brukeren kan selv installere pakker.
 | statbankTestBaseUrl | string | `""` |  |
 | statbankTestEncryptUrl | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.version | string | `"r4.6.0-2026.10.21T08_20Z"` |  |
+| tjeneste.version | string | `"r4.6.0-2026.10.22T14_25Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |

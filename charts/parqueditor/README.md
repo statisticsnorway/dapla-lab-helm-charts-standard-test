@@ -1,6 +1,6 @@
 # parqueditor
 
-![Version: 0.0.14](https://img.shields.io/badge/Version-0.0.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.15](https://img.shields.io/badge/Version-0.0.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
 
@@ -106,7 +106,7 @@ Enkelt grafisk grensesnitt for editering av Parquedit-tabeller.
 | tjeneste.enableMarimoStudio | bool | `true` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.repository | string | `"ssb-parquedit-dashboard"` |  |
-| tjeneste.version | string | `"latest-2026.10.21T07_56Z"` |  |
+| tjeneste.version | string | `"latest-2026.10.22T12_18Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
