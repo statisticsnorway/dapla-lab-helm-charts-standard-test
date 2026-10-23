@@ -97,6 +97,9 @@ jobs:
         run: |
           echo "Changed chart folders:"
           echo "${{ matrix.charts }}"
-          helm plugin install https://github.com/helm-unittest/helm-unittest.git
+          mkdir -p ~/.gnupg
+          curl -fsSL https://github.com/helm-unittest/helm-unittest/raw/refs/heads/main/public-key.asc | gpg --import
+          gpg --export > ~/.gnupg/pubring.gpg
+          helm plugin install https://github.com/helm-unittest/helm-unittest/releases/download/v1.2.1/unittest-1.2.1.tgz
           helm dependency update charts/${{ matrix.charts }}
           helm unittest charts/${{ matrix.charts }} -f ../../tests/*.yaml
