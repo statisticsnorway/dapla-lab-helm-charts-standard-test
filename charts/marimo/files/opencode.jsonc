@@ -1,6 +1,9 @@
 // See config docs here: https://opencode.ai/docs/config
 {
   "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "/etc/opencode/AGENTS.md"
+  ],
   "autoupdate": false,
   "model": "google-vertex/gemini-3.5-flash",
   "enabled_providers": ["google-vertex"],
