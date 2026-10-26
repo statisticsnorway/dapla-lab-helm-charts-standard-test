@@ -45,8 +45,8 @@
         "version" : {
           "description" : "Marimo-versjon",
           "type" : "string",
-          "default" : "latest-2026.10.22T12_18Z",
-          "listEnum" : [ "latest-2026.10.22T12_18Z" ],
+          "default" : "latest-2026.10.26T01_31Z",
+          "listEnum" : [ "latest-2026.10.26T01_31Z" ],
           "render" : "list",
           "pattern" : "^[a-zA-Z0-9-_.:/]+$",
           "x-onyxia" : {
