@@ -87,10 +87,7 @@ spec:
           args:
             - >-
               {{ .Values.init.standardInitPath }} uvx
-              --with marimo=={{ .Values.tjeneste.marimoVersion }}
-              {{ if .Values.tjeneste.enableMarimoStudio }}
-              --with marimo-studio=={{ $marimoStudioVersion }}
-              {{ end }}
+              --with marimo=={{ .Values.tjeneste.marimoVersion }}{{ if .Values.tjeneste.enableMarimoStudio }} --with marimo-studio=={{ $marimoStudioVersion }}{{ end }}
               marimo {{ .Values.tjeneste.startupCommand }} {{ $projectFolder }}
               --sandbox
               --watch
