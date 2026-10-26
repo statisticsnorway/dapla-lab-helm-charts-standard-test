@@ -1,6 +1,6 @@
 # marimo-dashboard
 
-![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Dashboards med Marimo notebooks.
 
@@ -108,7 +108,7 @@ Dashboards med Marimo notebooks.
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
 | tjeneste.marimoVersion | string | `"0.25.1"` |  |
 | tjeneste.startupCommand | string | `"edit"` |  |
-| tjeneste.version | string | `"latest-2026.10.22T12_18Z"` |  |
+| tjeneste.version | string | `"latest-2026.10.26T01_31Z"` |  |
 | tolerations | list | `[]` |  |
 | userAttributes.environmentVariableName | string | `"OIDC_TOKEN"` |  |
 | userAttributes.userAttribute | string | `"access_token"` |  |
