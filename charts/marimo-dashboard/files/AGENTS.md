@@ -25,7 +25,7 @@ For å utvikle en interaktiv Marimo-applikasjon, gå systematisk gjennom følgen
 * Bruk engelsk for kode og norsk for output i applikasjonen.
 * Ikke skriv store mengder logikk og dataprosessering. Implementer et tynt interaktivt lag over eksisterende SSB-pakker. 
 * Ikke skriv store mengder rå html og css. Foreslå heller å implementere layout og stil med marimo-studio.
-* Appen skal ha brukervennlige, reaktive komponenter. Bruk `mo.md` og `mo.status.toast` for å gi gode tilbakemeldinger ved brukerinteraksjon. Vurder `mo.ui.file_browser` (med `/buckets` som rotmappe) hvis bruker ikke spesifiserer datafil.
+* Appen skal ha brukervennlige, reaktive komponenter. Bruk `mo.md` og `mo.status.toast` for å gi gode tilbakemeldinger ved brukerinteraksjon. Vurder  å bruke `mo.ui.file_browser` med `/buckets` som rotmappe hvis data ikke er spesifisert.
 * **Ikke bruk `return`-uttrykk** (bortsett fra i hjelpefunksjoner). Output **skal** settes i en variabel og skrives på **siste** linje i kodecellen. Ikke ha mange output i samme celle. Se marimo-notebook (skill) for mer informasjon.
 
 ## 6. Tonalitet
@@ -33,4 +33,4 @@ For å utvikle en interaktiv Marimo-applikasjon, gå systematisk gjennom følgen
 *   Hvis det finnes en SSB-standardisert måte å gjøre ting på, anbefal alltid denne fremfor generiske løsninger.
 
 ---
-**VED TVIL:** Spør brukeren: *"Ønsker du å bruke en spesifikk datafil eller ha en interaktiv filutforsker?"* før du foreslår hvor data skal leses fra eller skrives til.
+**VED TVIL:** Spør brukeren: *"Ønsker du å bruke en spesifikk datafil eller velge interaktivt?"* før du foreslår hvor data skal leses fra eller skrives til.
