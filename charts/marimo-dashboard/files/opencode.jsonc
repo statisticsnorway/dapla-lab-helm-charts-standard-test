@@ -6,7 +6,9 @@
   ],
   "autoupdate": false,
   "model": "google-vertex/gemini-3.5-flash",
-  "enabled_providers": ["google-vertex"],
+  "enabled_providers": [
+    "google-vertex"
+  ],
   "provider": {
     "google-vertex": {
       "options": {
@@ -15,13 +17,89 @@
       }
     }
   },
-  "permission": {
-    "read": {
-      "/buckets/**": "ask",
-      "*": "allow"
+  "experimental": {
+    "todo": true
+  },
+  "permissions": [
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "ask"
     },
-    "edit": "ask",
-    "write": "ask",
-    "bash": "ask"
-  }
+    {
+      "action": "external_directory",
+      "resource": "~/.agents",
+      "effect": "allow"
+    },
+    {
+      "action": "external_directory",
+      "resource": "~/.agents/**",
+      "effect": "allow"
+    },
+    {
+      "action": "read",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "read",
+      "resource": "/buckets/**",
+      "effect": "ask"
+    },
+    {
+      "action": "skill",
+      "resource": "marimo-pair",
+      "effect": "allow"
+    },
+    {
+      "action": "skill",
+      "resource": "marimo-notebook",
+      "effect": "allow"
+    },
+    {
+      "action": "question",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "write",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "edit",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "apply_patch",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "bash /home/onyxia/.agents/skills/marimo-pair/scripts/execute-code.sh *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "bash /home/onyxia/.agents/skills/marimo-pair/scripts/discover-servers.sh",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "bash /home/onyxia/.agents/skills/marimo-pair/scripts/execute-code.sh --url http://127.0.0.1:8080 -c \"import marimo._code_mode as cm; help(cm)\"",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "uv python find --script \"*.py\"",
+      "effect": "allow"
+    }
+  ]
 }
