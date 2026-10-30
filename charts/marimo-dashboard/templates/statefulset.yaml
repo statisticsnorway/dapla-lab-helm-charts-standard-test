@@ -75,6 +75,7 @@ spec:
         - name: ki-config
           configMap:
             name: {{ include "library-chart.fullname" . }}-ki
+            defaultMode: 0755
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -207,10 +208,18 @@ spec:
               name: ki-config
               readOnly: true
               subPath: ki.py
+            - mountPath: /usr/local/bin/ki
+              name: ki-config
+              readOnly: true
+              subPath: ki
             - mountPath: /opt/ki-design.py
               name: ki-config
               readOnly: true
               subPath: ki-design.py
+            - mountPath: /usr/local/bin/ki-design
+              name: ki-config
+              readOnly: true
+              subPath: ki-design
             - mountPath: /dev/shm
               name: dshm
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
