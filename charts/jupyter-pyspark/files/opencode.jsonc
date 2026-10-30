@@ -1,27 +1,35 @@
-// See config docs here: https://opencode.ai/docs/config
+// See config docs here: https://opencode.ai/v2/docs/config
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
     "/etc/opencode/AGENTS.md"
   ],
-  "autoupdate": false,
-  "model": "google-vertex/gemini-3.5-flash",
-  "enabled_providers": ["google-vertex"],
-  "provider": {
-    "google-vertex": {
-      "options": {
+  "update": "disable", // Disable opencode autoupdates
+  "model": "vertex/gemini-3.5-flash",
+  // We define our own custom provider so that we can allowlist it and a couple of models
+  "providers": {
+    "vertex": {
+      "name": "Vertex",
+      "canonical": "google-vertex",
+      "settings": {
         "project": "{env:DAPLA_TEAM_GOOGLE_PROJECT_ID}",
         "location": "europe-west2" // London
+      },
+      // Allowed models
+      "models": {
+        "gemini-3.5-flash": {},
+        "gemini-4-argon": {}
       }
     }
   },
-  "permission": {
-    "read": {
-      "/buckets/**": "ask",
-      "*": "allow"
-    },
-    "edit": "ask",
-    "write": "ask",
-    "bash": "ask"
-  }
+  "policies": [
+    { "action": "provider.use", "resource": "*", "effect": "deny" },
+    { "action": "provider.use", "resource": "vertex", "effect": "allow" }
+  ],
+  "permissions": [
+    { "action": "read", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "/buckets/*", "effect": "ask" },
+    { "action": "edit", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "*", "effect": "ask" }
+  ]
 }
