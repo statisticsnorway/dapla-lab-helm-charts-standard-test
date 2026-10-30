@@ -7,11 +7,11 @@ metadata:
 data:
   ki.py: |
 {{ .Files.Get "files/ki.py" | indent 4 }}
+  ki-design.py: |
+{{ .Files.Get "files/ki-design.py" | indent 4 }}
   ki: |
     #!/bin/sh
     exec uv run /opt/ki.py "$@"
-  ki-design.py: |
-{{ .Files.Get "files/ki-design.py" | indent 4 }}
   ki-design: |
     #!/bin/sh
     exec uv run /opt/ki-design.py "$@"

@@ -208,14 +208,14 @@ spec:
               name: ki-config
               readOnly: true
               subPath: ki.py
-            - mountPath: /usr/local/bin/ki
-              name: ki-config
-              readOnly: true
-              subPath: ki
             - mountPath: /opt/ki-design.py
               name: ki-config
               readOnly: true
               subPath: ki-design.py
+            - mountPath: /usr/local/bin/ki
+              name: ki-config
+              readOnly: true
+              subPath: ki
             - mountPath: /usr/local/bin/ki-design
               name: ki-config
               readOnly: true
