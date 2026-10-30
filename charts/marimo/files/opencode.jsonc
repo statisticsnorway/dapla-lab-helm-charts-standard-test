@@ -11,7 +11,7 @@
     "google-vertex": {
       "options": {
         "project": "{env:DAPLA_TEAM_GOOGLE_PROJECT_ID}",
-        "location": "europe-west3" // Frankfurt
+        "location": "europe-west2" // London
       }
     }
   },
