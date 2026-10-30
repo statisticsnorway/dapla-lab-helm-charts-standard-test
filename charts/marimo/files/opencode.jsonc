@@ -26,7 +26,7 @@
     { "action": "provider.use", "resource": "*", "effect": "deny" },
     { "action": "provider.use", "resource": "vertex", "effect": "allow" }
   ],
-  "permission": [
+  "permissions": [
     { "action": "read", "resource": "*", "effect": "allow" },
     { "action": "read", "resource": "/buckets/*", "effect": "ask" },
     { "action": "edit", "resource": "*", "effect": "ask" },
