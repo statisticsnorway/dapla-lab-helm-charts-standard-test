@@ -1,0 +1,187 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = []
+# ///
+
+import argparse
+import os
+import subprocess
+import sys
+import textwrap
+from dataclasses import dataclass
+from pathlib import Path
+
+IS_DAPLA_ENVIRONMENT = "DAPLA_ENVIRONMENT" in os.environ
+MARIMO_ADRESS = f"http://localhost:{8080 if IS_DAPLA_ENVIRONMENT else 2718}"
+
+@dataclass
+class Arguments:
+    dry_run: bool
+    app_file: Path
+    prompt: str
+
+def main() -> None:
+    arguments = parse_args()
+    context = generate_context(arguments)
+
+    if arguments.dry_run:
+        print(context)
+    else:
+        subprocess.run(["opencode", "--prompt", context], check=True)
+
+
+def generate_context(arguments: Arguments) -> str:
+    app_file = arguments.app_file.resolve()
+    dapla_manual_docs_path = fetch_github_docs(
+        "statisticsnorway/dapla-manual", "dapla-manual/statistikkere"
+    )
+    return f'''\
+# Context
+
+I want help developing a reactive Marimo application in {app_file}.
+
+## The Marimo Python API for editing a Marimo notebook
+
+Result of `import marimo._code_mode as cm; help(cm)`:
+
+{get_marimo_python_api_docs(app_file)}
+
+## Instructions and prompt
+
+Use the marimo-notebook skill to understand Marimo concepts.
+Note especially that outputs must be assigned to variables and used as the final expression of the cell.
+
+Use the marimo-pair skill to develop the notebook.
+When adding an editing cells, only insert the content, not marimo cell decorators/functions.
+You do not have to run the setup commands, the notebook is already connected:
+
+bash ~/.agents/skills/marimo-pair/scripts/execute-code.sh --url "{MARIMO_ADRESS}" --file "{app_file}"
+
+Before every change, you **must** first explain the change to me.
+Prefer running the command as few times as possible to avoid overwhelming me with requests.
+Avoid extensive testing - I will test the app myself and provide feedback.
+Do **not** run other shell commands.
+Do **not** edit the notebook directly.
+
+Before using packages, always read the relevant package APIs directly from the source: {get_notebook_environment(app_file)}.
+Do not use the **shell** tool for this; use the glob, grep and read tools in the folder.
+
+Use English for code and Norwegian for output.
+Do not write large amounts of logic or data processing - prefer a thin interactive layer over existing SSB packages.
+Do not write large amounts of html and css, and do not include headers or other static content.
+Prefer having outputs in separate cells instead of combining them into stacks.
+Every cell **must** be given a meaningful name.
+
+Start by using the skill tool to load marimo-notebook and marimo-pair.
+Then read relevant package documentation directly from the source, including the Marimo UI component APIs.
+Read relevant statistikkere documentation from {dapla_manual_docs_path}. 
+Then use the question tool to clarify requirements based on your findings.
+
+Main prompt (respond in the same language):
+
+*{arguments.prompt}*
+
+    '''
+
+
+
+def parse_args() -> Arguments:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("app_file", type=Path, nargs="?")
+    parser.add_argument("prompt", nargs="?")
+    args = parser.parse_args()
+    if args.app_file is None:
+        parser.error("det første argumentet må være en eksisterende Marimo-fil")
+    if not args.app_file.is_file():
+        parser.error(f"Marimo-filen finnes ikke: {args.app_file}")
+    if args.prompt is None:
+        parser.error("det andre argumentet må være en kort beskrivelse av ønsket endring i filen")
+    return Arguments(
+        dry_run=args.dry_run,
+        app_file=args.app_file,
+        prompt=args.prompt,
+    )
+
+
+def exit_because_notebook_session_is_not_active(app_file: Path) -> None:
+    print(f"Filen '{app_file}' må være åpnet i Marimo-grensesnittet", file=sys.stderr)
+    raise SystemExit(1)
+
+
+def run_in_marimo_session(app_file: Path, code: str) -> str:
+    command = [
+        "bash",
+        os.path.expanduser("~/.agents/skills/marimo-pair/scripts/execute-code.sh"),
+        "--url",
+        MARIMO_ADRESS,
+        "--file",
+        str(app_file),
+        "-c",
+        code,
+    ]
+    result = subprocess.run(command, capture_output=True, text=True )
+    if result.returncode != 0:
+        exit_because_notebook_session_is_not_active(app_file)
+    return result.stdout
+
+
+def get_notebook_environment(app_file: Path) -> str:
+    result = subprocess.run(
+        [
+            "uv",
+            "python",
+            "find",
+            "--script",
+            str(app_file),
+        ],
+        capture_output=True,
+        text=True,
+        env={**os.environ, "VIRTUAL_ENV": ""},
+    )
+    if result.returncode != 0:
+        exit_because_notebook_session_is_not_active(app_file)
+    return result.stdout.strip()
+
+
+def get_marimo_python_api_docs(app_file: Path) -> str:
+    return run_in_marimo_session(app_file, "import marimo._code_mode as cm; help(cm)")
+
+
+def fetch_github_docs(repo_name: str, docs_path: str) -> Path:
+    destination = Path.home() / ".cache" / repo_name
+    if destination.is_dir():
+        return destination
+    print(f"Fetching relevant docs: {repo_name}")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    import shutil
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as temporary:
+        subprocess.run(
+            [
+                "git",
+                "clone",
+                "--depth",
+                "1",
+                "--filter=blob:none",
+                "--sparse",
+                f"https://github.com/{repo_name}.git",
+                temporary,
+            ],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        subprocess.run(
+            ["git", "-C", temporary, "sparse-checkout", "set", docs_path],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        shutil.copytree(Path(temporary) / docs_path, destination, dirs_exist_ok=True)
+    return destination
+
+
+if __name__ == "__main__":
+    main()
