@@ -248,6 +248,7 @@
             },
             "authenticatedEmails": {
               "type": "string",
+              "pattern": "^[A-Za-z0-9._%+@,-]*$",
               "title": "OAuth2 authenticated emails",
               "description": "OAuth2 authenticated emails, comma seperated",
               "default": [],
@@ -290,6 +291,26 @@
       "x-onyxia": {
         "hidden": false,
         "overwriteSchemaWith": "dapla/istio.json"
+      },
+      "properties": {
+        "hostname": {
+          "type": "string",
+          "title": "Hostname",
+          "pattern": "^[A-Za-z0-9.-]+$",
+          "maxLength": 253
+        },
+        "extraHostname": {
+          "type": "string",
+          "title": "Extra hostname",
+          "pattern": "^[A-Za-z0-9.-]*$",
+          "maxLength": 253
+        },
+        "serviceSubDomain": {
+          "type": "string",
+          "title": "Service subdomain",
+          "pattern": "^[A-Za-z0-9.-]*$",
+          "maxLength": 253
+        }
       }
     },
     "networking": {

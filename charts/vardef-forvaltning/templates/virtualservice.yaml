@@ -5,7 +5,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: {{ $fullName }}-ui
+  name: {{ printf "%v-ui" $fullName | quote }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 spec:
@@ -14,7 +14,7 @@ spec:
   hosts:
     - {{ .Values.istio.hostname | quote }}
     {{- if .Values.istio.extraHostname }}
-    - "{{ .Values.istio.serviceSubDomain}}.{{ .Values.istio.extraHostname }}"
+    - {{ printf "%v.%v" .Values.istio.serviceSubDomain .Values.istio.extraHostname | quote }}
     {{- end }}
   http:
   - match:
@@ -23,7 +23,7 @@ spec:
     name: oauth2-callback
     route:
     - destination:
-        host: {{ $fullName }}
+        host: {{ $fullName | quote }}
         port:
           number: 4180
   - match:
@@ -38,7 +38,7 @@ spec:
       uri: /user/onyxia
     route:
     - destination:
-        host: {{ $fullName }}
+        host: {{ $fullName | quote }}
         port:
           number: 4180
   - match:
@@ -47,6 +47,6 @@ spec:
     name: onyxia-prefixed
     route:
     - destination:
-        host: {{ $fullName }}
+        host: {{ $fullName | quote }}
         port:
           number: 4180

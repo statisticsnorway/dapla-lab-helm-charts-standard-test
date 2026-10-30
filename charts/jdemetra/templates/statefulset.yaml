@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "library-chart.fullname" . }}
+  name: {{ include "library-chart.fullname" . | quote }}
   annotations:
     dapla.ssb.no/enable-ssbucketeer: "true"
     dapla.ssb.no/impersonate-group: {{ quote .Values.dapla.group }}
@@ -18,10 +18,10 @@ spec:
   {{- if .Values.global.suspend }}
   replicas: 0
   {{- else }}
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCount | int }}
   {{- end }}
 {{- end }}
-  serviceName: {{ include "library-chart.fullname" . }}
+  serviceName: {{ include "library-chart.fullname" . | quote }}
   selector:
     matchLabels:
       {{- include "library-chart.selectorLabels" . | nindent 6 }}
@@ -41,7 +41,7 @@ spec:
         - name: home
         {{- if .Values.diskplass.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
+            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) | quote }}
         {{- else }}
           emptyDir: {}
         {{- end }}
@@ -54,73 +54,73 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "library-chart.serviceAccountName" . }}
+      serviceAccountName: {{ include "library-chart.serviceAccountName" . | quote }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Chart.Name | quote }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jdemetra:{{ .Values.tjeneste.version }}"
+          image: {{ printf "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/jdemetra:%v" .Values.tjeneste.version | quote }}
           command: ["/bin/sh","-c"]
-          args: ["{{ .Values.init.standardInitPath }} /opt/jdemetra-init.sh"]
-          imagePullPolicy: {{ .Values.tjeneste.pullPolicy }}
+          args: [{{ printf "%v /opt/jdemetra-init.sh" .Values.init.standardInitPath | quote }}]
+          imagePullPolicy: {{ .Values.tjeneste.pullPolicy | quote }}
           env:
             {{- if .Values.init.regionInit }}
             - name: REGION_INIT_SCRIPT
-              value: {{ .Values.init.regionInit }}
+              value: {{ .Values.init.regionInit | quote }}
             {{- end }}
             {{- if .Values.init.regionInitCheckSum }}
             - name: REGION_INIT_SCRIPT_CHECKSUM
-              value: {{ .Values.init.regionInitCheckSum }}
+              value: {{ .Values.init.regionInitCheckSum | quote }}
             {{- end }}
             {{- if .Values.avansert.startupScript.scriptPath }}
             - name: PERSONAL_INIT_SCRIPT
-              value: {{ .Values.avansert.startupScript.scriptPath }}
+              value: {{ .Values.avansert.startupScript.scriptPath | quote }}
             {{- end }}
             {{- if .Values.avansert.startupScript.scriptArgs }}
             - name: PERSONAL_INIT_ARGS
-              value: {{ .Values.avansert.startupScript.scriptArgs }}
+              value: {{ .Values.avansert.startupScript.scriptArgs | quote }}
             {{- end }}
             - name: DAPLA_ENVIRONMENT
-              value: {{ .Values.deployEnvironment }}
+              value: {{ .Values.deployEnvironment | quote }}
             - name: DAPLA_REGION
               value: DAPLA_LAB
             {{- if .Values.avansert.parquedit.enabled }}
             - name: PARQEDIT_DB_PORT
-              value: "{{ .Values.avansert.parquedit.port }}"
+              value: {{ .Values.avansert.parquedit.port | int | toString | quote }}
             {{- end }}
             - name: DAPLA_SERVICE
               value: JDEMETRA
             - name: PASSWORD
               value: ""
             - name: PROJECT_USER
-              value: {{ .Values.environment.user }}
+              value: {{ .Values.environment.user | quote }}
             - name: PROJECT_GROUP
-              value: {{ .Values.environment.group }}
+              value: {{ .Values.environment.group | quote }}
             - name: ROOT_PROJECT_DIRECTORY
-              value: /home/{{ .Values.environment.user }}/work
+              value: {{ printf "/home/%v/work" .Values.environment.user | quote }}
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
-                name: {{ include "library-chart.secretNameOidc" . }}
+                name: {{ include "library-chart.secretNameOidc" . | quote }}
             {{- end }}
           livenessProbe:
             httpGet:
               path: /
-              port: {{ .Values.networking.user.port }}
+              port: {{ .Values.networking.user.port | default .Values.networking.service.port | int }}
           readinessProbe:
             httpGet:
               path: /
-              port: {{ .Values.networking.user.port }}
+              port: {{ .Values.networking.user.port | default .Values.networking.service.port | int }}
           resources:
             requests:
-              cpu: {{ .Values.ressurser.requests.cpu }}
-              memory: {{ .Values.ressurser.requests.memory }}
+              cpu: {{ .Values.ressurser.requests.cpu | quote }}
+              memory: {{ .Values.ressurser.requests.memory | quote }}
             limits:
-              memory: {{ .Values.ressurser.requests.memory }}
+              memory: {{ .Values.ressurser.requests.memory | quote }}
           volumeMounts:
-            - mountPath: /home/{{ .Values.environment.user}}/work
+            - mountPath: {{ printf "/home/%v/work" .Values.environment.user | quote }}
               subPath: work
               name: home
             - mountPath: /dev/shm
@@ -136,7 +136,7 @@ spec:
             - "--private-ip"
             - "--auto-iam-authn"
             - "--structured-logs"
-            - "--port={{ .Values.avansert.parquedit.port }}"
+            - {{ printf "--port=%d" (.Values.avansert.parquedit.port | int) | quote }}
             - "dapla-ffunk-sql-p-xo:europe-north1:parquedit"
         {{- end }}
         {{- if .Values.avansert.database.instance }}

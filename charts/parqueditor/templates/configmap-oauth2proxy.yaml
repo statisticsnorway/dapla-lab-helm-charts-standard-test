@@ -3,13 +3,13 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "library-chart.configMapNameOAuth2" . }}
+  name: {{ include "library-chart.configMapNameOAuth2" . | quote }}
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
 data:
   oauth2-proxy-authenticated-emails.yaml: |-
     {{- range (splitList "," .Values.security.oauth2.authenticatedEmails)  }}
-    {{ . }}
+    {{ regexReplaceAll "[^A-Za-z0-9._%+@-]" . "" }}
     {{- end }}
   oauth2-proxy-client-config.yaml: |-
     # Oauth2 proxy configuration file.
@@ -57,7 +57,7 @@ data:
 
     # Url(s) of the upstream endpoint. If multiple, routing is based on path.
     # Does not work with "hostname" based routing.
-    upstreams = ["http://127.0.0.1:{{ .Values.networking.service.port }}"]
+    upstreams = ["http://127.0.0.1:{{ .Values.networking.service.port | int }}"]
 
 
     # This will restrict login to accounts with email address in the
@@ -109,7 +109,7 @@ data:
     ## Cookie settings
 
     # Base name of cookies to store tokens.
-    cookie_name = "{{ include "library-chart.fullname" . }}_oauth2_proxy"
+    cookie_name = {{ printf "%v_oauth2_proxy" (include "library-chart.fullname" .) | quote }}
 
     # Generate a random encryption key for encrypting the cookies (AES) to ensures
     # that only "this" client can read the cookies containing the tokens.
