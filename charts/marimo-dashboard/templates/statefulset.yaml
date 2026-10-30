@@ -44,6 +44,7 @@ spec:
         {{- end }}
         checksum/opencode: {{ include (print $.Template.BasePath "/configmap-opencode.yaml") . | sha256sum }}
         checksum/agents: {{ include (print $.Template.BasePath "/configmap-agents.yaml") . | sha256sum }}
+        checksum/ki: {{ include (print $.Template.BasePath "/configmap-ki.yaml") . | sha256sum }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -71,6 +72,10 @@ spec:
         - name: agents-config
           configMap:
             name: {{ include "library-chart.fullname" . }}-agents
+        - name: ki-config
+          configMap:
+            name: {{ include "library-chart.fullname" . }}-ki
+            defaultMode: 0755
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -199,6 +204,22 @@ spec:
               name: agents-config
               readOnly: true
               subPath: AGENTS.md
+            - mountPath: /opt/ki.py
+              name: ki-config
+              readOnly: true
+              subPath: ki.py
+            - mountPath: /opt/ki-design.py
+              name: ki-config
+              readOnly: true
+              subPath: ki-design.py
+            - mountPath: /usr/local/bin/ki
+              name: ki-config
+              readOnly: true
+              subPath: ki
+            - mountPath: /usr/local/bin/ki-design
+              name: ki-config
+              readOnly: true
+              subPath: ki-design
             - mountPath: /dev/shm
               name: dshm
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}

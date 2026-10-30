@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "library-chart.fullname" . }}-ki
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  ki.py: |
+{{ .Files.Get "files/ki.py" | indent 4 }}
+  ki-design.py: |
+{{ .Files.Get "files/ki-design.py" | indent 4 }}
+  ki: |
+    #!/bin/sh
+    exec uv run /opt/ki.py "$@"
+  ki-design: |
+    #!/bin/sh
+    exec uv run /opt/ki-design.py "$@"
