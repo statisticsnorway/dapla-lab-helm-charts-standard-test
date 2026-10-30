@@ -4,7 +4,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
 metadata:
-  name: {{ include "library-chart.fullname" . }}-cloudsql-serviceentry
+  name: {{ printf "%v-cloudsql-serviceentry" (include "library-chart.fullname" .) | quote }}
 spec:
   hosts:
     - "dummy-10.100.0.0.ssb"

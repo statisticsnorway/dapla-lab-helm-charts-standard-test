@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "library-chart.fullname" . }}
+  name: {{ include "library-chart.fullname" . | quote }}
   annotations:
     dapla.ssb.no/enable-ssbucketeer: "true"
     dapla.ssb.no/impersonate-group: {{ quote .Values.dapla.group }}
@@ -17,10 +17,10 @@ spec:
   {{- if .Values.global.suspend }}
   replicas: 0
   {{- else}}
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCount | int }}
   {{- end}}
 {{- end }}
-  serviceName: {{ include "library-chart.fullname" . }}
+  serviceName: {{ include "library-chart.fullname" . | quote }}
   selector:
     matchLabels:
       {{- include "library-chart.selectorLabels" . | nindent 6 }}
@@ -43,7 +43,7 @@ spec:
         - name: home
         {{- if .Values.diskplass.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) }}
+            claimName: {{ .Values.diskplass.existingClaim | default (include "library-chart.fullname" .) | quote }}
         {{- else }}
           emptyDir: {}
         {{- end }}
@@ -52,68 +52,68 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "library-chart.serviceAccountName" . }}
+      serviceAccountName: {{ include "library-chart.serviceAccountName" . | quote }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      subdomain: {{ include "library-chart.fullname" . }}
+      subdomain: {{ include "library-chart.fullname" . | quote }}
       hostname: datadoc
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Chart.Name | quote }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/datadoc/datadoc:{{ .Values.tjeneste.image.version }}"
-          imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy }}
+          image: {{ printf "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/datadoc/datadoc:%v" .Values.tjeneste.image.version | quote }}
+          imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy | quote }}
           env:
             - name: KUBERNETES_POD_NAME
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
             - name: IMAGE_NAME
-              value: "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/datadoc/datadoc:{{ .Values.tjeneste.image.version }}"
+              value: {{ printf "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-metadata-docker/datadoc/datadoc:%v" .Values.tjeneste.image.version | quote }}
             - name: DAPLA_ENVIRONMENT
-              value: {{ .Values.deployEnvironment }}
+              value: {{ .Values.deployEnvironment | quote }}
             - name: DAPLA_REGION
               value: DAPLA_LAB
             {{- if .Values.avansert.parquedit.enabled }}
             - name: PARQEDIT_DB_PORT
-              value: "{{ .Values.avansert.parquedit.port }}"
+              value: {{ .Values.avansert.parquedit.port | int | toString | quote }}
             {{- end }}
             - name: DAPLA_SERVICE
               value: DATADOC
             - name: DATADOC_TOGGLE_NEW_VARIABLE_WORKSPACE
               value: "{{ ternary "True" "False" .Values.features.toggle_new_variables_workspace }}"
             - name: PROJECT_USER
-              value: {{ .Values.environment.user }}
+              value: {{ .Values.environment.user | quote }}
             - name: PROJECT_GROUP
-              value: {{ .Values.environment.group }}
+              value: {{ .Values.environment.group | quote }}
             - name: DATADOC_STATISTICAL_SUBJECT_SOURCE_URL
-              value: {{ .Values.environment.DATADOC_STATISTICAL_SUBJECT_SOURCE_URL }}
+              value: {{ .Values.environment.DATADOC_STATISTICAL_SUBJECT_SOURCE_URL | quote }}
             - name: DAPLA_MANUAL_NAMING_STANDARD_URL
-              value: {{ .Values.environment.DAPLA_MANUAL_NAMING_STANDARD_URL }}
+              value: {{ .Values.environment.DAPLA_MANUAL_NAMING_STANDARD_URL | quote }}
           envFrom:
             {{- if .Values.oidc.enabled }}
             - secretRef:
-                name: {{ include "library-chart.secretNameOidc" . }}
+                name: {{ include "library-chart.secretNameOidc" . | quote }}
             {{- end }}
           livenessProbe:
             httpGet:
               path: /healthz/live
-              port: {{ .Values.networking.service.port }}
+              port: {{ .Values.networking.service.port | int }}
           readinessProbe:
             httpGet:
               path: /healthz/ready
-              port: {{ .Values.networking.service.port }}
+              port: {{ .Values.networking.service.port | int }}
           startupProbe:
             httpGet:
               path: /healthz/startup
-              port: {{ .Values.networking.service.port }}
+              port: {{ .Values.networking.service.port | int }}
             {{- toYaml .Values.startupProbe | nindent 12 }}
           resources:
             requests:
-              cpu: {{ .Values.ressurser.requests.cpu }}
-              memory: {{ .Values.ressurser.requests.memory }}
+              cpu: {{ .Values.ressurser.requests.cpu | quote }}
+              memory: {{ .Values.ressurser.requests.memory | quote }}
             limits: 
-              memory: {{ .Values.ressurser.requests.memory }}
+              memory: {{ .Values.ressurser.requests.memory | quote }}
         - {{ include "library-chart.oauth2ProxyPod" . | indent 10 | trim }}
       {{- if or .Values.avansert.parquedit.enabled .Values.avansert.database.instance }}
       initContainers:
@@ -125,7 +125,7 @@ spec:
             - "--private-ip"
             - "--auto-iam-authn"
             - "--structured-logs"
-            - "--port={{ .Values.avansert.parquedit.port }}"
+            - {{ printf "--port=%d" (.Values.avansert.parquedit.port | int) | quote }}
             - "dapla-ffunk-sql-p-xo:europe-north1:parquedit"
         {{- end }}
         {{- if .Values.avansert.database.instance }}
