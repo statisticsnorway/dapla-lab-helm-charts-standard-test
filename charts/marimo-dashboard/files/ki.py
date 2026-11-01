@@ -1,158 +1,320 @@
 # /// script
 # requires-python = ">=3.12"
-# dependencies = []
+# dependencies = [
+#     "marimo-studio==0.4.0",
+# ]
 # ///
 
 import argparse
+import asyncio
+import curses
+import json
 import os
 import subprocess
 import sys
-import textwrap
+import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
+from typing import NoReturn
 
 IS_DAPLA_ENVIRONMENT = "DAPLA_ENVIRONMENT" in os.environ
-MARIMO_ADRESS = f"http://localhost:{8080 if IS_DAPLA_ENVIRONMENT else 2718}"
+MARIMO_ADDRESS = f"http://localhost:{8080 if IS_DAPLA_ENVIRONMENT else 2718}"
+
+GREEN_TEXT_START = "\033[32m"
+GREEN_TEXT_STOP = "\033[39m"
+ITALIC_TEXT_START = "\033[3m"
+ITALIC_TEXT_STOP = "\033[23m"
+
 
 @dataclass
 class Arguments:
     dry_run: bool
-    app_file: Path
-    prompt: str
-
-def main() -> None:
-    arguments = parse_args()
-    context = generate_context(arguments)
-
-    if arguments.dry_run:
-        print(context)
-    else:
-        subprocess.run(["opencode", "--prompt", context], check=True)
-
-
-def generate_context(arguments: Arguments) -> str:
-    app_file = arguments.app_file.resolve()
-    dapla_manual_docs_path = fetch_github_docs(
-        "statisticsnorway/dapla-manual", "dapla-manual/statistikkere"
-    )
-    return f'''\
-# Context
-
-I want help developing a reactive Marimo application in {app_file}.
-
-## The Marimo Python API for editing a Marimo notebook
-
-Result of `import marimo._code_mode as cm; help(cm)`:
-
-{get_marimo_python_api_docs(app_file)}
-
-## Instructions and prompt
-
-Use the marimo-notebook skill to understand Marimo concepts.
-Note especially that outputs must be assigned to variables and used as the final expression of the cell.
-
-Use the marimo-pair skill to develop the notebook.
-When adding an editing cells, only insert the content, not marimo cell decorators/functions.
-You do not have to run the setup commands, the notebook is already connected:
-
-bash ~/.agents/skills/marimo-pair/scripts/execute-code.sh --url "{MARIMO_ADRESS}" --file "{app_file}"
-
-Before every change, you **must** first explain the change to me.
-Prefer running the command as few times as possible to avoid overwhelming me with requests.
-Avoid extensive testing - I will test the app myself and provide feedback.
-Do **not** run other shell commands.
-Do **not** edit the notebook directly.
-
-Before using packages, always read the relevant package APIs directly from the source: {get_notebook_environment(app_file)}.
-Do not use the **shell** tool for this; use the glob, grep and read tools in the folder.
-
-Use English for code and Norwegian for output.
-Do not write large amounts of logic or data processing - prefer a thin interactive layer over existing SSB packages.
-Do not write large amounts of html and css, and do not include headers or other static content.
-Prefer having outputs in separate cells instead of combining them into stacks.
-Every cell **must** be given a meaningful name.
-
-Start by using the skill tool to load marimo-notebook and marimo-pair.
-Then read relevant package documentation directly from the source, including the Marimo UI component APIs.
-Read relevant statistikkere documentation from {dapla_manual_docs_path}. 
-Then use the question tool to clarify requirements based on your findings.
-
-Main prompt (respond in the same language):
-
-*{arguments.prompt}*
-
-    '''
-
 
 
 def parse_args() -> Arguments:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("app_file", type=Path, nargs="?")
-    parser.add_argument("prompt", nargs="?")
     args = parser.parse_args()
-    if args.app_file is None:
-        parser.error("det første argumentet må være en eksisterende Marimo-fil")
-    if not args.app_file.is_file():
-        parser.error(f"Marimo-filen finnes ikke: {args.app_file}")
-    if args.prompt is None:
-        parser.error("det andre argumentet må være en kort beskrivelse av ønsket endring i filen")
-    return Arguments(
-        dry_run=args.dry_run,
-        app_file=args.app_file,
-        prompt=args.prompt,
+    return Arguments(dry_run=args.dry_run)
+
+
+@dataclass
+class Resource:
+    path: Path
+    usage: str
+
+
+@dataclass
+class AgentSession:
+    resources: list[Resource]
+    system_prompt: str
+    initial_prompt: str
+    writeable_directory: Path
+
+
+def main() -> None:
+    arguments = parse_args()
+    if not arguments.dry_run:
+        validate_github_repository()
+    notebooks = find_active_notebooks()
+    notebook_file = (
+        exit_because_no_valid_marimo_session()
+        if not notebooks
+        else notebooks[0]
+        if len(notebooks) == 1
+        else choose_notebook(notebooks)
+    )
+    view = get_view(notebook_file)
+    html_file = view.joinpath("index.html")
+
+    resources = get_resources()
+    system_prompt = get_system_prompt(resources, notebook_file, html_file)
+    print(
+        f"\nAktive Marimo-filer\n"
+        f"  Notebook: {notebook_file}\n"
+        f"  View:     {html_file}\n"
+        f"\n"
+        f"Relevant kontekst er lastet inn.\n"
+        f"\n"
+        f"{ITALIC_TEXT_START}Det anbefales å installere relevante Python-pakker i notebooken på forhånd, "
+        f"slik at agenten får rask tilgang til pakkedokumentasjon.\n"
+        f"Agenten vil endre notebooken gjennom kommandoer som kan være vanskelige å lese.\n"
+        f"Når agenten er ferdig, kan du se alle endringene med kommandoen "
+        f"{GREEN_TEXT_START}git diff{GREEN_TEXT_STOP}.\n"
+        f"Kommandoen {GREEN_TEXT_START}git restore .{GREEN_TEXT_STOP}{ITALIC_TEXT_STOP} "
+        f"kan brukes til å angre agentens endringer.\n"
+        f"\n"
+        f"{GREEN_TEXT_START}Skriv inn hva du ønsker å få gjort, og trykk Enter for å starte agenten (eller Ctrl+C for å avbryte).{GREEN_TEXT_STOP}\n"
+    )
+
+    initial_prompt = input(f"{GREEN_TEXT_START}> {GREEN_TEXT_STOP}")
+    agent_session = AgentSession(
+        resources, system_prompt, initial_prompt, notebook_file.parent
+    )
+    if arguments.dry_run:
+        print(build_prompt(agent_session))
+    else:
+        start_agent(agent_session)
+
+
+
+
+
+def build_prompt(agent_session: AgentSession) -> str:
+    prompt = "# System prompt (always follow this) \n\n"
+    prompt += agent_session.system_prompt
+    prompt += f"\n\n# User prompt (respond in same language)\n\n{agent_session.initial_prompt}"
+    return prompt
+
+
+def start_agent(agent_session: AgentSession) -> None:
+    command = ["opencode", "--prompt", build_prompt(agent_session)]
+    subprocess.run(command, cwd=agent_session.writeable_directory, check=True)
+
+
+def get_resources() -> list[Resource]:
+    notebook_python_packages: Resource = Resource(
+        Path.home() / ".cache" / "uv" / "environments-v2",
+        (
+            "Always read relevant API documentation here before using packages. "
+            "You must find the correct Python environment."
+        ),
+    )
+
+    dapla_manual: Resource = Resource(
+        fetch_github_docs(
+            "statisticsnorway/dapla-manual", "dapla-manual/statistikkere"
+        ),
+        (
+            "Always read relevant documentation from here before developing the notebook and using packages. "
+            "It provides SSB-specific guidelines that should be followed."
+        ),
+    )
+
+    designsystemet: Resource = Resource(
+        fetch_github_docs("digdir/designsystemet", "apps/www/app/content"),
+        (
+            "Read relevant documentation from here before developing the html view. "
+            "Always prefer using designsystemet components and design tokens instead of hardcoded css values. "
+            "In particular, SSB theming come out of the box with the existing css imports (don't remove these)."
+        ),
+    )
+
+    marimo_pair: Resource = Resource(
+        Path.home() / ".agents" / "skills" / "marimo-pair",
+        (
+            "Use this skill to develop the notebook, instead of making direct edits to the file. "
+            f"It is not necessary to discover Marimo servers; the Marimo server is available at {MARIMO_ADDRESS}. "
+            "You must give the user a short explanation before each time you use the marimo-pair script."
+        ),
+    )
+
+    marimo_notebook: Resource = Resource(
+        Path.home() / ".agents" / "skills" / "marimo-notebook",
+        (
+            "Use this skill instead of marimo-pair when you only need to make minor changes,"
+            "that can be made through direct edits to the notebook. "
+            "Also use this skill to understand how Marimo outputs work. "
+            "Summary: always put the output in a variable and use that as the last expression of the cell."
+        ),
+    )
+
+    return [
+        notebook_python_packages,
+        dapla_manual,
+        designsystemet,
+        marimo_pair,
+        marimo_notebook,
+    ]
+
+
+def get_system_prompt(
+    resources: list[Resource], notebook_file: Path, html_file: Path
+) -> str:
+    resources_text = "\n".join(
+        f"  - {resource.path}: {resource.usage}" for resource in resources
+    )
+    return (
+        f"Your job is to help develop the reactive Marimo application `{notebook_file}` "
+        f"and its Marimo Studio HTML view `{html_file}`. You should not edit other files.\n"
+        "Try to keep logic in the notebook and layout/styling in the HTML view.\n"
+        "Always give meaningful names to cells and make sure the html view is in sync.\n"
+        "Use marimo-pair when developing the notebook, and inspect for errors before you finish.\n"
+        "You must *not* test by changing the user's real data.\n"
+        "Use English for code and Norwegian for user-facing output.\n"
+        "Avoid implementing large amounts of logic and data processing; prefer a thin interaction layer over existing SSB packages.\n"
+        "The following resources are available, with instructions for when and how to use them.\n"
+        f"{resources_text}\n"
+        "Do not use the shell tool to read them; only use the grep, glob and read tools.\n"
+        "Based on your findings, use the question tool to clarify the user's requirements before implementing."
     )
 
 
-def exit_because_notebook_session_is_not_active(app_file: Path) -> None:
-    print(f"Filen '{app_file}' må være åpnet i Marimo-grensesnittet", file=sys.stderr)
+def exit_because_no_valid_marimo_session() -> NoReturn:
+    print(
+        "Du må ha en Marimo-fil som er lagret i dashboards-mappa og er åpnet i Marimo-grensesnittet.",
+        file=sys.stderr,
+    )
     raise SystemExit(1)
 
 
-def run_in_marimo_session(app_file: Path, code: str) -> str:
-    command = [
-        "bash",
-        os.path.expanduser("~/.agents/skills/marimo-pair/scripts/execute-code.sh"),
-        "--url",
-        MARIMO_ADRESS,
-        "--file",
-        str(app_file),
-        "-c",
-        code,
+def find_active_notebooks() -> list[Path]:
+    try:
+        with urllib.request.urlopen(
+            f"{MARIMO_ADDRESS}/api/sessions", timeout=2
+        ) as response:
+            sessions = json.load(response)
+    except Exception:
+        exit_because_no_valid_marimo_session()
+
+    if not isinstance(sessions, dict):
+        exit_because_no_valid_marimo_session()
+
+    notebooks = [
+        Path(session["path"])
+        for session in sessions.values()
+        if isinstance(session, dict)
+        and isinstance(session.get("path"), str)
+        and Path(session["path"]).is_file()
+        and Path(session["path"]).parent.name == "dashboards"
     ]
-    result = subprocess.run(command, capture_output=True, text=True )
-    if result.returncode != 0:
-        exit_because_notebook_session_is_not_active(app_file)
-    return result.stdout
+    return notebooks
 
 
-def get_notebook_environment(app_file: Path) -> str:
-    result = subprocess.run(
-        [
-            "uv",
-            "python",
-            "find",
-            "--script",
-            str(app_file),
-        ],
+def get_view(notebook_file: Path) -> Path:
+    return asyncio.run(_get_view(notebook_file))
+
+
+async def _get_view(notebook_file: Path) -> Path:
+    from marimo_studio.authoring import open_workspace
+
+    workspace = open_workspace(notebook_file)
+    overview = await workspace.status()
+
+    if (
+        overview.default_view is not None
+        and (overview.view_root / overview.default_view).is_dir()
+    ):
+        view = workspace.view(overview.default_view)
+        inspection = await view.inspect()
+        if inspection.provider == "marimo-studio/vanilla":
+            return Path(inspection.root)
+
+    name = "dashboard"
+    print("Oppretter nytt view...")
+    view = await workspace.create_view(
+        name,
+        starter="marimo-studio/vanilla:default",
+        make_default=True,
+    )
+
+    document = await view.read("index.html")
+    if "</head>" in document.content:
+        content = document.content.replace(
+            "</head>",
+            f"{get_ssb_style_block()}\n</head>",
+            1,
+        )
+        await view.write("index.html", content, expected_revision=document.revision)
+    await view.build()
+    print("Et nytt view 'dashboard.html' er opprettet. Oppdater siden for å se viewet.")
+    return Path((await view.inspect()).root)
+
+
+def get_ssb_style_block() -> str:
+    return """\
+<!-- Do not remove this style block. -->
+<style>
+@import url("https://cdn.jsdelivr.net/npm/@digdir/designsystemet-css@1.23.0/dist/src/index.css");
+@import url("https://cdn.jsdelivr.net/npm/@statisticsnorway/design-css@0.2.4/dist/src/fonts/fonts.css");
+@import url("https://cdn.jsdelivr.net/npm/@statisticsnorway/design-css@0.2.4/dist/theme/ssb.css");
+
+:root {
+  --marimo-cell-font: var(--ds-font-family);
+  --marimo-cell-heading-font: var(--ds-font-family);
+  --marimo-cell-background: var(--ds-color-background-default);
+  --marimo-cell-foreground: var(--ds-color-text-default);
+  --marimo-cell-surface: var(--ds-color-surface-default);
+  --marimo-cell-border-color: var(--ds-color-border-subtle);
+  --marimo-cell-accent: var(--ds-color-base-default);
+  --marimo-cell-error: var(--ds-color-base-default);
+  --marimo-cell-radius: var(--ds-border-radius-default);
+  --marimo-cell-padding: var(--ds-size-4);
+}
+</style>"""
+
+def validate_github_repository() -> None:
+    try:
+        repository = subprocess.run(
+            ["git", "rev-parse", "--show-toplevel"],
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return
+
+    status = subprocess.run(
+        ["git", "status", "--porcelain", "--untracked-files=no"],
+        cwd=repository,
         capture_output=True,
         text=True,
-        env={**os.environ, "VIRTUAL_ENV": ""},
-    )
-    if result.returncode != 0:
-        exit_because_notebook_session_is_not_active(app_file)
-    return result.stdout.strip()
-
-
-def get_marimo_python_api_docs(app_file: Path) -> str:
-    return run_in_marimo_session(app_file, "import marimo._code_mode as cm; help(cm)")
-
+        check=True,
+    ).stdout
+    if status:
+        print(
+            "Repoet har endringer som ikke er committet. Disse må committes før agenten kan starte.\n"
+            "Agenten vil endre notebooken gjennom kommandoer som kan være vanskelige å lese.\n"
+            "Derfor må prosjektets nåværende tilstand kunne gjenopprettes.\n",
+            file=sys.stderr,
+        )
+        raise SystemExit(1)
 
 def fetch_github_docs(repo_name: str, docs_path: str) -> Path:
     destination = Path.home() / ".cache" / repo_name
     if destination.is_dir():
         return destination
-    print(f"Fetching relevant docs: {repo_name}")
+    print(f"Henter relevant dokumentasjon: {repo_name}...")
     destination.parent.mkdir(parents=True, exist_ok=True)
     import shutil
     import tempfile
@@ -183,5 +345,38 @@ def fetch_github_docs(repo_name: str, docs_path: str) -> Path:
     return destination
 
 
+def choose_notebook(notebooks: list[Path]) -> Path:
+    selected = curses.wrapper(_choose_notebook, notebooks)
+    return notebooks[selected]
+
+
+def _choose_notebook(screen: curses.window, notebooks: list[Path]) -> int:
+    curses.curs_set(0)
+    curses.start_color()
+    curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
+    selected = 0
+
+    while True:
+        screen.clear()
+        screen.addstr("Velg Marimo-fil:\n\n")
+        for index, notebook in enumerate(notebooks):
+            prefix = "❯ " if index == selected else "  "
+            style = curses.color_pair(1) if index == selected else 0
+            screen.addstr(f"{prefix}{notebook}\n", style)
+        screen.addstr("\nBruk ↑/↓ og trykk Enter.")
+        key = screen.getch()
+
+        if key == curses.KEY_UP:
+            selected = (selected - 1) % len(notebooks)
+        elif key == curses.KEY_DOWN:
+            selected = (selected + 1) % len(notebooks)
+        elif key in (curses.KEY_ENTER, 10, 13):
+            return selected
+
+
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print()
+        raise SystemExit(130)
