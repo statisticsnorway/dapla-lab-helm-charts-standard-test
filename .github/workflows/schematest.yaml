@@ -1,12 +1,9 @@
 on:
   pull_request:
     paths:
-      - 'charts/jdemetra/values.schema.json'
-      - 'charts/jupyter/values.schema.json'
-      - 'charts/jupyter-playground/values.schema.json'
-      - 'charts/jupyter-pyspark/values.schema.json'
-      - 'charts/rstudio/values.schema.json'
-      - 'charts/vscode-python/values.schema.json'
+      - 'charts/*/values.schema.json'
+      - 'test/schema.py'
+      - '.github/workflows/schematest.yaml'
 
 permissions:
   contents: 'read'
@@ -26,23 +23,31 @@ jobs:
           # Compare commits properly for both push and PR events
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             git fetch origin ${{ github.base_ref }} --depth=1
-            files=$(git diff --name-only origin/${{ github.base_ref }} HEAD | grep 'values.schema.json' || true)
+            changed=$(git diff --name-only origin/${{ github.base_ref }} HEAD)
           else
-            files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'values.schema.json' || true)
+            changed=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
           fi
 
-          files=$(echo "$files" | sed "s#/values\.schema\.json##")
+          if echo "$changed" | grep -qE '^(test/schema\.py|\.github/workflows/schematest\.yaml)$'; then
+            # Test script or workflow changed: check every chart that has a schema
+            files=$(ls charts/*/values.schema.json)
+          else
+            files=$(echo "$changed" | grep 'values.schema.json' || true)
+          fi
+
+          files=$(echo "$files" | sed "s#/values\.schema\.json##" | sed '/^$/d' | sort -u)
 
           echo "Changed files:"
           echo $files
 
           # Convert to JSON array for the matrix
-          files_json=$(printf '%s\n' "$files" | jq -R -s -c 'split("\n")[:-1]')
+          files_json=$(printf '%s\n' "$files" | jq -R -s -c 'split("\n") | map(select(length > 0))')
           echo "files_json=$files_json" >> $GITHUB_OUTPUT
 
   process:
     name: Process each changed file
     needs: detect
+    if: needs.detect.outputs.files != '[]'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
