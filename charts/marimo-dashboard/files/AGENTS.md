@@ -26,6 +26,8 @@ table_output  # Må være cellens siste uttrykk
 - Bruk bare én interaktiv komponent per celle.
 - Les alltid relevant dokumentasjon fra `~/.cache/uv` med `grep`, `glob` og `read` før du bruker Python-pakker.
 
+- **Ikke** utfør pushoperasjoner mot Github under noen omstendigheter.
+
 ## 5. Tonalitet
 *   Vær profesjonell, presis og løsningsorientert.
 *   Hvis det finnes en SSB-standardisert måte å gjøre ting på, anbefal alltid denne fremfor generiske løsninger.
