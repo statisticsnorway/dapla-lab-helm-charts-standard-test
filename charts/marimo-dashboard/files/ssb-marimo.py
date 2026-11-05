@@ -29,7 +29,9 @@ def parse_args() -> str:
     subparsers.add_parser(
         "view", help="Opprett en html-side for notebooken med SSB-tema"
     )
-    subparsers.add_parser("docs", help="Last ned relevant dokumentasjon for agenten")
+    subparsers.add_parser(
+        "docs", help="Last ned relevant, oppdatert dokumentasjon for agenten"
+    )
     return parser.parse_args().command
 
 
@@ -147,9 +149,6 @@ def get_ssb_style_block() -> str:
 
 def fetch_github_docs(repo_name: str, docs_path: str) -> Path:
     destination = Path.home() / ".cache" / repo_name
-    if destination.is_dir():
-        print(f"Dokumentasjon finnes allerede: {destination}")
-        return destination
     print(f"Henter relevant dokumentasjon: {repo_name}...")
     destination.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as temporary:
@@ -174,7 +173,9 @@ def fetch_github_docs(repo_name: str, docs_path: str) -> Path:
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
         )
-        shutil.copytree(Path(temporary) / docs_path, destination, dirs_exist_ok=True)
+        if destination.exists():
+            shutil.rmtree(destination)
+        shutil.copytree(Path(temporary) / docs_path, destination)
     return destination
 
 
