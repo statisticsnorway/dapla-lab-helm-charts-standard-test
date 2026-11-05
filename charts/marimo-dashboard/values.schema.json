@@ -48,8 +48,8 @@
         "marimoVersion" : {
           "description" : "Marimo-versjon",
           "type" : "string",
-          "default" : "0.25.1",
-          "enum" : [ "0.25.1" ],
+          "default" : "0.25.2",
+          "enum" : [ "0.25.2" ],
           "x-onyxia" : {
             "hidden" : true
           }

@@ -4,7 +4,7 @@ tjeneste:
   githubRepo: ''
   startupCommand: edit
   enableMarimoStudio: true
-  marimoVersion: 0.25.1
+  marimoVersion: 0.25.2
   version: latest-2026.10.26T01_31Z
   image:
     pullPolicy: IfNotPresent

@@ -1,7 +1,7 @@
 {{- $fullName := include "library-chart.fullname" . -}}
 {{- $teamName := trimSuffix "-data-admins" (trimSuffix "-developers" .Values.dapla.group) }}
 {{- $bucketEnv := dict "dev" "test" "test" "test" "prod" "prod" }}
-{{- $marimoStudioVersion := "0.4.0" }}
+{{- $marimoStudioVersion := "0.4.1" }}
 {{- $clonedRepoFolder := trimSuffix ".git" (last (splitList "/" .Values.tjeneste.githubRepo)) -}}
 {{- $projectFolder := trimSuffix "/" (printf "/home/%s/work/%s" .Values.environment.user $clonedRepoFolder) -}}
 apiVersion: apps/v1
