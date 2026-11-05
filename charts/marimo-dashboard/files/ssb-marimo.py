@@ -85,7 +85,7 @@ def find_active_notebooks() -> list[Path]:
         if isinstance(session, dict)
         and isinstance(session.get("path"), str)
         and Path(session["path"]).is_file()
-        and Path(session["path"]).parent.name == "dashboards"
+        and "dashboards" in Path(session["path"]).parent.parts
     ]
 
 
