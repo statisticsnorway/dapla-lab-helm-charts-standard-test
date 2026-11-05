@@ -21,6 +21,8 @@ from typing import NoReturn
 
 IS_DAPLA_ENVIRONMENT = "DAPLA_ENVIRONMENT" in os.environ
 MARIMO_ADDRESS = f"http://localhost:{8080 if IS_DAPLA_ENVIRONMENT else 2718}"
+
+
 def green_text(value: Path | str) -> str:
     return f"\033[32m{value}\033[0m"
 
@@ -125,7 +127,9 @@ async def _create_view(notebook_file: Path) -> None:
         "En nytt html-side med SSB-tema er opprettet for notebooken. Last inn siden på nytt for å vise det."
     )
     view_folder = Path((await view.inspect()).root)
-    print(f"Html-siden ligger under mappen {green_text(view_folder)}. Denne bør commites til git")
+    print(
+        f"Html-siden ligger under mappen {green_text(view_folder)}. Denne mappen bør commites til git."
+    )
 
 
 def get_ssb_style_block() -> str:
