@@ -21,13 +21,15 @@ from typing import NoReturn
 
 IS_DAPLA_ENVIRONMENT = "DAPLA_ENVIRONMENT" in os.environ
 MARIMO_ADDRESS = f"http://localhost:{8080 if IS_DAPLA_ENVIRONMENT else 2718}"
+def green_text(value: Path | str) -> str:
+    return f"\033[32m{value}\033[0m"
 
 
 def parse_args() -> str:
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser(
-        "view", help="Opprett en html-side for notebooken med SSB-tema"
+        "html", help="Opprett en html-side for notebooken med SSB-tema"
     )
     subparsers.add_parser(
         "docs", help="Last ned relevant, oppdatert dokumentasjon for agenten"
@@ -49,7 +51,7 @@ def main() -> None:
         if len(notebooks) == 1
         else choose_notebook(notebooks)
     )
-    create_view(notebook_file).joinpath("index.html")
+    create_view(notebook_file)
 
 
 def fetch_docs() -> None:
@@ -91,7 +93,7 @@ def create_view(notebook_file: Path) -> Path:
     return asyncio.run(_create_view(notebook_file))
 
 
-async def _create_view(notebook_file: Path) -> Path:
+async def _create_view(notebook_file: Path) -> None:
     from marimo_studio.authoring import open_workspace
 
     workspace = open_workspace(notebook_file)
@@ -102,8 +104,9 @@ async def _create_view(notebook_file: Path) -> Path:
         and (overview.view_root / overview.default_view).is_dir()
     ):
         print(
-            f"En html-side for notebooken eksisterer allerede i mappen {overview.view_root / overview.default_view}."
+            f"En html-side for notebooken eksisterer allerede i mappen {green_text(overview.view_root / overview.default_view)}."
         )
+        return
 
     print("Oppretter nytt view...")
     view = await workspace.create_view(
@@ -122,7 +125,7 @@ async def _create_view(notebook_file: Path) -> Path:
         "En nytt html-side med SSB-tema er opprettet for notebooken. Last inn siden på nytt for å vise det."
     )
     view_folder = Path((await view.inspect()).root)
-    print(f"Html-siden ligger under mappen {view_folder}. Denne bør commites til git")
+    print(f"Html-siden ligger under mappen {green_text(view_folder)}. Denne bør commites til git")
 
 
 def get_ssb_style_block() -> str:
@@ -149,7 +152,7 @@ def get_ssb_style_block() -> str:
 
 def fetch_github_docs(repo_name: str, docs_path: str) -> Path:
     destination = Path.home() / ".cache" / repo_name
-    print(f"Henter relevant dokumentasjon: {repo_name}...")
+    print(f"Henter relevant dokumentasjon: {green_text(destination)}...")
     destination.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as temporary:
         subprocess.run(
