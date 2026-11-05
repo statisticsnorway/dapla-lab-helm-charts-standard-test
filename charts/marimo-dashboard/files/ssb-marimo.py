@@ -91,7 +91,7 @@ def find_active_notebooks() -> list[Path]:
     ]
 
 
-def create_view(notebook_file: Path) -> Path:
+def create_view(notebook_file: Path) -> None:
     return asyncio.run(_create_view(notebook_file))
 
 
