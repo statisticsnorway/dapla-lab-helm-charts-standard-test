@@ -180,15 +180,6 @@ startupProbe:
   successThreshold: 1
   timeoutSeconds: 5
 
-deleteJob:
-  enabled: true
-  cronMinuteAtDay: "0"
-  cronHourAtDay: "20"
-  imageVersion: "v1.1.0"
-  clusterRoleName: onyxia-delete-job
-  serviceAccount:
-    annotations: {}
-
 podDisruptionBudget:
   enabled: true
 

@@ -1,6 +1,6 @@
 # vardef-forvaltning
 
-![Version: 0.8.9](https://img.shields.io/badge/Version-0.8.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.8.10](https://img.shields.io/badge/Version-0.8.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Tilrettelagt Jupyterlab for enkel forvaltning av Vardef med notebooks. Inneholder nødvendige pakker og ferdig oppsatt kernel. Krever lite forkunnskaper.
 
@@ -35,12 +35,6 @@ Tilrettelagt Jupyterlab for enkel forvaltning av Vardef med notebooks. Inneholde
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | daplaUser | string | `""` |  |
-| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
-| deleteJob.cronHourAtDay | string | `"20"` |  |
-| deleteJob.cronMinuteAtDay | string | `"0"` |  |
-| deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.1.0"` |  |
-| deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
 | discovery.mlflow | bool | `true` |  |
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
