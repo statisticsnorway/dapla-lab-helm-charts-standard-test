@@ -6,14 +6,12 @@ keywords:
   - Marimo
   - Dashboard
   - Python
-annotations:
-  environment: test
 home: https://manual.dapla.ssb.no/statistikkere/marimo-dashboard.html
 sources:
   - https://github.com/statisticsnorway/dapla-lab-images
   - https://github.com/statisticsnorway/dapla-lab-helm-charts-library
 type: application
-version: 1.1.0
+version: 1.1.1
 dependencies:
   - name: library-chart
     version: 4.8.1
