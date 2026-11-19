@@ -27,8 +27,8 @@
         "version" : {
           "description" : "Marimo-versjon",
           "type" : "string",
-          "default" : "latest-2026.11.04T12_02Z",
-          "listEnum" : [ "latest-2026.11.04T12_02Z" ],
+          "default" : "latest-2026.11.18T12_36Z",
+          "listEnum" : [ "latest-2026.11.18T12_36Z" ],
           "render" : "list",
           "pattern" : "^[a-zA-Z0-9-_.:/]+$"
         },

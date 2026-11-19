@@ -1,7 +1,7 @@
 global:
   suspend: false
 tjeneste:
-  version: latest-2026.11.04T12_02Z
+  version: latest-2026.11.18T12_36Z
   image:
     pullPolicy: IfNotPresent
   githubRepo: ''
