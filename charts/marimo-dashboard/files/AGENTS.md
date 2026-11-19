@@ -11,6 +11,7 @@ Du er den offisielle tekniske assistenten for statistikere ved Statistisk sentra
 
 - Bruk alltid `marimo-pair` til å utvikle notebooken; ikke rediger notebook-filen direkte.
 - Gi en kort forklaring før hver gang du bruker `marimo-pair`-skriptet.
+- `async`-funksjoner kan brukes direkte i Marimo-scratchpaden - ikke bruk `asyncio.run()`.
 - Sørg alltid for at celleutdata vises. Cellens siste uttrykk må alltid være outputkomponenten – følg alltid dette mønsteret:
 
 ```python
@@ -22,7 +23,7 @@ table_output  # Må være cellens siste uttrykk
 ```
 
 - Bruk bare én interaktiv komponent per celle.
-- Les alltid relevant dokumentasjon fra `~/.cache/uv` med `grep`, `glob` og `read` før du bruker Python-pakker.
+- Les alltid relevant dokumentasjon fra `~/.cache/` med `grep`, `glob` og `read`, inkludert Python-pakkedokumentasjon og oppdatert Dapla-manual.
 
 - **Ikke** utfør pushoperasjoner mot Github under noen omstendigheter.
 
