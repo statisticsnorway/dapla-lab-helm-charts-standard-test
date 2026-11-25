@@ -1,6 +1,6 @@
 # vscode
 
-![Version: 0.18.28](https://img.shields.io/badge/Version-0.18.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.18.30](https://img.shields.io/badge/Version-0.18.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Minimal VS Code med Python og R. Brukeren kan selv installere pakker etter behov.
 
