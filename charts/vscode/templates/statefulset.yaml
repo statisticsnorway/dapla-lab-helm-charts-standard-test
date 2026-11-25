@@ -117,6 +117,8 @@ spec:
               value: VS_CODE
             - name: PASSWORD
               value: ""
+            - name: CODER_TELEMETRY_ENABLE
+              value: "false"
             - name: PROJECT_USER
               value: {{ .Values.environment.user | quote }}
             - name: PROJECT_GROUP
