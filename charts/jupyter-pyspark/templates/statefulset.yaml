@@ -249,7 +249,7 @@ spec:
             - "--auto-iam-authn"
             - "--structured-logs"
             - {{ printf "--port=%d" (.Values.avansert.parquedit.port | int) | quote }}
-            - "dapla-ffunk-sql-p-xo:europe-north1:parquedit"
+            - {{ .Values.avansert.parquedit.instance || quote }}
         {{- end }}
         {{- if .Values.avansert.database.instance }}
         - name: cloud-sql-proxy
