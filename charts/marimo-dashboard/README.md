@@ -1,6 +1,6 @@
 # marimo-dashboard
 
-![Version: 1.1.2](https://img.shields.io/badge/Version-1.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Dashboards med Marimo notebooks.
 
@@ -97,10 +97,8 @@ Dashboards med Marimo notebooks.
 | statbankTestBaseUrl | string | `""` |  |
 | statbankTestEncryptUrl | string | `""` |  |
 | suvDaplaApiUrl | string | `""` |  |
-| tjeneste.enableMarimoStudio | bool | `true` |  |
 | tjeneste.githubRepo | string | `""` |  |
 | tjeneste.image.pullPolicy | string | `"IfNotPresent"` |  |
-| tjeneste.marimoVersion | string | `"0.25.2"` |  |
 | tjeneste.startupCommand | string | `"edit"` |  |
 | tjeneste.version | string | `"latest-2026.10.26T01_31Z"` |  |
 | tolerations | list | `[]` |  |
