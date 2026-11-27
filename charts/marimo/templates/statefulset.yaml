@@ -80,19 +80,8 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: {{ printf "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/marimo:%v" .Values.tjeneste.version | quote }}
-          command: [{{ .Values.init.standardInitPath | quote }}]
-          args:
-            - marimo
-            - edit
-            - --host
-            - 0.0.0.0
-            - --port
-            - "8080"
-            - --headless
-            - --no-token
-            - --skip-update-check
-            - --allow-origins
-            - {{ printf "https://%s" .Values.istio.hostname | quote }}
+          command: ["/bin/sh","-c"]
+          args: [{{ printf "%v marimo edit --host 0.0.0.0 --port 8080 --headless --no-token --skip-update-check --allow-origins https://%v" .Values.init.standardInitPath .Values.istio.hostname | quote }}]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy | quote }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
