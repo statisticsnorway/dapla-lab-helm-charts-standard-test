@@ -81,11 +81,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: {{ printf "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/marimo:%v" .Values.tjeneste.version | quote }}
           command: ["/bin/sh","-c"]
-          {{- if .Values.tjeneste.marimoAppFile }}
-          args: [{{ printf "%v marimo run --host 0.0.0.0 --port 8080 --headless --no-token" .Values.init.standardInitPath | quote }}]
-          {{- else }}
-          args: [{{ printf "%v marimo edit --host 0.0.0.0 --port 8080 --headless --no-token --skip-update-check" .Values.init.standardInitPath | quote }}]
-          {{- end }}
+          args: [{{ printf "%v marimo edit --host 0.0.0.0 --port 8080 --headless --no-token --skip-update-check --allow-origins https://%v" .Values.init.standardInitPath .Values.istio.hostname | quote }}]
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy | quote }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
@@ -117,8 +113,6 @@ spec:
               value: MARIMO
             - name: GIT_REPOSITORY
               value: {{ .Values.tjeneste.githubRepo | quote }}
-            - name: MARIMO_APP_FILE_PATH # Only relevant for run mode
-              value: {{ .Values.tjeneste.marimoAppFile | quote }}
             - name: PASSWORD
               value: ""
             - name: MARIMO_PYTHON_VERSION

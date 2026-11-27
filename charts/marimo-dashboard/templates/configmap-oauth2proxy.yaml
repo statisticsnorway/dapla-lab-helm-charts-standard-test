@@ -67,14 +67,12 @@ data:
     # Request "standard" scopes from Keycloak.
     scope = "openid email profile"
 
-     {{ if .Values.tjeneste.enableMarimoStudio }}
-     # Let Marimo handle validation of signed urls for Marimo Studio resources.
-     # The signed urls will only be served to an already authenticated user
-     skip_auth_routes = [
-       "^/_marimo-studio/.*",
-       "^/[^/]+/_marimo-studio/.*"
-     ]
-     {{ end }}
+    # Let Marimo handle validation of signed urls for Marimo Studio resources.
+    # The signed urls will only be served to an already authenticated user
+    skip_auth_routes = [
+      "^/_marimo-studio/.*",
+      "^/[^/]+/_marimo-studio/.*"
+    ]
 
     # Skip authentication for OPTIONS requests by default. This is needed to allow
     # CORS request that comes before the actual HTTP GET/POST requests.
