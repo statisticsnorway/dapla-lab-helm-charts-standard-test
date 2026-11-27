@@ -37,12 +37,6 @@ Marimo med Python.
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | daplaUser | string | `""` |  |
-| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
-| deleteJob.cronHourAtDay | string | `"20"` |  |
-| deleteJob.cronMinuteAtDay | string | `"0"` |  |
-| deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.1.0"` |  |
-| deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
 | diskplass.enabled | bool | `true` |  |

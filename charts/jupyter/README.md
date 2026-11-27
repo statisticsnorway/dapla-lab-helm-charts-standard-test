@@ -38,12 +38,6 @@ Minimal Jupyterlab med Python og R. Brukeren kan selv installere pakker.
 | dapla.sourceData.reason | string | `""` |  |
 | dapla.sourceData.requestedDuration | string | `"4h"` |  |
 | daplaUser | string | `""` |  |
-| deleteJob.clusterRoleName | string | `"onyxia-delete-job"` |  |
-| deleteJob.cronHourAtDay | string | `"20"` |  |
-| deleteJob.cronMinuteAtDay | string | `"0"` |  |
-| deleteJob.enabled | bool | `true` |  |
-| deleteJob.imageVersion | string | `"v1.1.0"` |  |
-| deleteJob.serviceAccount.annotations | object | `{}` |  |
 | deployEnvironment | string | `"DEV"` |  |
 | discovery.mlflow | bool | `true` |  |
 | diskplass.accessMode | string | `"ReadWriteOnce"` |  |
