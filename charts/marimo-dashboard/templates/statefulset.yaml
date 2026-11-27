@@ -90,7 +90,7 @@ spec:
           image: {{ printf "europe-north1-docker.pkg.dev/artifact-registry-5n/dapla-lab-docker/onyxia/marimo:%v" .Values.tjeneste.version | quote }}
           command: ["/bin/sh","-c"]
           args:
-            - {{ printf "%v uvx --with marimo==%v%s marimo %v %v --sandbox --watch --host 0.0.0.0 --port 8080 --headless --no-token" .Values.init.standardInitPath .Values.tjeneste.marimoVersion (ternary (printf " --with marimo-studio==%s" $marimoStudioVersion) "" (.Values.tjeneste.enableMarimoStudio | default false)) .Values.tjeneste.startupCommand $projectFolder | quote }}
+            - {{ printf "%v uvx --with marimo==%v%s marimo %v %v --sandbox --watch --host 0.0.0.0 --port 8080 --headless --no-token --allow-origins https://%s" .Values.init.standardInitPath .Values.tjeneste.marimoVersion (ternary (printf " --with marimo-studio==%s" $marimoStudioVersion) "" (.Values.tjeneste.enableMarimoStudio | default false)) .Values.tjeneste.startupCommand $projectFolder .Values.istio.hostname | quote }}
           imagePullPolicy: {{ .Values.tjeneste.image.pullPolicy | quote }}
           env:
             {{- include "library-chart.commonEnvVars" . | nindent 12 }}
